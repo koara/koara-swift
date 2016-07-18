@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  koara
 //
-//  Created by Andy Van Den Heuvel on 07/08/2016.
+//  Created by Andy Van Den Heuvel on 07/18/2016.
 //  Copyright (c) 2016 Andy Van Den Heuvel. All rights reserved.
 //
 

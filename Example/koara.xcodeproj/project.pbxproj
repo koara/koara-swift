@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		17F80D0543E5CC3E76D4D081 /* Pods_koara_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61877F21944B068E5B51542B /* Pods_koara_Tests.framework */; };
-		2DF615382B362A3F903BCAF1 /* Pods_koara_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98CF37F9BA96B822C4EB6119 /* Pods_koara_Example.framework */; };
+		1BB8DBD0EAC04E56E897765B /* Pods_koara_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1B0D4D32927B9B86F7F8062 /* Pods_koara_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		A84F4793558843BEEC096515 /* Pods_koara_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6C97F30ABF6694392D2450 /* Pods_koara_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,9 +28,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		054EFB4E9EA9E2F13E6D3FEA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		2BA4F9AF2C01446BBD34E500 /* koara.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = koara.podspec; path = ../koara.podspec; sourceTree = "<group>"; };
-		2CDEE47D0D279C97B11568D6 /* Pods-koara_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-koara_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-koara_Tests/Pods-koara_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		02D471481A29DDA0B9708120 /* Pods-koara_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-koara_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-koara_Example/Pods-koara_Example.release.xcconfig"; sourceTree = "<group>"; };
+		1E6C97F30ABF6694392D2450 /* Pods_koara_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_koara_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24958976AA9A300A10FF6D4D /* Pods-koara_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-koara_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-koara_Tests/Pods-koara_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		38768DB96BBD5C6EBF2B326A /* Pods-koara_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-koara_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-koara_Tests/Pods-koara_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* koara_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = koara_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,12 +42,11 @@
 		607FACE51AFB9204008FA782 /* koara_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = koara_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		61877F21944B068E5B51542B /* Pods_koara_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_koara_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6D354C894AF61CD5EA954492 /* Pods-koara_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-koara_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-koara_Example/Pods-koara_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		93B332EA21ED08F93B2C70EB /* Pods-koara_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-koara_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-koara_Tests/Pods-koara_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		98CF37F9BA96B822C4EB6119 /* Pods_koara_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_koara_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E50B38575434D336C22A0E0F /* Pods-koara_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-koara_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-koara_Example/Pods-koara_Example.release.xcconfig"; sourceTree = "<group>"; };
-		F3FEEDA9908C675EA159D09C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		A4B349D379840CF9973D03D7 /* Pods-koara_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-koara_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-koara_Example/Pods-koara_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		C1B0D4D32927B9B86F7F8062 /* Pods_koara_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_koara_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1E8AC8A4B051AEBE79A5080 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		CEB766FD98669BB0D291E667 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		E081BF3637D384F5CCB54192 /* koara.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = koara.podspec; path = ../koara.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DF615382B362A3F903BCAF1 /* Pods_koara_Example.framework in Frameworks */,
+				A84F4793558843BEEC096515 /* Pods_koara_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17F80D0543E5CC3E76D4D081 /* Pods_koara_Tests.framework in Frameworks */,
+				1BB8DBD0EAC04E56E897765B /* Pods_koara_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,8 +76,8 @@
 				607FACD21AFB9204008FA782 /* Example for koara */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
-				A0B779B4829A29FE60D974BD /* Pods */,
-				D68F9FDCFC374CBE0E132892 /* Frameworks */,
+				9BE9B88B86F8F9B001EC070D /* Pods */,
+				B7578084ACCDABEF241E1DDD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,29 +132,29 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				2BA4F9AF2C01446BBD34E500 /* koara.podspec */,
-				F3FEEDA9908C675EA159D09C /* README.md */,
-				054EFB4E9EA9E2F13E6D3FEA /* LICENSE */,
+				E081BF3637D384F5CCB54192 /* koara.podspec */,
+				C1E8AC8A4B051AEBE79A5080 /* README.md */,
+				CEB766FD98669BB0D291E667 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		A0B779B4829A29FE60D974BD /* Pods */ = {
+		9BE9B88B86F8F9B001EC070D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6D354C894AF61CD5EA954492 /* Pods-koara_Example.debug.xcconfig */,
-				E50B38575434D336C22A0E0F /* Pods-koara_Example.release.xcconfig */,
-				93B332EA21ED08F93B2C70EB /* Pods-koara_Tests.debug.xcconfig */,
-				2CDEE47D0D279C97B11568D6 /* Pods-koara_Tests.release.xcconfig */,
+				A4B349D379840CF9973D03D7 /* Pods-koara_Example.debug.xcconfig */,
+				02D471481A29DDA0B9708120 /* Pods-koara_Example.release.xcconfig */,
+				38768DB96BBD5C6EBF2B326A /* Pods-koara_Tests.debug.xcconfig */,
+				24958976AA9A300A10FF6D4D /* Pods-koara_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		D68F9FDCFC374CBE0E132892 /* Frameworks */ = {
+		B7578084ACCDABEF241E1DDD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				98CF37F9BA96B822C4EB6119 /* Pods_koara_Example.framework */,
-				61877F21944B068E5B51542B /* Pods_koara_Tests.framework */,
+				1E6C97F30ABF6694392D2450 /* Pods_koara_Example.framework */,
+				C1B0D4D32927B9B86F7F8062 /* Pods_koara_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -166,12 +166,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "koara_Example" */;
 			buildPhases = (
-				10C5654C206FE8039AE9CC32 /* [CP] Check Pods Manifest.lock */,
+				AE9E645D4C49F2A0EA3D5275 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				8D60421EFA28B8E9169537DF /* [CP] Embed Pods Frameworks */,
-				0C05C01A9C6C64BF1B386B43 /* [CP] Copy Pods Resources */,
+				24F2D51CE32F2A9251A626DD /* [CP] Embed Pods Frameworks */,
+				75ABB8B7A3317B73E128B7AD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -186,12 +186,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "koara_Tests" */;
 			buildPhases = (
-				290B4FA85396766EC9D2BE42 /* [CP] Check Pods Manifest.lock */,
+				3BBA0661D135EA9C5BD4F23D /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				77DDA35F64FE80920C6024DC /* [CP] Embed Pods Frameworks */,
-				9D09C9A1F4EBEB24780C2A2B /* [CP] Copy Pods Resources */,
+				D1617EB3365EB073562CCEF0 /* [CP] Embed Pods Frameworks */,
+				400FAEC8002295E4060F8B67 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -262,67 +262,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0C05C01A9C6C64BF1B386B43 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-koara_Example/Pods-koara_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		10C5654C206FE8039AE9CC32 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		290B4FA85396766EC9D2BE42 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		77DDA35F64FE80920C6024DC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-koara_Tests/Pods-koara_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8D60421EFA28B8E9169537DF /* [CP] Embed Pods Frameworks */ = {
+		24F2D51CE32F2A9251A626DD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -337,7 +277,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-koara_Example/Pods-koara_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9D09C9A1F4EBEB24780C2A2B /* [CP] Copy Pods Resources */ = {
+		3BBA0661D135EA9C5BD4F23D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		400FAEC8002295E4060F8B67 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -350,6 +305,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-koara_Tests/Pods-koara_Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75ABB8B7A3317B73E128B7AD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-koara_Example/Pods-koara_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE9E645D4C49F2A0EA3D5275 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D1617EB3365EB073562CCEF0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-koara_Tests/Pods-koara_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -486,7 +486,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D354C894AF61CD5EA954492 /* Pods-koara_Example.debug.xcconfig */;
+			baseConfigurationReference = A4B349D379840CF9973D03D7 /* Pods-koara_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = koara/Info.plist;
@@ -499,7 +499,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E50B38575434D336C22A0E0F /* Pods-koara_Example.release.xcconfig */;
+			baseConfigurationReference = 02D471481A29DDA0B9708120 /* Pods-koara_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = koara/Info.plist;
@@ -512,7 +512,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93B332EA21ED08F93B2C70EB /* Pods-koara_Tests.debug.xcconfig */;
+			baseConfigurationReference = 38768DB96BBD5C6EBF2B326A /* Pods-koara_Tests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -531,7 +531,7 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2CDEE47D0D279C97B11568D6 /* Pods-koara_Tests.release.xcconfig */;
+			baseConfigurationReference = 24958976AA9A300A10FF6D4D /* Pods-koara_Tests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
