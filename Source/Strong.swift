@@ -1,0 +1,2 @@
+class Strong: Node {
+}

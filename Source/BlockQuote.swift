@@ -1,0 +1,2 @@
+class BlockQuote: BlockElement {
+}

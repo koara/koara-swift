@@ -1,2 +1,2 @@
-class BlockElement {
+class BlockElement: Node {
 }
