@@ -24,6 +24,13 @@
 		A1500BE71D4212BA00B2311E /* Paragraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Paragraph.swift; path = Ast/Paragraph.swift; sourceTree = "<group>"; };
 		A1500BE81D4212BA00B2311E /* Strong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Strong.swift; path = Ast/Strong.swift; sourceTree = "<group>"; };
 		A1500BE91D4212BA00B2311E /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Text.swift; path = Ast/Text.swift; sourceTree = "<group>"; };
+		A15838321D4335E40075C71F /* CharStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharStream.swift; sourceTree = "<group>"; };
+		A15838331D4336120075C71F /* KoaraRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoaraRenderer.swift; sourceTree = "<group>"; };
+		A15838341D4336D40075C71F /* LookaheadSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookaheadSuccess.swift; sourceTree = "<group>"; };
+		A15838351D4336E90075C71F /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		A15838361D4336FC0075C71F /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		A15838371D43370B0075C71F /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		A15838381D43371C0075C71F /* TreeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeState.swift; sourceTree = "<group>"; };
 		F897FF4019AA800700AB5182 /* StringReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +82,13 @@
 			children = (
 				A1C1B2681D408E9900604A9E /* Ast */,
 				A1C1B2671D408E8A00604A9E /* Io */,
+				A15838321D4335E40075C71F /* CharStream.swift */,
+				A15838331D4336120075C71F /* KoaraRenderer.swift */,
+				A15838341D4336D40075C71F /* LookaheadSuccess.swift */,
+				A15838351D4336E90075C71F /* Parser.swift */,
+				A15838361D4336FC0075C71F /* Token.swift */,
+				A15838371D43370B0075C71F /* TokenManager.swift */,
+				A15838381D43371C0075C71F /* TreeState.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
