@@ -6,8 +6,39 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A12493F71D44D7F400700FFF /* BlockElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1500BDA1D4212BA00B2311E /* BlockElement.swift */; };
+		A12493F81D44D7F400700FFF /* BlockQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1500BDB1D4212BA00B2311E /* BlockQuote.swift */; };
+		A12493F91D44D7F400700FFF /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1500BDC1D4212BA00B2311E /* Code.swift */; };
+		A12493FA1D44D7F400700FFF /* CodeBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1500BDD1D4212BA00B2311E /* CodeBlock.swift */; };
+		A12493FB1D44D7F400700FFF /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1500BDE1D4212BA00B2311E /* Document.swift */; };
+		A12493FC1D44D7F400700FFF /* Em.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1500BDF1D4212BA00B2311E /* Em.swift */; };
+		A12493FD1D44D7F400700FFF /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1500BE01D4212BA00B2311E /* Heading.swift */; };
+		A12493FE1D44D7F400700FFF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1500BE11D4212BA00B2311E /* Image.swift */; };
+		A12493FF1D44D7F400700FFF /* LineBreak.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1500BE21D4212BA00B2311E /* LineBreak.swift */; };
+		A12494001D44D7F400700FFF /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1500BE31D4212BA00B2311E /* Link.swift */; };
+		A12494011D44D7F400700FFF /* ListBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1500BE41D4212BA00B2311E /* ListBlock.swift */; };
+		A12494021D44D7F400700FFF /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1500BE51D4212BA00B2311E /* ListItem.swift */; };
+		A12494031D44D7F400700FFF /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1500BE61D4212BA00B2311E /* Node.swift */; };
+		A12494041D44D7F400700FFF /* Paragraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1500BE71D4212BA00B2311E /* Paragraph.swift */; };
+		A12494051D44D7F400700FFF /* Strong.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1500BE81D4212BA00B2311E /* Strong.swift */; };
+		A12494061D44D7F400700FFF /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1500BE91D4212BA00B2311E /* Text.swift */; };
+		A12494071D44D7F400700FFF /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F897FF4019AA800700AB5182 /* StringReader.swift */; };
+		A12494081D44D7F400700FFF /* CharStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15838321D4335E40075C71F /* CharStream.swift */; };
+		A12494091D44D7F400700FFF /* KoaraRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15838331D4336120075C71F /* KoaraRenderer.swift */; };
+		A124940A1D44D7F400700FFF /* LookaheadSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15838341D4336D40075C71F /* LookaheadSuccess.swift */; };
+		A124940B1D44D7F400700FFF /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15838351D4336E90075C71F /* Parser.swift */; };
+		A124940C1D44D7F400700FFF /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15838361D4336FC0075C71F /* Token.swift */; };
+		A124940D1D44D7F400700FFF /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15838371D43370B0075C71F /* TokenManager.swift */; };
+		A124940E1D44D7F400700FFF /* TreeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15838381D43371C0075C71F /* TreeState.swift */; };
+		A124940F1D44D7F400700FFF /* StringReaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C256A501B096C2C0065714F /* StringReaderTest.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		4C256A501B096C2C0065714F /* StringReaderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringReaderTest.swift; sourceTree = "<group>"; };
+		A12493EE1D44D79300700FFF /* Koara OSX Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Koara OSX Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A12493F01D44D79300700FFF /* Koara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koara.swift; sourceTree = "<group>"; };
+		A12493F21D44D79300700FFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1500BDA1D4212BA00B2311E /* BlockElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockElement.swift; path = Ast/BlockElement.swift; sourceTree = "<group>"; };
 		A1500BDB1D4212BA00B2311E /* BlockQuote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockQuote.swift; path = Ast/BlockQuote.swift; sourceTree = "<group>"; };
 		A1500BDC1D4212BA00B2311E /* Code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Code.swift; path = Ast/Code.swift; sourceTree = "<group>"; };
@@ -31,10 +62,40 @@
 		A15838361D4336FC0075C71F /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		A15838371D43370B0075C71F /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		A15838381D43371C0075C71F /* TreeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeState.swift; sourceTree = "<group>"; };
+		A158383F1D44D3860075C71F /* Koara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koara.swift; sourceTree = "<group>"; };
+		A15838411D44D3860075C71F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F897FF4019AA800700AB5182 /* StringReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFrameworksBuildPhase section */
+		A12493EB1D44D79300700FFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
+		A12493EF1D44D79300700FFF /* Koara */ = {
+			isa = PBXGroup;
+			children = (
+				A12493F01D44D79300700FFF /* Koara.swift */,
+				A12493F21D44D79300700FFF /* Info.plist */,
+			);
+			path = Koara;
+			sourceTree = "<group>";
+		};
+		A158383E1D44D3860075C71F /* Koara */ = {
+			isa = PBXGroup;
+			children = (
+				A158383F1D44D3860075C71F /* Koara.swift */,
+				A15838411D44D3860075C71F /* Info.plist */,
+			);
+			path = Koara;
+			sourceTree = "<group>";
+		};
 		A1C1B2671D408E8A00604A9E /* Io */ = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +132,9 @@
 			children = (
 				F8111E3519A95C8B0040E7D1 /* Source */,
 				F8111E3F19A95C8B0040E7D1 /* Tests */,
+				A158383E1D44D3860075C71F /* Koara */,
+				A12493EE1D44D79300700FFF /* Koara OSX Tests.xctest */,
+				A12493EF1D44D79300700FFF /* Koara */,
 			);
 			indentWidth = 4;
 			sourceTree = "<group>";
@@ -103,13 +167,38 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXNativeTarget section */
+		A12493ED1D44D79300700FFF /* Koara OSX Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A12493F31D44D79300700FFF /* Build configuration list for PBXNativeTarget "Koara OSX Tests" */;
+			buildPhases = (
+				A12493F61D44D7D100700FFF /* Sources */,
+				A12493EB1D44D79300700FFF /* Frameworks */,
+				A12493EC1D44D79300700FFF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Koara OSX Tests";
+			productName = Koara;
+			productReference = A12493EE1D44D79300700FFF /* Koara OSX Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
 /* Begin PBXProject section */
 		F8111E2A19A95C8B0040E7D1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Koara;
+				TargetAttributes = {
+					A12493ED1D44D79300700FFF = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
 			};
 			buildConfigurationList = F8111E2D19A95C8B0040E7D1 /* Build configuration list for PBXProject "Koara" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -123,11 +212,92 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				A12493ED1D44D79300700FFF /* Koara OSX Tests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		A12493EC1D44D79300700FFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A12493F61D44D7D100700FFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A12493F71D44D7F400700FFF /* BlockElement.swift in Sources */,
+				A12493F81D44D7F400700FFF /* BlockQuote.swift in Sources */,
+				A12493F91D44D7F400700FFF /* Code.swift in Sources */,
+				A12493FA1D44D7F400700FFF /* CodeBlock.swift in Sources */,
+				A12493FB1D44D7F400700FFF /* Document.swift in Sources */,
+				A12493FC1D44D7F400700FFF /* Em.swift in Sources */,
+				A12493FD1D44D7F400700FFF /* Heading.swift in Sources */,
+				A12493FE1D44D7F400700FFF /* Image.swift in Sources */,
+				A12493FF1D44D7F400700FFF /* LineBreak.swift in Sources */,
+				A12494001D44D7F400700FFF /* Link.swift in Sources */,
+				A12494011D44D7F400700FFF /* ListBlock.swift in Sources */,
+				A12494021D44D7F400700FFF /* ListItem.swift in Sources */,
+				A12494031D44D7F400700FFF /* Node.swift in Sources */,
+				A12494041D44D7F400700FFF /* Paragraph.swift in Sources */,
+				A12494051D44D7F400700FFF /* Strong.swift in Sources */,
+				A12494061D44D7F400700FFF /* Text.swift in Sources */,
+				A12494071D44D7F400700FFF /* StringReader.swift in Sources */,
+				A12494081D44D7F400700FFF /* CharStream.swift in Sources */,
+				A12494091D44D7F400700FFF /* KoaraRenderer.swift in Sources */,
+				A124940A1D44D7F400700FFF /* LookaheadSuccess.swift in Sources */,
+				A124940B1D44D7F400700FFF /* Parser.swift in Sources */,
+				A124940C1D44D7F400700FFF /* Token.swift in Sources */,
+				A124940D1D44D7F400700FFF /* TokenManager.swift in Sources */,
+				A124940E1D44D7F400700FFF /* TreeState.swift in Sources */,
+				A124940F1D44D7F400700FFF /* StringReaderTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
 /* Begin XCBuildConfiguration section */
+		A12493F41D44D79300700FFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = Koara/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = io.koara.Koara;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A12493F51D44D79300700FFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = Koara/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = io.koara.Koara;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		F8111E4419A95C8B0040E7D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -223,6 +393,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A12493F31D44D79300700FFF /* Build configuration list for PBXNativeTarget "Koara OSX Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A12493F41D44D79300700FFF /* Debug */,
+				A12493F51D44D79300700FFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		F8111E2D19A95C8B0040E7D1 /* Build configuration list for PBXProject "Koara" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

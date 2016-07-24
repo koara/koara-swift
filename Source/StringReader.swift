@@ -10,7 +10,7 @@ class StringReader {
         self.text = text
     }
     
-    func read(buffer: [Character], offset: Int, length: Int) -> Int {
+    func read(inout buffer: [Character], offset: Int, length: Int) -> Int {
 //        if(text.substringFromIndex(text.startIndex.advancedBy(index)).characters.count > 0) {
             var charactersRead = 0
             for i in 0...(length - 1) {
@@ -20,7 +20,7 @@ class StringReader {
 //                var c = this.text.toString().substring(start, start + 1);
 //                
 //                if (c !== "") {
-//                    buffer[0] = "a"
+                    buffer.append("a")
                     charactersRead += 1
 //                }
             }
