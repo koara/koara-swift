@@ -11,24 +11,21 @@ class StringReader {
     }
     
     func read(inout buffer: [Character], offset: Int, length: Int) -> Int {
-//        if(text.substringFromIndex(text.startIndex.advancedBy(index)).characters.count > 0) {
+        if(text.substringFromIndex(text.startIndex.advancedBy(index)).characters.count > 0) {
             var charactersRead = 0
-            for i in 0...(length - 1) {
-            
+            for i in 0..<length {
 //                var start = index + i;
                 
-//                var c = this.text.toString().substring(start, start + 1);
-//                
+                  let c = text[text.startIndex.advancedBy(i)]
 //                if (c !== "") {
-                    buffer.append("a")
+                    buffer.append(c)
                     charactersRead += 1
 //                }
             }
             index += length;
             return charactersRead;
-//        }
-        
-//        return -1;
+        }        
+        return -1;
     }
     
 }

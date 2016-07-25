@@ -1,0 +1,3 @@
+- Carthage
+- Cocoapods
+- Swift Package Manager

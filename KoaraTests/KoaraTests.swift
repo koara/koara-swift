@@ -1,14 +1,15 @@
 //
-//  Koara.swift
-//  Koara
+//  KoaraTests.swift
+//  KoaraTests
 //
-//  Created by Andy Van Den Heuvel on 24/07/16.
+//  Created by Andy Van Den Heuvel on 25/07/16.
 //  Copyright © 2016 Koara. All rights reserved.
 //
 
 import XCTest
+@testable import Koara
 
-class Koara: XCTestCase {
+class KoaraTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
