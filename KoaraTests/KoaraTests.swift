@@ -1,10 +1,4 @@
-//
-//  KoaraTests.swift
-//  KoaraTests
-//
-//  Created by Andy Van Den Heuvel on 25/07/16.
-//  Copyright © 2016 Koara. All rights reserved.
-//
+
 
 import XCTest
 @testable import Koara

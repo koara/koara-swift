@@ -1,2 +1,0 @@
-class Paragraph: BlockElement {
-}
