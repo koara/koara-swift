@@ -7,49 +7,38 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		A1BD47D21D47E05000EEE0C4 /* Example */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Example; sourceTree = "<group>"; };
-		A1BD47D31D47E05000EEE0C4 /* Koara.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Koara.podspec; sourceTree = "<group>"; };
-		A1BD47D41D47E05000EEE0C4 /* KoaraTests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = KoaraTests; sourceTree = "<group>"; };
-		A1BD47D51D47E05000EEE0C4 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		A1BD47D61D47E05000EEE0C4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		A1BD47D71D47E05000EEE0C4 /* Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sources; sourceTree = "<group>"; };
+		A11443871D4D2D8400820313 /* Source */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Source; sourceTree = "<group>"; };
+		A11443881D4D2D8400820313 /* Tests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Tests; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		F8111E2919A95C8B0040E7D1 = {
+		A11443291D4D2C8500820313 = {
 			isa = PBXGroup;
 			children = (
-				A1BD47D21D47E05000EEE0C4 /* Example */,
-				A1BD47D31D47E05000EEE0C4 /* Koara.podspec */,
-				A1BD47D41D47E05000EEE0C4 /* KoaraTests */,
-				A1BD47D51D47E05000EEE0C4 /* Package.swift */,
-				A1BD47D61D47E05000EEE0C4 /* README.md */,
-				A1BD47D71D47E05000EEE0C4 /* Sources */,
+				A11443871D4D2D8400820313 /* Source */,
+				A11443881D4D2D8400820313 /* Tests */,
 			);
-			indentWidth = 4;
 			sourceTree = "<group>";
-			tabWidth = 4;
-			usesTabs = 0;
 		};
 /* End PBXGroup section */
 
 /* Begin PBXProject section */
-		F8111E2A19A95C8B0040E7D1 /* Project object */ = {
+		A114432A1D4D2C8500820313 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = Koara;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Andy Van Den Heuvel";
 			};
-			buildConfigurationList = F8111E2D19A95C8B0040E7D1 /* Build configuration list for PBXProject "Koara" */;
+			buildConfigurationList = A114432D1D4D2C8500820313 /* Build configuration list for PBXProject "Koara" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = F8111E2919A95C8B0040E7D1;
-			productRefGroup = F8111E2919A95C8B0040E7D1;
+			mainGroup = A11443291D4D2C8500820313;
+			productRefGroup = A11443291D4D2C8500820313;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -58,10 +47,11 @@
 /* End PBXProject section */
 
 /* Begin XCBuildConfiguration section */
-		F8111E4419A95C8B0040E7D1 /* Debug */ = {
+		A11443391D4D2C8500820313 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -75,43 +65,37 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
-		F8111E4519A95C8B0040E7D1 /* Release */ = {
+		A114433A1D4D2C8500820313 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -125,44 +109,39 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F8111E2D19A95C8B0040E7D1 /* Build configuration list for PBXProject "Koara" */ = {
+		A114432D1D4D2C8500820313 /* Build configuration list for PBXProject "Koara" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F8111E4419A95C8B0040E7D1 /* Debug */,
-				F8111E4519A95C8B0040E7D1 /* Release */,
+				A11443391D4D2C8500820313 /* Debug */,
+				A114433A1D4D2C8500820313 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F8111E2A19A95C8B0040E7D1 /* Project object */;
+	rootObject = A114432A1D4D2C8500820313 /* Project object */;
 }
