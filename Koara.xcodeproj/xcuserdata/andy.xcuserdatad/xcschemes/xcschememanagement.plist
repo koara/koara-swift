@@ -3,20 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>SchemeUserState</key>
-	<dict/>
+	<dict>
+		<key>Koara.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>A11443311D4D2C8500820313</key>
+		<key>A11443EF1D4E158800820313</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A11443421D4D2CBF00820313</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A114434B1D4D2CBF00820313</key>
+		<key>A11443F91D4E158800820313</key>
 		<dict>
 			<key>primary</key>
 			<true/>
