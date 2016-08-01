@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8035DB621BAB492500466CB3 /* Koara.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8111E3319A95C8B0040E7D1 /* Koara.framework */; };
-		A1E2257B1D4F9DA400291213 /* AppTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E2257A1D4F9DA400291213 /* AppTest.swift */; };
+		A109D9211D4FA1CA00D8C572 /* StringReaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109D9201D4FA1CA00D8C572 /* StringReaderTest.swift */; };
+		A109D9261D4FA1FD00D8C572 /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109D9251D4FA1FD00D8C572 /* StringReader.swift */; };
+		A109D9271D4FA1FD00D8C572 /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109D9251D4FA1FD00D8C572 /* StringReader.swift */; };
 		A1E2257D1D4F9DDD00291213 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E2257C1D4F9DDD00291213 /* App.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,7 +25,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A1E2257A1D4F9DA400291213 /* AppTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTest.swift; sourceTree = "<group>"; };
+		A109D9201D4FA1CA00D8C572 /* StringReaderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringReaderTest.swift; sourceTree = "<group>"; };
+		A109D9251D4FA1FD00D8C572 /* StringReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringReader.swift; sourceTree = "<group>"; };
 		A1E2257C1D4F9DDD00291213 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		F8111E3319A95C8B0040E7D1 /* Koara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8111E3E19A95C8B0040E7D1 /* koara-ios-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "koara-ios-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				A1E2257C1D4F9DDD00291213 /* App.swift */,
+				A109D9251D4FA1FD00D8C572 /* StringReader.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -80,7 +84,7 @@
 		F8111E3F19A95C8B0040E7D1 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				A1E2257A1D4F9DA400291213 /* AppTest.swift */,
+				A109D9201D4FA1CA00D8C572 /* StringReaderTest.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -193,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1E2257D1D4F9DDD00291213 /* App.swift in Sources */,
+				A109D9261D4FA1FD00D8C572 /* StringReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +205,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1E2257B1D4F9DA400291213 /* AppTest.swift in Sources */,
+				A109D9211D4FA1CA00D8C572 /* StringReaderTest.swift in Sources */,
+				A109D9271D4FA1FD00D8C572 /* StringReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
