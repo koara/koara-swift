@@ -1,0 +1,4 @@
+language: objective-c
+osx_image: xcode7.3
+scripts:
+  - xcodebuild test -scheme "koara-ios" -destination "platform=iOS Simulator,name=iPhone 6"
