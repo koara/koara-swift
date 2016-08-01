@@ -30,9 +30,11 @@ class StringReaderTest: XCTestCase {
     
     func testReadWithOffsetPartOfString() {
         let reader = StringReader(text: "abcd")
-        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 2), 2)
+        XCTAssertEqual(reader.read(&buffer, offset: 2, length: 4), 4)
         
-        //    expect(reader.read(buffer, 2, 4)).toEqual(4);
+        
+        print("----\(buffer)")
+
         //    expect(0 in buffer).toBe(false);
         //    expect(1 in buffer).toBe(false);
         //    expect(buffer[2]).toEqual('a');

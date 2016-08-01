@@ -4,7 +4,4 @@
    <FileRef
       location = "group:Koara.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:Example/iOS Example.xcodeproj">
-   </FileRef>
 </Workspace>
