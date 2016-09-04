@@ -10,98 +10,103 @@ class FileReaderTest: XCTestCase {
     }
     
     func testRead() {
-//    @reader = Koara::Io::FileReader.new('test/filereader.kd')
-//    assert_equal(4, @reader.read(@buffer, 0, 4))
-//    assert_equal('a', @buffer[0])
-//    assert_equal('b', @buffer[1])
-//    assert_equal('c', @buffer[2])
-//    assert_equal('d', @buffer[3])
-//    assert_equal(4, @buffer.length)
-//    assert_equal(-1, @reader.read(@buffer, 0, 4))
+        let reader = FileReader(fileName: "test/filereader.kd")
+        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 4), 4)
+        XCTAssertEqual(buffer[0], "a")
+        XCTAssertEqual(buffer[1], "b")
+        XCTAssertEqual(buffer[2], "c")
+        XCTAssertEqual(buffer[3], "d")
+        XCTAssertEqual(buffer.count, 4)
+        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 4), -1)
     }
     
     func testReadPartOfString() {
-//    @reader = Koara::Io::FileReader.new('test/filereader.kd')
-//    assert_equal(2, @reader.read(@buffer, 0, 2))
-//    assert_equal('a', @buffer[0])
-//    assert_equal('b', @buffer[1])
-//    assert_equal(2, @buffer.length)
+        let reader = FileReader(fileName: "test/filereader.kd")
+        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 2), 2)
+        XCTAssertEqual(buffer[0], "a")
+        XCTAssertEqual(buffer[1], "b")
+        XCTAssertEqual(buffer.count, 2)
     }
     
     func testReadWithOffsetPartOfString() {
-//    @reader = Koara::Io::FileReader.new('test/filereader.kd')
-//    assert_equal(4, @reader.read(@buffer, 2, 4))
-//    assert_equal(nil, @buffer[0])
-//    assert_equal(nil, @buffer[1])
-//    assert_equal('a', @buffer[2])
-//    assert_equal('b', @buffer[3])
+        let reader = FileReader(fileName: "test/filereader.kd")
+        XCTAssertEqual(reader.read(&buffer, offset: 2, length: 4), 4)
+        XCTAssertNil(buffer[0])
+        XCTAssertNil(buffer[1])
+        XCTAssertEqual(buffer[2], "a")
+        XCTAssertEqual(buffer[3], "b")
     }
     
     func testReadWithOffsetTooLargePartOfString() {
-//    @reader = Koara::Io::FileReader.new('test/filereader.kd')
-//    assert_equal(4, @reader.read(@buffer, 6, 4))
-//    assert_equal(nil, @buffer[0])
-//    assert_equal(nil, @buffer[1])
-//    assert_equal(nil, @buffer[2])
-//    assert_equal(nil, @buffer[3])
+        let reader = FileReader(fileName: "test/filereader.kd")
+        XCTAssertEqual(reader.read(&buffer, offset: 6, length: 4), 4)
+        XCTAssertNil(buffer[0])
+        XCTAssertNil(buffer[1])
+        XCTAssertNil(buffer[2])
+        XCTAssertNil(buffer[3])
     }
     
     func testReadUntilEof() {
-//    @reader = Koara::Io::FileReader.new('test/filereader.kd')
-//    assert_equal(2, @reader.read(@buffer, 0, 2))
-//    assert_equal('a', @buffer[0])
-//    assert_equal('b', @buffer[1])
-//    assert_equal(2, @reader.read(@buffer, 0, 3))
-//    assert_equal('c', @buffer[0])
-//    assert_equal('d', @buffer[1])
-//    assert_equal(-1, @reader.read(@buffer, 0, 2))
+        let reader = FileReader(fileName: "test/filereader.kd")
+        
+        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 2), 2)
+        XCTAssertEqual(buffer[0], "a")
+        XCTAssertEqual(buffer[1], "b")
+        
+        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 3), 2)
+        XCTAssertEqual(buffer[0], "c")
+        XCTAssertEqual(buffer[1], "d")
+        
+        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 2), -1)
     }
     
     func testReadWithUnicode() {
-//    @reader = Koara::Io::FileReader.new('test/filereader-unicode.kd')
-//    assert_equal(4, @reader.read(@buffer, 0, 4))
-//    assert_equal('ð', @buffer[0])
-//    assert_equal('i', @buffer[1])
-//    assert_equal('n', @buffer[2])
-//    assert_equal('æ', @buffer[3])
-//    assert_equal(4, @buffer.length)
+        let reader = FileReader(fileName: "test/filereader-unicode.kd")
+        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 4), 4)
+        XCTAssertEqual(buffer[0], "ð")
+        XCTAssertEqual(buffer[1], "i")
+        XCTAssertEqual(buffer[2], "n")
+        XCTAssertEqual(buffer[3], "æ")
+        XCTAssertEqual(buffer.count, 4)
+
     }
     
     func testReadWithUnicodePartOfString() {
-//    @reader = Koara::Io::FileReader.new('test/filereader-unicode.kd')
-//    assert_equal(2, @reader.read(@buffer, 0, 2))
-//    assert_equal('ð', @buffer[0])
-//    assert_equal('i', @buffer[1])
-//    assert_equal(2, @buffer.length)
+        let reader = FileReader(fileName: "test/filereader-unicode.kd")
+        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 2), 2)
+        XCTAssertEqual(buffer[0], "ð")
+        XCTAssertEqual(buffer[1], "i")
+        XCTAssertEqual(buffer.count, 2)
     }
     
     func testReadWithUnicodeAndOffsetPartOfString() {
-//    @reader = Koara::Io::FileReader.new('test/filereader-unicode.kd')
-//    assert_equal(4, @reader.read(@buffer, 2, 4))
-//    assert_equal(nil, @buffer[0])
-//    assert_equal(nil, @buffer[1])
-//    assert_equal('ð', @buffer[2])
-//    assert_equal('i', @buffer[3])
+        let reader = FileReader(fileName: "test/filereader-unicode.kd")
+        XCTAssertEqual(reader.read(&buffer, offset: 2, length: 4), 4)
+        XCTAssertNil(buffer[0])
+        XCTAssertNil(buffer[1])
+        XCTAssertEqual(buffer[2], "ð")
+        XCTAssertEqual(buffer[3], "i")
     }
     
     func testReadWithUnicodeAndOffsetTooLargePartOfString() {
-//    @reader = Koara::Io::FileReader.new('test/filereader-unicode.kd')
-//    assert_equal(4, @reader.read(@buffer, 6, 4))
-//    assert_equal(nil, @buffer[0])
-//    assert_equal(nil, @buffer[1])
-//    assert_equal(nil, @buffer[2])
-//    assert_equal(nil, @buffer[3])
+        let reader = FileReader(fileName: "test/filereader-unicode.kd")
+        XCTAssertEqual(reader.read(&buffer, offset: 6, length: 4), 4)
+        XCTAssertNil(buffer[0])
+        XCTAssertNil(buffer[1])
+        XCTAssertNil(buffer[2])
+        XCTAssertNil(buffer[3])
     }
     
     func testReadWithUnicodeUntilEof() {
-//    @reader = Koara::Io::FileReader.new('test/filereader-unicode.kd')
-//    assert_equal(3, @reader.read(@buffer, 0, 3))
-//    assert_equal('ð', @buffer[0])
-//    assert_equal('i', @buffer[1])
-//    assert_equal('n', @buffer[2])
-//    assert_equal(1, @reader.read(@buffer, 0, 3))
-//    assert_equal('æ', @buffer[0])
-//    assert_equal(-1, @reader.read(@buffer, 0, 2))
+        let reader = FileReader(fileName: "test/filereader-unicode.kd")
+        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 3), 3)
+        XCTAssertEqual(buffer[0], "ð")
+        XCTAssertEqual(buffer[1], "i")
+        
+        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 3), 1)
+        XCTAssertEqual(buffer[0], "æ")
+        
+        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 2), -1)
     }
     
 }
