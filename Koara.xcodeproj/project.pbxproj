@@ -11,8 +11,9 @@
 		A109D9211D4FA1CA00D8C572 /* StringReaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109D9201D4FA1CA00D8C572 /* StringReaderTest.swift */; };
 		A109D9261D4FA1FD00D8C572 /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109D9251D4FA1FD00D8C572 /* StringReader.swift */; };
 		A109D9271D4FA1FD00D8C572 /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109D9251D4FA1FD00D8C572 /* StringReader.swift */; };
-		A16A5A641D7B2E6D005EEEB6 /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5A631D7B2E6D005EEEB6 /* FileReader.swift */; };
-		A16A5A6C1D7DE967005EEEB6 /* FileReaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5A6B1D7DE967005EEEB6 /* FileReaderTest.swift */; };
+		A16A5A801D7F38C6005EEEB6 /* FileReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5A7F1D7F38C6005EEEB6 /* FileReaderTests.swift */; };
+		A16A5A821D7F3936005EEEB6 /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5A811D7F3936005EEEB6 /* FileReader.swift */; };
+		A16A5A831D7F3936005EEEB6 /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5A811D7F3936005EEEB6 /* FileReader.swift */; };
 		A1E2257D1D4F9DDD00291213 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E2257C1D4F9DDD00291213 /* App.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,8 +30,8 @@
 /* Begin PBXFileReference section */
 		A109D9201D4FA1CA00D8C572 /* StringReaderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringReaderTest.swift; sourceTree = "<group>"; };
 		A109D9251D4FA1FD00D8C572 /* StringReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringReader.swift; sourceTree = "<group>"; };
-		A16A5A631D7B2E6D005EEEB6 /* FileReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileReader.swift; sourceTree = "<group>"; };
-		A16A5A6B1D7DE967005EEEB6 /* FileReaderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileReaderTest.swift; sourceTree = "<group>"; };
+		A16A5A7F1D7F38C6005EEEB6 /* FileReaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileReaderTests.swift; sourceTree = "<group>"; };
+		A16A5A811D7F3936005EEEB6 /* FileReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileReader.swift; sourceTree = "<group>"; };
 		A1E2257C1D4F9DDD00291213 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		F8111E3319A95C8B0040E7D1 /* Koara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8111E3E19A95C8B0040E7D1 /* koara-ios-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "koara-ios-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,7 +82,7 @@
 			children = (
 				A1E2257C1D4F9DDD00291213 /* App.swift */,
 				A109D9251D4FA1FD00D8C572 /* StringReader.swift */,
-				A16A5A631D7B2E6D005EEEB6 /* FileReader.swift */,
+				A16A5A811D7F3936005EEEB6 /* FileReader.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -90,7 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				A109D9201D4FA1CA00D8C572 /* StringReaderTest.swift */,
-				A16A5A6B1D7DE967005EEEB6 /* FileReaderTest.swift */,
+				A16A5A7F1D7F38C6005EEEB6 /* FileReaderTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -202,7 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A16A5A641D7B2E6D005EEEB6 /* FileReader.swift in Sources */,
+				A16A5A821D7F3936005EEEB6 /* FileReader.swift in Sources */,
 				A1E2257D1D4F9DDD00291213 /* App.swift in Sources */,
 				A109D9261D4FA1FD00D8C572 /* StringReader.swift in Sources */,
 			);
@@ -212,8 +213,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A16A5A6C1D7DE967005EEEB6 /* FileReaderTest.swift in Sources */,
+				A16A5A801D7F38C6005EEEB6 /* FileReaderTests.swift in Sources */,
 				A109D9211D4FA1CA00D8C572 /* StringReaderTest.swift in Sources */,
+				A16A5A831D7F3936005EEEB6 /* FileReader.swift in Sources */,
 				A109D9271D4FA1FD00D8C572 /* StringReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
