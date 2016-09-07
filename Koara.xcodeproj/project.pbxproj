@@ -44,12 +44,14 @@
 		A16A5ADD1D7FD95F005EEEB6 /* Strong.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5ADB1D7FD95F005EEEB6 /* Strong.swift */; };
 		A16A5ADF1D7FD997005EEEB6 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5ADE1D7FD997005EEEB6 /* Text.swift */; };
 		A16A5AE01D7FD997005EEEB6 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5ADE1D7FD997005EEEB6 /* Text.swift */; };
-		A16A5AE21D7FD9C1005EEEB6 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5AE11D7FD9C1005EEEB6 /* Node.swift */; };
-		A16A5AE31D7FD9C1005EEEB6 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5AE11D7FD9C1005EEEB6 /* Node.swift */; };
 		A16A5AE61D7FDA3B005EEEB6 /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5AE41D7FDA3B005EEEB6 /* FileReader.swift */; };
 		A16A5AE71D7FDA3B005EEEB6 /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5AE41D7FDA3B005EEEB6 /* FileReader.swift */; };
 		A16A5AE81D7FDA3B005EEEB6 /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5AE51D7FDA3B005EEEB6 /* StringReader.swift */; };
 		A16A5AE91D7FDA3B005EEEB6 /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5AE51D7FDA3B005EEEB6 /* StringReader.swift */; };
+		A16A5AEB1D7FDD00005EEEB6 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5AEA1D7FDD00005EEEB6 /* Renderer.swift */; };
+		A16A5AEC1D7FDD00005EEEB6 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5AEA1D7FDD00005EEEB6 /* Renderer.swift */; };
+		A16A5AF11D7FDE35005EEEB6 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5AF01D7FDE35005EEEB6 /* Node.swift */; };
+		A16A5AF21D7FDE35005EEEB6 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5AF01D7FDE35005EEEB6 /* Node.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,9 +84,10 @@
 		A16A5AD81D7FD8FF005EEEB6 /* Paragraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Paragraph.swift; path = Ast/Paragraph.swift; sourceTree = "<group>"; };
 		A16A5ADB1D7FD95F005EEEB6 /* Strong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Strong.swift; path = Ast/Strong.swift; sourceTree = "<group>"; };
 		A16A5ADE1D7FD997005EEEB6 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Text.swift; path = Ast/Text.swift; sourceTree = "<group>"; };
-		A16A5AE11D7FD9C1005EEEB6 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Node.swift; path = Ast/Node.swift; sourceTree = "<group>"; };
 		A16A5AE41D7FDA3B005EEEB6 /* FileReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileReader.swift; path = Io/FileReader.swift; sourceTree = "<group>"; };
 		A16A5AE51D7FDA3B005EEEB6 /* StringReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringReader.swift; path = Io/StringReader.swift; sourceTree = "<group>"; };
+		A16A5AEA1D7FDD00005EEEB6 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		A16A5AF01D7FDE35005EEEB6 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Node.swift; path = Ast/Node.swift; sourceTree = "<group>"; };
 		F8111E3319A95C8B0040E7D1 /* Koara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8111E3E19A95C8B0040E7D1 /* koara-ios-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "koara-ios-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -142,7 +145,7 @@
 				A16A5AD81D7FD8FF005EEEB6 /* Paragraph.swift */,
 				A16A5ADB1D7FD95F005EEEB6 /* Strong.swift */,
 				A16A5ADE1D7FD997005EEEB6 /* Text.swift */,
-				A16A5AE11D7FD9C1005EEEB6 /* Node.swift */,
+				A16A5AF01D7FDE35005EEEB6 /* Node.swift */,
 			);
 			name = Ast;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				A16A5A851D7FD3BA005EEEB6 /* Io */,
 				A16A5A871D7FD418005EEEB6 /* TokenManager.swift */,
 				A16A5A8A1D7FD506005EEEB6 /* Parser.swift */,
+				A16A5AEA1D7FDD00005EEEB6 /* Renderer.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -302,16 +306,17 @@
 				A16A5AE81D7FDA3B005EEEB6 /* StringReader.swift in Sources */,
 				A16A5AC51D7FD7A6005EEEB6 /* Image.swift in Sources */,
 				A16A5A8E1D7FD5D8005EEEB6 /* BlockElement.swift in Sources */,
+				A16A5AF11D7FDE35005EEEB6 /* Node.swift in Sources */,
 				A16A5ADF1D7FD997005EEEB6 /* Text.swift in Sources */,
 				A16A5AD91D7FD8FF005EEEB6 /* Paragraph.swift in Sources */,
 				A16A5ABD1D7FD7A6005EEEB6 /* Document.swift in Sources */,
 				A16A5AC71D7FD7A6005EEEB6 /* LineBreak.swift in Sources */,
 				A16A5AC31D7FD7A6005EEEB6 /* Heading.swift in Sources */,
 				A16A5ABF1D7FD7A6005EEEB6 /* Em.swift in Sources */,
-				A16A5AE21D7FD9C1005EEEB6 /* Node.swift in Sources */,
 				A16A5AAC1D7FD76E005EEEB6 /* Link.swift in Sources */,
 				A16A5ADC1D7FD95F005EEEB6 /* Strong.swift in Sources */,
 				A16A5AD31D7FD831005EEEB6 /* ListBlock.swift in Sources */,
+				A16A5AEB1D7FDD00005EEEB6 /* Renderer.swift in Sources */,
 				A16A5ACD1D7FD807005EEEB6 /* ListItem.swift in Sources */,
 				A16A5AB71D7FD7A6005EEEB6 /* BlockQuote.swift in Sources */,
 				A16A5A8B1D7FD506005EEEB6 /* Parser.swift in Sources */,
@@ -326,12 +331,13 @@
 				A16A5A801D7F38C6005EEEB6 /* FileReaderTests.swift in Sources */,
 				A16A5A8F1D7FD5D8005EEEB6 /* BlockElement.swift in Sources */,
 				A16A5AD41D7FD831005EEEB6 /* ListBlock.swift in Sources */,
-				A16A5AE31D7FD9C1005EEEB6 /* Node.swift in Sources */,
 				A16A5AAD1D7FD76E005EEEB6 /* Link.swift in Sources */,
+				A16A5AEC1D7FDD00005EEEB6 /* Renderer.swift in Sources */,
 				A109D9211D4FA1CA00D8C572 /* StringReaderTest.swift in Sources */,
 				A16A5ABA1D7FD7A6005EEEB6 /* Code.swift in Sources */,
 				A16A5AE91D7FDA3B005EEEB6 /* StringReader.swift in Sources */,
 				A16A5ABC1D7FD7A6005EEEB6 /* CodeBlock.swift in Sources */,
+				A16A5AF21D7FDE35005EEEB6 /* Node.swift in Sources */,
 				A16A5AC01D7FD7A6005EEEB6 /* Em.swift in Sources */,
 				A16A5AE71D7FDA3B005EEEB6 /* FileReader.swift in Sources */,
 				A16A5A8C1D7FD506005EEEB6 /* Parser.swift in Sources */,

@@ -1152,7 +1152,7 @@ class Parser {
 //    }
 //    }
 //    
-//    private boolean hasAnyBlockElementsAhead() {
+    func hasAnyBlockElementsAhead() -> Bool {
 //    try {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
@@ -1160,7 +1160,7 @@ class Parser {
 //    } catch (LookaheadSuccess ls) {
 //    return true;
 //    }
-//    }
+    }
 //    
 //    private boolean blockAhead(int blockBeginColumn) {
 //    int quoteLevel;
