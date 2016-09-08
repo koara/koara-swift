@@ -1,25 +1,14 @@
 class ListBlock : BlockElement {
     
-    var ordered : Bool {
-        get {
-            return self.ordered
-        }
-        set {
-            self.ordered = newValue
-        }
+    var ordered : Bool
+    
+    init(ordered: Bool) {
+        super.init()
+        self.ordered = ordered
     }
-    
-    
-    
- 
-//    public ListBlock(boolean ordered) {
-//        this.ordered = ordered;
-//    }
-//    
-
-//    
-//    public void accept(Renderer renderer) {
-//        renderer.visit(this);
-//    }
+        
+    override func accept(renderer : Renderer) {
+        renderer.visit(self)
+    }
     
 }

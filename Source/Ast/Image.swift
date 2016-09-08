@@ -1,7 +1,7 @@
 class Image : Node {
     
-//    public void accept(Renderer renderer) {
-//        renderer.visit(this);
-//    }
+    func accept(renderer : Renderer) {
+        renderer.visit(self)
+    }
     
 }

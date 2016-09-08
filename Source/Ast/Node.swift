@@ -1,8 +1,13 @@
 class Node {
     
-    //    private Node parent;
-    //    private Node[] children;
-    //    private Object value;
+    //var children : [Node] { get }
+    //var parent : Node { get set }
+    //var value : AnyObject { get set }
+    
+    //func add(n: Node, i: Int) {
+    
+    //}
+
     //
     //    public void add(Node n, int i) {
     //    if (children == null) {
@@ -19,26 +24,9 @@ class Node {
     //    }
     //    }
     //
-    //    public abstract void accept(Renderer renderer);
-    //
-    //    public Node[] getChildren() {
-    //    return children;
-    //    }
-    //
-    //    public Node getParent() {
-    //    return parent;
-    //    }
-    //
-    //    public void setParent(Node parent) {
-    //    this.parent = parent;
-    //    }
-    //
-    //    public Object getValue() {
-    //    return value;
-    //    }
-    //    
-    //    public void setValue(Object value) {
-    //    this.value = value;
-    //    }
+
+
+
+
     
 }

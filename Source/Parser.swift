@@ -1,6 +1,6 @@
 class Parser {
     
-//    private CharStream cs;
+//    var cs;
 //    private Token token, nextToken, scanPosition, lastPosition;
 //    private TokenManager tm;
 //    private TreeState tree;
@@ -28,7 +28,7 @@ class Parser {
 //    return parseReader(new FileReader(file));
 //    }
 //    
-//    private Document parseReader(Reader reader) {
+    func parseReader(reader: Reader) -> Document {
 //    cs = new CharStream(reader);
 //    tm = new TokenManager(cs);
 //    token = new Token();
@@ -59,7 +59,7 @@ class Parser {
 //    consumeToken(EOF);
 //    tree.closeScope(document);
 //    return document;
-//    }
+    }
 //    
 //    private void blockElement() {
 //    currentBlockLevel++;

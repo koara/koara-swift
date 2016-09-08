@@ -1,4 +1,4 @@
-class FileReader {
+class FileReader : Reader {
     
     var index: Int
     var fileName: String

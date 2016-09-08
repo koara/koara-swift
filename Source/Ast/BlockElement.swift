@@ -30,9 +30,8 @@ class BlockElement : Node {
 //        return null;
 //    }
 //    
-//    @Override
-//    public void accept(Renderer renderer) {
-//        renderer.visit(this);
-//    }
+    func accept(renderer : Renderer) {
+        renderer.visit(self)
+    }
     
 }

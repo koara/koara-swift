@@ -1,22 +1,20 @@
 class ListItem : BlockElement {
     
-//    private Integer number;
-//    
-//    public Integer getNumber() {
-//        return number;
-//    }
-//    
-//    public void setNumber(Integer number) {
-//        this.number = number;
-//    }
-//    
-//    public void accept(Renderer renderer) {
-//        renderer.visit(this);
-//    }
-//    
-//    @Override
-//    public ListBlock getParent() {
-//        return (ListBlock) super.getParent();
-//    }
+    var number : Int {
+        get {
+            return self.number
+        }
+        set {
+            self.number = newValue
+        }
+    }
     
+    override func accept(renderer : Renderer) {
+        renderer.visit(self)
+    }
+    
+    func getParent() -> ListBlock {
+        return self.getParent()
+    }
+
 }

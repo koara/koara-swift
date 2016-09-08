@@ -1,7 +1,7 @@
 class Paragraph : BlockElement {
     
-//    public void accept(Renderer renderer) {
-//        renderer.visit(this);
-//    }
+    override func accept(renderer : Renderer) {
+        renderer.visit(self)
+    }
     
 }
