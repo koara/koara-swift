@@ -1,6 +1,6 @@
 class ListBlock : BlockElement {
     
-    var ordered : Bool
+    var ordered : Bool!
     
     init(ordered: Bool) {
         super.init()

@@ -34,8 +34,8 @@ class Parser {
 //    token = new Token();
 //    tree = new TreeState();
 //    nextTokenKind = -1;
-//    
-//    Document document = new Document();
+//
+      var document = Document()
 //    tree.openScope();
 //    while (getNextTokenKind() == EOL) {
 //    consumeToken(EOL);
@@ -58,7 +58,7 @@ class Parser {
 //    }
 //    consumeToken(EOF);
 //    tree.closeScope(document);
-//    return document;
+      return document;
     }
 //    
 //    private void blockElement() {
@@ -1152,7 +1152,7 @@ class Parser {
 //    }
 //    }
 //    
-    func hasAnyBlockElementsAhead() -> Bool {
+//    func hasAnyBlockElementsAhead() -> Bool {
 //    try {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
@@ -1160,7 +1160,7 @@ class Parser {
 //    } catch (LookaheadSuccess ls) {
 //    return true;
 //    }
-    }
+//    }
 //    
 //    private boolean blockAhead(int blockBeginColumn) {
 //    int quoteLevel;
