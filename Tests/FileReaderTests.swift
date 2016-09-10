@@ -1,6 +1,6 @@
 import XCTest
 
-class FileReaderTest: XCTestCase {
+class ileReaderTest: XCTestCase {
     
     var buffer = [Int:Character]()
     
@@ -11,7 +11,7 @@ class FileReaderTest: XCTestCase {
     
     func testRead() {
         let reader = FileReader(fileName: "test/filereader.kd")
-        //        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 4), 4)
+        //XCTAssertEqual(reader.read(&buffer, offset: 0, length: 4), 4)
         //        XCTAssertEqual(buffer[0], "a")
         //        XCTAssertEqual(buffer[1], "b")
         //        XCTAssertEqual(buffer[2], "c")

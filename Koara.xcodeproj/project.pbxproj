@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8035DB621BAB492500466CB3 /* Koara.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8111E3319A95C8B0040E7D1 /* Koara.framework */; };
 		A109D9211D4FA1CA00D8C572 /* StringReaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109D9201D4FA1CA00D8C572 /* StringReaderTest.swift */; };
+		A1428CC31D8468AE00E45202 /* LookaheadSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1428CC21D8468AE00E45202 /* LookaheadSuccess.swift */; };
+		A1428CC41D8468AE00E45202 /* LookaheadSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1428CC21D8468AE00E45202 /* LookaheadSuccess.swift */; };
 		A16A5A801D7F38C6005EEEB6 /* FileReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5A7F1D7F38C6005EEEB6 /* FileReaderTests.swift */; };
 		A16A5A881D7FD418005EEEB6 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5A871D7FD418005EEEB6 /* TokenManager.swift */; };
 		A16A5A891D7FD418005EEEB6 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5A871D7FD418005EEEB6 /* TokenManager.swift */; };
@@ -68,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		A109D9201D4FA1CA00D8C572 /* StringReaderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringReaderTest.swift; sourceTree = "<group>"; };
+		A1428CC21D8468AE00E45202 /* LookaheadSuccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookaheadSuccess.swift; sourceTree = "<group>"; };
 		A16A5A7F1D7F38C6005EEEB6 /* FileReaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileReaderTests.swift; sourceTree = "<group>"; };
 		A16A5A871D7FD418005EEEB6 /* TokenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		A16A5A8A1D7FD506005EEEB6 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
@@ -183,6 +186,7 @@
 				A16A5A871D7FD418005EEEB6 /* TokenManager.swift */,
 				A16A5A8A1D7FD506005EEEB6 /* Parser.swift */,
 				A16A5AEA1D7FDD00005EEEB6 /* Renderer.swift */,
+				A1428CC21D8468AE00E45202 /* LookaheadSuccess.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -309,6 +313,7 @@
 				A16A5ABB1D7FD7A6005EEEB6 /* CodeBlock.swift in Sources */,
 				A16A5AE81D7FDA3B005EEEB6 /* StringReader.swift in Sources */,
 				A16A5AC51D7FD7A6005EEEB6 /* Image.swift in Sources */,
+				A1428CC31D8468AE00E45202 /* LookaheadSuccess.swift in Sources */,
 				A16A5A8E1D7FD5D8005EEEB6 /* BlockElement.swift in Sources */,
 				A16A5AF11D7FDE35005EEEB6 /* Node.swift in Sources */,
 				A16A5ADF1D7FD997005EEEB6 /* Text.swift in Sources */,
@@ -351,6 +356,7 @@
 				A16A5ADA1D7FD8FF005EEEB6 /* Paragraph.swift in Sources */,
 				A16A5AC41D7FD7A6005EEEB6 /* Heading.swift in Sources */,
 				A16A5AC81D7FD7A6005EEEB6 /* LineBreak.swift in Sources */,
+				A1428CC41D8468AE00E45202 /* LookaheadSuccess.swift in Sources */,
 				A16A5AF51D806ADE005EEEB6 /* Reader.swift in Sources */,
 				A16A5A891D7FD418005EEEB6 /* TokenManager.swift in Sources */,
 				A16A5ABE1D7FD7A6005EEEB6 /* Document.swift in Sources */,

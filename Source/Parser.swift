@@ -13,13 +13,15 @@ class Parser {
 //    private LookaheadSuccess lookAheadSuccess;
 //    private List<String> modules = Arrays.asList("paragraphs", "headings", "lists", "links", "images", "formatting", "blockquotes", "code");
 //    
-//    public Parser() {
-//    this.lookAheadSuccess = new LookaheadSuccess();
-//    }
-//    
-//    public Document parse(String text) {
-//    return parseReader(new StringReader(text));
-//    }
+    let lookAheadSuccess : LookaheadSuccess
+    
+    init() {
+        self.lookAheadSuccess = LookaheadSuccess()
+    }
+    
+    func parse(text: String) -> Document {
+        return self.parseReader(StringReader(text: text));
+    }
 //    
 //    public Document parseFile(File file) throws IOException {
 //    if(!file.getName().toLowerCase().endsWith(".kd")) {
