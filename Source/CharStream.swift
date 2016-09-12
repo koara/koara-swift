@@ -1,18 +1,23 @@
 class CharStream {
 
-//"use strict";
-//
+    var available = 4096
+    var bufsize = 4096
+    var tokenBegin = 0
+    var bufcolumn = [Int]()
+    var bufpos = -1
+    var bufline = [Int]()
+    var column = 0
+    var line = 1
+    var prevCharIsLF = false
+    //    this.reader = reader;
+
+    init(reader: Reader) {
+        //self.reader = reader
+    }
+    
 //function CharStream(reader) {
-//    this.available = 4096;
-//    this.bufsize = 4096;
-//    this.tokenBegin = 0;
-//    this.bufcolumn = [];
-//    this.bufpos = -1;
-//    this.bufline = [];
-//    this.column = 0;
-//    this.line = 1;
 //    this.prevCharIsLF = false;
-//    this.reader = reader;
+
 //    this.buffer = [];
 //    this.maxNextCharInd = 0;
 //    this.inBuf = 0;
