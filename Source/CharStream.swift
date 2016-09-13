@@ -10,39 +10,31 @@ class CharStream {
     var line = 1
     var prevCharIsLF = false
     //    this.reader = reader;
+     var buffer = [Character]()
+    var maxNextCharInd = 0
+    var inBuf = 0
+    var tabSize = 4
 
     init(reader: Reader) {
         //self.reader = reader
     }
     
-//function CharStream(reader) {
-//    this.prevCharIsLF = false;
-
-//    this.buffer = [];
-//    this.maxNextCharInd = 0;
-//    this.inBuf = 0;
-//    this.tabSize = 4;
-//}
-//
-//CharStream.prototype = {
-//    constructor: CharStream,
-//    
-//    beginToken: function() {
-//        this.tokenBegin = -1;
-//        var c = this.readChar();
-//        
-//        this.tokenBegin = this.bufpos;
-//        return c;
-//    },
-//    
-//    readChar: function() {
-//        if (this.inBuf > 0) {
-//            --this.inBuf;
-//            if (++this.bufpos === this.bufsize) {
-//                this.bufpos = 0;
+    func beginToken() -> Character {
+        tokenBegin = -1
+        let c = readChar()
+        tokenBegin = bufpos;
+        return c
+    }
+    
+    
+    func readChar() -> Character {
+        if (inBuf > 0) {
+            inBuf -= 1;
+//            if ((bufpos += 1) == bufsize) {
+//                bufpos = 0;
 //            }
 //            return this.buffer[this.bufpos];
-//        }
+        }
 //        if (++this.bufpos >= this.maxNextCharInd) {
 //            this.fillBuff();
 //        }
@@ -51,9 +43,10 @@ class CharStream {
 //        
 //        this.updateLineColumn(c);
 //        return c;
-//    },
-//    
-//    fillBuff: function() {
+        return "e".characters.first!
+    }
+    
+    func fillBuff() {
 //        if (this.maxNextCharInd === this.available) {
 //            if (this.available === this.bufsize) {
 //                this.bufpos = 0;
@@ -81,16 +74,16 @@ class CharStream {
 //            }
 //            throw e;
 //        }
-//    },
-//    
-//    backup: function(amount) {
+    }
+    
+    func backup(amount : Int) {
 //        this.inBuf += amount;
 //        if ((this.bufpos -= amount) < 0) {
 //            this.bufpos += this.bufsize;
 //        }
-//    },
-//    
-//    updateLineColumn: function(c) {
+    }
+    
+    func updateLineColumn(c : String) {
 //        this.column++;
 //        if (this.prevCharIsLF) {
 //            this.prevCharIsLF = false;
@@ -111,32 +104,30 @@ class CharStream {
 //        }
 //        this.bufline[this.bufpos] = this.line;
 //        this.bufcolumn[this.bufpos] = this.column;
-//    },
-//    
-//    getImage: function() {
+    }
+    
+    func getImage() {
 //        if (this.bufpos >= this.tokenBegin) {
 //            return this.buffer.slice(this.tokenBegin, this.bufpos + 1).join("");
 //        }
 //        return this.buffer.slice(this.tokenBegin, this.bufsize).join("") +
 //            this.buffer.slice(0, this.bufpos + 1).join("");
-//    },
-//    
-//    getEndColumn: function() {
+    }
+    
+    func getEndColumn() {
 //        return this.tokenBegin in this.bufcolumn ? this.bufcolumn[this.bufpos] : 0;
-//    },
-//    
-//    getEndLine: function() {
+    }
+    
+    func getEndLine() {
 //        return this.tokenBegin in this.bufline ? this.bufline[this.bufpos] : 0;
-//    },
-//    
-//    getBeginColumn: function() {
+    }
+    
+    func getBeginColumn() {
 //        return this.bufpos in this.bufcolumn ? this.bufcolumn[this.tokenBegin] : 0;
-//    },
-//    
-//    getBeginLine: function() {
+    }
+    
+    func getBeginLine() {
 //        return this.bufpos in this.bufline ? this.bufline[this.tokenBegin] : 0;
-//    }
-//    
-//};
-//
+    }
+
 }
