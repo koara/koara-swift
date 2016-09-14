@@ -28,7 +28,7 @@ class CharStream {
     
     
     func readChar() -> Character {
-        if (inBuf > 0) {
+        if inBuf > 0 {
             inBuf -= 1;
 //            if ((bufpos += 1) == bufsize) {
 //                bufpos = 0;
@@ -47,18 +47,18 @@ class CharStream {
     }
     
     func fillBuff() {
-//        if (this.maxNextCharInd === this.available) {
-//            if (this.available === this.bufsize) {
-//                this.bufpos = 0;
-//                this.maxNextCharInd = 0;
-//                if (this.tokenBegin > 2048) {
-//                    this.available = this.tokenBegin;
-//                }
-//            } else {
-//                this.available = this.bufsize;
-//            }
-//        }
-//        var i = 0;
+        if maxNextCharInd == available {
+            if available == bufsize {
+                bufpos = 0
+                maxNextCharInd = 0
+                if tokenBegin > 2048 {
+                    available = tokenBegin
+                }
+            } else {
+                available = bufsize
+            }
+        }
+//        var i = 0
 //        
 //        try {
 //            if ((i = this.reader.read(this.buffer, this.maxNextCharInd, this.available - this.maxNextCharInd)) === -1) {
@@ -77,33 +77,34 @@ class CharStream {
     }
     
     func backup(amount : Int) {
-//        this.inBuf += amount;
-//        if ((this.bufpos -= amount) < 0) {
-//            this.bufpos += this.bufsize;
-//        }
+        inBuf += amount
+        bufpos -= amount
+        if (bufpos < 0) {
+            bufpos += bufsize;
+        }
     }
     
     func updateLineColumn(c : String) {
-//        this.column++;
-//        if (this.prevCharIsLF) {
-//            this.prevCharIsLF = false;
-//            this.column = 1;
-//            this.line += this.column;
-//        }
-//        
-//        switch (c) {
-//        case "\n":
+        column += 1
+        if prevCharIsLF {
+            prevCharIsLF = false
+            column = 1;
+            line += column;
+        }
+    
+//        switch c {
+//          case "\n":
 //            this.prevCharIsLF = true;
 //            break;
-//        case "\t":
+//          case "\t":
 //            this.column--;
 //            this.column += this.tabSize - this.column % this.tabSize;
 //            break;
-//        default:
+//           default:
 //            break;
-//        }
-//        this.bufline[this.bufpos] = this.line;
-//        this.bufcolumn[this.bufpos] = this.column;
+//          }
+        bufline[bufpos] = line;
+        bufcolumn[bufpos] = column;
     }
     
     func getImage() {
