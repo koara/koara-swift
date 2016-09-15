@@ -3,11 +3,11 @@ class Parser {
 //    var cs;
 //    private Token token, nextToken, scanPosition, lastPosition;
 //    private TokenManager tm;
-//    private TreeState tree;
+    var tree : TreeState!
 //    private int currentBlockLevel;
 //    private int currentQuoteLevel;
 //    private int lookAhead;
-//    private int nextTokenKind;
+    var nextTokenKind : Int
 //    private boolean lookingAhead;
 //    private boolean semanticLookAhead;
 //    private LookaheadSuccess lookAheadSuccess;
@@ -17,10 +17,11 @@ class Parser {
     
     init() {
         self.lookAheadSuccess = LookaheadSuccess()
+        self.nextTokenKind = 0
     }
     
     func parse(text: String) -> Document {
-        return self.parseReader(StringReader(text: text));
+        return self.parseReader(StringReader(text: text))
     }
 //    
 //    public Document parseFile(File file) throws IOException {
@@ -34,36 +35,35 @@ class Parser {
 //    cs = new CharStream(reader);
 //    tm = new TokenManager(cs);
 //    token = new Token();
-//    tree = new TreeState();
-//    nextTokenKind = -1;
-//
-      var document = Document()
-//    tree.openScope();
+      tree = TreeState()
+        nextTokenKind = -1
+        var document = Document()
+        tree.openScope()
 //    while (getNextTokenKind() == EOL) {
 //    consumeToken(EOL);
 //    }
 //    
-//    whiteSpace();
+        whiteSpace()
 //    if (hasAnyBlockElementsAhead()) {
 //    blockElement();
 //    while (blockAhead(0)) {
 //    while (getNextTokenKind() == EOL) {
 //    consumeToken(EOL);
-//    whiteSpace();
+        whiteSpace()
 //    }
 //    blockElement();
 //    }
 //    while (getNextTokenKind() == EOL) {
 //    consumeToken(EOL);
 //    }
-//    whiteSpace();
+        whiteSpace();
 //    }
 //    consumeToken(EOF);
-//    tree.closeScope(document);
-      return document;
+        tree.closeScope(document);
+        return document;
     }
-//    
-//    private void blockElement() {
+
+    func blockElement() {
 //    currentBlockLevel++;
 //    if (modules.contains("headings") && headingAhead(1)) {
 //    heading();
@@ -79,18 +79,18 @@ class Parser {
 //    paragraph();
 //    }
 //    currentBlockLevel--;
-//    }
-//    
-//    private void heading() {
-//    Heading heading = new Heading();
-//    tree.openScope();
+    }
+    
+    func heading() {
+        var heading = Heading();
+        tree.openScope();
 //    int headingLevel = 0;
 //    
 //    while (getNextTokenKind() == EQ) {
 //    consumeToken(EQ);
 //    headingLevel++;
 //    }
-//    whiteSpace();
+        whiteSpace();
 //    while (headingHasInlineElementsAhead()) {
 //    if (hasTextAhead()) {
 //    text();
@@ -109,24 +109,24 @@ class Parser {
 //    }
 //    }
 //    heading.setValue(headingLevel);
-//    tree.closeScope(heading);
-//    }
-//    
-//    private void blockQuote() {
-//    BlockQuote blockQuote = new BlockQuote();
-//    tree.openScope();
+        tree.closeScope(heading);
+    }
+
+    func blockQuote() {
+        var blockQuote = BlockQuote();
+        tree.openScope()
 //    currentQuoteLevel++;
 //    consumeToken(GT);
 //    while (blockQuoteHasEmptyLineAhead()) {
 //    blockQuoteEmptyLine();
 //    }
-//    whiteSpace();
+        whiteSpace();
 //    if (blockQuoteHasAnyBlockElementseAhead()) {
 //    blockElement();
 //    while (blockAhead(0)) {
 //    while (getNextTokenKind() == EOL) {
 //    consumeToken(EOL);
-//    whiteSpace();
+        whiteSpace();
 //    blockQuotePrefix();
 //    }
 //    blockElement();
@@ -136,27 +136,27 @@ class Parser {
 //    blockQuoteEmptyLine();
 //    }
 //    currentQuoteLevel--;
-//    tree.closeScope(blockQuote);
-//    }
-//    
-//    private void blockQuotePrefix() {
+        tree.closeScope(blockQuote)
+    }
+    
+    func blockQuotePrefix() {
 //    int i = 0;
 //    do {
 //    consumeToken(GT);
-//    whiteSpace();
+        whiteSpace();
 //    } while (++i < currentQuoteLevel);
-//    }
-//    
-//    private void blockQuoteEmptyLine() {
+    }
+
+    func blockQuoteEmptyLine() {
 //    consumeToken(EOL);
-//    whiteSpace();
+        whiteSpace();
 //    do {
 //    consumeToken(GT);
-//    whiteSpace();
+        whiteSpace();
 //    } while (getNextTokenKind() == GT);
-//    }
-//    
-//    private void unorderedList() {
+    }
+
+    func unorderedList() {
 //    ListBlock list = new ListBlock(false);
 //    tree.openScope();
 //    int listBeginColumn = unorderedListItem();
@@ -164,27 +164,26 @@ class Parser {
 //    while (getNextTokenKind() == EOL) {
 //    consumeToken(EOL);
 //    }
-//    whiteSpace();
+        whiteSpace();
 //    if (currentQuoteLevel > 0) {
 //    blockQuotePrefix();
 //    }
 //    unorderedListItem();
 //    }
 //    tree.closeScope(list);
-//    }
-//    
-//    private int unorderedListItem() {
-//    ListItem listItem = new ListItem();
-//    tree.openScope();
-//    
-//    Token t = consumeToken(DASH);
-//    whiteSpace();
+    }
+  
+    func unorderedListItem() -> Int {
+        let listItem = ListItem()
+        tree.openScope()
+//        var t = consumeToken(DASH);
+        whiteSpace();
 //    if (listItemHasInlineElements()) {
 //    blockElement();
 //    while (blockAhead(t.beginColumn)) {
 //    while (getNextTokenKind() == EOL) {
 //    consumeToken(EOL);
-//    whiteSpace();
+        whiteSpace();
 //    if (currentQuoteLevel > 0) {
 //    blockQuotePrefix();
 //    }
@@ -192,11 +191,12 @@ class Parser {
 //    blockElement();
 //    }
 //    }
-//    tree.closeScope(listItem);
-//    return t.beginColumn;
-//    }
+        tree.closeScope(listItem)
+       // return t.beginColumn;
+        return 0;
+    }
 //    
-//    private void orderedList() {
+    func orderedList() {
 //    ListBlock list = new ListBlock(true);
 //    tree.openScope();
 //    int listBeginColumn = orderedListItem();
@@ -204,27 +204,27 @@ class Parser {
 //    while (getNextTokenKind() == EOL) {
 //    consumeToken(EOL);
 //    }
-//    whiteSpace();
+        whiteSpace()
 //    if (currentQuoteLevel > 0) {
 //    blockQuotePrefix();
 //    }
 //    orderedListItem();
 //    }
 //    tree.closeScope(list);
-//    }
+    }
 //    
-//    private int orderedListItem() {
+    func orderedListItem() -> Int {
 //    ListItem listItem = new ListItem();
 //    tree.openScope();
 //    Token t = consumeToken(DIGITS);
 //    consumeToken(DOT);
-//    whiteSpace();
+        whiteSpace()
 //    if (listItemHasInlineElements()) {
 //    blockElement();
 //    while (blockAhead(t.beginColumn)) {
 //    while (getNextTokenKind() == EOL) {
 //    consumeToken(EOL);
-//    whiteSpace();
+        whiteSpace()
 //    if (currentQuoteLevel > 0) {
 //    blockQuotePrefix();
 //    }
@@ -234,10 +234,11 @@ class Parser {
 //    }
 //    listItem.setNumber(Integer.valueOf(t.image));
 //    tree.closeScope(listItem);
-//    return t.beginColumn;
-//    }
-//    
-//    private void fencedCodeBlock() {
+//    return t.beginColumn; 
+        return 0;
+    }
+    
+    func fencedCodeBlock() {
 //    CodeBlock codeBlock = new CodeBlock();
 //    tree.openScope();
 //    StringBuilder s = new StringBuilder();
@@ -245,7 +246,7 @@ class Parser {
 //    do {
 //    consumeToken(BACKTICK);
 //    } while (getNextTokenKind() == BACKTICK);
-//    whiteSpace();
+        whiteSpace()
 //    if (getNextTokenKind() == CHAR_SEQUENCE) {
 //    codeBlock.setLanguage(codeLanguage());
 //    }
@@ -333,32 +334,32 @@ class Parser {
 //    if (fencesAhead()) {
 //    consumeToken(EOL);
 //    blockQuotePrefix();
-//    whiteSpace();
+        whiteSpace()
 //    while (getNextTokenKind() == BACKTICK) {
 //    consumeToken(BACKTICK);
 //    }
 //    }
 //    codeBlock.setValue(s.toString());
 //    tree.closeScope(codeBlock);
-//    }
+    }
 //    
-//    private void paragraph() {
+    func paragraph() {
 //    BlockElement paragraph = modules.contains("paragraphs") ? new Paragraph() : new BlockElement();
 //    tree.openScope();
 //    inline();
 //    while (textAhead()) {
 //    lineBreak();
-//    whiteSpace();
+        whiteSpace()
 //    if (modules.contains("blockquotes")) {
 //    while (getNextTokenKind() == GT) {
 //    consumeToken(GT);
-//    whiteSpace();
+        whiteSpace()
 //    }
 //    }
 //    inline();
 //    }
 //    tree.closeScope(paragraph);
-//    }
+    }
 //    
 //    private void text() {
 //    Text text = new Text();
@@ -426,14 +427,14 @@ class Parser {
 //    tree.closeScope(text);
 //    }
 //    
-//    private void image() {
+    func image() {
 //    Image image = new Image();
 //    tree.openScope();
 //    String ref = "";
 //    consumeToken(LBRACK);
-//    whiteSpace();
+        whiteSpace()
 //    consumeToken(IMAGE_LABEL);
-//    whiteSpace();
+        whiteSpace()
 //    while (imageHasAnyElements()) {
 //    if (hasTextAhead()) {
 //    resourceText();
@@ -441,7 +442,7 @@ class Parser {
 //    looseChar();
 //    }
 //    }
-//    whiteSpace();
+        whiteSpace()
 //    consumeToken(RBRACK);
 //    if (hasResourceUrlAhead()) {
 //    ref = resourceUrl();
@@ -455,7 +456,7 @@ class Parser {
 //    tree.openScope();
 //    String ref = "";
 //    consumeToken(LBRACK);
-//    whiteSpace();
+        whiteSpace()
 //    while (linkHasAnyElements()) {
 //    if (modules.contains("images") && hasImageAhead()) {
 //    image();
@@ -471,14 +472,14 @@ class Parser {
 //    looseChar();
 //    }
 //    }
-//    whiteSpace();
+        whiteSpace()
 //    consumeToken(RBRACK);
 //    if (hasResourceUrlAhead()) {
 //    ref = resourceUrl();
 //    }
 //    link.setValue(ref);
 //    tree.closeScope(link);
-//    }
+    }
 //    
 //    private void strong() {
 //    Strong strong = new Strong();
@@ -825,14 +826,14 @@ class Parser {
 //    tree.closeScope(text);
 //    }
 //    
-//    private String resourceUrl() {
+    func resourceUrl() -> String {
 //    consumeToken(LPAREN);
-//    whiteSpace();
-//    String ref = resourceUrlText();
-//    whiteSpace();
+        whiteSpace()
+        let ref = "" //resourceUrlText();
+        whiteSpace()
 //    consumeToken(RPAREN);
-//    return ref;
-//    }
+        return ref;
+    }
 //    
 //    private String resourceUrlText() {
 //    StringBuilder s = new StringBuilder();
@@ -906,19 +907,19 @@ class Parser {
 //    return s.toString();
 //    }
 //    
-//    private void strongMultiline() {
+    func strongMultiline() {
 //    Strong strong = new Strong();
 //    tree.openScope();
 //    consumeToken(ASTERISK);
 //    strongMultilineContent();
 //    while (textAhead()) {
 //    lineBreak();
-//    whiteSpace();
+        whiteSpace()
 //    strongMultilineContent();
 //    }
 //    consumeToken(ASTERISK);
 //    tree.closeScope(strong);
-//    }
+    }
 //    
 //    private void strongMultilineContent() {
 //    do {
@@ -1018,20 +1019,20 @@ class Parser {
 //    tree.closeScope(strong);
 //    }
 //    
-//    private void emMultiline() {
+    func emMultiline() {
 //    Em em = new Em();
 //    tree.openScope();
 //    consumeToken(UNDERSCORE);
 //    emMultilineContent();
 //    while (textAhead()) {
 //    lineBreak();
-//    whiteSpace();
+        whiteSpace()
 //    emMultilineContent();
 //    }
 //    consumeToken(UNDERSCORE);
 //    tree.closeScope(em);
-//    }
-//    
+    }
+    
 //    private void emMultilineContent() {
 //    do {
 //    if (hasTextAhead()) {
@@ -1130,29 +1131,29 @@ class Parser {
 //    tree.closeScope(em);
 //    }
 //    
-//    private void codeMultiline() {
+    func codeMultiline() {
 //    Code code = new Code();
 //    tree.openScope();
 //    consumeToken(BACKTICK);
 //    codeText();
 //    while (textAhead()) {
 //    lineBreak();
-//    whiteSpace();
+        whiteSpace()
 //    while (getNextTokenKind() == GT) {
 //    consumeToken(GT);
-//    whiteSpace();
+        whiteSpace()
 //    }
 //    codeText();
 //    }
 //    consumeToken(BACKTICK);
 //    tree.closeScope(code);
-//    }
-//    
-//    private void whiteSpace() {
+    }
+    
+    func whiteSpace() {
 //    while (getNextTokenKind() == SPACE || getNextTokenKind() == TAB) {
 //    consumeToken(getNextTokenKind());
 //    }
-//    }
+    }
 //    
 //    func hasAnyBlockElementsAhead() -> Bool {
 //    try {
