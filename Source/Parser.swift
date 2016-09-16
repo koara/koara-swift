@@ -360,8 +360,8 @@ class Parser {
 //    }
 //    tree.closeScope(paragraph);
     }
-//    
-//    private void text() {
+   
+    func text() {
 //    Text text = new Text();
 //    tree.openScope();
 //    StringBuffer s = new StringBuffer();
@@ -425,8 +425,8 @@ class Parser {
 //    }
 //    text.setValue(s.toString());
 //    tree.closeScope(text);
-//    }
-//    
+    }
+  
     func image() {
 //    Image image = new Image();
 //    tree.openScope();
@@ -449,9 +449,9 @@ class Parser {
 //    }
 //    image.setValue(ref);
 //    tree.closeScope(image);
-//    }
-//    
-//    private void link() {
+    }
+    
+    func link() {
 //    Link link = new Link();
 //    tree.openScope();
 //    String ref = "";
@@ -480,8 +480,8 @@ class Parser {
 //    link.setValue(ref);
 //    tree.closeScope(link);
     }
-//    
-//    private void strong() {
+    
+    func strong() {
 //    Strong strong = new Strong();
 //    tree.openScope();
 //    consumeToken(ASTERISK);
@@ -512,9 +512,9 @@ class Parser {
 //    }
 //    consumeToken(ASTERISK);
 //    tree.closeScope(strong);
-//    }
-//    
-//    private void em() {
+    }
+  
+    func em() {
 //    Em em = new Em();
 //    tree.openScope();
 //    consumeToken(UNDERSCORE);
@@ -545,18 +545,18 @@ class Parser {
 //    }
 //    consumeToken(UNDERSCORE);
 //    tree.closeScope(em);
-//    }
-//    
-//    private void code() {
+    }
+
+    func code() {
 //    Code code = new Code();
 //    tree.openScope();
 //    consumeToken(BACKTICK);
 //    codeText();
 //    consumeToken(BACKTICK);
 //    tree.closeScope(code);
-//    }
-//    
-//    private void codeText() {
+    }
+
+    func codeText() {
 //    Text text = new Text();
 //    tree.openScope();
 //    StringBuffer s = new StringBuffer();
@@ -629,9 +629,9 @@ class Parser {
 //    } while (codeTextHasAnyTokenAhead());
 //    text.setValue(s.toString());
 //    tree.closeScope(text);
-//    }
-//    
-//    private void looseChar() {
+    }
+
+    func looseChar() {
 //    Text text = new Text();
 //    tree.openScope();
 //    switch (getNextTokenKind()) {
@@ -649,9 +649,9 @@ class Parser {
 //    break;
 //    }
 //    tree.closeScope(text);
-//    }
-//    
-//    private void lineBreak() {
+    }
+
+    func lineBreak() {
 //    LineBreak linebreak = new LineBreak();
 //    tree.openScope();
 //    while (getNextTokenKind() == SPACE || getNextTokenKind() == TAB) {
@@ -670,9 +670,9 @@ class Parser {
 //    while ((getNextTokenKind() == SPACE || getNextTokenKind() == TAB) && currentPos < (threshold - 1)) {
 //    currentPos = consumeToken(getNextTokenKind()).beginColumn;
 //    }
-//    }
-//    
-//    private String codeLanguage() {
+    }
+
+    func codeLanguage() {
 //    StringBuilder s = new StringBuilder();
 //    do {
 //    switch (getNextTokenKind()) {
@@ -741,9 +741,9 @@ class Parser {
 //    }
 //    } while (getNextTokenKind() != EOL && getNextTokenKind() != EOF);
 //    return s.toString();
-//    }
-//    
-//    private void inline() {
+    }
+  
+    func inline() {
 //    do {
 //    if (hasInlineTextAhead()) {
 //    text();
@@ -761,9 +761,9 @@ class Parser {
 //    looseChar();
 //    }
 //    } while (hasInlineElementAhead());
-//    }
-//    
-//    private void resourceText() {
+    }
+   
+    func resourceText() {
 //    Text text = new Text();
 //    tree.openScope();
 //    StringBuilder s = new StringBuilder();
@@ -824,8 +824,8 @@ class Parser {
 //    } while (resourceHasElementAhead());
 //    text.setValue(s.toString());
 //    tree.closeScope(text);
-//    }
-//    
+    }
+   
     func resourceUrl() -> String {
 //    consumeToken(LPAREN);
         whiteSpace()
@@ -834,8 +834,8 @@ class Parser {
 //    consumeToken(RPAREN);
         return ref;
     }
-//    
-//    private String resourceUrlText() {
+    
+    func resourceUrlText() -> String {
 //    StringBuilder s = new StringBuilder();
 //    while (resourceTextHasElementsAhead()) {
 //    switch (getNextTokenKind()) {
@@ -905,8 +905,9 @@ class Parser {
 //    }
 //    }
 //    return s.toString();
-//    }
-//    
+        return ""
+    }
+    
     func strongMultiline() {
 //    Strong strong = new Strong();
 //    tree.openScope();
@@ -920,8 +921,8 @@ class Parser {
 //    consumeToken(ASTERISK);
 //    tree.closeScope(strong);
     }
-//    
-//    private void strongMultilineContent() {
+
+    func strongMultilineContent() {
 //    do {
 //    if (hasTextAhead()) {
 //    text();
@@ -947,9 +948,9 @@ class Parser {
 //    }
 //    }
 //    } while (strongMultilineHasElementsAhead());
-//    }
-//    
-//    private void strongWithinEmMultiline() {
+    }
+    
+    func strongWithinEmMultiline() {
 //    Strong strong = new Strong();
 //    tree.openScope();
 //    consumeToken(ASTERISK);
@@ -960,9 +961,9 @@ class Parser {
 //    }
 //    consumeToken(ASTERISK);
 //    tree.closeScope(strong);
-//    }
-//    
-//    private void strongWithinEmMultilineContent() {
+    }
+
+    func strongWithinEmMultilineContent() {
 //    do {
 //    if (hasTextAhead()) {
 //    text();
@@ -986,9 +987,9 @@ class Parser {
 //    }
 //    }
 //    } while (strongWithinEmMultilineHasElementsAhead());
-//    }
-//    
-//    private void strongWithinEm() {
+    }
+    
+    func strongWithinEm() {
 //    Strong strong = new Strong();
 //    tree.openScope();
 //    consumeToken(ASTERISK);
@@ -1017,8 +1018,8 @@ class Parser {
 //    } while (strongWithinEmHasElementsAhead());
 //    consumeToken(ASTERISK);
 //    tree.closeScope(strong);
-//    }
-//    
+    }
+   
     func emMultiline() {
 //    Em em = new Em();
 //    tree.openScope();
@@ -1033,7 +1034,7 @@ class Parser {
 //    tree.closeScope(em);
     }
     
-//    private void emMultilineContent() {
+    func emMultilineContent() {
 //    do {
 //    if (hasTextAhead()) {
 //    text();
@@ -1059,9 +1060,9 @@ class Parser {
 //    }
 //    }
 //    } while (emMultilineContentHasElementsAhead());
-//    }
-//    
-//    private void emWithinStrongMultiline() {
+    }
+    
+    func emWithinStrongMultiline() {
 //    Em em = new Em();
 //    tree.openScope();
 //    consumeToken(UNDERSCORE);
@@ -1072,9 +1073,9 @@ class Parser {
 //    }
 //    consumeToken(UNDERSCORE);
 //    tree.closeScope(em);
-//    }
-//    
-//    private void emWithinStrongMultilineContent() {
+    }
+    
+    func emWithinStrongMultilineContent() {
 //    do {
 //    if (hasTextAhead()) {
 //    text();
@@ -1098,9 +1099,9 @@ class Parser {
 //    }
 //    }
 //    } while (emWithinStrongMultilineContentHasElementsAhead());
-//    }
-//    
-//    private void emWithinStrong() {
+    }
+    
+    func emWithinStrong() {
 //    Em em = new Em();
 //    tree.openScope();
 //    consumeToken(UNDERSCORE);
@@ -1129,8 +1130,8 @@ class Parser {
 //    } while (emWithinStrongHasElementsAhead());
 //    consumeToken(UNDERSCORE);
 //    tree.closeScope(em);
-//    }
-//    
+    }
+   
     func codeMultiline() {
 //    Code code = new Code();
 //    tree.openScope();
@@ -1154,18 +1155,18 @@ class Parser {
 //    consumeToken(getNextTokenKind());
 //    }
     }
-//    
-//    func hasAnyBlockElementsAhead() -> Bool {
+    
+    func hasAnyBlockElementsAhead() -> Bool {
 //    try {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
 //    return !scanMoreBlockElements();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean blockAhead(int blockBeginColumn) {
+    }
+    
+    func blockAhead(blockBeginColumn : Int) -> Bool {
 //    int quoteLevel;
 //    
 //    if (getNextTokenKind() == EOL) {
@@ -1192,10 +1193,10 @@ class Parser {
 //    } while (t.kind == EOL);
 //    return t.kind != EOF && (currentBlockLevel == 0 || t.beginColumn >= blockBeginColumn + 2);
 //    }
-//    return false;
-//    }
-//    
-//    private boolean multilineAhead(Integer token) {
+        return false;
+    }
+    
+    func multilineAhead(token : Int) -> Bool {
 //    if (getNextTokenKind() == token && getToken(2).kind != token && getToken(2).kind != EOL) {
 //    
 //    for (int i = 2;; i++) {
@@ -1222,19 +1223,19 @@ class Parser {
 //    }
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean fencesAhead() {
+        return false;
+    }
+
+    func fencesAhead() -> Bool {
 //    int i = skip(2, SPACE, TAB, GT);
 //    if (getToken(i).kind == BACKTICK && getToken(i + 1).kind == BACKTICK && getToken(i + 2).kind == BACKTICK) {
 //    i = skip(i + 3, SPACE, TAB);
 //    return getToken(i).kind == EOL || getToken(i).kind == EOF;
 //    }
-//    return false;
-//    }
-//    
-//    private boolean headingAhead(int offset) {
+        return false;
+    }
+
+    func headingAhead(offset : Int) -> Bool {
 //    if (getToken(offset).kind == EQ) {
 //    int heading = 1;
 //    for (int i = (offset + 1);; i++) {
@@ -1246,10 +1247,10 @@ class Parser {
 //    }
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean listItemAhead(int listBeginColumn, boolean ordered) {
+        return false
+    }
+
+    func listItemAhead(listBeginColumn : Int, ordered : Bool) -> Bool {
 //    if (getNextTokenKind() == EOL) {
 //    for (int i = 2, eol = 1;; i++) {
 //    Token t = getToken(i);
@@ -1264,10 +1265,10 @@ class Parser {
 //    }
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean textAhead() {
+        return false;
+    }
+
+    func textAhead() -> Bool {
 //    if (getNextTokenKind() == EOL && getToken(2).kind != EOL) {
 //    int i = skip(2, SPACE, TAB);
 //    int quoteLevel = newQuoteLevel(i);
@@ -1282,58 +1283,58 @@ class Parser {
 //    && !(modules.contains("headings") && headingAhead(i));
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean nextAfterSpace(Integer... tokens) {
+        return false
+    }
+
+    func nextAfterSpace() {// (Integer... tokens) {
 //    int i = skip(1, SPACE, TAB);
 //    return Arrays.asList(tokens).contains(getToken(i).kind);
-//    }
-//    
-//    private int newQuoteLevel(int offset) {
+    }
+
+    func newQuoteLevel(offset : Int) -> Int {
 //    int quoteLevel = 0;
 //    for (int i = offset;; i++) {
 //    Token t = getToken(i);
 //    if (t.kind == GT) {
 //    quoteLevel++;
 //    } else if (t.kind != SPACE && t.kind != TAB) {
-//    return quoteLevel;
+        return 0 //    return quoteLevel;
 //    }
 //    
 //    }
-//    }
-//    
-//    private int skip(int offset, Integer... tokens) {
+    }
+    
+    func skip() -> Int { //(int offset, Integer... tokens) {
 //    List<Integer> tokenList = Arrays.asList(tokens);
 //    for (int i = offset;; i++) {
 //    Token t = getToken(i);
 //    if (!tokenList.contains(t.kind)) {
-//    return i;
+        return 0 //    return i;
 //    }
 //    }
-//    }
-//    
-//    private boolean hasOrderedListAhead() {
+    }
+    
+    func hasOrderedListAhead() -> Bool {
 //    lookAhead = 2;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanToken(DIGITS) && !scanToken(DOT);
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean hasFencedCodeBlockAhead() {
+    }
+
+    func hasFencedCodeBlockAhead() -> Bool {
 //    lookAhead = 3;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanFencedCodeBlock();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean headingHasInlineElementsAhead() {
+    }
+  
+    func headingHasInlineElementsAhead() -> Bool {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
 //    try {
@@ -1361,341 +1362,341 @@ class Parser {
 //    }
 //    return true;
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true;
 //    }
-//    }
-//    
-//    private boolean hasTextAhead() {
+    }
+
+    func hasTextAhead() -> Bool {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanTextTokens();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true;
 //    }
-//    }
-//    
-//    private boolean hasImageAhead() {
+    }
+
+    func hasImageAhead() -> Bool {
 //    lookAhead = 2147483647;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanImage();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean blockQuoteHasEmptyLineAhead() {
+    }
+    
+    func blockQuoteHasEmptyLineAhead() -> Bool {
 //    lookAhead = 2147483647;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanBlockQuoteEmptyLine();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean hasStrongAhead() {
+    }
+
+    func hasStrongAhead() -> Bool {
 //    lookAhead = 2147483647;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanStrong();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean hasEmAhead() {
+    }
+ 
+    func hasEmAhead() -> Bool {
 //    lookAhead = 2147483647;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanEm();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean hasCodeAhead() {
+    }
+
+    func hasCodeAhead() -> Bool {
 //    lookAhead = 2147483647;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanCode();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean blockQuoteHasAnyBlockElementseAhead() {
+    }
+    
+    func blockQuoteHasAnyBlockElementseAhead() -> Bool {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanMoreBlockElements();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean hasBlockQuoteEmptyLinesAhead() {
+    }
+
+    func hasBlockQuoteEmptyLinesAhead() -> Bool {
 //    lookAhead = 2147483647;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanBlockQuoteEmptyLines();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean listItemHasInlineElements() {
+    }
+
+    func listItemHasInlineElements() -> Bool {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanMoreBlockElements();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean hasInlineTextAhead() {
+    }
+  
+    func hasInlineTextAhead() -> Bool {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanTextTokens();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean hasInlineElementAhead() {
+    }
+
+    func hasInlineElementAhead() -> Bool {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanInlineElement();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean imageHasAnyElements() {
+    }
+
+    func imageHasAnyElements() -> Bool {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanImageElement();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean hasResourceTextAhead() {
+    }
+ 
+    func hasResourceTextAhead() -> Bool {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanResourceElements();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean linkHasAnyElements() {
+    }
+
+    func linkHasAnyElements() -> Bool {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanLinkElement();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean hasResourceUrlAhead() {
+    }
+
+    func hasResourceUrlAhead() -> Bool {
 //    lookAhead = 2147483647;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanResourceUrl();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean resourceHasElementAhead() {
+    }
+
+    func resourceHasElementAhead() -> Bool {
 //    lookAhead = 2;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanResourceElement();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean resourceTextHasElementsAhead() {
+    }
+   
+    func resourceTextHasElementsAhead() -> Bool {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanResourceTextElement();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean hasEmWithinStrongMultiline() {
+    }
+
+    func hasEmWithinStrongMultiline() -> Bool {
 //    lookAhead = 2147483647;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanEmWithinStrongMultiline();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean strongMultilineHasElementsAhead() {
+    }
+    
+    func strongMultilineHasElementsAhead() -> Bool {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanStrongMultilineElements();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean strongWithinEmMultilineHasElementsAhead() {
+    }
+
+    func strongWithinEmMultilineHasElementsAhead() -> Bool {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanStrongWithinEmMultilineElements();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean hasImage() {
+    }
+
+    func hasImage() -> Bool {
 //    lookAhead = 2147483647;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanImage();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean hasLinkAhead() {
+    }
+
+    func hasLinkAhead() -> Bool {
 //    lookAhead = 2147483647;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanLink();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean strongEmWithinStrongAhead() {
+    }
+
+    func strongEmWithinStrongAhead() -> Bool {
 //    lookAhead = 2147483647;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanEmWithinStrong();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean strongHasElements() {
+    }
+
+    func strongHasElements() -> Bool {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanStrongElements();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean strongWithinEmHasElementsAhead() {
+    }
+
+    func strongWithinEmHasElementsAhead() -> Bool {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanStrongWithinEmElements();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean hasStrongWithinEmMultilineAhead() {
+    }
+
+    func hasStrongWithinEmMultilineAhead() -> Bool {
 //    lookAhead = 2147483647;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanStrongWithinEmMultiline();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean emMultilineContentHasElementsAhead() {
+    }
+
+    func emMultilineContentHasElementsAhead() -> Bool {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanEmMultilineContentElements();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean emWithinStrongMultilineContentHasElementsAhead() {
+    }
+
+    func emWithinStrongMultilineContentHasElementsAhead() -> Bool {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanEmWithinStrongMultilineContent();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean emHasStrongWithinEm() {
+    }
+
+    func emHasStrongWithinEm() -> Bool {
 //    lookAhead = 2147483647;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanStrongWithinEm();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean emHasElements() {
+    }
+
+    func emHasElements() -> Bool {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanEmElements();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean emWithinStrongHasElementsAhead() {
+    }
+
+    func emWithinStrongHasElementsAhead() -> Bool {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanEmWithinStrongElements();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean codeTextHasAnyTokenAhead() {
+    }
+    
+    func codeTextHasAnyTokenAhead() -> Bool {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanCodeTextTokens();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean textHasTokensAhead() {
+    }
+
+    func textHasTokensAhead() -> Bool {
 //    lookAhead = 1;
 //    lastPosition = scanPosition = token;
 //    try {
 //    return !scanText();
 //    } catch (LookaheadSuccess ls) {
-//    return true;
+        return true
 //    }
-//    }
-//    
-//    private boolean scanLooseChar() {
+    }
+   
+    func scanLooseChar() -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanToken(ASTERISK)) {
 //    scanPosition = xsp;
@@ -1707,10 +1708,10 @@ class Parser {
 //    }
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanText() {
+        return false
+    }
+
+    func scanText() -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanToken(BACKSLASH)) {
 //    scanPosition = xsp;
@@ -1758,10 +1759,10 @@ class Parser {
 //    }
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanTextTokens() {
+        return false
+    }
+
+    func scanTextTokens() -> Bool {
 //    if (scanText()) {
 //    return true;
 //    }
@@ -1773,10 +1774,10 @@ class Parser {
 //    break;
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanCodeTextTokens() {
+        return false
+    }
+
+    func scanCodeTextTokens() -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanToken(ASTERISK)) {
 //    scanPosition = xsp;
@@ -1835,16 +1836,17 @@ class Parser {
 //    }
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanCode() {
+        return false
+    }
+
+    func scanCode() -> Bool {
 //    return scanToken(BACKTICK) || scanCodeTextTokensAhead() || scanToken(BACKTICK);
-//    }
-//    
-//    private boolean scanCodeMultiline() {
+    return false
+    }
+
+    func scanCodeMultiline() -> Bool {
 //    if (scanToken(BACKTICK) || scanCodeTextTokensAhead()) {
-//    return true;
+        return true;
 //    }
 //    Token xsp;
 //    while (true) {
@@ -1855,9 +1857,9 @@ class Parser {
 //    }
 //    }
 //    return scanToken(BACKTICK);
-//    }
-//    
-//    private boolean scanCodeTextTokensAhead() {
+    }
+
+    func scanCodeTextTokensAhead() -> Bool {
 //    if (scanCodeTextTokens()) {
 //    return true;
 //    }
@@ -1869,12 +1871,12 @@ class Parser {
 //    break;
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean hasCodeTextOnNextLineAhead() {
+        return false
+    }
+
+    func hasCodeTextOnNextLineAhead() -> Bool {
 //    if (scanWhitespaceTokenBeforeEol()) {
-//    return true;
+        return true;
 //    }
 //    Token xsp;
 //    while (true) {
@@ -1885,9 +1887,9 @@ class Parser {
 //    }
 //    }
 //    return scanCodeTextTokensAhead();
-//    }
-//    
-//    private boolean scanWhitspaceTokens() {
+    }
+
+    func scanWhitspaceTokens() -> Bool{
 //    Token xsp;
 //    while (true) {
 //    xsp = scanPosition;
@@ -1896,14 +1898,14 @@ class Parser {
 //    break;
 //    }
 //    }
-//    return false;
+        return false
 //    }
 //    
 //    private boolean scanWhitespaceTokenBeforeEol() {
 //    return scanWhitspaceTokens() || scanToken(EOL);
-//    }
-//    
-//    private boolean scanEmWithinStrongElements() {
+    }
+
+    func scanEmWithinStrongElements() -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanTextTokens()) {
 //    scanPosition = xsp;
@@ -1924,12 +1926,12 @@ class Parser {
 //    }
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanEmWithinStrong() {
+        return false
+    }
+
+    func scanEmWithinStrong() -> Bool {
 //    if (scanToken(UNDERSCORE) || scanEmWithinStrongElements()) {
-//    return true;
+        return true;
 //    }
 //    Token xsp;
 //    while (true) {
@@ -1940,9 +1942,9 @@ class Parser {
 //    }
 //    }
 //    return scanToken(UNDERSCORE);
-//    }
-//    
-//    private boolean scanEmElements() {
+    }
+
+    func scanEmElements() -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanTextTokens()) {
 //    scanPosition = xsp;
@@ -1966,12 +1968,12 @@ class Parser {
 //    }
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanEm() {
+        return false
+    }
+
+    func scanEm() -> Bool {
 //    if (scanToken(UNDERSCORE) || scanEmElements()) {
-//    return true;
+        return true
 //    }
 //    Token xsp;
 //    while (true) {
@@ -1982,9 +1984,9 @@ class Parser {
 //    }
 //    }
 //    return scanToken(UNDERSCORE);
-//    }
-//    
-//    private boolean scanEmWithinStrongMultilineContent() {
+    }
+
+    func scanEmWithinStrongMultilineContent() -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanTextTokens()) {
 //    scanPosition = xsp;
@@ -2005,10 +2007,10 @@ class Parser {
 //    }
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean hasNoEmWithinStrongMultilineContentAhead() {
+        return false
+    }
+
+    func hasNoEmWithinStrongMultilineContentAhead() -> Bool {
 //    if (scanEmWithinStrongMultilineContent()) {
 //    return true;
 //    }
@@ -2020,12 +2022,12 @@ class Parser {
 //    break;
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanEmWithinStrongMultiline() {
+        return false
+    }
+
+    func scanEmWithinStrongMultiline() -> Bool {
 //    if (scanToken(UNDERSCORE) || hasNoEmWithinStrongMultilineContentAhead()) {
-//    return true;
+        return true
 //    }
 //    Token xsp;
 //    while (true) {
@@ -2036,9 +2038,9 @@ class Parser {
 //    }
 //    }
 //    return scanToken(UNDERSCORE);
-//    }
-//    
-//    private boolean scanEmMultilineContentElements() {
+    }
+
+    func scanEmMultilineContentElements() -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanTextTokens()) {
 //    scanPosition = xsp;
@@ -2065,10 +2067,10 @@ class Parser {
 //    }
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanStrongWithinEmElements() {
+        return false
+    }
+
+    func scanStrongWithinEmElements() -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanTextTokens()) {
 //    scanPosition = xsp;
@@ -2089,12 +2091,12 @@ class Parser {
 //    }
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanStrongWithinEm() {
+        return false
+    }
+
+    func scanStrongWithinEm() -> Bool {
 //    if (scanToken(ASTERISK) || scanStrongWithinEmElements()) {
-//    return true;
+        return true
 //    }
 //    Token xsp;
 //    while (true) {
@@ -2105,9 +2107,9 @@ class Parser {
 //    }
 //    }
 //    return scanToken(ASTERISK);
-//    }
-//    
-//    private boolean scanStrongElements() {
+    }
+
+    func scanStrongElements() -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanTextTokens()) {
 //    scanPosition = xsp;
@@ -2134,12 +2136,12 @@ class Parser {
 //    }
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanStrong() {
+        return false
+    }
+
+    func scanStrong() -> Bool {
 //    if (scanToken(ASTERISK) || scanStrongElements()) {
-//    return true;
+        return true
 //    }
 //    Token xsp;
 //    while (true) {
@@ -2150,9 +2152,9 @@ class Parser {
 //    }
 //    }
 //    return scanToken(ASTERISK);
-//    }
-//    
-//    private boolean scanStrongWithinEmMultilineElements() {
+    }
+
+    func scanStrongWithinEmMultilineElements() -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanTextTokens()) {
 //    scanPosition = xsp;
@@ -2173,10 +2175,10 @@ class Parser {
 //    }
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanForMoreStrongWithinEmMultilineElements() {
+        return false
+    }
+
+    func scanForMoreStrongWithinEmMultilineElements() -> Bool {
 //    if (scanStrongWithinEmMultilineElements()) {
 //    return true;
 //    }
@@ -2188,12 +2190,12 @@ class Parser {
 //    break;
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanStrongWithinEmMultiline() {
+        return false
+    }
+
+    func scanStrongWithinEmMultiline() -> Bool {
 //    if (scanToken(ASTERISK) || scanForMoreStrongWithinEmMultilineElements()) {
-//    return true;
+        return true
 //    }
 //    Token xsp;
 //    while (true) {
@@ -2204,9 +2206,9 @@ class Parser {
 //    }
 //    }
 //    return scanToken(ASTERISK);
-//    }
-//    
-//    private boolean scanStrongMultilineElements() {
+    }
+
+    func scanStrongMultilineElements() -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanTextTokens()) {
 //    scanPosition = xsp;
@@ -2230,10 +2232,10 @@ class Parser {
 //    }
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanResourceTextElement() {
+        return false
+    }
+
+    func scanResourceTextElement() -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanToken(ASTERISK)) {
 //    scanPosition = xsp;
@@ -2291,10 +2293,10 @@ class Parser {
 //    }
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanImageElement() {
+        return false
+    }
+
+    func scanImageElement() -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanResourceElements()) {
 //    scanPosition = xsp;
@@ -2302,10 +2304,10 @@ class Parser {
 //    return true;
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanResourceTextElements() {
+        return false
+    }
+
+    func scanResourceTextElements() -> Bool {
 //    Token xsp;
 //    while (true) {
 //    xsp = scanPosition;
@@ -2314,15 +2316,16 @@ class Parser {
 //    break;
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanResourceUrl() {
+        return false
+    }
+
+    func scanResourceUrl() -> Bool {
 //    return scanToken(LPAREN) || scanWhitspaceTokens() || scanResourceTextElements() || scanWhitspaceTokens()
 //    || scanToken(RPAREN);
-//    }
-//    
-//    private boolean scanLinkElement() {
+        return false
+    }
+
+    func scanLinkElement() -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanImage()) {
 //    scanPosition = xsp;
@@ -2340,10 +2343,10 @@ class Parser {
 //    }
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanResourceElement() {
+        return false
+    }
+
+    func scanResourceElement() -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanToken(BACKSLASH)) {
 //    scanPosition = xsp;
@@ -2388,10 +2391,10 @@ class Parser {
 //    }
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanResourceElements() {
+        return false
+    }
+
+    func scanResourceElements() -> Bool {
 //    if (scanResourceElement()) {
 //    return true;
 //    }
@@ -2403,10 +2406,10 @@ class Parser {
 //    break;
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanLink() {
+        return false
+    }
+
+    func scanLink() -> Bool {
 //    if (scanToken(LBRACK) || scanWhitspaceTokens() || scanLinkElement()) {
 //    return true;
 //    }
@@ -2425,10 +2428,10 @@ class Parser {
 //    if (scanResourceUrl()) {
 //    scanPosition = xsp;
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanImage() {
+        return false
+    }
+
+    func scanImage() -> Bool {
 //    if (scanToken(LBRACK) || scanWhitspaceTokens() || scanToken(IMAGE_LABEL) || scanImageElement()) {
 //    return true;
 //    }
@@ -2447,10 +2450,10 @@ class Parser {
 //    if (scanResourceUrl()) {
 //    scanPosition = xsp;
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanInlineElement() {
+        return false
+    }
+
+    func scanInlineElement() -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanTextTokens()) {
 //    scanPosition = xsp;
@@ -2480,10 +2483,10 @@ class Parser {
 //    }
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanParagraph() {
+        return false
+    }
+
+    func scanParagraph() -> Bool {
 //    Token xsp;
 //    if (scanInlineElement()) {
 //    return true;
@@ -2495,10 +2498,10 @@ class Parser {
 //    break;
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanWhitspaceToken() {
+        return false
+    }
+
+    func scanWhitspaceToken() -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanToken(SPACE)) {
 //    scanPosition = xsp;
@@ -2506,20 +2509,22 @@ class Parser {
 //    return true;
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanFencedCodeBlock() {
+        return false
+    }
+
+    func scanFencedCodeBlock() -> Bool {
 //    return scanToken(BACKTICK) || scanToken(BACKTICK) || scanToken(BACKTICK);
-//    }
-//    
-//    private boolean scanBlockQuoteEmptyLines() {
+        return false
+}
+
+    func scanBlockQuoteEmptyLines() -> Bool {
 //    return scanBlockQuoteEmptyLine() || scanToken(EOL);
-//    }
-//    
-//    private boolean scanBlockQuoteEmptyLine() {
+        return false
+}
+
+    func scanBlockQuoteEmptyLine() -> Bool {
 //    if (scanToken(EOL) || scanWhitspaceTokens() || scanToken(GT) || scanWhitspaceTokens()) {
-//    return true;
+        return true;
 //    }
 //    Token xsp;
 //    while (true) {
@@ -2530,9 +2535,9 @@ class Parser {
 //    }
 //    }
 //    return false;
-//    }
-//    
-//    private boolean scanForHeadersigns() {
+    }
+
+    func scanForHeadersigns() -> Bool {
 //    if (scanToken(EQ)) {
 //    return true;
 //    }
@@ -2544,10 +2549,10 @@ class Parser {
 //    break;
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanMoreBlockElements() {
+        return false
+    }
+
+    func scanMoreBlockElements() -> Bool {
 //    Token xsp = scanPosition;
 //    lookingAhead = true;
 //    semanticLookAhead = headingAhead(1);
@@ -2568,10 +2573,10 @@ class Parser {
 //    }
 //    }
 //    }
-//    return false;
-//    }
-//    
-//    private boolean scanToken(int kind) {
+        return false
+    }
+    
+    func scanToken(kind : Int) -> Bool {
 //    if (scanPosition == lastPosition) {
 //    lookAhead--;
 //    if (scanPosition.next == null) {
@@ -2588,10 +2593,10 @@ class Parser {
 //    if (lookAhead == 0 && scanPosition == lastPosition) {
 //    throw lookAheadSuccess;
 //    }
-//    return false;
-//    }
-//    
-//    private int getNextTokenKind() {
+        return false
+    }
+
+    func getNextTokenKind() -> Int {
 //    if (nextTokenKind != -1) {
 //    return nextTokenKind;
 //    } else if ((nextToken = token.next) == null) {
@@ -2599,7 +2604,8 @@ class Parser {
 //    return (nextTokenKind = token.next.kind);
 //    }
 //    return (nextTokenKind = nextToken.kind);
-//    }
+        return 0
+    }
 //    
 //    private Token consumeToken(int kind) {
 //    Token old = token;
