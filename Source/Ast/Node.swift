@@ -2,7 +2,10 @@ class Node {
     
     //var children : [Node] { get }
     //var parent : Node { get set }
-    //var value : AnyObject { get set }
+    var value : AnyObject {
+        set (newVal) { self.value = newVal }
+        get { return self.value }
+    }
     
     //func add(n: Node, i: Int) {
     

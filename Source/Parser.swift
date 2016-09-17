@@ -1,23 +1,20 @@
 class Parser {
-    
-//    var cs;
-//    private Token token, nextToken, scanPosition, lastPosition;
-//    private TokenManager tm;
+
+    var cs : CharStream!
+    var token, nextToken, scanPosition, lastPosition : Token!
+    var tm : TokenManager!
     var tree : TreeState!
-//    private int currentBlockLevel;
-//    private int currentQuoteLevel;
-//    private int lookAhead;
-    var nextTokenKind : Int
-//    private boolean lookingAhead;
-//    private boolean semanticLookAhead;
-//    private LookaheadSuccess lookAheadSuccess;
-//    private List<String> modules = Arrays.asList("paragraphs", "headings", "lists", "links", "images", "formatting", "blockquotes", "code");
-//    
+    var currentBlockLevel : Int = 0
+    var currentQuoteLevel : Int = 0
+    var lookAhead : Int = 0
+    var nextTokenKind : Int = 0
+    var lookingAhead : Bool = false
+    var semanticLookAhead : Bool = false
+    var modules : [String] = ["paragraphs", "headings", "lists", "links", "images", "formatting", "blockquotes", "code"]
     let lookAheadSuccess : LookaheadSuccess
     
     init() {
         self.lookAheadSuccess = LookaheadSuccess()
-        self.nextTokenKind = 0
     }
     
     func parse(text: String) -> Document {
@@ -32,115 +29,116 @@ class Parser {
 //    }
 //    
     func parseReader(reader: Reader) -> Document {
-//    cs = new CharStream(reader);
-//    tm = new TokenManager(cs);
-//    token = new Token();
-      tree = TreeState()
+        cs = CharStream(reader: reader)
+        tm = TokenManager(stream: cs)
+        token = Token()
+        tree = TreeState()
         nextTokenKind = -1
-        var document = Document()
+        let document = Document()
         tree.openScope()
-//    while (getNextTokenKind() == EOL) {
-//    consumeToken(EOL);
-//    }
-//    
+        
+        while getNextTokenKind() == TokenManager.EOL {
+            consumeToken(TokenManager.EOL);
+        }
         whiteSpace()
-//    if (hasAnyBlockElementsAhead()) {
-//    blockElement();
-//    while (blockAhead(0)) {
-//    while (getNextTokenKind() == EOL) {
-//    consumeToken(EOL);
-        whiteSpace()
-//    }
-//    blockElement();
-//    }
-//    while (getNextTokenKind() == EOL) {
-//    consumeToken(EOL);
-//    }
-        whiteSpace();
-//    }
-//    consumeToken(EOF);
+        if hasAnyBlockElementsAhead() {
+            blockElement()
+            while blockAhead(0) {
+                while (getNextTokenKind() == TokenManager.EOL) {
+                    consumeToken(TokenManager.EOL);
+                    whiteSpace()
+                }
+                blockElement()
+            }
+            while (getNextTokenKind() == TokenManager.EOL) {
+                consumeToken(TokenManager.EOL);
+            }
+            whiteSpace();
+        }
+        consumeToken(TokenManager.EOF);
         tree.closeScope(document);
         return document;
     }
 
     func blockElement() {
-//    currentBlockLevel++;
-//    if (modules.contains("headings") && headingAhead(1)) {
-//    heading();
-//    } else if (modules.contains("blockquotes") && getNextTokenKind() == GT) {
-//    blockQuote();
-//    } else if (modules.contains("lists") && getNextTokenKind() == DASH) {
-//    unorderedList();
-//    } else if (modules.contains("lists") && hasOrderedListAhead()) {
-//    orderedList();
-//    } else if (modules.contains("code") && hasFencedCodeBlockAhead()) {
-//    fencedCodeBlock();
-//    } else {
-//    paragraph();
-//    }
-//    currentBlockLevel--;
+        currentBlockLevel += 1
+        if (modules.contains("headings") && headingAhead(1)) {
+            heading()
+        } else if (modules.contains("blockquotes") && getNextTokenKind() == TokenManager.GT) {
+            blockQuote()
+        } else if (modules.contains("lists") && getNextTokenKind() == TokenManager.DASH) {
+            unorderedList()
+        } else if (modules.contains("lists") && hasOrderedListAhead()) {
+            orderedList()
+        } else if (modules.contains("code") && hasFencedCodeBlockAhead()) {
+            fencedCodeBlock()
+        } else {
+            paragraph()
+        }
+        currentBlockLevel -= 1
     }
     
     func heading() {
         var heading = Heading();
         tree.openScope();
-//    int headingLevel = 0;
-//    
-//    while (getNextTokenKind() == EQ) {
-//    consumeToken(EQ);
-//    headingLevel++;
-//    }
+        var headingLevel : Int = 0;
+        while (getNextTokenKind() == TokenManager.EQ) {
+            consumeToken(TokenManager.EQ);
+            headingLevel += 1
+        }
         whiteSpace();
-//    while (headingHasInlineElementsAhead()) {
-//    if (hasTextAhead()) {
-//    text();
-//    } else if (modules.contains("images") && hasImageAhead()) {
-//    image();
-//    } else if (modules.contains("links") && hasLinkAhead()) {
-//    link();
-//    } else if (modules.contains("formatting") && hasStrongAhead()) {
-//    strong();
-//    } else if (modules.contains("formatting") && hasEmAhead()) {
-//    em();
-//    } else if (modules.contains("code") && hasCodeAhead()) {
-//    code();
-//    } else {
-//    looseChar();
-//    }
-//    }
-//    heading.setValue(headingLevel);
+        while headingHasInlineElementsAhead() {
+            if hasTextAhead() {
+                text()
+            } else if (modules.contains("images") && hasImageAhead()) {
+                image()
+            } else if (modules.contains("links") && hasLinkAhead()) {
+                link()
+            } else if (modules.contains("formatting") && hasStrongAhead()) {
+                strong()
+            } else if (modules.contains("formatting") && hasEmAhead()) {
+                em()
+            } else if (modules.contains("code") && hasCodeAhead()) {
+                code()
+            } else {
+                looseChar()
+            }
+        }
+        heading.value = headingLevel
         tree.closeScope(heading);
     }
 
     func blockQuote() {
-        var blockQuote = BlockQuote();
+        var blockQuote = BlockQuote()
         tree.openScope()
-//    currentQuoteLevel++;
-//    consumeToken(GT);
-//    while (blockQuoteHasEmptyLineAhead()) {
-//    blockQuoteEmptyLine();
-//    }
-        whiteSpace();
-//    if (blockQuoteHasAnyBlockElementseAhead()) {
-//    blockElement();
-//    while (blockAhead(0)) {
-//    while (getNextTokenKind() == EOL) {
-//    consumeToken(EOL);
-        whiteSpace();
-//    blockQuotePrefix();
-//    }
-//    blockElement();
-//    }
-//    }
-//    while (hasBlockQuoteEmptyLinesAhead()) {
-//    blockQuoteEmptyLine();
-//    }
-//    currentQuoteLevel--;
+        currentQuoteLevel += 1
+        consumeToken(TokenManager.GT);
+        while blockQuoteHasEmptyLineAhead() {
+            blockQuoteEmptyLine()
+        }
+        whiteSpace()
+        if blockQuoteHasAnyBlockElementseAhead() {
+            blockElement()
+            while (blockAhead(0)) {
+                while (getNextTokenKind() == TokenManager.EOL) {
+                    consumeToken(TokenManager.EOL)
+                    whiteSpace();
+                    blockQuotePrefix()
+                }
+                blockElement()
+            }
+        }
+        while (hasBlockQuoteEmptyLinesAhead()) {
+            blockQuoteEmptyLine()
+        }
+        currentQuoteLevel -= 1
         tree.closeScope(blockQuote)
     }
     
     func blockQuotePrefix() {
-//    int i = 0;
+        var i : Int = 0;
+       
+        
 //    do {
 //    consumeToken(GT);
         whiteSpace();
@@ -148,7 +146,7 @@ class Parser {
     }
 
     func blockQuoteEmptyLine() {
-//    consumeToken(EOL);
+        consumeToken(TokenManager.EOL);
         whiteSpace();
 //    do {
 //    consumeToken(GT);
@@ -157,85 +155,83 @@ class Parser {
     }
 
     func unorderedList() {
-//    ListBlock list = new ListBlock(false);
-//    tree.openScope();
-//    int listBeginColumn = unorderedListItem();
-//    while (listItemAhead(listBeginColumn, false)) {
-//    while (getNextTokenKind() == EOL) {
-//    consumeToken(EOL);
-//    }
-        whiteSpace();
-//    if (currentQuoteLevel > 0) {
-//    blockQuotePrefix();
-//    }
-//    unorderedListItem();
-//    }
-//    tree.closeScope(list);
+        var list = ListBlock(ordered: false)
+        tree.openScope()
+        var listBeginColumn = unorderedListItem();
+        while listItemAhead(listBeginColumn, ordered: false) {
+            while getNextTokenKind() == TokenManager.EOL {
+                consumeToken(TokenManager.EOL);
+            }
+            whiteSpace();
+            if currentQuoteLevel > 0 {
+                blockQuotePrefix()
+            }
+            unorderedListItem()
+        }
+        tree.closeScope(list)
     }
   
     func unorderedListItem() -> Int {
         let listItem = ListItem()
         tree.openScope()
-//        var t = consumeToken(DASH);
+        var t = consumeToken(TokenManager.DASH)
         whiteSpace();
-//    if (listItemHasInlineElements()) {
-//    blockElement();
-//    while (blockAhead(t.beginColumn)) {
-//    while (getNextTokenKind() == EOL) {
-//    consumeToken(EOL);
-        whiteSpace();
-//    if (currentQuoteLevel > 0) {
-//    blockQuotePrefix();
-//    }
-//    }
-//    blockElement();
-//    }
-//    }
+        if listItemHasInlineElements() {
+            blockElement();
+            while blockAhead(t.beginColumn) {
+                while getNextTokenKind() == TokenManager.EOL {
+                    consumeToken(TokenManager.EOL);
+                    whiteSpace()
+                    if (currentQuoteLevel > 0) {
+                        blockQuotePrefix()
+                    }
+                }
+                blockElement();
+            }
+        }
         tree.closeScope(listItem)
-       // return t.beginColumn;
-        return 0;
+        return t.beginColumn;
     }
-//    
+
     func orderedList() {
-//    ListBlock list = new ListBlock(true);
-//    tree.openScope();
-//    int listBeginColumn = orderedListItem();
-//    while (listItemAhead(listBeginColumn, true)) {
-//    while (getNextTokenKind() == EOL) {
-//    consumeToken(EOL);
-//    }
-        whiteSpace()
-//    if (currentQuoteLevel > 0) {
-//    blockQuotePrefix();
-//    }
-//    orderedListItem();
-//    }
-//    tree.closeScope(list);
+        var list = ListBlock(ordered: true)
+        tree.openScope()
+        var listBeginColumn : Int = orderedListItem()
+        while listItemAhead(listBeginColumn, ordered: true) {
+            while getNextTokenKind() == TokenManager.EOL {
+                consumeToken(TokenManager.EOL)
+            }
+            whiteSpace()
+            if currentQuoteLevel > 0 {
+                blockQuotePrefix()
+            }
+            orderedListItem()
+        }
+        tree.closeScope(list)
     }
 //    
     func orderedListItem() -> Int {
-//    ListItem listItem = new ListItem();
-//    tree.openScope();
-//    Token t = consumeToken(DIGITS);
-//    consumeToken(DOT);
+        var listItem = ListItem()
+        tree.openScope()
+        var t = consumeToken(TokenManager.DIGITS)
+        consumeToken(TokenManager.DOT)
         whiteSpace()
-//    if (listItemHasInlineElements()) {
-//    blockElement();
-//    while (blockAhead(t.beginColumn)) {
-//    while (getNextTokenKind() == EOL) {
-//    consumeToken(EOL);
-        whiteSpace()
-//    if (currentQuoteLevel > 0) {
-//    blockQuotePrefix();
-//    }
-//    }
-//    blockElement();
-//    }
-//    }
-//    listItem.setNumber(Integer.valueOf(t.image));
-//    tree.closeScope(listItem);
-//    return t.beginColumn; 
-        return 0;
+        if listItemHasInlineElements() {
+            blockElement()
+            while blockAhead(t.beginColumn) {
+                while getNextTokenKind() == TokenManager.EOL {
+                    consumeToken(TokenManager.EOL)
+                    whiteSpace()
+                    if currentQuoteLevel > 0 {
+                        blockQuotePrefix()
+                    }
+                }
+                blockElement()
+            }
+        }
+        listItem.number = Int(t.image)!
+        tree.closeScope(listItem)
+        return t.beginColumn
     }
     
     func fencedCodeBlock() {
@@ -1227,7 +1223,7 @@ class Parser {
     }
 
     func fencesAhead() -> Bool {
-//    int i = skip(2, SPACE, TAB, GT);
+        var i = skip(2, tokens: [TokenManager.SPACE, TokenManager.TAB, TokenManager.GT]);
 //    if (getToken(i).kind == BACKTICK && getToken(i + 1).kind == BACKTICK && getToken(i + 2).kind == BACKTICK) {
 //    i = skip(i + 3, SPACE, TAB);
 //    return getToken(i).kind == EOL || getToken(i).kind == EOF;
@@ -1286,8 +1282,8 @@ class Parser {
         return false
     }
 
-    func nextAfterSpace() {// (Integer... tokens) {
-//    int i = skip(1, SPACE, TAB);
+    func nextAfterSpace(tokens : Int...) {
+        var i : Int = skip(1, tokens: [TokenManager.SPACE, TokenManager.TAB])
 //    return Arrays.asList(tokens).contains(getToken(i).kind);
     }
 
@@ -1304,7 +1300,7 @@ class Parser {
 //    }
     }
     
-    func skip() -> Int { //(int offset, Integer... tokens) {
+    func skip(offset : Int, tokens : [Int]) -> Int {
 //    List<Integer> tokenList = Arrays.asList(tokens);
 //    for (int i = offset;; i++) {
 //    Token t = getToken(i);
@@ -2607,8 +2603,8 @@ class Parser {
         return 0
     }
 //    
-//    private Token consumeToken(int kind) {
-//    Token old = token;
+    func consumeToken(kind : Int) -> Token {
+        var old : Token = token;
 //    if (token.next != null) {
 //    token = token.next;
 //    } else {
@@ -2620,7 +2616,8 @@ class Parser {
 //    }
 //    token = old;
 //    return token;
-//    }
+        return token
+    }
 //    
 //    private Token getToken(int index) {
 //    Token t = lookingAhead ? scanPosition : token;

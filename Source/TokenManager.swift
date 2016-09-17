@@ -1,27 +1,27 @@
 class TokenManager {
     
-    let EOF = 0
-    let ASTERISK = 1
-    let BACKSLASH = 2
-    let BACKTICK = 3
-    let CHAR_SEQUENCE = 4
-    let COLON = 5
-    let DASH = 6
-    let DIGITS = 7
-    let DOT = 8
-    let EOL = 9
-    let EQ = 10
-    let ESCAPED_CHAR = 11
-    let GT = 12
-    let IMAGE_LABEL = 13
-    let LBRACK = 14
-    let LPAREN = 15
-    let LT = 16
-    let RBRACK = 17
-    let RPAREN = 18
-    let SPACE = 19
-    let TAB = 20
-    let UNDERSCORE = 21
+    static let EOF = 0
+    static let ASTERISK = 1
+    static let BACKSLASH = 2
+    static let BACKTICK = 3
+    static let CHAR_SEQUENCE = 4
+    static let COLON = 5
+    static let DASH = 6
+    static let DIGITS = 7
+    static let DOT = 8
+    static let EOL = 9
+    static let EQ = 10
+    static let ESCAPED_CHAR = 11
+    static let GT = 12
+    static let IMAGE_LABEL = 13
+    static let LBRACK = 14
+    static let LPAREN = 15
+    static let LT = 16
+    static let RBRACK = 17
+    static let RPAREN = 18
+    static let SPACE = 19
+    static let TAB = 20
+    static let UNDERSCORE = 21
 //    
 //    private CharStream cs;
 //    private int[] jjrounds = new int[8];
@@ -33,9 +33,9 @@ class TokenManager {
 //    private int matchedPos;
 //    private int matchedKind;
 //    
-//    public TokenManager(CharStream stream) {
+    init(stream : CharStream) {
 //    cs = stream;
-//    }
+    }
 //    
 //    public Token getNextToken() {
 //    try {
