@@ -235,29 +235,27 @@ class Parser {
     }
     
     func fencedCodeBlock() {
-//    CodeBlock codeBlock = new CodeBlock();
-//    tree.openScope();
+        var codeBlock = CodeBlock()
+        tree.openScope()
 //    StringBuilder s = new StringBuilder();
-//    int beginColumn = consumeToken(BACKTICK).beginColumn;
+        var beginColumn = consumeToken(TokenManager.BACKTICK).beginColumn;
 //    do {
 //    consumeToken(BACKTICK);
 //    } while (getNextTokenKind() == BACKTICK);
         whiteSpace()
-//    if (getNextTokenKind() == CHAR_SEQUENCE) {
-//    codeBlock.setLanguage(codeLanguage());
-//    }
-//    if (getNextTokenKind() != EOF && !fencesAhead()) {
-//    consumeToken(EOL);
-//    levelWhiteSpace(beginColumn);
-//    }
-//    
-//    int kind = getNextTokenKind();
-//    while (kind != EOF && ((kind != EOL && kind != BACKTICK) || !fencesAhead())) {
-//    switch (kind) {
-//    case CHAR_SEQUENCE:
+        if getNextTokenKind() == TokenManager.CHAR_SEQUENCE {
+            codeBlock.language = codeLanguage()
+        }
+        if (getNextTokenKind() != TokenManager.EOF && !fencesAhead()) {
+            consumeToken(TokenManager.EOL)
+            levelWhiteSpace(beginColumn)
+        }
+        var kind = getNextTokenKind()
+        while kind != TokenManager.EOF && ((kind != TokenManager.EOL && kind != TokenManager.BACKTICK) || !fencesAhead()) {
+//            switch kind {
+//            case TokenManager.CHAR_SEQUENCE:
 //    s.append(consumeToken(CHAR_SEQUENCE).image);
-//    break;
-//    case ASTERISK:
+//            case TokenManager.ASTERISK:
 //    s.append(consumeToken(ASTERISK).image);
 //    break;
 //    case BACKSLASH:
@@ -318,7 +316,7 @@ class Parser {
 //    consumeToken(TAB);
 //    s.append("    ");
 //    break;
-//    }
+//            }
 //    } else if (!fencesAhead()) {
 //    consumeToken(EOL);
 //    s.append("\n");
@@ -326,40 +324,40 @@ class Parser {
 //    }
 //    }
 //    kind = getNextTokenKind();
-//    }
-//    if (fencesAhead()) {
-//    consumeToken(EOL);
-//    blockQuotePrefix();
-        whiteSpace()
-//    while (getNextTokenKind() == BACKTICK) {
-//    consumeToken(BACKTICK);
-//    }
-//    }
-//    codeBlock.setValue(s.toString());
-//    tree.closeScope(codeBlock);
+        }
+        if fencesAhead() {
+            consumeToken(TokenManager.EOL)
+            blockQuotePrefix()
+            whiteSpace()
+            while (getNextTokenKind() == TokenManager.BACKTICK) {
+                consumeToken(TokenManager.BACKTICK);
+            }
+        }
+//        codeBlock.value = (s.toString());
+        tree.closeScope(codeBlock);
     }
 //    
     func paragraph() {
-//    BlockElement paragraph = modules.contains("paragraphs") ? new Paragraph() : new BlockElement();
-//    tree.openScope();
-//    inline();
-//    while (textAhead()) {
-//    lineBreak();
-        whiteSpace()
-//    if (modules.contains("blockquotes")) {
-//    while (getNextTokenKind() == GT) {
-//    consumeToken(GT);
-        whiteSpace()
-//    }
-//    }
-//    inline();
-//    }
-//    tree.closeScope(paragraph);
+        var paragraph = modules.contains("paragraphs") ? Paragraph() : BlockElement()
+        tree.openScope()
+        inline()
+        while textAhead() {
+            lineBreak()
+            whiteSpace()
+            if modules.contains("blockquotes") {
+                while (getNextTokenKind() == TokenManager.GT) {
+                    consumeToken(TokenManager.GT)
+                    whiteSpace()
+                }
+            }
+            inline()
+        }
+        tree.closeScope(paragraph)
     }
    
     func text() {
-//    Text text = new Text();
-//    tree.openScope();
+        var text = Text()
+        tree.openScope()
 //    StringBuffer s = new StringBuffer();
 //    while (textHasTokensAhead()) {
 //    switch (getNextTokenKind()) {
@@ -420,7 +418,7 @@ class Parser {
 //    }
 //    }
 //    text.setValue(s.toString());
-//    tree.closeScope(text);
+        tree.closeScope(text)
     }
   
     func image() {
@@ -656,9 +654,9 @@ class Parser {
 //    Token t = consumeToken(EOL);
 //    linebreak.setExplicit(t.image.startsWith("  "));
 //    tree.closeScope(linebreak);
-//    }
-//    
-//    private void levelWhiteSpace(int threshold) {
+    }
+  
+    func levelWhiteSpace(threshold : Int) {
 //    int currentPos = 1;
 //    while (getNextTokenKind() == GT) {
 //    consumeToken(getNextTokenKind());
@@ -668,7 +666,7 @@ class Parser {
 //    }
     }
 
-    func codeLanguage() {
+    func codeLanguage() -> String {
 //    StringBuilder s = new StringBuilder();
 //    do {
 //    switch (getNextTokenKind()) {
@@ -737,6 +735,7 @@ class Parser {
 //    }
 //    } while (getNextTokenKind() != EOL && getNextTokenKind() != EOF);
 //    return s.toString();
+        return ""
     }
   
     func inline() {
