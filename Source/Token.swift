@@ -1,6 +1,8 @@
 class Token {
-
-    //var kind! : Int
+ 
+    var kind : Int {
+        get { return self.kind }
+    }
     //var beginLine! : Int
     var beginColumn : Int {
         get { return self.beginColumn }

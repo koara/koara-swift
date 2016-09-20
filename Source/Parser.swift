@@ -140,7 +140,7 @@ class Parser {
        
         
 //    do {
-//    consumeToken(GT);
+        consumeToken(TokenManager.GT);
         whiteSpace();
 //    } while (++i < currentQuoteLevel);
     }
@@ -149,7 +149,7 @@ class Parser {
         consumeToken(TokenManager.EOL);
         whiteSpace();
 //    do {
-//    consumeToken(GT);
+        consumeToken(TokenManager.GT);
         whiteSpace();
 //    } while (getNextTokenKind() == GT);
     }
@@ -209,7 +209,7 @@ class Parser {
         }
         tree.closeScope(list)
     }
-//    
+    
     func orderedListItem() -> Int {
         var listItem = ListItem()
         tree.openScope()
@@ -240,7 +240,7 @@ class Parser {
         var s = ""
         var beginColumn = consumeToken(TokenManager.BACKTICK).beginColumn;
 //    do {
-//    consumeToken(BACKTICK);
+        consumeToken(TokenManager.BACKTICK);
 //    } while (getNextTokenKind() == BACKTICK);
         whiteSpace()
         if getNextTokenKind() == TokenManager.CHAR_SEQUENCE {
@@ -291,34 +291,34 @@ class Parser {
                 s += consumeToken(TokenManager.BACKTICK).image
             default:
                 if !nextAfterSpace(TokenManager.EOL, TokenManager.EOF) {
-//    switch (kind) {
-//    case SPACE:
-//    s.append(consumeToken(SPACE).image);
-//    break;
-//    case TAB:
-//    consumeToken(TAB);
-//    s.append("    ");
+                    switch kind {
+                    case TokenManager.SPACE:
+                        s += consumeToken(TokenManager.SPACE).image
+                    case TokenManager.TAB:
+                        consumeToken(TokenManager.TAB);
+                        s += "    "
+                    default: break
+                    }
+                } else if !fencesAhead() {
+                    consumeToken(TokenManager.EOL)
+                    s += "\n"
+                    levelWhiteSpace(beginColumn)
+                }
             }
-//    } else if (!fencesAhead()) {
-//    consumeToken(EOL);
-//    s.append("\n");
-//    levelWhiteSpace(beginColumn);
-//    }
-            }
-//    kind = getNextTokenKind();
+            kind = getNextTokenKind()
         }
         if fencesAhead() {
             consumeToken(TokenManager.EOL)
             blockQuotePrefix()
             whiteSpace()
             while (getNextTokenKind() == TokenManager.BACKTICK) {
-                consumeToken(TokenManager.BACKTICK);
+                consumeToken(TokenManager.BACKTICK)
             }
         }
-//        codeBlock.value = (s.toString());
-        tree.closeScope(codeBlock);
+        codeBlock.value = s
+        tree.closeScope(codeBlock)
     }
-//    
+    
     func paragraph() {
         var paragraph = modules.contains("paragraphs") ? Paragraph() : BlockElement()
         tree.openScope()
@@ -340,121 +340,106 @@ class Parser {
     func text() {
         var text = Text()
         tree.openScope()
-//    StringBuffer s = new StringBuffer();
-//    while (textHasTokensAhead()) {
-//    switch (getNextTokenKind()) {
-//    case CHAR_SEQUENCE:
-//    s.append(consumeToken(CHAR_SEQUENCE).image);
-//    break;
-//    case BACKSLASH:
-//    s.append(consumeToken(BACKSLASH).image);
-//    break;
-//    case COLON:
-//    s.append(consumeToken(COLON).image);
-//    break;
-//    case DASH:
-//    s.append(consumeToken(DASH).image);
-//    break;
-//    case DIGITS:
-//    s.append(consumeToken(DIGITS).image);
-//    break;
-//    case DOT:
-//    s.append(consumeToken(DOT).image);
-//    break;
-//    case EQ:
-//    s.append(consumeToken(EQ).image);
-//    break;
-//    case ESCAPED_CHAR:
-//    s.append(consumeToken(ESCAPED_CHAR).image.substring(1));
-//    break;
-//    case GT:
-//    s.append(consumeToken(GT).image);
-//    break;
-//    case IMAGE_LABEL:
-//    s.append(consumeToken(IMAGE_LABEL).image);
-//    break;
-//    case LPAREN:
-//    s.append(consumeToken(LPAREN).image);
-//    break;
-//    case LT:
-//    s.append(consumeToken(LT).image);
-//    break;
-//    case RBRACK:
-//    s.append(consumeToken(RBRACK).image);
-//    break;
-//    case RPAREN:
-//    s.append(consumeToken(RPAREN).image);
-//    break;
-//    default:
-//    if (!nextAfterSpace(EOL, EOF)) {
-//    switch (getNextTokenKind()) {
-//    case SPACE:
-//    s.append(consumeToken(SPACE).image);
-//    break;
-//    case TAB:
-//    consumeToken(TAB);
-//    s.append("    ");
-//    break;
-//    }
-//    }
-//    }
-//    }
-//    text.setValue(s.toString());
+        var s = ""
+        while textHasTokensAhead() {
+            switch getNextTokenKind() {
+            case TokenManager.CHAR_SEQUENCE:
+                s += consumeToken(TokenManager.CHAR_SEQUENCE).image
+            case TokenManager.BACKSLASH:
+                s += consumeToken(TokenManager.BACKSLASH).image
+            case TokenManager.COLON:
+                s += consumeToken(TokenManager.COLON).image
+            case TokenManager.DASH:
+                s += consumeToken(TokenManager.DASH).image
+            case TokenManager.DIGITS:
+                s += consumeToken(TokenManager.DIGITS).image
+            case TokenManager.DOT:
+                s += consumeToken(TokenManager.DOT).image
+            case TokenManager.EQ:
+                s += consumeToken(TokenManager.EQ).image
+            case TokenManager.ESCAPED_CHAR:
+                s += consumeToken(TokenManager.ESCAPED_CHAR).image
+            case TokenManager.GT:
+                s += consumeToken(TokenManager.GT).image
+            case TokenManager.IMAGE_LABEL:
+                s += consumeToken(TokenManager.IMAGE_LABEL).image
+            case TokenManager.LPAREN:
+                s += consumeToken(TokenManager.LPAREN).image
+            case TokenManager.LT:
+                s += consumeToken(TokenManager.LT).image
+            case TokenManager.RBRACK:
+                s += consumeToken(TokenManager.RBRACK).image
+            case TokenManager.RPAREN:
+                s += consumeToken(TokenManager.RPAREN).image
+            default:
+                if (!nextAfterSpace(TokenManager.EOL, TokenManager.EOF)) {
+                    switch getNextTokenKind() {
+                    case TokenManager.SPACE:
+                        s += consumeToken(TokenManager.SPACE).image
+                    case TokenManager.TAB:
+                        consumeToken(TokenManager.TAB)
+                        s += "    "
+                    default: break
+                    }
+                }
+            }
+        }
+        text.value = s
         tree.closeScope(text)
     }
   
     func image() {
-//    Image image = new Image();
-//    tree.openScope();
-//    String ref = "";
-//    consumeToken(LBRACK);
+        var image = Image()
+        tree.openScope()
+        var ref = ""
+        consumeToken(TokenManager.LBRACK)
         whiteSpace()
-//    consumeToken(IMAGE_LABEL);
+        consumeToken(TokenManager.IMAGE_LABEL)
         whiteSpace()
-//    while (imageHasAnyElements()) {
-//    if (hasTextAhead()) {
-//    resourceText();
-//    } else {
-//    looseChar();
-//    }
-//    }
+        while imageHasAnyElements() {
+            if hasTextAhead() {
+                resourceText()
+            } else {
+                looseChar()
+            }
+        }
         whiteSpace()
-//    consumeToken(RBRACK);
-//    if (hasResourceUrlAhead()) {
-//    ref = resourceUrl();
-//    }
-//    image.setValue(ref);
-//    tree.closeScope(image);
+        consumeToken(TokenManager.RBRACK)
+        if hasResourceUrlAhead() {
+            ref = resourceUrl()
+        }
+        image.value = ref
+        tree.closeScope(image);
     }
     
     func link() {
-//    Link link = new Link();
-//    tree.openScope();
-//    String ref = "";
-//    consumeToken(LBRACK);
+        var link = Link()
+        tree.openScope()
+        var ref = ""
+        consumeToken(TokenManager.LBRACK)
         whiteSpace()
-//    while (linkHasAnyElements()) {
-//    if (modules.contains("images") && hasImageAhead()) {
-//    image();
-//    } else if (modules.contains("formatting") && hasStrongAhead()) {
-//    strong();
-//    } else if (modules.contains("formatting") && hasEmAhead()) {
-//    em();
-//    } else if (modules.contains("code") && hasCodeAhead()) {
-//    code();
-//    } else if (hasResourceTextAhead()) {
-//    resourceText();
-//    } else {
-//    looseChar();
-//    }
-//    }
+        while linkHasAnyElements() {
+            if modules.contains("images") && hasImageAhead() {
+                image()
+            } else if modules.contains("formatting") && hasStrongAhead() {
+                strong()
+            } else if modules.contains("formatting") && hasEmAhead() {
+                em()
+            } else if (modules.contains("code") && hasCodeAhead()) {
+                code()
+            } else if (hasResourceTextAhead()) {
+                resourceText()
+            } else {
+                looseChar()
+            }
+        }
         whiteSpace()
-//    consumeToken(RBRACK);
-//    if (hasResourceUrlAhead()) {
-//    ref = resourceUrl();
-//    }
-//    link.setValue(ref);
-//    tree.closeScope(link);
+        consumeToken(TokenManager.RBRACK);
+        if hasResourceUrlAhead() {
+            ref = resourceUrl()
+        }
+        link.value = ref
+        tree.closeScope(link)
     }
     
     func strong() {
@@ -1265,8 +1250,7 @@ class Parser {
 
     func nextAfterSpace(tokens : Int...) -> Bool {
         var i : Int = skip(1, tokens: [TokenManager.SPACE, TokenManager.TAB])
-//    return Arrays.asList(tokens).contains(getToken(i).kind);
-        return false
+        return tokens.contains(getToken(i).kind)
     }
 
     func newQuoteLevel(offset : Int) -> Int {
@@ -2600,9 +2584,9 @@ class Parser {
 //    return token;
         return token
     }
-//    
-//    private Token getToken(int index) {
-//    Token t = lookingAhead ? scanPosition : token;
+
+    func getToken(index : Int) -> Token {
+        var t = lookingAhead ? scanPosition : token;
 //    for (int i = 0; i < index; i++) {
 //    if (t.next != null) {
 //    t = t.next;
@@ -2610,8 +2594,8 @@ class Parser {
 //    t = t.next = tm.getNextToken();
 //    }
 //    }
-//    return t;
-//    }
+        return t
+    }
 //    
 //    public void setModules(String... modules) {
 //    this.modules = Arrays.asList(modules);
