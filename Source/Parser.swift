@@ -137,21 +137,19 @@ class Parser {
     
     func blockQuotePrefix() {
         var i : Int = 0;
-       
-        
-//    do {
-        consumeToken(TokenManager.GT);
-        whiteSpace();
-//    } while (++i < currentQuoteLevel);
+        repeat {
+            consumeToken(TokenManager.GT)
+            whiteSpace();
+        } while ++i < currentQuoteLevel
     }
 
     func blockQuoteEmptyLine() {
-        consumeToken(TokenManager.EOL);
-        whiteSpace();
-//    do {
-        consumeToken(TokenManager.GT);
-        whiteSpace();
-//    } while (getNextTokenKind() == GT);
+        consumeToken(TokenManager.EOL)
+        whiteSpace()
+        repeat {
+            consumeToken(TokenManager.GT)
+            whiteSpace()
+        } while (getNextTokenKind() == TokenManager.GT)
     }
 
     func unorderedList() {
@@ -238,10 +236,10 @@ class Parser {
         var codeBlock = CodeBlock()
         tree.openScope()
         var s = ""
-        var beginColumn = consumeToken(TokenManager.BACKTICK).beginColumn;
-//    do {
-        consumeToken(TokenManager.BACKTICK);
-//    } while (getNextTokenKind() == BACKTICK);
+        var beginColumn = consumeToken(TokenManager.BACKTICK).beginColumn
+        repeat {
+            consumeToken(TokenManager.BACKTICK)
+        } while (getNextTokenKind() == TokenManager.BACKTICK)
         whiteSpace()
         if getNextTokenKind() == TokenManager.CHAR_SEQUENCE {
             codeBlock.language = codeLanguage()
@@ -443,36 +441,34 @@ class Parser {
     }
     
     func strong() {
-//    Strong strong = new Strong();
-//    tree.openScope();
-//    consumeToken(ASTERISK);
-//    while (strongHasElements()) {
-//    if (hasTextAhead()) {
-//    text();
-//    } else if (modules.contains("images") && hasImage()) {
-//    image();
-//    } else if (modules.contains("links") && hasLinkAhead()) {
-//    link();
-//    } else if (modules.contains("code") && multilineAhead(BACKTICK)) {
-//    codeMultiline();
-//    } else if (strongEmWithinStrongAhead()) {
-//    emWithinStrong();
-//    } else {
-//    switch (getNextTokenKind()) {
-//    case BACKTICK:
-//    tree.addSingleValue(new Text(), consumeToken(BACKTICK));
-//    break;
-//    case LBRACK:
-//    tree.addSingleValue(new Text(), consumeToken(LBRACK));
-//    break;
-//    case UNDERSCORE:
-//    tree.addSingleValue(new Text(), consumeToken(UNDERSCORE));
-//    break;
-//    }
-//    }
-//    }
-//    consumeToken(ASTERISK);
-//    tree.closeScope(strong);
+        var strong = Strong()
+        tree.openScope()
+        consumeToken(TokenManager.ASTERISK)
+        while strongHasElements() {
+            if hasTextAhead() {
+                text()
+            } else if modules.contains("images") && hasImage() {
+                image()
+            } else if modules.contains("links") && hasLinkAhead() {
+                link()
+            } else if modules.contains("code") && multilineAhead(TokenManager.BACKTICK) {
+                codeMultiline()
+            } else if strongEmWithinStrongAhead() {
+                emWithinStrong();
+            } else {
+                switch getNextTokenKind() {
+                case TokenManager.BACKTICK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK))
+                case TokenManager.LBRACK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK))
+                case TokenManager.UNDERSCORE:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.UNDERSCORE))
+                default: break
+                }
+            }
+        }
+        consumeToken(TokenManager.ASTERISK);
+        tree.closeScope(strong);
     }
   
     func em() {
@@ -521,7 +517,7 @@ class Parser {
 //    Text text = new Text();
 //    tree.openScope();
 //    StringBuffer s = new StringBuffer();
-//    do {
+        repeat {
 //    switch (getNextTokenKind()) {
 //    case CHAR_SEQUENCE:
 //    s.append(consumeToken(CHAR_SEQUENCE).image);
@@ -587,7 +583,7 @@ class Parser {
 //    }
 //    }
 //    }
-//    } while (codeTextHasAnyTokenAhead());
+        } while codeTextHasAnyTokenAhead()
 //    text.setValue(s.toString());
 //    tree.closeScope(text);
     }
@@ -635,7 +631,7 @@ class Parser {
 
     func codeLanguage() -> String {
 //    StringBuilder s = new StringBuilder();
-//    do {
+        repeat {
 //    switch (getNextTokenKind()) {
 //    case CHAR_SEQUENCE:
 //    s.append(consumeToken(CHAR_SEQUENCE).image);
@@ -700,13 +696,13 @@ class Parser {
 //    default:
 //    break;
 //    }
-//    } while (getNextTokenKind() != EOL && getNextTokenKind() != EOF);
+        } while getNextTokenKind() != TokenManager.EOL && getNextTokenKind() != TokenManager.EOF
 //    return s.toString();
         return ""
     }
   
     func inline() {
-//    do {
+        repeat {
 //    if (hasInlineTextAhead()) {
 //    text();
 //    } else if (modules.contains("images") && hasImageAhead()) {
@@ -722,14 +718,14 @@ class Parser {
 //    } else {
 //    looseChar();
 //    }
-//    } while (hasInlineElementAhead());
+        } while hasInlineElementAhead()
     }
    
     func resourceText() {
 //    Text text = new Text();
 //    tree.openScope();
 //    StringBuilder s = new StringBuilder();
-//    do {
+        repeat {
 //    switch (getNextTokenKind()) {
 //    case CHAR_SEQUENCE:
 //    s.append(consumeToken(CHAR_SEQUENCE).image);
@@ -783,7 +779,7 @@ class Parser {
 //    }
 //    }
 //    }
-//    } while (resourceHasElementAhead());
+        } while resourceHasElementAhead()
 //    text.setValue(s.toString());
 //    tree.closeScope(text);
     }
@@ -885,7 +881,7 @@ class Parser {
     }
 
     func strongMultilineContent() {
-//    do {
+        repeat {
 //    if (hasTextAhead()) {
 //    text();
 //    } else if (modules.contains("images") && hasImageAhead()) {
@@ -909,7 +905,7 @@ class Parser {
 //    break;
 //    }
 //    }
-//    } while (strongMultilineHasElementsAhead());
+        } while strongMultilineHasElementsAhead()
     }
     
     func strongWithinEmMultiline() {
@@ -926,7 +922,7 @@ class Parser {
     }
 
     func strongWithinEmMultilineContent() {
-//    do {
+        repeat {
 //    if (hasTextAhead()) {
 //    text();
 //    } else if (modules.contains("images") && hasImageAhead()) {
@@ -948,14 +944,14 @@ class Parser {
 //    break;
 //    }
 //    }
-//    } while (strongWithinEmMultilineHasElementsAhead());
+        } while strongWithinEmMultilineHasElementsAhead()
     }
     
     func strongWithinEm() {
 //    Strong strong = new Strong();
 //    tree.openScope();
 //    consumeToken(ASTERISK);
-//    do {
+        repeat {
 //    if (hasTextAhead()) {
 //    text();
 //    } else if (modules.contains("images") && hasImageAhead()) {
@@ -977,7 +973,7 @@ class Parser {
 //    break;
 //    }
 //    }
-//    } while (strongWithinEmHasElementsAhead());
+        } while strongWithinEmHasElementsAhead()
 //    consumeToken(ASTERISK);
 //    tree.closeScope(strong);
     }
@@ -997,7 +993,7 @@ class Parser {
     }
     
     func emMultilineContent() {
-//    do {
+        repeat {
 //    if (hasTextAhead()) {
 //    text();
 //    } else if (modules.contains("images") && hasImageAhead()) {
@@ -1021,7 +1017,7 @@ class Parser {
 //    break;
 //    }
 //    }
-//    } while (emMultilineContentHasElementsAhead());
+        } while emMultilineContentHasElementsAhead()
     }
     
     func emWithinStrongMultiline() {
@@ -1038,7 +1034,7 @@ class Parser {
     }
     
     func emWithinStrongMultilineContent() {
-//    do {
+        repeat {
 //    if (hasTextAhead()) {
 //    text();
 //    } else if (modules.contains("images") && hasImageAhead()) {
@@ -1060,14 +1056,14 @@ class Parser {
 //    break;
 //    }
 //    }
-//    } while (emWithinStrongMultilineContentHasElementsAhead());
+        } while emWithinStrongMultilineContentHasElementsAhead()
     }
     
     func emWithinStrong() {
 //    Em em = new Em();
 //    tree.openScope();
 //    consumeToken(UNDERSCORE);
-//    do {
+        repeat {
 //    if (hasTextAhead()) {
 //    text();
 //    } else if (modules.contains("images") && hasImageAhead()) {
@@ -1089,7 +1085,7 @@ class Parser {
 //    break;
 //    }
 //    }
-//    } while (emWithinStrongHasElementsAhead());
+        } while emWithinStrongHasElementsAhead()
 //    consumeToken(UNDERSCORE);
 //    tree.closeScope(em);
     }
@@ -1132,27 +1128,28 @@ class Parser {
 //    int quoteLevel;
 //    
 //    if (getNextTokenKind() == EOL) {
-//    Token t;
-//    int i = 2;
+        var t : Token
+        var i : Int = 2
 //    quoteLevel = 0;
-//    do {
+        repeat {
 //    quoteLevel = 0;
-//    do {
-//    t = getToken(i++);
+            repeat {
+                i += 1
+                t = getToken(i)
 //    if (t.kind == GT) {
 //    if (t.beginColumn == 1 && currentBlockLevel > 0 && currentQuoteLevel == 0) {
 //    return false;
 //    }
 //    quoteLevel++;
 //    }
-//    } while (t.kind == GT || t.kind == SPACE || t.kind == TAB);
+            } while (t.kind == TokenManager.GT || t.kind == TokenManager.SPACE || t.kind == TokenManager.TAB);
 //    if (quoteLevel > currentQuoteLevel) {
 //    return true;
 //    }
 //    if (quoteLevel < currentQuoteLevel) {
 //    return false;
 //    }
-//    } while (t.kind == EOL);
+        } while (t.kind == TokenManager.EOL);
 //    return t.kind != EOF && (currentBlockLevel == 0 || t.beginColumn >= blockBeginColumn + 2);
 //    }
         return false;
