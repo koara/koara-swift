@@ -472,36 +472,34 @@ class Parser {
     }
   
     func em() {
-//    Em em = new Em();
-//    tree.openScope();
-//    consumeToken(UNDERSCORE);
-//    while (emHasElements()) {
-//    if (hasTextAhead()) {
-//    text();
-//    } else if (modules.contains("images") && hasImage()) {
-//    image();
-//    } else if (modules.contains("links") && hasLinkAhead()) {
-//    link();
-//    } else if (modules.contains("code") && hasCodeAhead()) {
-//    code();
-//    } else if (emHasStrongWithinEm()) {
-//    strongWithinEm();
-//    } else {
-//    switch (getNextTokenKind()) {
-//    case ASTERISK:
-//    tree.addSingleValue(new Text(), consumeToken(ASTERISK));
-//    break;
-//    case BACKTICK:
-//    tree.addSingleValue(new Text(), consumeToken(BACKTICK));
-//    break;
-//    case LBRACK:
-//    tree.addSingleValue(new Text(), consumeToken(LBRACK));
-//    break;
-//    }
-//    }
-//    }
-//    consumeToken(UNDERSCORE);
-//    tree.closeScope(em);
+        var em = Em()
+        tree.openScope()
+        consumeToken(TokenManager.UNDERSCORE)
+        while emHasElements() {
+            if hasTextAhead() {
+                text()
+            } else if modules.contains("images") && hasImage() {
+                image()
+            } else if modules.contains("links") && hasLinkAhead() {
+                link()
+            } else if modules.contains("code") && hasCodeAhead() {
+                code()
+            } else if emHasStrongWithinEm() {
+                strongWithinEm()
+            } else {
+                switch getNextTokenKind() {
+                case TokenManager.ASTERISK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.ASTERISK))
+                case TokenManager.BACKTICK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK))
+                case TokenManager.LBRACK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK))
+                default: break
+                }
+            }
+        }
+        consumeToken(TokenManager.UNDERSCORE);
+        tree.closeScope(em);
     }
 
     func code() {
