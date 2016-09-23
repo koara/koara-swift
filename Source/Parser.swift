@@ -573,26 +573,27 @@ class Parser {
         tree.openScope()
         switch (getNextTokenKind()) {
         case TokenManager.ASTERISK:
-            text.value = consumeToken(TokenManager.ASTERISK).image
+            text.value = consumeToken(TokenManager.ASTERISK).image as AnyObject
         case TokenManager.BACKTICK:
-            text.value = consumeToken(TokenManager.BACKTICK).image
+            text.value = consumeToken(TokenManager.BACKTICK).image as AnyObject
         case TokenManager.LBRACK:
-            text.value = consumeToken(TokenManager.LBRACK).image
+            text.value = consumeToken(TokenManager.LBRACK).image as AnyObject
         case TokenManager.UNDERSCORE:
-            text.value = consumeToken(TokenManager.UNDERSCORE).image
+            text.value = consumeToken(TokenManager.UNDERSCORE).image as AnyObject
+        default: break
         }
         tree.closeScope(text)
     }
 
     func lineBreak() {
-//    LineBreak linebreak = new LineBreak();
-//    tree.openScope();
-//    while (getNextTokenKind() == SPACE || getNextTokenKind() == TAB) {
-//    consumeToken(getNextTokenKind());
-//    }
-//    Token t = consumeToken(EOL);
+        var linebreak = LineBreak()
+        tree.openScope()
+        while getNextTokenKind() == TokenManager.SPACE || getNextTokenKind() == TokenManager.TAB {
+            consumeToken(getNextTokenKind())
+        }
+        var t = consumeToken(TokenManager.EOL);
 //    linebreak.setExplicit(t.image.startsWith("  "));
-//    tree.closeScope(linebreak);
+        tree.closeScope(linebreak)
     }
   
     func levelWhiteSpace(_ threshold : Int) {
