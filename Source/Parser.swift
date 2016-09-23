@@ -569,23 +569,19 @@ class Parser {
     }
 
     func looseChar() {
-//    Text text = new Text();
-//    tree.openScope();
-//    switch (getNextTokenKind()) {
-//    case ASTERISK:
-//    text.setValue(consumeToken(ASTERISK).image);
-//    break;
-//    case BACKTICK:
-//    text.setValue(consumeToken(BACKTICK).image);
-//    break;
-//    case LBRACK:
-//    text.setValue(consumeToken(LBRACK).image);
-//    break;
-//    case UNDERSCORE:
-//    text.setValue(consumeToken(UNDERSCORE).image);
-//    break;
-//    }
-//    tree.closeScope(text);
+        var text = Text()
+        tree.openScope()
+        switch (getNextTokenKind()) {
+        case TokenManager.ASTERISK:
+            text.value = consumeToken(TokenManager.ASTERISK).image
+        case TokenManager.BACKTICK:
+            text.value = consumeToken(TokenManager.BACKTICK).image
+        case TokenManager.LBRACK:
+            text.value = consumeToken(TokenManager.LBRACK).image
+        case TokenManager.UNDERSCORE:
+            text.value = consumeToken(TokenManager.UNDERSCORE).image
+        }
+        tree.closeScope(text)
     }
 
     func lineBreak() {
