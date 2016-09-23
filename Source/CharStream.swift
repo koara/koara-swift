@@ -76,7 +76,7 @@ class CharStream {
 //        }
     }
     
-    func backup(amount : Int) {
+    func backup(_ amount : Int) {
         inBuf += amount
         bufpos -= amount
         if (bufpos < 0) {
@@ -84,7 +84,7 @@ class CharStream {
         }
     }
     
-    func updateLineColumn(c : String) {
+    func updateLineColumn(_ c : String) {
         column += 1
         if prevCharIsLF {
             prevCharIsLF = false

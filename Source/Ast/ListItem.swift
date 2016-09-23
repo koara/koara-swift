@@ -9,7 +9,7 @@ class ListItem : BlockElement {
         }
     }
     
-    override func accept(renderer : Renderer) {
+    override func accept(_ renderer : Renderer) {
         renderer.visit(self)
     }
     

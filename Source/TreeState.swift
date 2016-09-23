@@ -11,7 +11,7 @@ class TreeState {
         currentMark = nodesOnStack
     }
     
-    func closeScope(n : Node) {
+    func closeScope(_ n : Node) {
 //        var a = nodeArity()
         currentMark = marks.removeLast()
 //        while (a-=1) > 0 {
@@ -22,7 +22,7 @@ class TreeState {
 //    pushNode(n);
     }
 //    
-    func addSingleValue(n : Node, t : Token) {
+    func addSingleValue(_ n : Node, t : Token) {
         openScope();
 //    n.setValue(t.image);
         closeScope(n);
@@ -37,7 +37,7 @@ class TreeState {
         return nodes.removeLast()
     }
     
-    func pushNode(n : Node) {
+    func pushNode(_ n : Node) {
         nodes.append(n)
         nodesOnStack += 1
     }

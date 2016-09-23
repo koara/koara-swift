@@ -30,7 +30,7 @@ class BlockElement : Node {
 //        return null;
 //    }
 //    
-    func accept(renderer : Renderer) {
+    func accept(_ renderer : Renderer) {
         renderer.visit(self)
     }
     

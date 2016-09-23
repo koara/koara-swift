@@ -1,6 +1,6 @@
 class Strong : Node {
     
-    func accept(renderer : Renderer) {
+    func accept(_ renderer : Renderer) {
         renderer.visit(self)
     }
     
