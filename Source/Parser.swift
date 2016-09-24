@@ -597,84 +597,62 @@ class Parser {
     }
   
     func levelWhiteSpace(_ threshold : Int) {
-//    int currentPos = 1;
-//    while (getNextTokenKind() == GT) {
-//    consumeToken(getNextTokenKind());
-//    }
-//    while ((getNextTokenKind() == SPACE || getNextTokenKind() == TAB) && currentPos < (threshold - 1)) {
-//    currentPos = consumeToken(getNextTokenKind()).beginColumn;
-//    }
+        var currentPos : Int = 1;
+        while getNextTokenKind() == TokenManager.GT {
+            consumeToken(getNextTokenKind());
+        }
+        while (getNextTokenKind() == TokenManager.SPACE || getNextTokenKind() == TokenManager.TAB) && currentPos < (threshold - 1) {
+            currentPos = consumeToken(getNextTokenKind()).beginColumn;
+        }
     }
 
     func codeLanguage() -> String {
-//    StringBuilder s = new StringBuilder();
+        var s = ""
         repeat {
-//    switch (getNextTokenKind()) {
-//    case CHAR_SEQUENCE:
-//    s.append(consumeToken(CHAR_SEQUENCE).image);
-//    break;
-//    case ASTERISK:
-//    s.append(consumeToken(ASTERISK).image);
-//    break;
-//    case BACKSLASH:
-//    s.append(consumeToken(BACKSLASH).image);
-//    break;
-//    case BACKTICK:
-//    s.append(consumeToken(BACKTICK).image);
-//    break;
-//    case COLON:
-//    s.append(consumeToken(COLON).image);
-//    break;
-//    case DASH:
-//    s.append(consumeToken(DASH).image);
-//    break;
-//    case DIGITS:
-//    s.append(consumeToken(DIGITS).image);
-//    break;
-//    case DOT:
-//    s.append(consumeToken(DOT).image);
-//    break;
-//    case EQ:
-//    s.append(consumeToken(EQ).image);
-//    break;
-//    case ESCAPED_CHAR:
-//    s.append(consumeToken(ESCAPED_CHAR).image);
-//    break;
-//    case IMAGE_LABEL:
-//    s.append(consumeToken(IMAGE_LABEL).image);
-//    break;
-//    case LT:
-//    s.append(consumeToken(LT).image);
-//    break;
-//    case GT:
-//    s.append(consumeToken(GT).image);
-//    break;
-//    case LBRACK:
-//    s.append(consumeToken(LBRACK).image);
-//    break;
-//    case RBRACK:
-//    s.append(consumeToken(RBRACK).image);
-//    break;
-//    case LPAREN:
-//    s.append(consumeToken(LPAREN).image);
-//    break;
-//    case RPAREN:
-//    s.append(consumeToken(RPAREN).image);
-//    break;
-//    case UNDERSCORE:
-//    s.append(consumeToken(UNDERSCORE).image);
-//    break;
-//    case SPACE:
-//    s.append(consumeToken(SPACE).image);
-//    break;
-//    case TAB:
-//    s.append("    ");
-//    break;
-//    default:
-//    break;
-//    }
+            switch getNextTokenKind() {
+            case TokenManager.CHAR_SEQUENCE:
+                s += consumeToken(TokenManager.CHAR_SEQUENCE).image
+            case TokenManager.ASTERISK:
+                s += consumeToken(TokenManager.ASTERISK).image
+            case TokenManager.BACKSLASH:
+                s += consumeToken(TokenManager.BACKSLASH).image
+            case TokenManager.BACKTICK:
+                s += consumeToken(TokenManager.BACKTICK).image
+            case TokenManager.COLON:
+                s += consumeToken(TokenManager.COLON).image
+            case TokenManager.DASH:
+                s += consumeToken(TokenManager.DASH).image
+            case TokenManager.DIGITS:
+                s += consumeToken(TokenManager.DIGITS).image
+            case TokenManager.DOT:
+                s += consumeToken(TokenManager.DOT).image
+            case TokenManager.EQ:
+                s += consumeToken(TokenManager.EQ).image
+            case TokenManager.ESCAPED_CHAR:
+                s += consumeToken(TokenManager.ESCAPED_CHAR).image
+            case TokenManager.IMAGE_LABEL:
+                s += consumeToken(TokenManager.IMAGE_LABEL).image
+            case TokenManager.LT:
+                s += consumeToken(TokenManager.LT).image
+            case TokenManager.GT:
+                s += consumeToken(TokenManager.GT).image
+            case TokenManager.LBRACK:
+                s += consumeToken(TokenManager.LBRACK).image
+            case TokenManager.RBRACK:
+                s += consumeToken(TokenManager.RBRACK).image
+            case TokenManager.LPAREN:
+                s += consumeToken(TokenManager.LPAREN).image
+            case TokenManager.RPAREN:
+                s += consumeToken(TokenManager.RPAREN).image
+            case TokenManager.UNDERSCORE:
+                s += consumeToken(TokenManager.UNDERSCORE).image
+            case TokenManager.SPACE:
+                s += consumeToken(TokenManager.SPACE).image
+            case TokenManager.TAB:
+                s += "    "
+            default: break
+            }
         } while getNextTokenKind() != TokenManager.EOL && getNextTokenKind() != TokenManager.EOF
-//    return s.toString();
         return ""
     }
   
