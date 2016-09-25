@@ -658,85 +658,71 @@ class Parser {
   
     func inline() {
         repeat {
-//    if (hasInlineTextAhead()) {
-//    text();
-//    } else if (modules.contains("images") && hasImageAhead()) {
-//    image();
-//    } else if (modules.contains("links") && hasLinkAhead()) {
-//    link();
-//    } else if (modules.contains("formatting") && multilineAhead(ASTERISK)) {
-//    strongMultiline();
-//    } else if (modules.contains("formatting") && multilineAhead(UNDERSCORE)) {
-//    emMultiline();
-//    } else if (modules.contains("code") && multilineAhead(BACKTICK)) {
-//    codeMultiline();
-//    } else {
-//    looseChar();
-//    }
+            if hasInlineTextAhead() {
+                text()
+            } else if modules.contains("images") && hasImageAhead() {
+                image()
+            } else if modules.contains("links") && hasLinkAhead() {
+                link()
+            } else if modules.contains("formatting") && multilineAhead(TokenManager.ASTERISK) {
+                strongMultiline()
+            } else if modules.contains("formatting") && multilineAhead(TokenManager.UNDERSCORE) {
+                emMultiline()
+            } else if modules.contains("code") && multilineAhead(TokenManager.BACKTICK) {
+                codeMultiline()
+            } else {
+                looseChar()
+            }
         } while hasInlineElementAhead()
     }
    
     func resourceText() {
-//    Text text = new Text();
-//    tree.openScope();
-//    StringBuilder s = new StringBuilder();
+        var text = Text()
+        tree.openScope()
+        var s = ""
         repeat {
-//    switch (getNextTokenKind()) {
-//    case CHAR_SEQUENCE:
-//    s.append(consumeToken(CHAR_SEQUENCE).image);
-//    break;
-//    case BACKSLASH:
-//    s.append(consumeToken(BACKSLASH).image);
-//    break;
-//    case COLON:
-//    s.append(consumeToken(COLON).image);
-//    break;
-//    case DASH:
-//    s.append(consumeToken(DASH).image);
-//    break;
-//    case DIGITS:
-//    s.append(consumeToken(DIGITS).image);
-//    break;
-//    case DOT:
-//    s.append(consumeToken(DOT).image);
-//    break;
-//    case EQ:
-//    s.append(consumeToken(EQ).image);
-//    break;
-//    case ESCAPED_CHAR:
-//    s.append(consumeToken(ESCAPED_CHAR).image.substring(1));
-//    break;
-//    case IMAGE_LABEL:
-//    s.append(consumeToken(IMAGE_LABEL).image);
-//    break;
-//    case GT:
-//    s.append(consumeToken(GT).image);
-//    break;
-//    case LPAREN:
-//    s.append(consumeToken(LPAREN).image);
-//    break;
-//    case LT:
-//    s.append(consumeToken(LT).image);
-//    break;
-//    case RPAREN:
-//    s.append(consumeToken(RPAREN).image);
-//    break;
-//    default:
-//    if (!nextAfterSpace(RBRACK)) {
-//    switch (getNextTokenKind()) {
-//    case SPACE:
-//    s.append(consumeToken(SPACE).image);
-//    break;
-//    case TAB:
-//    consumeToken(TAB);
-//    s.append("    ");
-//    break;
-//    }
-//    }
-//    }
+            switch getNextTokenKind() {
+            case TokenManager.CHAR_SEQUENCE:
+                s += consumeToken(TokenManager.CHAR_SEQUENCE).image
+            case TokenManager.BACKSLASH:
+                s += consumeToken(TokenManager.BACKSLASH).image
+            case TokenManager.COLON:
+                s += consumeToken(TokenManager.COLON).image
+            case TokenManager.DASH:
+                s += consumeToken(TokenManager.DASH).image
+            case TokenManager.DIGITS:
+                s += consumeToken(TokenManager.DIGITS).image
+            case TokenManager.DOT:
+                s += consumeToken(TokenManager.DOT).image
+            case TokenManager.EQ:
+                s += consumeToken(TokenManager.EQ).image
+            case TokenManager.ESCAPED_CHAR:
+                s += consumeToken(TokenManager.ESCAPED_CHAR).image // substring - 1
+            case TokenManager.IMAGE_LABEL:
+                s += consumeToken(TokenManager.IMAGE_LABEL).image
+            case TokenManager.GT:
+                s += consumeToken(TokenManager.GT).image
+            case TokenManager.LPAREN:
+                s += consumeToken(TokenManager.LPAREN).image
+            case TokenManager.LT:
+                s += consumeToken(TokenManager.LT).image
+            case TokenManager.RPAREN:
+                s += consumeToken(TokenManager.RPAREN).image
+            default:
+                if !nextAfterSpace(TokenManager.RBRACK) {
+                    switch getNextTokenKind() {
+                    case TokenManager.SPACE:
+                        s.append(consumeToken(TokenManager.SPACE).image)
+                    case TokenManager.TAB:
+                        consumeToken(TokenManager.TAB)
+                        s += "    "
+                    default: break
+                    }
+                }
+            }
         } while resourceHasElementAhead()
-//    text.setValue(s.toString());
-//    tree.closeScope(text);
+        text.value = s as AnyObject
+        tree.closeScope(text)
     }
    
     func resourceUrl() -> String {
