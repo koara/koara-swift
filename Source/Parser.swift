@@ -726,333 +726,302 @@ class Parser {
     }
    
     func resourceUrl() -> String {
-//    consumeToken(LPAREN);
+        consumeToken(TokenManager.LPAREN)
         whiteSpace()
-        let ref = "" //resourceUrlText();
+        let ref = resourceUrlText()
         whiteSpace()
-//    consumeToken(RPAREN);
+        consumeToken(TokenManager.RPAREN)
         return ref;
     }
     
     func resourceUrlText() -> String {
-//    StringBuilder s = new StringBuilder();
-//    while (resourceTextHasElementsAhead()) {
-//    switch (getNextTokenKind()) {
-//    case CHAR_SEQUENCE:
-//    s.append(consumeToken(CHAR_SEQUENCE).image);
-//    break;
-//    case ASTERISK:
-//    s.append(consumeToken(ASTERISK).image);
-//    break;
-//    case BACKSLASH:
-//    s.append(consumeToken(BACKSLASH).image);
-//    break;
-//    case BACKTICK:
-//    s.append(consumeToken(BACKTICK).image);
-//    break;
-//    case COLON:
-//    s.append(consumeToken(COLON).image);
-//    break;
-//    case DASH:
-//    s.append(consumeToken(DASH).image);
-//    break;
-//    case DIGITS:
-//    s.append(consumeToken(DIGITS).image);
-//    break;
-//    case DOT:
-//    s.append(consumeToken(DOT).image);
-//    break;
-//    case EQ:
-//    s.append(consumeToken(EQ).image);
-//    break;
-//    case ESCAPED_CHAR:
-//    s.append(consumeToken(ESCAPED_CHAR).image.substring(1));
-//    break;
-//    case IMAGE_LABEL:
-//    s.append(consumeToken(IMAGE_LABEL).image);
-//    break;
-//    case GT:
-//    s.append(consumeToken(GT).image);
-//    break;
-//    case LBRACK:
-//    s.append(consumeToken(LBRACK).image);
-//    break;
-//    case LPAREN:
-//    s.append(consumeToken(LPAREN).image);
-//    break;
-//    case LT:
-//    s.append(consumeToken(LT).image);
-//    break;
-//    case RBRACK:
-//    s.append(consumeToken(RBRACK).image);
-//    break;
-//    case UNDERSCORE:
-//    s.append(consumeToken(UNDERSCORE).image);
-//    break;
-//    default:
-//    if (!nextAfterSpace(RPAREN)) {
-//    switch (getNextTokenKind()) {
-//    case SPACE:
-//    s.append(consumeToken(SPACE).image);
-//    break;
-//    case TAB:
-//    consumeToken(TAB);
-//    s.append("    ");
-//    break;
-//    }
-//    }
-//    }
-//    }
-//    return s.toString();
-        return ""
+        var s = ""
+        while resourceTextHasElementsAhead() {
+            switch getNextTokenKind() {
+            case TokenManager.CHAR_SEQUENCE:
+                s += consumeToken(TokenManager.CHAR_SEQUENCE).image
+            case TokenManager.ASTERISK:
+                s += consumeToken(TokenManager.ASTERISK).image
+            case TokenManager.BACKSLASH:
+                s += consumeToken(TokenManager.BACKSLASH).image
+            case TokenManager.CHAR_SEQUENCE:
+                s += consumeToken(TokenManager.CHAR_SEQUENCE).image
+            case TokenManager.COLON:
+                s += consumeToken(TokenManager.COLON).image
+            case TokenManager.DASH:
+                s += consumeToken(TokenManager.DASH).image
+            case TokenManager.DIGITS:
+                s += consumeToken(TokenManager.DIGITS).image
+            case TokenManager.DOT:
+                s += consumeToken(TokenManager.DOT).image
+            case TokenManager.EQ:
+                s += consumeToken(TokenManager.EQ).image
+            case TokenManager.ESCAPED_CHAR:
+                s += consumeToken(TokenManager.ESCAPED_CHAR).image // substring - 1
+            case TokenManager.IMAGE_LABEL:
+                s += consumeToken(TokenManager.IMAGE_LABEL).image
+            case TokenManager.GT:
+                s += consumeToken(TokenManager.GT).image
+            case TokenManager.LBRACK:
+                s += consumeToken(TokenManager.LBRACK).image
+            case TokenManager.LPAREN:
+                s += consumeToken(TokenManager.LPAREN).image
+            case TokenManager.LT:
+                s += consumeToken(TokenManager.LT).image
+            case TokenManager.RBRACK:
+                s += consumeToken(TokenManager.RBRACK).image
+            case TokenManager.UNDERSCORE:
+                s += consumeToken(TokenManager.UNDERSCORE).image
+            default:
+                if !nextAfterSpace(TokenManager.RPAREN) {
+                    switch getNextTokenKind() {
+                    case TokenManager.SPACE:
+                        s += consumeToken(TokenManager.SPACE).image
+                    case TokenManager.TAB:
+                        consumeToken(TokenManager.TAB);
+                        s += "    "
+                    default: break
+                    }
+                }
+            }
+        }
+        return s
     }
     
     func strongMultiline() {
-//    Strong strong = new Strong();
-//    tree.openScope();
-//    consumeToken(ASTERISK);
-//    strongMultilineContent();
-//    while (textAhead()) {
-//    lineBreak();
-        whiteSpace()
-//    strongMultilineContent();
-//    }
-//    consumeToken(ASTERISK);
-//    tree.closeScope(strong);
+        var strong = Strong()
+        tree.openScope()
+        consumeToken(TokenManager.ASTERISK)
+        strongMultilineContent()
+        while textAhead() {
+            lineBreak()
+            whiteSpace()
+            strongMultilineContent()
+        }
+        consumeToken(TokenManager.ASTERISK)
+        tree.closeScope(strong)
     }
 
     func strongMultilineContent() {
         repeat {
-//    if (hasTextAhead()) {
-//    text();
-//    } else if (modules.contains("images") && hasImageAhead()) {
-//    image();
-//    } else if (modules.contains("links") && hasLinkAhead()) {
-//    link();
-//    } else if (modules.contains("code") && hasCodeAhead()) {
-//    code();
-//    } else if (hasEmWithinStrongMultiline()) {
-//    emWithinStrongMultiline();
-//    } else {
-//    switch (getNextTokenKind()) {
-//    case BACKTICK:
-//    tree.addSingleValue(new Text(), consumeToken(BACKTICK));
-//    break;
-//    case LBRACK:
-//    tree.addSingleValue(new Text(), consumeToken(LBRACK));
-//    break;
-//    case UNDERSCORE:
-//    tree.addSingleValue(new Text(), consumeToken(UNDERSCORE));
-//    break;
-//    }
-//    }
+            if hasTextAhead() {
+                text()
+            } else if modules.contains("images") && hasImageAhead() {
+                image()
+            } else if modules.contains("links") && hasLinkAhead() {
+                link()
+            } else if modules.contains("code") && hasCodeAhead() {
+                code()
+            } else if hasEmWithinStrongMultiline() {
+                emWithinStrongMultiline()
+            } else {
+                switch getNextTokenKind() {
+                case TokenManager.BACKTICK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK))
+                case TokenManager.LBRACK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK))
+                case TokenManager.UNDERSCORE:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.UNDERSCORE))
+                default: break
+                }
+            }
         } while strongMultilineHasElementsAhead()
     }
     
     func strongWithinEmMultiline() {
-//    Strong strong = new Strong();
-//    tree.openScope();
-//    consumeToken(ASTERISK);
-//    strongWithinEmMultilineContent();
-//    while (textAhead()) {
-//    lineBreak();
-//    strongWithinEmMultilineContent();
-//    }
-//    consumeToken(ASTERISK);
-//    tree.closeScope(strong);
+        var strong = Strong()
+        tree.openScope()
+        consumeToken(TokenManager.ASTERISK)
+        strongWithinEmMultilineContent()
+        while (textAhead()) {
+            lineBreak()
+            strongWithinEmMultilineContent()
+        }
+        consumeToken(TokenManager.ASTERISK)
+        tree.closeScope(strong);
     }
 
     func strongWithinEmMultilineContent() {
         repeat {
-//    if (hasTextAhead()) {
-//    text();
-//    } else if (modules.contains("images") && hasImageAhead()) {
-//    image();
-//    } else if (modules.contains("links") && hasLinkAhead()) {
-//    link();
-//    } else if (modules.contains("code") && hasCodeAhead()) {
-//    code();
-//    } else {
-//    switch (getNextTokenKind()) {
-//    case BACKTICK:
-//    tree.addSingleValue(new Text(), consumeToken(BACKTICK));
-//    break;
-//    case LBRACK:
-//    tree.addSingleValue(new Text(), consumeToken(LBRACK));
-//    break;
-//    case UNDERSCORE:
-//    tree.addSingleValue(new Text(), consumeToken(UNDERSCORE));
-//    break;
-//    }
-//    }
+            if hasTextAhead() {
+                text()
+            } else if modules.contains("images") && hasImageAhead() {
+                image()
+            } else if modules.contains("links") && hasLinkAhead() {
+                link()
+            } else if modules.contains("code") && hasCodeAhead() {
+                code()
+            } else {
+                switch getNextTokenKind() {
+                case TokenManager.BACKTICK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK))
+                case TokenManager.LBRACK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK))
+                case TokenManager.UNDERSCORE:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.UNDERSCORE))
+                default: break
+            }
+            }
         } while strongWithinEmMultilineHasElementsAhead()
     }
     
     func strongWithinEm() {
-//    Strong strong = new Strong();
-//    tree.openScope();
-//    consumeToken(ASTERISK);
+        var strong = Strong()
+        tree.openScope()
+        consumeToken(TokenManager.ASTERISK);
         repeat {
-//    if (hasTextAhead()) {
-//    text();
-//    } else if (modules.contains("images") && hasImageAhead()) {
-//    image();
-//    } else if (modules.contains("links") && hasLinkAhead()) {
-//    link();
-//    } else if (modules.contains("code") && hasCodeAhead()) {
-//    code();
-//    } else {
-//    switch (getNextTokenKind()) {
-//    case BACKTICK:
-//    tree.addSingleValue(new Text(), consumeToken(BACKTICK));
-//    break;
-//    case LBRACK:
-//    tree.addSingleValue(new Text(), consumeToken(LBRACK));
-//    break;
-//    case UNDERSCORE:
-//    tree.addSingleValue(new Text(), consumeToken(UNDERSCORE));
-//    break;
-//    }
-//    }
+            if hasTextAhead() {
+                text()
+            } else if modules.contains("images") && hasImageAhead() {
+                image()
+            } else if modules.contains("links") && hasLinkAhead() {
+                link()
+            } else if modules.contains("code") && hasCodeAhead() {
+                code()
+            } else {
+                switch getNextTokenKind() {
+                case TokenManager.BACKTICK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK))
+                case TokenManager.LBRACK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK));
+                case TokenManager.UNDERSCORE:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.UNDERSCORE));
+                default: break
+                }
+            }
         } while strongWithinEmHasElementsAhead()
-//    consumeToken(ASTERISK);
-//    tree.closeScope(strong);
+        consumeToken(TokenManager.ASTERISK);
+        tree.closeScope(strong);
     }
    
     func emMultiline() {
-//    Em em = new Em();
-//    tree.openScope();
-//    consumeToken(UNDERSCORE);
-//    emMultilineContent();
-//    while (textAhead()) {
-//    lineBreak();
-        whiteSpace()
-//    emMultilineContent();
-//    }
-//    consumeToken(UNDERSCORE);
-//    tree.closeScope(em);
+        var em = Em()
+        tree.openScope()
+        consumeToken(TokenManager.UNDERSCORE)
+        emMultilineContent()
+        while (textAhead()) {
+            lineBreak()
+            whiteSpace()
+            emMultilineContent()
+        }
+        consumeToken(TokenManager.UNDERSCORE);
+        tree.closeScope(em);
     }
     
     func emMultilineContent() {
         repeat {
-//    if (hasTextAhead()) {
-//    text();
-//    } else if (modules.contains("images") && hasImageAhead()) {
-//    image();
-//    } else if (modules.contains("links") && hasLinkAhead()) {
-//    link();
-//    } else if (modules.contains("code") && multilineAhead(BACKTICK)) {
-//    codeMultiline();
-//    } else if (hasStrongWithinEmMultilineAhead()) {
-//    strongWithinEmMultiline();
-//    } else {
-//    switch (getNextTokenKind()) {
-//    case ASTERISK:
-//    tree.addSingleValue(new Text(), consumeToken(ASTERISK));
-//    break;
-//    case BACKTICK:
-//    tree.addSingleValue(new Text(), consumeToken(BACKTICK));
-//    break;
-//    case LBRACK:
-//    tree.addSingleValue(new Text(), consumeToken(LBRACK));
-//    break;
-//    }
-//    }
+            if hasTextAhead() {
+                text()
+            } else if modules.contains("images") && hasImageAhead() {
+                image()
+            } else if modules.contains("links") && hasLinkAhead() {
+                link()
+            } else if modules.contains("code") && multilineAhead(TokenManager.BACKTICK) {
+                codeMultiline()
+            } else if hasStrongWithinEmMultilineAhead() {
+                strongWithinEmMultiline()
+            } else {
+                switch getNextTokenKind() {
+                case TokenManager.ASTERISK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.ASTERISK))
+                case TokenManager.BACKTICK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK));
+                case TokenManager.LBRACK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK));
+                default: break
+                }
+            }
         } while emMultilineContentHasElementsAhead()
     }
     
     func emWithinStrongMultiline() {
-//    Em em = new Em();
-//    tree.openScope();
-//    consumeToken(UNDERSCORE);
-//    emWithinStrongMultilineContent();
-//    while (textAhead()) {
-//    lineBreak();
-//    emWithinStrongMultilineContent();
-//    }
-//    consumeToken(UNDERSCORE);
-//    tree.closeScope(em);
+        var em = Em()
+        tree.openScope()
+        consumeToken(TokenManager.UNDERSCORE)
+        emWithinStrongMultilineContent()
+        while (textAhead()) {
+            lineBreak()
+            emWithinStrongMultilineContent()
+        }
+        consumeToken(TokenManager.UNDERSCORE);
+        tree.closeScope(em)
     }
     
     func emWithinStrongMultilineContent() {
         repeat {
-//    if (hasTextAhead()) {
-//    text();
-//    } else if (modules.contains("images") && hasImageAhead()) {
-//    image();
-//    } else if (modules.contains("links") && hasLinkAhead()) {
-//    link();
-//    } else if (modules.contains("code") && hasCodeAhead()) {
-//    code();
-//    } else {
-//    switch (getNextTokenKind()) {
-//    case ASTERISK:
-//    tree.addSingleValue(new Text(), consumeToken(ASTERISK));
-//    break;
-//    case BACKTICK:
-//    tree.addSingleValue(new Text(), consumeToken(BACKTICK));
-//    break;
-//    case LBRACK:
-//    tree.addSingleValue(new Text(), consumeToken(LBRACK));
-//    break;
-//    }
-//    }
+            if hasTextAhead() {
+                text()
+            } else if modules.contains("images") && hasImageAhead() {
+                image()
+            } else if modules.contains("links") && hasLinkAhead() {
+                link()
+            } else if modules.contains("code") && hasCodeAhead() {
+                code()
+            } else {
+                switch getNextTokenKind() {
+                case TokenManager.ASTERISK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.ASTERISK))
+                case TokenManager.BACKTICK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK))
+                case TokenManager.LBRACK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK))
+                default: break
+                }
+            }
         } while emWithinStrongMultilineContentHasElementsAhead()
     }
     
     func emWithinStrong() {
-//    Em em = new Em();
-//    tree.openScope();
-//    consumeToken(UNDERSCORE);
+        var em = Em()
+        tree.openScope()
+        consumeToken(TokenManager.UNDERSCORE)
         repeat {
-//    if (hasTextAhead()) {
-//    text();
-//    } else if (modules.contains("images") && hasImageAhead()) {
-//    image();
-//    } else if (modules.contains("links") && hasLinkAhead()) {
-//    link();
-//    } else if (modules.contains("code") && hasCodeAhead()) {
-//    code();
-//    } else {
-//    switch (getNextTokenKind()) {
-//    case ASTERISK:
-//    tree.addSingleValue(new Text(), consumeToken(ASTERISK));
-//    break;
-//    case BACKTICK:
-//    tree.addSingleValue(new Text(), consumeToken(BACKTICK));
-//    break;
-//    case LBRACK:
-//    tree.addSingleValue(new Text(), consumeToken(LBRACK));
-//    break;
-//    }
-//    }
+            if hasTextAhead() {
+                text()
+            } else if modules.contains("images") && hasImageAhead() {
+                image()
+            } else if modules.contains("links") && hasLinkAhead() {
+                link()
+            } else if modules.contains("code") && hasCodeAhead() {
+                code()
+            } else {
+                switch getNextTokenKind() {
+                case TokenManager.ASTERISK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.ASTERISK))
+                case TokenManager.BACKTICK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK))
+                case TokenManager.LBRACK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK))
+                default: break
+                }
+            }
         } while emWithinStrongHasElementsAhead()
-//    consumeToken(UNDERSCORE);
-//    tree.closeScope(em);
+        consumeToken(TokenManager.UNDERSCORE);
+        tree.closeScope(em);
     }
    
     func codeMultiline() {
-//    Code code = new Code();
-//    tree.openScope();
-//    consumeToken(BACKTICK);
-//    codeText();
-//    while (textAhead()) {
-//    lineBreak();
-        whiteSpace()
-//    while (getNextTokenKind() == GT) {
-//    consumeToken(GT);
-        whiteSpace()
-//    }
-//    codeText();
-//    }
-//    consumeToken(BACKTICK);
-//    tree.closeScope(code);
+        var code = Code()
+        tree.openScope()
+        consumeToken(TokenManager.BACKTICK)
+        codeText()
+        while textAhead() {
+            lineBreak()
+            whiteSpace()
+            while getNextTokenKind() == TokenManager.GT {
+                consumeToken(TokenManager.GT)
+                whiteSpace()
+            }
+            codeText()
+        }
+        consumeToken(TokenManager.BACKTICK)
+        tree.closeScope(code)
     }
     
     func whiteSpace() {
-//    while (getNextTokenKind() == SPACE || getNextTokenKind() == TAB) {
-//    consumeToken(getNextTokenKind());
-//    }
+        while getNextTokenKind() == TokenManager.SPACE || getNextTokenKind() == TokenManager.TAB {
+            consumeToken(getNextTokenKind())
+        }
     }
     
     func hasAnyBlockElementsAhead() -> Bool {
@@ -1136,8 +1105,8 @@ class Parser {
     }
 
     func headingAhead(_ offset : Int) -> Bool {
-//    if (getToken(offset).kind == EQ) {
-//    int heading = 1;
+        if getToken(offset).kind == TokenManager.EQ {
+            var heading : Int = 1
 //    for (int i = (offset + 1);; i++) {
 //    if (getToken(i).kind != EQ) {
 //    return true;
@@ -1146,7 +1115,7 @@ class Parser {
 //    return false;
 //    }
 //    }
-//    }
+        }
         return false
     }
 
@@ -1215,9 +1184,10 @@ class Parser {
     }
     
     func hasOrderedListAhead() -> Bool {
-//    lookAhead = 2;
-//    lastPosition = scanPosition = token;
-//    try {
+        lookAhead = 2
+        scanPosition = token
+        lastPosition = scanPosition
+        //    try {
 //    return !scanToken(DIGITS) && !scanToken(DOT);
 //    } catch (LookaheadSuccess ls) {
         return true
@@ -1225,8 +1195,9 @@ class Parser {
     }
 
     func hasFencedCodeBlockAhead() -> Bool {
-//    lookAhead = 3;
-//    lastPosition = scanPosition = token;
+        lookAhead = 3;
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanFencedCodeBlock();
 //    } catch (LookaheadSuccess ls) {
@@ -1235,8 +1206,9 @@ class Parser {
     }
   
     func headingHasInlineElementsAhead() -> Bool {
-//    lookAhead = 1;
-//    lastPosition = scanPosition = token;
+        lookAhead = 1
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    Token xsp = scanPosition;
 //    if (scanTextTokens()) {
@@ -1267,8 +1239,9 @@ class Parser {
     }
 
     func hasTextAhead() -> Bool {
-//    lookAhead = 1;
-//    lastPosition = scanPosition = token;
+        lookAhead = 1
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanTextTokens();
 //    } catch (LookaheadSuccess ls) {
@@ -1277,8 +1250,9 @@ class Parser {
     }
 
     func hasImageAhead() -> Bool {
-//    lookAhead = 2147483647;
-//    lastPosition = scanPosition = token;
+        lookAhead = 2147483647;
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanImage();
 //    } catch (LookaheadSuccess ls) {
@@ -1287,8 +1261,9 @@ class Parser {
     }
     
     func blockQuoteHasEmptyLineAhead() -> Bool {
-//    lookAhead = 2147483647;
-//    lastPosition = scanPosition = token;
+        lookAhead = 2147483647;
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanBlockQuoteEmptyLine();
 //    } catch (LookaheadSuccess ls) {
