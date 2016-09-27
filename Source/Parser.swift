@@ -1272,8 +1272,9 @@ class Parser {
     }
 
     func hasStrongAhead() -> Bool {
-//    lookAhead = 2147483647;
-//    lastPosition = scanPosition = token;
+        lookAhead = 2147483647;
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanStrong();
 //    } catch (LookaheadSuccess ls) {
@@ -1282,8 +1283,9 @@ class Parser {
     }
  
     func hasEmAhead() -> Bool {
-//    lookAhead = 2147483647;
-//    lastPosition = scanPosition = token;
+        lookAhead = 2147483647;
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanEm();
 //    } catch (LookaheadSuccess ls) {
@@ -1292,8 +1294,9 @@ class Parser {
     }
 
     func hasCodeAhead() -> Bool {
-//    lookAhead = 2147483647;
-//    lastPosition = scanPosition = token;
+        lookAhead = 2147483647;
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanCode();
 //    } catch (LookaheadSuccess ls) {
@@ -1302,8 +1305,9 @@ class Parser {
     }
     
     func blockQuoteHasAnyBlockElementseAhead() -> Bool {
-//    lookAhead = 1;
-//    lastPosition = scanPosition = token;
+        lookAhead = 1
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanMoreBlockElements();
 //    } catch (LookaheadSuccess ls) {
@@ -1312,8 +1316,9 @@ class Parser {
     }
 
     func hasBlockQuoteEmptyLinesAhead() -> Bool {
-//    lookAhead = 2147483647;
-//    lastPosition = scanPosition = token;
+        lookAhead = 2147483647;
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanBlockQuoteEmptyLines();
 //    } catch (LookaheadSuccess ls) {
