@@ -1316,7 +1316,7 @@ class Parser {
     }
 
     func hasBlockQuoteEmptyLinesAhead() -> Bool {
-        lookAhead = 2147483647;
+        lookAhead = 2147483647
         scanPosition = token
         lastPosition = scanPosition
 //    try {
@@ -1327,8 +1327,9 @@ class Parser {
     }
 
     func listItemHasInlineElements() -> Bool {
-//    lookAhead = 1;
-//    lastPosition = scanPosition = token;
+        lookAhead = 1
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanMoreBlockElements();
 //    } catch (LookaheadSuccess ls) {
@@ -1337,8 +1338,9 @@ class Parser {
     }
   
     func hasInlineTextAhead() -> Bool {
-//    lookAhead = 1;
-//    lastPosition = scanPosition = token;
+        lookAhead = 1
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanTextTokens();
 //    } catch (LookaheadSuccess ls) {
@@ -1347,8 +1349,9 @@ class Parser {
     }
 
     func hasInlineElementAhead() -> Bool {
-//    lookAhead = 1;
-//    lastPosition = scanPosition = token;
+        lookAhead = 1;
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanInlineElement();
 //    } catch (LookaheadSuccess ls) {
