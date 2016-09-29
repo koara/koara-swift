@@ -1360,8 +1360,9 @@ class Parser {
     }
 
     func imageHasAnyElements() -> Bool {
-//    lookAhead = 1;
-//    lastPosition = scanPosition = token;
+        lookAhead = 1;
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanImageElement();
 //    } catch (LookaheadSuccess ls) {
@@ -1370,8 +1371,9 @@ class Parser {
     }
  
     func hasResourceTextAhead() -> Bool {
-//    lookAhead = 1;
-//    lastPosition = scanPosition = token;
+        lookAhead = 1
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanResourceElements();
 //    } catch (LookaheadSuccess ls) {
@@ -1380,8 +1382,9 @@ class Parser {
     }
 
     func linkHasAnyElements() -> Bool {
-//    lookAhead = 1;
-//    lastPosition = scanPosition = token;
+        lookAhead = 1
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanLinkElement();
 //    } catch (LookaheadSuccess ls) {
