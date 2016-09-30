@@ -1393,8 +1393,9 @@ class Parser {
     }
 
     func hasResourceUrlAhead() -> Bool {
-//    lookAhead = 2147483647;
-//    lastPosition = scanPosition = token;
+        lookAhead = 2147483647
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanResourceUrl();
 //    } catch (LookaheadSuccess ls) {
@@ -1403,8 +1404,9 @@ class Parser {
     }
 
     func resourceHasElementAhead() -> Bool {
-//    lookAhead = 2;
-//    lastPosition = scanPosition = token;
+        lookAhead = 2
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanResourceElement();
 //    } catch (LookaheadSuccess ls) {
@@ -1413,8 +1415,9 @@ class Parser {
     }
    
     func resourceTextHasElementsAhead() -> Bool {
-//    lookAhead = 1;
-//    lastPosition = scanPosition = token;
+        lookAhead = 1
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanResourceTextElement();
 //    } catch (LookaheadSuccess ls) {
@@ -1423,8 +1426,9 @@ class Parser {
     }
 
     func hasEmWithinStrongMultiline() -> Bool {
-//    lookAhead = 2147483647;
-//    lastPosition = scanPosition = token;
+        lookAhead = 2147483647
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanEmWithinStrongMultiline();
 //    } catch (LookaheadSuccess ls) {
@@ -1433,8 +1437,9 @@ class Parser {
     }
     
     func strongMultilineHasElementsAhead() -> Bool {
-//    lookAhead = 1;
-//    lastPosition = scanPosition = token;
+        lookAhead = 1
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanStrongMultilineElements();
 //    } catch (LookaheadSuccess ls) {
@@ -1443,8 +1448,9 @@ class Parser {
     }
 
     func strongWithinEmMultilineHasElementsAhead() -> Bool {
-//    lookAhead = 1;
-//    lastPosition = scanPosition = token;
+        lookAhead = 1
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanStrongWithinEmMultilineElements();
 //    } catch (LookaheadSuccess ls) {
@@ -1453,8 +1459,9 @@ class Parser {
     }
 
     func hasImage() -> Bool {
-//    lookAhead = 2147483647;
-//    lastPosition = scanPosition = token;
+        lookAhead = 2147483647
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanImage();
 //    } catch (LookaheadSuccess ls) {
@@ -1463,8 +1470,9 @@ class Parser {
     }
 
     func hasLinkAhead() -> Bool {
-//    lookAhead = 2147483647;
-//    lastPosition = scanPosition = token;
+        lookAhead = 2147483647
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanLink();
 //    } catch (LookaheadSuccess ls) {
