@@ -1481,8 +1481,9 @@ class Parser {
     }
 
     func strongEmWithinStrongAhead() -> Bool {
-//    lookAhead = 2147483647;
-//    lastPosition = scanPosition = token;
+        lookAhead = 2147483647;
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanEmWithinStrong();
 //    } catch (LookaheadSuccess ls) {
@@ -1491,8 +1492,9 @@ class Parser {
     }
 
     func strongHasElements() -> Bool {
-//    lookAhead = 1;
-//    lastPosition = scanPosition = token;
+        lookAhead = 1
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanStrongElements();
 //    } catch (LookaheadSuccess ls) {
