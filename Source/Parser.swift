@@ -1513,8 +1513,9 @@ class Parser {
     }
 
     func hasStrongWithinEmMultilineAhead() -> Bool {
-//    lookAhead = 2147483647;
-//    lastPosition = scanPosition = token;
+        lookAhead = 2147483647
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanStrongWithinEmMultiline();
 //    } catch (LookaheadSuccess ls) {
@@ -1523,8 +1524,8 @@ class Parser {
     }
 
     func emMultilineContentHasElementsAhead() -> Bool {
-//    lookAhead = 1;
-//    lastPosition = scanPosition = token;
+        lookAhead = 1
+        lastPosition = scanPosition = token
 //    try {
 //    return !scanEmMultilineContentElements();
 //    } catch (LookaheadSuccess ls) {
