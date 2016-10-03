@@ -1,2 +1,2 @@
-class LookaheadSuccess {
+class LookaheadSuccess : Error {
 }

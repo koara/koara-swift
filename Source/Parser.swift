@@ -1025,13 +1025,14 @@ class Parser {
     }
     
     func hasAnyBlockElementsAhead() -> Bool {
-//    try {
-//    lookAhead = 1;
-//    lastPosition = scanPosition = token;
-//    return !scanMoreBlockElements();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            lookAhead = 1
+            scanPosition = token
+            lastPosition = scanPosition
+            return try !scanMoreBlockElements()
+        } catch {
+            return true
+        }
     }
     
     func blockAhead(_ blockBeginColumn : Int) -> Bool {
@@ -1242,205 +1243,205 @@ class Parser {
         lookAhead = 1
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanTextTokens();
-//    } catch (LookaheadSuccess ls) {
-        return true;
-//    }
+        do {
+            return try !scanTextTokens()
+        } catch {
+            return true;
+        }
     }
 
     func hasImageAhead() -> Bool {
-        lookAhead = 2147483647;
+        lookAhead = 2147483647
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanImage();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanImage()
+        } catch {
+            return true
+        }
     }
     
     func blockQuoteHasEmptyLineAhead() -> Bool {
-        lookAhead = 2147483647;
+        lookAhead = 2147483647
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanBlockQuoteEmptyLine();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanBlockQuoteEmptyLine()
+        } catch {
+            return true
+        }
     }
 
     func hasStrongAhead() -> Bool {
-        lookAhead = 2147483647;
+        lookAhead = 2147483647
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanStrong();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanStrong()
+        } catch {
+            return true
+        }
     }
  
     func hasEmAhead() -> Bool {
         lookAhead = 2147483647;
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanEm();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanEm()
+        } catch {
+            return true
+        }
     }
 
     func hasCodeAhead() -> Bool {
         lookAhead = 2147483647;
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanCode();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanCode()
+        } catch {
+            return true
+        }
     }
     
     func blockQuoteHasAnyBlockElementseAhead() -> Bool {
         lookAhead = 1
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanMoreBlockElements();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanMoreBlockElements()
+        } catch {
+            return true
+        }
     }
 
     func hasBlockQuoteEmptyLinesAhead() -> Bool {
         lookAhead = 2147483647
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanBlockQuoteEmptyLines();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanBlockQuoteEmptyLines()
+        } catch {
+            return true
+        }
     }
 
     func listItemHasInlineElements() -> Bool {
         lookAhead = 1
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanMoreBlockElements();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanMoreBlockElements()
+        } catch {
+            return true
+        }
     }
   
     func hasInlineTextAhead() -> Bool {
         lookAhead = 1
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanTextTokens();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanTextTokens()
+        } catch {
+            return true
+        }
     }
 
     func hasInlineElementAhead() -> Bool {
-        lookAhead = 1;
+        lookAhead = 1
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanInlineElement();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanInlineElement()
+        } catch {
+            return true
+        }
     }
 
     func imageHasAnyElements() -> Bool {
-        lookAhead = 1;
+        lookAhead = 1
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanImageElement();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanImageElement()
+        } catch {
+            return true
+        }
     }
  
     func hasResourceTextAhead() -> Bool {
         lookAhead = 1
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanResourceElements();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanResourceElements()
+        } catch {
+            return true
+        }
     }
 
     func linkHasAnyElements() -> Bool {
         lookAhead = 1
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanLinkElement();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanLinkElement()
+        } catch {
+            return true
+        }
     }
 
     func hasResourceUrlAhead() -> Bool {
         lookAhead = 2147483647
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanResourceUrl();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanResourceUrl()
+        } catch {
+            return true
+        }
     }
 
     func resourceHasElementAhead() -> Bool {
         lookAhead = 2
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanResourceElement();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanResourceElement()
+        } catch {
+            return true
+        }
     }
    
     func resourceTextHasElementsAhead() -> Bool {
         lookAhead = 1
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanResourceTextElement();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanResourceTextElement()
+        } catch {
+            return true
+        }
     }
 
     func hasEmWithinStrongMultiline() -> Bool {
         lookAhead = 2147483647
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanEmWithinStrongMultiline();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanEmWithinStrongMultiline()
+        } catch {
+            return true
+        }
     }
     
     func strongMultilineHasElementsAhead() -> Bool {
         lookAhead = 1
         scanPosition = token
         lastPosition = scanPosition
-//    try {
+        do {
 //    return !scanStrongMultilineElements();
 //    } catch (LookaheadSuccess ls) {
         return true
@@ -1525,7 +1526,8 @@ class Parser {
 
     func emMultilineContentHasElementsAhead() -> Bool {
         lookAhead = 1
-        lastPosition = scanPosition = token
+        scanPosition = token
+        lastPosition = scanPosition
 //    try {
 //    return !scanEmMultilineContentElements();
 //    } catch (LookaheadSuccess ls) {
@@ -1659,7 +1661,7 @@ class Parser {
         return false
     }
 
-    func scanTextTokens() -> Bool {
+    func scanTextTokens() throws -> Bool {
 //    if (scanText()) {
 //    return true;
 //    }
@@ -1674,7 +1676,7 @@ class Parser {
         return false
     }
 
-    func scanCodeTextTokens() -> Bool {
+    func scanCodeTextTokens() throws -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanToken(ASTERISK)) {
 //    scanPosition = xsp;
@@ -1736,12 +1738,12 @@ class Parser {
         return false
     }
 
-    func scanCode() -> Bool {
+    func scanCode() throws -> Bool {
 //    return scanToken(BACKTICK) || scanCodeTextTokensAhead() || scanToken(BACKTICK);
     return false
     }
 
-    func scanCodeMultiline() -> Bool {
+    func scanCodeMultiline() throws -> Bool {
 //    if (scanToken(BACKTICK) || scanCodeTextTokensAhead()) {
         return true;
 //    }
@@ -1756,7 +1758,7 @@ class Parser {
 //    return scanToken(BACKTICK);
     }
 
-    func scanCodeTextTokensAhead() -> Bool {
+    func scanCodeTextTokensAhead() throws -> Bool {
 //    if (scanCodeTextTokens()) {
 //    return true;
 //    }
@@ -1786,7 +1788,7 @@ class Parser {
 //    return scanCodeTextTokensAhead();
     }
 
-    func scanWhitspaceTokens() -> Bool{
+    func scanWhitspaceTokens() throws -> Bool{
 //    Token xsp;
 //    while (true) {
 //    xsp = scanPosition;
@@ -1802,7 +1804,7 @@ class Parser {
 //    return scanWhitspaceTokens() || scanToken(EOL);
     }
 
-    func scanEmWithinStrongElements() -> Bool {
+    func scanEmWithinStrongElements() throws -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanTextTokens()) {
 //    scanPosition = xsp;
@@ -1826,7 +1828,7 @@ class Parser {
         return false
     }
 
-    func scanEmWithinStrong() -> Bool {
+    func scanEmWithinStrong() throws -> Bool {
 //    if (scanToken(UNDERSCORE) || scanEmWithinStrongElements()) {
         return true;
 //    }
@@ -1841,7 +1843,7 @@ class Parser {
 //    return scanToken(UNDERSCORE);
     }
 
-    func scanEmElements() -> Bool {
+    func scanEmElements() throws -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanTextTokens()) {
 //    scanPosition = xsp;
@@ -1868,7 +1870,7 @@ class Parser {
         return false
     }
 
-    func scanEm() -> Bool {
+    func scanEm() throws -> Bool {
 //    if (scanToken(UNDERSCORE) || scanEmElements()) {
         return true
 //    }
@@ -1883,7 +1885,7 @@ class Parser {
 //    return scanToken(UNDERSCORE);
     }
 
-    func scanEmWithinStrongMultilineContent() -> Bool {
+    func scanEmWithinStrongMultilineContent() throws -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanTextTokens()) {
 //    scanPosition = xsp;
@@ -2036,7 +2038,7 @@ class Parser {
         return false
     }
 
-    func scanStrong() -> Bool {
+    func scanStrong() throws -> Bool {
 //    if (scanToken(ASTERISK) || scanStrongElements()) {
         return true
 //    }
@@ -2193,7 +2195,7 @@ class Parser {
         return false
     }
 
-    func scanImageElement() -> Bool {
+    func scanImageElement() throws -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanResourceElements()) {
 //    scanPosition = xsp;
@@ -2204,7 +2206,7 @@ class Parser {
         return false
     }
 
-    func scanResourceTextElements() -> Bool {
+    func scanResourceTextElements() throws -> Bool {
 //    Token xsp;
 //    while (true) {
 //    xsp = scanPosition;
@@ -2216,7 +2218,7 @@ class Parser {
         return false
     }
 
-    func scanResourceUrl() -> Bool {
+    func scanResourceUrl() throws -> Bool {
 //    return scanToken(LPAREN) || scanWhitspaceTokens() || scanResourceTextElements() || scanWhitspaceTokens()
 //    || scanToken(RPAREN);
         return false
@@ -2291,7 +2293,7 @@ class Parser {
         return false
     }
 
-    func scanResourceElements() -> Bool {
+    func scanResourceElements() throws -> Bool {
 //    if (scanResourceElement()) {
 //    return true;
 //    }
@@ -2306,7 +2308,7 @@ class Parser {
         return false
     }
 
-    func scanLink() -> Bool {
+    func scanLink() throws -> Bool {
 //    if (scanToken(LBRACK) || scanWhitspaceTokens() || scanLinkElement()) {
 //    return true;
 //    }
@@ -2328,7 +2330,7 @@ class Parser {
         return false
     }
 
-    func scanImage() -> Bool {
+    func scanImage() throws -> Bool {
 //    if (scanToken(LBRACK) || scanWhitspaceTokens() || scanToken(IMAGE_LABEL) || scanImageElement()) {
 //    return true;
 //    }
@@ -2350,7 +2352,7 @@ class Parser {
         return false
     }
 
-    func scanInlineElement() -> Bool {
+    func scanInlineElement() throws -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanTextTokens()) {
 //    scanPosition = xsp;
@@ -2383,7 +2385,7 @@ class Parser {
         return false
     }
 
-    func scanParagraph() -> Bool {
+    func scanParagraph() throws -> Bool {
 //    Token xsp;
 //    if (scanInlineElement()) {
 //    return true;
@@ -2398,7 +2400,7 @@ class Parser {
         return false
     }
 
-    func scanWhitspaceToken() -> Bool {
+    func scanWhitspaceToken() throws -> Bool {
 //    Token xsp = scanPosition;
 //    if (scanToken(SPACE)) {
 //    scanPosition = xsp;
@@ -2409,17 +2411,16 @@ class Parser {
         return false
     }
 
-    func scanFencedCodeBlock() -> Bool {
+    func scanFencedCodeBlock() throws -> Bool {
 //    return scanToken(BACKTICK) || scanToken(BACKTICK) || scanToken(BACKTICK);
         return false
 }
 
-    func scanBlockQuoteEmptyLines() -> Bool {
-//    return scanBlockQuoteEmptyLine() || scanToken(EOL);
-        return false
+    func scanBlockQuoteEmptyLines() throws -> Bool {
+        return try (scanBlockQuoteEmptyLine() || scanToken(TokenManager.EOL))
 }
 
-    func scanBlockQuoteEmptyLine() -> Bool {
+    func scanBlockQuoteEmptyLine() throws -> Bool {
 //    if (scanToken(EOL) || scanWhitspaceTokens() || scanToken(GT) || scanWhitspaceTokens()) {
         return true;
 //    }
@@ -2434,7 +2435,7 @@ class Parser {
 //    return false;
     }
 
-    func scanForHeadersigns() -> Bool {
+    func scanForHeadersigns() throws -> Bool {
 //    if (scanToken(EQ)) {
 //    return true;
 //    }
@@ -2449,7 +2450,7 @@ class Parser {
         return false
     }
 
-    func scanMoreBlockElements() -> Bool {
+    func scanMoreBlockElements() throws -> Bool {
 //    Token xsp = scanPosition;
 //    lookingAhead = true;
 //    semanticLookAhead = headingAhead(1);
@@ -2473,7 +2474,7 @@ class Parser {
         return false
     }
     
-    func scanToken(_ kind : Int) -> Bool {
+    func scanToken(_ kind : Int) throws -> Bool {
 //    if (scanPosition == lastPosition) {
 //    lookAhead--;
 //    if (scanPosition.next == null) {
@@ -2487,10 +2488,10 @@ class Parser {
 //    if (scanPosition.kind != kind) {
 //    return true;
 //    }
-//    if (lookAhead == 0 && scanPosition == lastPosition) {
-//    throw lookAheadSuccess;
-//    }
-        return false
+//        if (lookAhead == 0 && (scanPosition == lastPosition)) {
+            throw lookAheadSuccess
+//        }
+//        return false
     }
 
     func getNextTokenKind() -> Int {
