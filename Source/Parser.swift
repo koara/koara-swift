@@ -1442,97 +1442,98 @@ class Parser {
         scanPosition = token
         lastPosition = scanPosition
         do {
-//    return !scanStrongMultilineElements();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+            return try !scanStrongMultilineElements();
+        } catch {
+            return true
+        }
     }
 
     func strongWithinEmMultilineHasElementsAhead() -> Bool {
         lookAhead = 1
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanStrongWithinEmMultilineElements();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanStrongWithinEmMultilineElements();
+        } catch {
+            return true
+        }
     }
 
     func hasImage() -> Bool {
         lookAhead = 2147483647
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanImage();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanImage();
+        } catch {
+            return true
+        }
     }
 
     func hasLinkAhead() -> Bool {
         lookAhead = 2147483647
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanLink();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanLink()
+        } catch  {
+            return true
+        }
     }
 
     func strongEmWithinStrongAhead() -> Bool {
         lookAhead = 2147483647;
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanEmWithinStrong();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanEmWithinStrong()
+        } catch {
+            return true
+        }
     }
 
     func strongHasElements() -> Bool {
         lookAhead = 1
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanStrongElements();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanStrongElements()
+        } catch  {
+            return true
+        }
     }
 
     func strongWithinEmHasElementsAhead() -> Bool {
-//    lookAhead = 1;
-//    lastPosition = scanPosition = token;
-//    try {
-//    return !scanStrongWithinEmElements();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        lookAhead = 1
+        scanPosition = token
+        lastPosition = scanPosition
+        do {
+            return try !scanStrongWithinEmElements()
+        } catch {
+            return true
+        }
     }
 
     func hasStrongWithinEmMultilineAhead() -> Bool {
         lookAhead = 2147483647
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanStrongWithinEmMultiline();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanStrongWithinEmMultiline()
+        } catch {
+            return true
+        }
     }
 
     func emMultilineContentHasElementsAhead() -> Bool {
         lookAhead = 1
         scanPosition = token
         lastPosition = scanPosition
-//    try {
-//    return !scanEmMultilineContentElements();
-//    } catch (LookaheadSuccess ls) {
-        return true
-//    }
+        do {
+            return try !scanEmMultilineContentElements()
+        } catch {
+            return true
+        }
     }
 
     func emWithinStrongMultilineContentHasElementsAhead() -> Bool {
