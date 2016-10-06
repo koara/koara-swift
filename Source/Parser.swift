@@ -1737,7 +1737,7 @@ class Parser {
                                 }
                             }
                         }
-}
+                    }
                 }
             }
         }
@@ -1752,61 +1752,61 @@ class Parser {
         if try scanToken(TokenManager.BACKTICK) || scanCodeTextTokensAhead() {
             return true
         }
-//    Token xsp;
-//    while (true) {
-//    xsp = scanPosition;
-//    if (hasCodeTextOnNextLineAhead()) {
-//    scanPosition = xsp;
-//    break;
-//    }
-//    }
+        var xsp : Token
+        while true {
+            xsp = scanPosition
+            if try hasCodeTextOnNextLineAhead() {
+                scanPosition = xsp
+                break
+            }
+        }
         return try scanToken(TokenManager.BACKTICK);
     }
 
     func scanCodeTextTokensAhead() throws -> Bool {
-//    if (scanCodeTextTokens()) {
-//    return true;
-//    }
-//    Token xsp;
-//    while (true) {
-//    xsp = scanPosition;
-//    if (scanCodeTextTokens()) {
-//    scanPosition = xsp;
-//    break;
-//    }
-//    }
+        if try scanCodeTextTokens() {
+            return true;
+        }
+        var xsp : Token
+        while true {
+            xsp = scanPosition
+            if try scanCodeTextTokens() {
+                scanPosition = xsp
+                break
+            }
+        }
         return false
     }
 
-    func hasCodeTextOnNextLineAhead() -> Bool {
-//    if (scanWhitespaceTokenBeforeEol()) {
-        return true;
-//    }
-//    Token xsp;
-//    while (true) {
-//    xsp = scanPosition;
-//    if (scanToken(GT)) {
-//    scanPosition = xsp;
-//    break;
-//    }
-//    }
-//    return scanCodeTextTokensAhead();
+    func hasCodeTextOnNextLineAhead() throws -> Bool {
+        if try scanWhitespaceTokenBeforeEol() {
+            return true
+        }
+        var xsp : Token
+        while true {
+            xsp = scanPosition
+            if try scanToken(TokenManager.GT) {
+                scanPosition = xsp
+                break
+            }
+        }
+        return try scanCodeTextTokensAhead()
     }
 
     func scanWhitspaceTokens() throws -> Bool{
-//    Token xsp;
-//    while (true) {
-//    xsp = scanPosition;
-//    if (scanWhitspaceToken()) {
-//    scanPosition = xsp;
-//    break;
-//    }
-//    }
+        var xsp : Token
+        while true {
+            xsp = scanPosition
+            if try scanWhitspaceToken() {
+                scanPosition = xsp
+                break
+            }
+        }
         return false
-//    }
-//    
-//    private boolean scanWhitespaceTokenBeforeEol() {
-//    return scanWhitspaceTokens() || scanToken(EOL);
+    }
+    
+    func scanWhitespaceTokenBeforeEol() throws -> Bool {
+        return try (scanWhitspaceTokens() || scanToken(TokenManager.EOL))
     }
 
     func scanEmWithinStrongElements() throws -> Bool {
