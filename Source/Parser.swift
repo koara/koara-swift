@@ -1810,68 +1810,68 @@ class Parser {
     }
 
     func scanEmWithinStrongElements() throws -> Bool {
-//    Token xsp = scanPosition;
-//    if (scanTextTokens()) {
-//    scanPosition = xsp;
-//    if (scanImage()) {
-//    scanPosition = xsp;
-//    if (scanLink()) {
-//    scanPosition = xsp;
-//    if (scanCode()) {
-//    scanPosition = xsp;
-//    if (scanToken(ASTERISK)) {
-//    scanPosition = xsp;
-//    if (scanToken(BACKTICK)) {
-//    scanPosition = xsp;
-//    return scanToken(LBRACK);
-//    }
-//    }
-//    }
-//    }
-//    }
-//    }
+        let xsp : Token = scanPosition;
+        if try scanTextTokens() {
+            scanPosition = xsp
+            if try scanImage() {
+                scanPosition = xsp
+                if try scanLink() {
+                    scanPosition = xsp
+                    if try scanCode() {
+                        scanPosition = xsp
+                        if try scanToken(TokenManager.ASTERISK) {
+                            scanPosition = xsp
+                            if try scanToken(TokenManager.BACKTICK) {
+                                scanPosition = xsp
+                                return try scanToken(TokenManager.LBRACK)
+                            }
+                        }
+                    }
+                }
+            }
+        }
         return false
     }
 
     func scanEmWithinStrong() throws -> Bool {
-//    if (scanToken(UNDERSCORE) || scanEmWithinStrongElements()) {
-        return true;
-//    }
-//    Token xsp;
-//    while (true) {
-//    xsp = scanPosition;
-//    if (scanEmWithinStrongElements()) {
-//    scanPosition = xsp;
-//    break;
-//    }
-//    }
-//    return scanToken(UNDERSCORE);
+        if try scanToken(TokenManager.UNDERSCORE) || scanEmWithinStrongElements() {
+            return true;
+        }
+        var xsp : Token
+        while true {
+            xsp = scanPosition
+            if try scanEmWithinStrongElements() {
+                scanPosition = xsp
+                break
+            }
+        }
+        return try scanToken(TokenManager.UNDERSCORE)
     }
 
     func scanEmElements() throws -> Bool {
-//    Token xsp = scanPosition;
-//    if (scanTextTokens()) {
-//    scanPosition = xsp;
-//    if (scanImage()) {
-//    scanPosition = xsp;
-//    if (scanLink()) {
-//    scanPosition = xsp;
-//    if (scanCode()) {
-//    scanPosition = xsp;
-//    if (scanStrongWithinEm()) {
-//    scanPosition = xsp;
-//    if (scanToken(ASTERISK)) {
-//    scanPosition = xsp;
-//    if (scanToken(BACKTICK)) {
-//    scanPosition = xsp;
-//    return scanToken(LBRACK);
-//    }
-//    }
-//    }
-//    }
-//    }
-//    }
-//    }
+        let xsp : Token = scanPosition
+        if try scanTextTokens() {
+            scanPosition = xsp
+            if try scanImage() {
+                scanPosition = xsp
+                if try scanLink() {
+                    scanPosition = xsp
+                    if try scanCode() {
+                        scanPosition = xsp
+                        if try scanStrongWithinEm() {
+                            scanPosition = xsp
+                            if try scanToken(TokenManager.ASTERISK) {
+                                scanPosition = xsp
+                                if try scanToken(TokenManager.BACKTICK) {
+                                    scanPosition = xsp
+                                    return try scanToken(TokenManager.LBRACK)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         return false
     }
 
