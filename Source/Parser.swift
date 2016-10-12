@@ -2296,17 +2296,17 @@ class Parser {
     }
 
     func scanResourceElements() throws -> Bool {
-if (scanResourceElement()) {
-//    return true;
-//    }
-//    Token xsp;
-//    while (true) {
-//    xsp = scanPosition;
-//    if (scanResourceElement()) {
-//    scanPosition = xsp;
-//    break;
-//    }
-//    }
+        if try scanResourceElement() {
+            return true
+        }
+        var xsp : Token
+        while true {
+            xsp = scanPosition
+            if try scanResourceElement() {
+                scanPosition = xsp
+                break
+            }
+        }
         return false
     }
 
