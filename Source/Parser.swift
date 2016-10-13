@@ -2311,24 +2311,24 @@ class Parser {
     }
 
     func scanLink() throws -> Bool {
-//    if (scanToken(LBRACK) || scanWhitspaceTokens() || scanLinkElement()) {
-//    return true;
-//    }
-//    Token xsp;
-//    while (true) {
-//    xsp = scanPosition;
-//    if (scanLinkElement()) {
-//    scanPosition = xsp;
-//    break;
-//    }
-//    }
-//    if (scanWhitspaceTokens() || scanToken(RBRACK)) {
-//    return true;
-//    }
-//    xsp = scanPosition;
-//    if (scanResourceUrl()) {
-//    scanPosition = xsp;
-//    }
+        if try scanToken(TokenManager.LBRACK) || scanWhitspaceTokens() || scanLinkElement() {
+            return true;
+        }
+        var xsp : Token
+        while true {
+            xsp = scanPosition
+            if try scanLinkElement() {
+                scanPosition = xsp;
+                break;
+            }
+        }
+        if try scanWhitspaceTokens() || scanToken(TokenManager.RBRACK) {
+            return true
+        }
+        xsp = scanPosition;
+        if try scanResourceUrl() {
+            scanPosition = xsp;
+        }
         return false
     }
 
