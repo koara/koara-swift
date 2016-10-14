@@ -2333,72 +2333,72 @@ class Parser {
     }
 
     func scanImage() throws -> Bool {
-//    if (scanToken(LBRACK) || scanWhitspaceTokens() || scanToken(IMAGE_LABEL) || scanImageElement()) {
-//    return true;
-//    }
-//    Token xsp;
-//    while (true) {
-//    xsp = scanPosition;
-//    if (scanImageElement()) {
-//    scanPosition = xsp;
-//    break;
-//    }
-//    }
-//    if (scanWhitspaceTokens() || scanToken(RBRACK)) {
-//    return true;
-//    }
-//    xsp = scanPosition;
-//    if (scanResourceUrl()) {
-//    scanPosition = xsp;
-//    }
+        if (try scanToken(TokenManager.LBRACK) || scanWhitspaceTokens() || scanToken(TokenManager.IMAGE_LABEL) || scanImageElement()) {
+            return true;
+        }
+        var xsp : Token
+        while true {
+            xsp = scanPosition
+            if try scanImageElement() {
+                scanPosition = xsp
+                break
+            }
+        }
+        if try scanWhitspaceTokens() || scanToken(TokenManager.RBRACK) {
+            return true
+        }
+        xsp = scanPosition
+        if try scanResourceUrl() {
+            scanPosition = xsp
+        }
         return false
     }
 
     func scanInlineElement() throws -> Bool {
-//    Token xsp = scanPosition;
-//    if (scanTextTokens()) {
-//    scanPosition = xsp;
-//    if (scanImage()) {
-//    scanPosition = xsp;
-//    if (scanLink()) {
-//    scanPosition = xsp;
-//    lookingAhead = true;
-//    semanticLookAhead = multilineAhead(ASTERISK);
-//    lookingAhead = false;
-//    if (!semanticLookAhead || scanToken(ASTERISK)) {
-//    scanPosition = xsp;
-//    lookingAhead = true;
-//    semanticLookAhead = multilineAhead(UNDERSCORE);
-//    lookingAhead = false;
-//    if (!semanticLookAhead || scanToken(UNDERSCORE)) {
-//    scanPosition = xsp;
-//    lookingAhead = true;
-//    semanticLookAhead = multilineAhead(BACKTICK);
-//    lookingAhead = false;
-//    if (!semanticLookAhead || scanCodeMultiline()) {
-//    scanPosition = xsp;
-//    return scanLooseChar();
-//    }
-//    }
-//    }
-//    }
-//    }
-//    }
+        let xsp = scanPosition
+        if try scanTextTokens() {
+            scanPosition = xsp
+            if try scanImage() {
+                scanPosition = xsp
+                if try scanLink() {
+                    scanPosition = xsp
+                    lookingAhead = true
+                    semanticLookAhead = multilineAhead(TokenManager.ASTERISK)
+                    lookingAhead = false
+                    if try !semanticLookAhead || scanToken(TokenManager.ASTERISK) {
+                        scanPosition = xsp
+                        lookingAhead = true
+                        semanticLookAhead = multilineAhead(TokenManager.UNDERSCORE)
+                        lookingAhead = false
+                        if try !semanticLookAhead || scanToken(TokenManager.UNDERSCORE) {
+                            scanPosition = xsp
+                            lookingAhead = true
+                            semanticLookAhead = multilineAhead(TokenManager.BACKTICK)
+                            lookingAhead = false
+                            if try !semanticLookAhead || scanCodeMultiline() {
+                                scanPosition = xsp
+                                return try scanLooseChar()
+                            }
+                        }
+                    }
+                }
+            }
+        }
         return false
     }
 
     func scanParagraph() throws -> Bool {
-//    Token xsp;
-//    if (scanInlineElement()) {
-//    return true;
-//    }
-//    while (true) {
-//    xsp = scanPosition;
-//    if (scanInlineElement()) {
-//    scanPosition = xsp;
-//    break;
-//    }
-//    }
+        var xsp : Token
+        if try scanInlineElement() {
+            return true
+        }
+        while true {
+            xsp = scanPosition
+            if try scanInlineElement() {
+                scanPosition = xsp
+                break
+            }
+        }
         return false
     }
 
