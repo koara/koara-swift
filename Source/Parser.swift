@@ -2511,32 +2511,32 @@ class Parser {
    
     func consumeToken(_ kind : Int) -> Token {
         var old : Token = token;
-        if token.next != nil) {
+        if token.next != nil {
             token = token.next
         } else {
             token = token.next = tm.getNextToken();
         }
         nextTokenKind = -1
-//    if (token.kind == kind) {
-//    return token;
-//    }
-//    token = old;
-//    return token;
+        if (token.kind == kind) {
+            return token;
+        }
+        token = old;
         return token
     }
 
     func getToken(_ index : Int) -> Token {
         let t = lookingAhead ? scanPosition : token;
-//    for (int i = 0; i < index; i++) {
-//    if (t.next != null) {
-//    t = t.next;
-//    } else {
-//    t = t.next = tm.getNextToken();
-//    }
-//    }
-        return t!
+//        for (var i = 0; i < index; i++) {
+        if t.next != nil {
+            t = t.next
+        } else {
+            t.next = tm.getNextToken()
+            t = t.next =
+        }
+        }
+        return t
     }
-//    
+    
 //    public void setModules(String... modules) {
 //    this.modules = Arrays.asList(modules);
 //    }
