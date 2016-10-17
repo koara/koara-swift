@@ -23,9 +23,9 @@ class Parser {
 //    
 //    public Document parseFile(File file) throws IOException {
 //    if(!file.getName().toLowerCase().endsWith(".kd")) {
-//    throw new IllegalArgumentException("Can only parse files with extension .kd");
+//    throw new IllegalArgumentException("Can only parse files with extension .kd")
 //    }
-//    return parseReader(new FileReader(file));
+//    return parseReader(new FileReader(file))
 //    }
 //    
     func parseReader(_ reader: Reader) -> Document {
@@ -38,26 +38,26 @@ class Parser {
         tree.openScope()
         
         while getNextTokenKind() == TokenManager.EOL {
-            consumeToken(TokenManager.EOL);
+            consumeToken(TokenManager.EOL)
         }
         whiteSpace()
         if hasAnyBlockElementsAhead() {
             blockElement()
             while blockAhead(0) {
                 while (getNextTokenKind() == TokenManager.EOL) {
-                    consumeToken(TokenManager.EOL);
+                    consumeToken(TokenManager.EOL)
                     whiteSpace()
                 }
                 blockElement()
             }
             while (getNextTokenKind() == TokenManager.EOL) {
-                consumeToken(TokenManager.EOL);
+                consumeToken(TokenManager.EOL)
             }
-            whiteSpace();
+            whiteSpace()
         }
-        consumeToken(TokenManager.EOF);
-        tree.closeScope(document);
-        return document;
+        consumeToken(TokenManager.EOF)
+        tree.closeScope(document)
+        return document
     }
 
     func blockElement() {
@@ -79,14 +79,14 @@ class Parser {
     }
     
     func heading() {
-        var heading = Heading();
-        tree.openScope();
-        var headingLevel : Int = 0;
+        var heading = Heading()
+        tree.openScope()
+        var headingLevel : Int = 0
         while (getNextTokenKind() == TokenManager.EQ) {
-            consumeToken(TokenManager.EQ);
+            consumeToken(TokenManager.EQ)
             headingLevel += 1
         }
-        whiteSpace();
+        whiteSpace()
         while headingHasInlineElementsAhead() {
             if hasTextAhead() {
                 text()
@@ -105,14 +105,14 @@ class Parser {
             }
         }
         heading.value = headingLevel as AnyObject
-        tree.closeScope(heading);
+        tree.closeScope(heading)
     }
 
     func blockQuote() {
         var blockQuote = BlockQuote()
         tree.openScope()
         currentQuoteLevel += 1
-        consumeToken(TokenManager.GT);
+        consumeToken(TokenManager.GT)
         while blockQuoteHasEmptyLineAhead() {
             blockQuoteEmptyLine()
         }
@@ -122,7 +122,7 @@ class Parser {
             while (blockAhead(0)) {
                 while (getNextTokenKind() == TokenManager.EOL) {
                     consumeToken(TokenManager.EOL)
-                    whiteSpace();
+                    whiteSpace()
                     blockQuotePrefix()
                 }
                 blockElement()
@@ -136,10 +136,10 @@ class Parser {
     }
     
     func blockQuotePrefix() {
-        var i : Int = 0;
+        var i : Int = 0
         repeat {
             consumeToken(TokenManager.GT)
-            whiteSpace();
+            whiteSpace()
         } while (i + 1) < currentQuoteLevel
     }
 
@@ -155,12 +155,12 @@ class Parser {
     func unorderedList() {
         var list = ListBlock(ordered: false)
         tree.openScope()
-        var listBeginColumn = unorderedListItem();
+        var listBeginColumn = unorderedListItem()
         while listItemAhead(listBeginColumn, ordered: false) {
             while getNextTokenKind() == TokenManager.EOL {
-                consumeToken(TokenManager.EOL);
+                consumeToken(TokenManager.EOL)
             }
-            whiteSpace();
+            whiteSpace()
             if currentQuoteLevel > 0 {
                 blockQuotePrefix()
             }
@@ -173,22 +173,22 @@ class Parser {
         let listItem = ListItem()
         tree.openScope()
         var t = consumeToken(TokenManager.DASH)
-        whiteSpace();
+        whiteSpace()
         if listItemHasInlineElements() {
-            blockElement();
+            blockElement()
             while blockAhead(t.beginColumn) {
                 while getNextTokenKind() == TokenManager.EOL {
-                    consumeToken(TokenManager.EOL);
+                    consumeToken(TokenManager.EOL)
                     whiteSpace()
                     if (currentQuoteLevel > 0) {
                         blockQuotePrefix()
                     }
                 }
-                blockElement();
+                blockElement()
             }
         }
         tree.closeScope(listItem)
-        return t.beginColumn;
+        return t.beginColumn
     }
 
     func orderedList() {
@@ -293,7 +293,7 @@ class Parser {
                     case TokenManager.SPACE:
                         s += consumeToken(TokenManager.SPACE).image
                     case TokenManager.TAB:
-                        consumeToken(TokenManager.TAB);
+                        consumeToken(TokenManager.TAB)
                         s += "    "
                     default: break
                     }
@@ -407,7 +407,7 @@ class Parser {
             ref = resourceUrl()
         }
         image.value = ref as AnyObject
-        tree.closeScope(image);
+        tree.closeScope(image)
     }
     
     func link() {
@@ -432,7 +432,7 @@ class Parser {
             }
         }
         whiteSpace()
-        consumeToken(TokenManager.RBRACK);
+        consumeToken(TokenManager.RBRACK)
         if hasResourceUrlAhead() {
             ref = resourceUrl()
         }
@@ -454,7 +454,7 @@ class Parser {
             } else if modules.contains("code") && multilineAhead(TokenManager.BACKTICK) {
                 codeMultiline()
             } else if strongEmWithinStrongAhead() {
-                emWithinStrong();
+                emWithinStrong()
             } else {
                 switch getNextTokenKind() {
                 case TokenManager.BACKTICK:
@@ -467,8 +467,8 @@ class Parser {
                 }
             }
         }
-        consumeToken(TokenManager.ASTERISK);
-        tree.closeScope(strong);
+        consumeToken(TokenManager.ASTERISK)
+        tree.closeScope(strong)
     }
   
     func em() {
@@ -498,8 +498,8 @@ class Parser {
                 }
             }
         }
-        consumeToken(TokenManager.UNDERSCORE);
-        tree.closeScope(em);
+        consumeToken(TokenManager.UNDERSCORE)
+        tree.closeScope(em)
     }
 
     func code() {
@@ -591,18 +591,18 @@ class Parser {
         while getNextTokenKind() == TokenManager.SPACE || getNextTokenKind() == TokenManager.TAB {
             consumeToken(getNextTokenKind())
         }
-        var t = consumeToken(TokenManager.EOL);
-//    linebreak.setExplicit(t.image.startsWith("  "));
+        var t = consumeToken(TokenManager.EOL)
+//    linebreak.setExplicit(t.image.startsWith("  "))
         tree.closeScope(linebreak)
     }
   
     func levelWhiteSpace(_ threshold : Int) {
-        var currentPos : Int = 1;
+        var currentPos : Int = 1
         while getNextTokenKind() == TokenManager.GT {
-            consumeToken(getNextTokenKind());
+            consumeToken(getNextTokenKind())
         }
         while (getNextTokenKind() == TokenManager.SPACE || getNextTokenKind() == TokenManager.TAB) && currentPos < (threshold - 1) {
-            currentPos = consumeToken(getNextTokenKind()).beginColumn;
+            currentPos = consumeToken(getNextTokenKind()).beginColumn
         }
     }
 
@@ -731,7 +731,7 @@ class Parser {
         let ref = resourceUrlText()
         whiteSpace()
         consumeToken(TokenManager.RPAREN)
-        return ref;
+        return ref
     }
     
     func resourceUrlText() -> String {
@@ -778,7 +778,7 @@ class Parser {
                     case TokenManager.SPACE:
                         s += consumeToken(TokenManager.SPACE).image
                     case TokenManager.TAB:
-                        consumeToken(TokenManager.TAB);
+                        consumeToken(TokenManager.TAB)
                         s += "    "
                     default: break
                     }
@@ -838,7 +838,7 @@ class Parser {
             strongWithinEmMultilineContent()
         }
         consumeToken(TokenManager.ASTERISK)
-        tree.closeScope(strong);
+        tree.closeScope(strong)
     }
 
     func strongWithinEmMultilineContent() {
@@ -868,7 +868,7 @@ class Parser {
     func strongWithinEm() {
         var strong = Strong()
         tree.openScope()
-        consumeToken(TokenManager.ASTERISK);
+        consumeToken(TokenManager.ASTERISK)
         repeat {
             if hasTextAhead() {
                 text()
@@ -883,15 +883,15 @@ class Parser {
                 case TokenManager.BACKTICK:
                     tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK))
                 case TokenManager.LBRACK:
-                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK));
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK))
                 case TokenManager.UNDERSCORE:
-                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.UNDERSCORE));
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.UNDERSCORE))
                 default: break
                 }
             }
         } while strongWithinEmHasElementsAhead()
-        consumeToken(TokenManager.ASTERISK);
-        tree.closeScope(strong);
+        consumeToken(TokenManager.ASTERISK)
+        tree.closeScope(strong)
     }
    
     func emMultiline() {
@@ -904,8 +904,8 @@ class Parser {
             whiteSpace()
             emMultilineContent()
         }
-        consumeToken(TokenManager.UNDERSCORE);
-        tree.closeScope(em);
+        consumeToken(TokenManager.UNDERSCORE)
+        tree.closeScope(em)
     }
     
     func emMultilineContent() {
@@ -925,9 +925,9 @@ class Parser {
                 case TokenManager.ASTERISK:
                     tree.addSingleValue(Text(), t: consumeToken(TokenManager.ASTERISK))
                 case TokenManager.BACKTICK:
-                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK));
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK))
                 case TokenManager.LBRACK:
-                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK));
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK))
                 default: break
                 }
             }
@@ -943,7 +943,7 @@ class Parser {
             lineBreak()
             emWithinStrongMultilineContent()
         }
-        consumeToken(TokenManager.UNDERSCORE);
+        consumeToken(TokenManager.UNDERSCORE)
         tree.closeScope(em)
     }
     
@@ -996,8 +996,8 @@ class Parser {
                 }
             }
         } while emWithinStrongHasElementsAhead()
-        consumeToken(TokenManager.UNDERSCORE);
-        tree.closeScope(em);
+        consumeToken(TokenManager.UNDERSCORE)
+        tree.closeScope(em)
     }
    
     func codeMultiline() {
@@ -1036,73 +1036,73 @@ class Parser {
     }
     
     func blockAhead(_ blockBeginColumn : Int) -> Bool {
-//    int quoteLevel;
+//    int quoteLevel
 //    
 //    if (getNextTokenKind() == EOL) {
         var t : Token
         var i : Int = 2
-//    quoteLevel = 0;
+//    quoteLevel = 0
         repeat {
-//    quoteLevel = 0;
+//    quoteLevel = 0
             repeat {
                 i += 1
                 t = getToken(i)
 //    if (t.kind == GT) {
 //    if (t.beginColumn == 1 && currentBlockLevel > 0 && currentQuoteLevel == 0) {
-//    return false;
+//    return false
 //    }
-//    quoteLevel++;
+//    quoteLevel++
 //    }
-            } while (t.kind == TokenManager.GT || t.kind == TokenManager.SPACE || t.kind == TokenManager.TAB);
+            } while (t.kind == TokenManager.GT || t.kind == TokenManager.SPACE || t.kind == TokenManager.TAB)
 //    if (quoteLevel > currentQuoteLevel) {
-//    return true;
+//    return true
 //    }
 //    if (quoteLevel < currentQuoteLevel) {
-//    return false;
+//    return false
 //    }
-        } while (t.kind == TokenManager.EOL);
-//    return t.kind != EOF && (currentBlockLevel == 0 || t.beginColumn >= blockBeginColumn + 2);
+        } while (t.kind == TokenManager.EOL)
+//    return t.kind != EOF && (currentBlockLevel == 0 || t.beginColumn >= blockBeginColumn + 2)
 //    }
-        return false;
+        return false
     }
     
     func multilineAhead(_ token : Int) -> Bool {
 //    if (getNextTokenKind() == token && getToken(2).kind != token && getToken(2).kind != EOL) {
 //    
 //    for (int i = 2;; i++) {
-//    Token t = getToken(i);
+//    Token t = getToken(i)
 //    if (t.kind == token) {
-//    return true;
+//    return true
 //    } else if (t.kind == EOL) {
-//    i = skip(i + 1, SPACE, TAB);
-//    int quoteLevel = newQuoteLevel(i);
+//    i = skip(i + 1, SPACE, TAB)
+//    int quoteLevel = newQuoteLevel(i)
 //    if (quoteLevel == currentQuoteLevel) {
-//    i = skip(i, SPACE, TAB, GT);
+//    i = skip(i, SPACE, TAB, GT)
 //    if (getToken(i).kind == token || getToken(i).kind == EOL || getToken(i).kind == DASH
 //    || (getToken(i).kind == DIGITS && getToken(i + 1).kind == DOT)
 //    || (getToken(i).kind == BACKTICK && getToken(i + 1).kind == BACKTICK
 //    && getToken(i + 2).kind == BACKTICK)
 //    || headingAhead(i)) {
-//    return false;
+//    return false
 //    }
 //    } else {
-//    return false;
+//    return false
 //    }
 //    } else if (t.kind == EOF) {
-//    return false;
+//    return false
 //    }
 //    }
 //    }
-        return false;
+        return false
     }
 
     func fencesAhead() -> Bool {
-        var i = skip(2, tokens: [TokenManager.SPACE, TokenManager.TAB, TokenManager.GT]);
+        var i = skip(2, tokens: [TokenManager.SPACE, TokenManager.TAB, TokenManager.GT])
 //    if (getToken(i).kind == BACKTICK && getToken(i + 1).kind == BACKTICK && getToken(i + 2).kind == BACKTICK) {
-//    i = skip(i + 3, SPACE, TAB);
-//    return getToken(i).kind == EOL || getToken(i).kind == EOF;
+//    i = skip(i + 3, SPACE, TAB)
+//    return getToken(i).kind == EOL || getToken(i).kind == EOF
 //    }
-        return false;
+        return false
     }
 
     func headingAhead(_ offset : Int) -> Bool {
@@ -1110,10 +1110,10 @@ class Parser {
             var heading : Int = 1
 //    for (int i = (offset + 1);; i++) {
 //    if (getToken(i).kind != EQ) {
-//    return true;
+//    return true
 //    }
 //    if (++heading > 6) {
-//    return false;
+//    return false
 //    }
 //    }
         }
@@ -1126,31 +1126,31 @@ class Parser {
 //    Token t = getToken(i);
 //    
 //    if (t.kind == EOL && ++eol > 2) {
-//    return false;
+//    return false
 //    } else if (t.kind != SPACE && t.kind != TAB && t.kind != GT && t.kind != EOL) {
 //    if (ordered) {
-//    return (t.kind == DIGITS && getToken(i + 1).kind == DOT && t.beginColumn >= listBeginColumn);
+//    return (t.kind == DIGITS && getToken(i + 1).kind == DOT && t.beginColumn >= listBeginColumn)
 //    }
-//    return t.kind == DASH && t.beginColumn >= listBeginColumn;
+//    return t.kind == DASH && t.beginColumn >= listBeginColumn
 //    }
 //    }
 //    }
-        return false;
+        return false
     }
 
     func textAhead() -> Bool {
 //    if (getNextTokenKind() == EOL && getToken(2).kind != EOL) {
-//    int i = skip(2, SPACE, TAB);
-//    int quoteLevel = newQuoteLevel(i);
+//    int i = skip(2, SPACE, TAB)
+//    int quoteLevel = newQuoteLevel(i)
 //    if (quoteLevel == currentQuoteLevel || !modules.contains("blockquotes")) {
-//    i = skip(i, SPACE, TAB, GT);
+//    i = skip(i, SPACE, TAB, GT)
 //    
-//    Token t = getToken(i);
+//    Token t = getToken(i)
 //    return getToken(i).kind != EOL && !(modules.contains("lists") && t.kind == DASH)
 //    && !(modules.contains("lists") && t.kind == DIGITS && getToken(i + 1).kind == DOT)
 //    && !(getToken(i).kind == BACKTICK && getToken(i + 1).kind == BACKTICK
 //    && getToken(i + 2).kind == BACKTICK)
-//    && !(modules.contains("headings") && headingAhead(i));
+//    && !(modules.contains("headings") && headingAhead(i))
 //    }
 //    }
         return false
@@ -1162,24 +1162,24 @@ class Parser {
     }
 
     func newQuoteLevel(_ offset : Int) -> Int {
-//    int quoteLevel = 0;
+//    int quoteLevel = 0
 //    for (int i = offset;; i++) {
-//    Token t = getToken(i);
+//    Token t = getToken(i)
 //    if (t.kind == GT) {
-//    quoteLevel++;
+//    quoteLevel++
 //    } else if (t.kind != SPACE && t.kind != TAB) {
-        return 0 //    return quoteLevel;
+        return 0 //    return quoteLevel
 //    }
 //    
 //    }
     }
     
     func skip(_ offset : Int, tokens : [Int]) -> Int {
-//    List<Integer> tokenList = Arrays.asList(tokens);
+//    List<Integer> tokenList = Arrays.asList(tokens)
 //    for (int i = offset;; i++) {
-//    Token t = getToken(i);
+//    Token t = getToken(i)
 //    if (!tokenList.contains(t.kind)) {
-        return 0 //    return i;
+        return 0 //    return i
 //    }
 //    }
     }
@@ -1189,18 +1189,18 @@ class Parser {
         scanPosition = token
         lastPosition = scanPosition
         //    try {
-//    return !scanToken(DIGITS) && !scanToken(DOT);
+//    return !scanToken(DIGITS) && !scanToken(DOT)
 //    } catch (LookaheadSuccess ls) {
         return true
 //    }
     }
 
     func hasFencedCodeBlockAhead() -> Bool {
-        lookAhead = 3;
+        lookAhead = 3
         scanPosition = token
         lastPosition = scanPosition
 //    try {
-//    return !scanFencedCodeBlock();
+//    return !scanFencedCodeBlock()
 //    } catch (LookaheadSuccess ls) {
         return true
 //    }
@@ -1211,21 +1211,21 @@ class Parser {
         scanPosition = token
         lastPosition = scanPosition
 //    try {
-//    Token xsp = scanPosition;
+//    Token xsp = scanPosition
 //    if (scanTextTokens()) {
-//    scanPosition = xsp;
+//    scanPosition = xsp
 //    if (scanImage()) {
-//    scanPosition = xsp;
+//    scanPosition = xsp
 //    if (scanLink()) {
-//    scanPosition = xsp;
+//    scanPosition = xsp
 //    if (scanStrong()) {
-//    scanPosition = xsp;
+//    scanPosition = xsp
 //    if (scanEm()) {
-//    scanPosition = xsp;
+//    scanPosition = xsp
 //    if (scanCode()) {
-//    scanPosition = xsp;
+//    scanPosition = xsp
 //    if (scanLooseChar()) {
-//    return false;
+//    return false
 //    }
 //    }
 //    }
@@ -1233,9 +1233,9 @@ class Parser {
 //    }
 //    }
 //    }
-//    return true;
+//    return true
 //    } catch (LookaheadSuccess ls) {
-        return true;
+        return true
 //    }
     }
 
@@ -1246,7 +1246,7 @@ class Parser {
         do {
             return try !scanTextTokens()
         } catch {
-            return true;
+            return true
         }
     }
 
@@ -1284,7 +1284,7 @@ class Parser {
     }
  
     func hasEmAhead() -> Bool {
-        lookAhead = 2147483647;
+        lookAhead = 2147483647
         scanPosition = token
         lastPosition = scanPosition
         do {
@@ -1295,7 +1295,7 @@ class Parser {
     }
 
     func hasCodeAhead() -> Bool {
-        lookAhead = 2147483647;
+        lookAhead = 2147483647
         scanPosition = token
         lastPosition = scanPosition
         do {
@@ -1442,7 +1442,7 @@ class Parser {
         scanPosition = token
         lastPosition = scanPosition
         do {
-            return try !scanStrongMultilineElements();
+            return try !scanStrongMultilineElements()
         } catch {
             return true
         }
@@ -1453,7 +1453,7 @@ class Parser {
         scanPosition = token
         lastPosition = scanPosition
         do {
-            return try !scanStrongWithinEmMultilineElements();
+            return try !scanStrongWithinEmMultilineElements()
         } catch {
             return true
         }
@@ -1464,7 +1464,7 @@ class Parser {
         scanPosition = token
         lastPosition = scanPosition
         do {
-            return try !scanImage();
+            return try !scanImage()
         } catch {
             return true
         }
@@ -1482,7 +1482,7 @@ class Parser {
     }
 
     func strongEmWithinStrongAhead() -> Bool {
-        lookAhead = 2147483647;
+        lookAhead = 2147483647
         scanPosition = token
         lastPosition = scanPosition
         do {
@@ -1585,7 +1585,7 @@ class Parser {
         scanPosition = token
         lastPosition = scanPosition
         do {
-            return try !scanCodeTextTokens();
+            return try !scanCodeTextTokens()
         } catch {
             return true
         }
@@ -1626,9 +1626,9 @@ class Parser {
                 if try scanToken(TokenManager.COLON) {
                     scanPosition = xsp
                     if try scanToken(TokenManager.DASH) {
-                        scanPosition = xsp;
+                        scanPosition = xsp
                         if try scanToken(TokenManager.DIGITS) {
-                            scanPosition = xsp;
+                            scanPosition = xsp
                             if try scanToken(TokenManager.DOT) {
                                 scanPosition = xsp
                                 if try scanToken(TokenManager.EQ) {
@@ -1638,7 +1638,7 @@ class Parser {
                                         if try scanToken(TokenManager.GT) {
                                             scanPosition = xsp
                                             if try scanToken(TokenManager.IMAGE_LABEL) {
-                                                scanPosition = xsp;
+                                                scanPosition = xsp
                                                 if try scanToken(TokenManager.LPAREN) {
                                                     scanPosition = xsp
                                                     if try scanToken(TokenManager.LT) {
@@ -1649,7 +1649,7 @@ class Parser {
                                                                 scanPosition = xsp
                                                                 lookingAhead = true
                                                                 semanticLookAhead = !nextAfterSpace(TokenManager.EOL, TokenManager.EOF)
-                                                                lookingAhead = false;
+                                                                lookingAhead = false
                                                                 return try !semanticLookAhead || scanWhitspaceToken()
                                                             }
                                                         }
@@ -1673,12 +1673,12 @@ class Parser {
         if try scanText() {
             return true
         }
-        var xsp : Token;
+        var xsp : Token
         while true {
             xsp = scanPosition
             if try scanText() {
-                scanPosition = xsp;
-                break;
+                scanPosition = xsp
+                break
             }
         }
         return false
@@ -1691,7 +1691,7 @@ class Parser {
             if try scanToken(TokenManager.BACKSLASH) {
                 scanPosition = xsp
                 if try scanToken(TokenManager.CHAR_SEQUENCE) {
-                    scanPosition = xsp;
+                    scanPosition = xsp
                     if try scanToken(TokenManager.COLON) {
                         scanPosition = xsp
                         if try scanToken(TokenManager.DASH) {
@@ -1721,7 +1721,7 @@ class Parser {
                                                                         if try scanToken(TokenManager.UNDERSCORE) {
                                                                             scanPosition = xsp
                                                                             lookingAhead = true
-                                                                            semanticLookAhead = !nextAfterSpace(TokenManager.EOL, TokenManager.EOF);
+                                                                            semanticLookAhead = !nextAfterSpace(TokenManager.EOL, TokenManager.EOF)
                                                                             lookingAhead = false
                                                                             return try (!semanticLookAhead || scanWhitspaceToken())
                                                                         }
@@ -1745,7 +1745,7 @@ class Parser {
     }
 
     func scanCode() throws -> Bool {
-        return try scanToken(TokenManager.BACKTICK) || scanCodeTextTokensAhead() || scanToken(TokenManager.BACKTICK);
+        return try scanToken(TokenManager.BACKTICK) || scanCodeTextTokensAhead() || scanToken(TokenManager.BACKTICK)
     }
 
     func scanCodeMultiline() throws -> Bool {
@@ -1760,12 +1760,12 @@ class Parser {
                 break
             }
         }
-        return try scanToken(TokenManager.BACKTICK);
+        return try scanToken(TokenManager.BACKTICK)
     }
 
     func scanCodeTextTokensAhead() throws -> Bool {
         if try scanCodeTextTokens() {
-            return true;
+            return true
         }
         var xsp : Token
         while true {
@@ -1810,7 +1810,7 @@ class Parser {
     }
 
     func scanEmWithinStrongElements() throws -> Bool {
-        let xsp : Token = scanPosition;
+        let xsp : Token = scanPosition
         if try scanTextTokens() {
             scanPosition = xsp
             if try scanImage() {
@@ -1835,7 +1835,7 @@ class Parser {
 
     func scanEmWithinStrong() throws -> Bool {
         if try scanToken(TokenManager.UNDERSCORE) || scanEmWithinStrongElements() {
-            return true;
+            return true
         }
         var xsp : Token
         while true {
@@ -1884,7 +1884,7 @@ class Parser {
             xsp = scanPosition
             if try scanEmElements() {
                 scanPosition = xsp
-                break;
+                break
             }
         }
         return try scanToken(TokenManager.UNDERSCORE)
@@ -1937,7 +1937,7 @@ class Parser {
         while true {
             xsp = scanPosition
             if try scanWhitespaceTokenBeforeEol() || hasNoEmWithinStrongMultilineContentAhead() {
-                scanPosition = xsp;
+                scanPosition = xsp
                 break
             }
         }
@@ -1975,7 +1975,7 @@ class Parser {
     }
 
     func scanStrongWithinEmElements() throws -> Bool {
-        let xsp : Token = scanPosition;
+        let xsp : Token = scanPosition
         if try scanTextTokens() {
             scanPosition = xsp
             if try scanImage() {
@@ -1983,7 +1983,7 @@ class Parser {
                 if try scanLink() {
                     scanPosition = xsp
                     if try scanCode() {
-                        scanPosition = xsp;
+                        scanPosition = xsp
                         if try scanToken(TokenManager.BACKTICK) {
                             scanPosition = xsp
                             if try scanToken(TokenManager.LBRACK) {
@@ -2031,8 +2031,8 @@ class Parser {
                             if try scanToken(TokenManager.BACKTICK) {
                                 scanPosition = xsp
                                 if try scanToken(TokenManager.LBRACK) {
-                                    scanPosition = xsp;
-                                    return try scanToken(TokenManager.UNDERSCORE);
+                                    scanPosition = xsp
+                                    return try scanToken(TokenManager.UNDERSCORE)
                                 }
                             }
                         }
@@ -2055,7 +2055,7 @@ class Parser {
                 break
             }
         }
-        return try scanToken(TokenManager.ASTERISK);
+        return try scanToken(TokenManager.ASTERISK)
     }
 
     func scanStrongWithinEmMultilineElements() throws -> Bool {
@@ -2139,7 +2139,7 @@ class Parser {
         return false
     }
 
-    func scanResourceTextElement() -> Bool {
+    func scanResourceTextElement() throws -> Bool {
         let xsp = scanPosition
         if try scanToken(TokenManager.ASTERISK) {
             scanPosition = xsp
@@ -2178,7 +2178,7 @@ class Parser {
                                                                             lookingAhead = true
                                                                             semanticLookAhead = !nextAfterSpace(TokenManager.RPAREN)
                                                                             lookingAhead = false
-                                                                            return try (!semanticLookAhead|| scanWhitspaceToken())
+                                                                            return try (!semanticLookAhead || scanWhitspaceToken())
                                                                         }
                                                                     }
                                                                 }
@@ -2247,7 +2247,7 @@ class Parser {
         return false
     }
 
-    func scanResourceElement() -> Bool {
+    func scanResourceElement() throws -> Bool {
         let xsp = scanPosition
         if try scanToken(TokenManager.BACKSLASH) {
             scanPosition = xsp
@@ -2312,29 +2312,29 @@ class Parser {
 
     func scanLink() throws -> Bool {
         if try scanToken(TokenManager.LBRACK) || scanWhitspaceTokens() || scanLinkElement() {
-            return true;
+            return true
         }
         var xsp : Token
         while true {
             xsp = scanPosition
             if try scanLinkElement() {
-                scanPosition = xsp;
-                break;
+                scanPosition = xsp
+                break
             }
         }
         if try scanWhitspaceTokens() || scanToken(TokenManager.RBRACK) {
             return true
         }
-        xsp = scanPosition;
+        xsp = scanPosition
         if try scanResourceUrl() {
-            scanPosition = xsp;
+            scanPosition = xsp
         }
         return false
     }
 
     func scanImage() throws -> Bool {
         if (try scanToken(TokenManager.LBRACK) || scanWhitspaceTokens() || scanToken(TokenManager.IMAGE_LABEL) || scanImageElement()) {
-            return true;
+            return true
         }
         var xsp : Token
         while true {
@@ -2457,7 +2457,7 @@ class Parser {
         semanticLookAhead = headingAhead(1)
         lookingAhead = false
         if try !semanticLookAhead || scanForHeadersigns() {
-            scanPosition = xsp;
+            scanPosition = xsp
             if try scanToken(TokenManager.GT) {
                 scanPosition = xsp
                 if try scanToken(TokenManager.DASH) {
@@ -2484,13 +2484,13 @@ class Parser {
                 lastPosition = scanPosition
             } else {
                 scanPosition = scanPosition.next
-                lastPosition = scanPosition;
+                lastPosition = scanPosition
             }
         } else {
-            scanPosition = scanPosition.next;
+            scanPosition = scanPosition.next
         }
         if (scanPosition.kind != kind) {
-            return true;
+            return true
         }
         if (lookAhead == 0 && (scanPosition == lastPosition)) {
             throw lookAheadSuccess
@@ -2500,45 +2500,45 @@ class Parser {
 
     func getNextTokenKind() -> Int {
         if (nextTokenKind != -1) {
-            return nextTokenKind;
-        } else if ((nextToken = token.next) == null) {
-            token.next = tm.getNextToken();
-            return (nextTokenKind = token.next.kind);
+            return nextTokenKind
+        } else if ((nextToken = token.next) == nil) {
+            token.next = tm.getNextToken()
+            return (nextTokenKind = token.next.kind)
         }
         nextTokenKind = nextToken.kind
         return nextTokenKind
     }
    
     func consumeToken(_ kind : Int) -> Token {
-        var old : Token = token;
+        var old : Token = token
         if token.next != nil {
             token = token.next
         } else {
-            token = token.next = tm.getNextToken();
+            token = token.next = tm.getNextToken()
         }
         nextTokenKind = -1
         if (token.kind == kind) {
-            return token;
+            return token
         }
-        token = old;
+        token = old
         return token
     }
 
     func getToken(_ index : Int) -> Token {
-        let t = lookingAhead ? scanPosition : token;
+        let t = lookingAhead ? scanPosition : token
 //        for (var i = 0; i < index; i++) {
         if t.next != nil {
             t = t.next
         } else {
-            t.next = tm.getNextToken()
-            t = t.next =
+            t.next = tm.getNextToken()!
+            t = t.next
         }
-        }
+//        }
         return t
     }
-    
+
 //    public void setModules(String... modules) {
-//    this.modules = Arrays.asList(modules);
+//    this.modules = Arrays.asList(modules)
 //    }
     
 }
