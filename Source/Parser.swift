@@ -79,7 +79,7 @@ class Parser {
     }
     
     func heading() {
-        var heading = Heading()
+        let heading = Heading()
         tree.openScope()
         var headingLevel : Int = 0
         while (getNextTokenKind() == TokenManager.EQ) {
@@ -109,7 +109,7 @@ class Parser {
     }
 
     func blockQuote() {
-        var blockQuote = BlockQuote()
+        let blockQuote = BlockQuote()
         tree.openScope()
         currentQuoteLevel += 1
         consumeToken(TokenManager.GT)
@@ -140,7 +140,8 @@ class Parser {
         repeat {
             consumeToken(TokenManager.GT)
             whiteSpace()
-        } while (i + 1) < currentQuoteLevel
+            i += 1
+        } while i < currentQuoteLevel
     }
 
     func blockQuoteEmptyLine() {
@@ -153,9 +154,9 @@ class Parser {
     }
 
     func unorderedList() {
-        var list = ListBlock(ordered: false)
+        let list = ListBlock(ordered: false)
         tree.openScope()
-        var listBeginColumn = unorderedListItem()
+        let listBeginColumn = unorderedListItem()
         while listItemAhead(listBeginColumn, ordered: false) {
             while getNextTokenKind() == TokenManager.EOL {
                 consumeToken(TokenManager.EOL)
@@ -172,7 +173,7 @@ class Parser {
     func unorderedListItem() -> Int {
         let listItem = ListItem()
         tree.openScope()
-        var t = consumeToken(TokenManager.DASH)
+        let t = consumeToken(TokenManager.DASH)
         whiteSpace()
         if listItemHasInlineElements() {
             blockElement()
@@ -2514,7 +2515,8 @@ class Parser {
         if token.next != nil {
             token = token.next
         } else {
-            token = token.next = tm.getNextToken()
+            token.next = tm.getNextToken()
+            token = token.next
         }
         nextTokenKind = -1
         if (token.kind == kind) {
