@@ -2158,7 +2158,7 @@ class Parser {
                                     scanPosition = xsp
                                     if try scanToken(TokenManager.DOT) {
                                         scanPosition = xsp
-                                        if try scanToken(EQ) {
+                                        if try scanToken(TokenManager.EQ) {
                                             scanPosition = xsp
                                             if try scanToken(TokenManager.ESCAPED_CHAR) {
                                                 scanPosition = xsp
@@ -2510,7 +2510,7 @@ class Parser {
         return nextTokenKind
     }
    
-    func consumeToken(_ kind : Int) -> Token {
+    @discardableResult func consumeToken(_ kind : Int) -> Token {
         var old : Token = token
         if token.next != nil {
             token = token.next
