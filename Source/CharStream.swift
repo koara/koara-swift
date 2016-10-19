@@ -9,14 +9,14 @@ class CharStream {
     var column = 0
     var line = 1
     var prevCharIsLF = false
-    //    this.reader = reader;
-     var buffer = [Character]()
+    var reader : Reader
+    var buffer = [Int:Character]()
     var maxNextCharInd = 0
     var inBuf = 0
     var tabSize = 4
 
     init(reader: Reader) {
-        //self.reader = reader
+        self.reader = reader
     }
     
     func beginToken() -> Character {
@@ -35,15 +35,18 @@ class CharStream {
 //            }
 //            return this.buffer[this.bufpos];
         }
-//        if (++this.bufpos >= this.maxNextCharInd) {
-//            this.fillBuff();
-//        }
+        bufpos += 1
+        if (bufpos >= maxNextCharInd) {
+            fillBuff()
+        }
+        
+        print("///// \(buffer)")
 //        
 //        var c = this.buffer[this.bufpos];
 //        
 //        this.updateLineColumn(c);
 //        return c;
-        return "e".characters.first!
+        return "a".characters.first!
     }
     
     func fillBuff() {
@@ -58,22 +61,23 @@ class CharStream {
                 available = bufsize
             }
         }
-//        var i = 0
-//        
-//        try {
-//            if ((i = this.reader.read(this.buffer, this.maxNextCharInd, this.available - this.maxNextCharInd)) === -1) {
-//                throw new Error("IOException");
-//            } else {
-//                this.maxNextCharInd += i;
-//            }
-//        } catch (e) {
-//            --this.bufpos;
+        var i = 0
+ 
+        do {
+            i = self.reader.read(&buffer, offset: maxNextCharInd, length: (available - maxNextCharInd))
+            if (i == -1) {
+                throw Error
+            } else {
+                maxNextCharInd += i;
+            }
+        } catch {
+            bufpos -= 1
 //            this.backup(0);
 //            if (this.tokenBegin === -1) {
 //                this.tokenBegin = this.bufpos;
 //            }
 //            throw e;
-//        }
+        }
     }
     
     func backup(_ amount : Int) {
@@ -115,19 +119,23 @@ class CharStream {
 //            this.buffer.slice(0, this.bufpos + 1).join("");
     }
     
-    func getEndColumn() {
+    func getEndColumn() -> Int {
+        return 1
 //        return this.tokenBegin in this.bufcolumn ? this.bufcolumn[this.bufpos] : 0;
     }
     
-    func getEndLine() {
+    func getEndLine() -> Int {
+        return 1
 //        return this.tokenBegin in this.bufline ? this.bufline[this.bufpos] : 0;
     }
     
-    func getBeginColumn() {
+    func getBeginColumn() -> Int {
+        return 1
 //        return this.bufpos in this.bufcolumn ? this.bufcolumn[this.tokenBegin] : 0;
     }
     
-    func getBeginLine() {
+    func getBeginLine() -> Int {
+        return 1
 //        return this.bufpos in this.bufline ? this.bufline[this.tokenBegin] : 0;
     }
 

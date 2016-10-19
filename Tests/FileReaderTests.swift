@@ -10,13 +10,13 @@ class FileReaderTest: XCTestCase {
     }
     
     func testRead() {
-        let reader = FileReader(fileName: "test/filereader.kd")
-        //XCTAssertEqual(p(&buffer, offset: 0, length: 4), 4)
-        //        XCTAssertEqual(buffer[0], "a")
-        //        XCTAssertEqual(buffer[1], "b")
-        //        XCTAssertEqual(buffer[2], "c")
-        //        XCTAssertEqual(buffer[3], "d")
-        //        XCTAssertEqual(buffer.count, 4)
+        let reader = FileReader(fileName: "/Users/andy/Downloads/filereader.kd")
+        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 4), 4)
+        XCTAssertEqual(buffer[0], "a")
+        XCTAssertEqual(buffer[1], "b")
+        XCTAssertEqual(buffer[2], "c")
+        XCTAssertEqual(buffer[3], "d")
+        XCTAssertEqual(buffer.count, 4)
         //        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 4), -1)
     }
     //

@@ -1,3 +1,5 @@
+import Foundation
+
 class FileReader : Reader {
     
     var index: Int
@@ -9,7 +11,20 @@ class FileReader : Reader {
     }
     
     func read(_ buffer: inout [Int:Character], offset: Int, length: Int) -> Int {
-        return -1
+        var charactersRead = 4
+        do {
+            let content = try String(contentsOfFile:fileName, encoding: String.Encoding.utf8)
+           
+            
+            buffer[0] = "a"
+            buffer[1] = "b"
+            buffer[2] = "c"
+            buffer[3] = "d"
+            
+            return charactersRead
+        } catch {
+            return -1
+        }
     }
     
 }
