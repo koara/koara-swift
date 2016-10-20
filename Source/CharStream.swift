@@ -64,9 +64,9 @@ class CharStream {
         var i = 0
  
         do {
-            i = self.reader.read(&buffer, offset: maxNextCharInd, length: (available - maxNextCharInd))
+            i = reader.read(&buffer, offset: maxNextCharInd, length: (available - maxNextCharInd))
             if (i == -1) {
-                throw Error
+                //throw Error
             } else {
                 maxNextCharInd += i;
             }
