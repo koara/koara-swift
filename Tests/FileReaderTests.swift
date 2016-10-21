@@ -19,8 +19,8 @@ class FileReaderTest: XCTestCase {
         XCTAssertEqual(buffer.count, 4)
         //        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 4), -1)
     }
-    //
-    //    func testReadPartOfString() {
+    
+    // func testReadPartOfString() {
     //        let reader = FileReader(fileName: "test/filereader.kd")
     //        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 2), 2)
     //        XCTAssertEqual(buffer[0], "a")
