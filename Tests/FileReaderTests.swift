@@ -1,4 +1,5 @@
 import XCTest
+import Foundation
 
 class FileReaderTest: XCTestCase {
     
@@ -9,8 +10,8 @@ class FileReaderTest: XCTestCase {
         self.buffer = [Int:Character]()
     }
     
-    func testRead() {
-        let reader = FileReader(fileName: "/Users/andy/Downloads/filereader.kd")
+    /*func testRead() {
+        let reader = FileReader(fileName: "/Users/andy/git/koara/koara-swift/Tests/filereader.kd")
         XCTAssertEqual(reader.read(&buffer, offset: 0, length: 4), 4)
         XCTAssertEqual(buffer[0], "a")
         XCTAssertEqual(buffer[1], "b")
@@ -18,7 +19,7 @@ class FileReaderTest: XCTestCase {
         XCTAssertEqual(buffer[3], "d")
         XCTAssertEqual(buffer.count, 4)
         //        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 4), -1)
-    }
+    }*/
     
     // func testReadPartOfString() {
     //        let reader = FileReader(fileName: "test/filereader.kd")

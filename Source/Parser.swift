@@ -11,10 +11,10 @@ class Parser {
     var lookingAhead : Bool = false
     var semanticLookAhead : Bool = false
     var modules : [String] = ["paragraphs", "headings", "lists", "links", "images", "formatting", "blockquotes", "code"]
-    let lookAheadSuccess : LookaheadSuccess
+    let lookAheadSuccess : KoaraError
     
     init() {
-        self.lookAheadSuccess = LookaheadSuccess()
+        self.lookAheadSuccess = KoaraError.LookaheadSuccess()
     }
     
     func parse(_ text: String) -> Document {

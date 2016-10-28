@@ -4,7 +4,7 @@ class CharStreamTests: XCTestCase {
     
     func testBeginToken() {
         let cs = CharStream(reader: StringReader(text: "abcd"))
-        XCTAssertEqual("a", cs.beginToken())
+        XCTAssertEqual("a", try cs.beginToken())
         XCTAssertEqual(1, cs.getBeginColumn())
         XCTAssertEqual(1, cs.getBeginLine())
         XCTAssertEqual(1, cs.getEndColumn())
@@ -13,28 +13,31 @@ class CharStreamTests: XCTestCase {
     
 
     func testReadChar() {
-//    cs = Koara::CharStream.new(Koara::Io::StringReader.new('abcd'))
-//    assert_equal('a', cs.read_char())
-//    assert_equal('b', cs.read_char())
-//    assert_equal('c', cs.read_char())
-//    assert_equal('d', cs.read_char())
+        let cs = CharStream(reader: StringReader(text: "abcd"))
+        XCTAssertEqual("a", try cs.readChar())
+        XCTAssertEqual("b", try cs.readChar())
+        XCTAssertEqual("c", try cs.readChar())
+        XCTAssertEqual("d", try cs.readChar())
     }
 
-    func testReadCharTillEof() {
-//    assert_raises IOError do
-//    cs = Koara::CharStream.new(Koara::Io::StringReader.new('abcd'))
-//    cs.read_char
-//    cs.read_char
-//    cs.read_char
-//    cs.read_char
-//    cs.read_char
+    func testReadCharTillEof() throws {
+        let cs = CharStream(reader: StringReader(text: "abcd"))
+        try cs.readChar()
+        try cs.readChar()
+        try cs.readChar()
+        try cs.readChar()
+        do {
+            try cs.readChar()
+            XCTFail()
+        } catch KoaraError.IOException() {
+        }
     }
   
-    func testGetImage() {
-//    cs = Koara::CharStream.new(Koara::Io::StringReader.new('abcd'))
-//    cs.read_char
-//    cs.read_char
-//    assert_equal('ab', cs.image)
+    func testGetImage() throws {
+        let cs = CharStream(reader: StringReader(text: "abcd"))
+        try cs.readChar()
+        try cs.readChar()
+        XCTAssertEqual("ab", cs.getImage())
     }
 
     func testBeginTokenWithUnicode() {

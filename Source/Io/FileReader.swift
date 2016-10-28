@@ -1,7 +1,7 @@
 import Foundation
 
-class FileReader : Reader {
-    
+class FileReader {
+    /*
     var index: Int
     var fileName: String
     
@@ -26,5 +26,5 @@ class FileReader : Reader {
             return -1
         }
     }
-    
+    */
 }

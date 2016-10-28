@@ -1,11 +1,11 @@
 class CharStream {
 
     var available = 4096
-    var bufsize = 4096
+    var bufSize = 4096
     var tokenBegin = 0
-    var bufcolumn = [Int]()
-    var bufpos = -1
-    var bufline = [Int]()
+    var bufColumn = Array(repeating: 0, count: 4096)
+    var bufPos = -1
+    var bufLine = Array(repeating: 0, count: 4096)
     var column = 0
     var line = 1
     var prevCharIsLF = false
@@ -19,46 +19,42 @@ class CharStream {
         self.reader = reader
     }
     
-    func beginToken() -> Character {
+    func beginToken() throws -> Character {
         tokenBegin = -1
-        let c = readChar()
-        tokenBegin = bufpos;
+        let c = try readChar()
+        tokenBegin = bufPos;
         return c
     }
     
     
-    func readChar() -> Character {
-        if inBuf > 0 {
-            inBuf -= 1;
-//            if ((bufpos += 1) == bufsize) {
-//                bufpos = 0;
-//            }
-//            return this.buffer[this.bufpos];
+    @discardableResult func readChar() throws -> Character {
+        if (inBuf > 0) {
+            inBuf -= 1
+            if ((bufPos + 1) == bufSize) {
+                bufPos = 0
+            }
+            return buffer[bufPos]!
         }
-        bufpos += 1
-        if (bufpos >= maxNextCharInd) {
-            fillBuff()
+        bufPos += 1
+        if bufPos >= maxNextCharInd {
+            try fillBuff()
         }
-        
-        print("///// \(buffer)")
-//        
-//        var c = this.buffer[this.bufpos];
-//        
-//        this.updateLineColumn(c);
-//        return c;
-        return "a".characters.first!
+        let c = buffer[bufPos]
+        updateLineColumn(c: c!)
+        return c!
     }
     
-    func fillBuff() {
+    
+    func fillBuff() throws {
         if maxNextCharInd == available {
-            if available == bufsize {
-                bufpos = 0
+            if available == bufSize {
+                bufPos = 0
                 maxNextCharInd = 0
                 if tokenBegin > 2048 {
                     available = tokenBegin
                 }
             } else {
-                available = bufsize
+                available = bufSize
             }
         }
         var i = 0
@@ -66,29 +62,29 @@ class CharStream {
         do {
             i = reader.read(&buffer, offset: maxNextCharInd, length: (available - maxNextCharInd))
             if (i == -1) {
-                //throw Error
+                throw KoaraError.IOException()
             } else {
                 maxNextCharInd += i;
             }
-        } catch {
-            bufpos -= 1
-//            this.backup(0);
-//            if (this.tokenBegin === -1) {
-//                this.tokenBegin = this.bufpos;
-//            }
-//            throw e;
+        } catch let e as KoaraError {
+            bufPos -= 1
+            backup(0)
+            if tokenBegin == -1 {
+                tokenBegin = bufPos
+            }
+            throw e
         }
     }
     
     func backup(_ amount : Int) {
         inBuf += amount
-        bufpos -= amount
-        if (bufpos < 0) {
-            bufpos += bufsize;
+        bufPos -= amount
+        if (bufPos < 0) {
+            bufPos += bufSize;
         }
     }
     
-    func updateLineColumn(_ c : String) {
+    func updateLineColumn(c : Character) {
         column += 1
         if prevCharIsLF {
             prevCharIsLF = false
@@ -107,36 +103,35 @@ class CharStream {
 //           default:
 //            break;
 //          }
-        bufline[bufpos] = line;
-        bufcolumn[bufpos] = column;
+        bufLine[bufPos] = line;
+        bufColumn[bufPos] = column;
     }
     
-    func getImage() {
-//        if (this.bufpos >= this.tokenBegin) {
+    func getImage() -> String {
+        if bufPos >= tokenBegin {
+            return "A"
+            //return buffer[tokenBegin, bufPos + 1]
 //            return this.buffer.slice(this.tokenBegin, this.bufpos + 1).join("");
-//        }
+        }
 //        return this.buffer.slice(this.tokenBegin, this.bufsize).join("") +
 //            this.buffer.slice(0, this.bufpos + 1).join("");
+        return "B"
     }
     
     func getEndColumn() -> Int {
-        return 1
-//        return this.tokenBegin in this.bufcolumn ? this.bufcolumn[this.bufpos] : 0;
+        return bufColumn[bufPos]
     }
     
     func getEndLine() -> Int {
-        return 1
-//        return this.tokenBegin in this.bufline ? this.bufline[this.bufpos] : 0;
+        return bufLine[bufPos]
     }
     
     func getBeginColumn() -> Int {
-        return 1
-//        return this.bufpos in this.bufcolumn ? this.bufcolumn[this.tokenBegin] : 0;
+        return bufColumn[tokenBegin]
     }
     
     func getBeginLine() -> Int {
-        return 1
-//        return this.bufpos in this.bufline ? this.bufline[this.tokenBegin] : 0;
+        return bufLine[tokenBegin]
     }
 
 }
