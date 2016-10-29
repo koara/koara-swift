@@ -10,7 +10,7 @@ class CharStream {
     var line = 1
     var prevCharIsLF = false
     var reader : Reader
-    var buffer = [Int:Character]()
+    var buffer = [Character]()
     var maxNextCharInd = 0
     var inBuf = 0
     var tabSize = 4
@@ -33,15 +33,15 @@ class CharStream {
             if ((bufPos + 1) == bufSize) {
                 bufPos = 0
             }
-            return buffer[bufPos]!
+            return buffer[bufPos]
         }
         bufPos += 1
         if bufPos >= maxNextCharInd {
             try fillBuff()
         }
         let c = buffer[bufPos]
-        updateLineColumn(c: c!)
-        return c!
+        updateLineColumn(c: c)
+        return c
     }
     
     
