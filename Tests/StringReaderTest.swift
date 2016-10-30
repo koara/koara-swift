@@ -27,7 +27,7 @@ class StringReaderTest: XCTestCase {
         XCTAssertEqual(buffer[1], "b")
         XCTAssertEqual(buffer.count, 2)
     }
-     /*
+   
     func testReadWithOffsetPartOfString() {
         let reader = StringReader(text: "abcd")
         XCTAssertEqual(reader.read(&buffer, offset: 2, length: 4), 4)
@@ -36,7 +36,7 @@ class StringReaderTest: XCTestCase {
         XCTAssertEqual(buffer[2], "a")
         XCTAssertEqual(buffer[3], "b")
     }
-    
+      /*
     func testReadWithOffsetTooLargePartOfString() {
         let reader = StringReader(text: "abcd")
         XCTAssertEqual(reader.read(&buffer, offset: 6, length: 4), 4)
