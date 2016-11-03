@@ -32,14 +32,14 @@ class CharStreamTests: XCTestCase {
         } catch KoaraError.IOException() {
         }
     }
-  
+  /*
     func testGetImage() throws {
         let cs = CharStream(reader: StringReader(text: "abcd"))
         try cs.readChar()
         try cs.readChar()
         XCTAssertEqual("ab", cs.getImage())
     }
-
+*/
     func testBeginTokenWithUnicode() {
 //    cs = Koara::CharStream.new(Koara::Io::StringReader.new('ðinæ'))
 //    assert_equal('ð', cs.begin_token)
