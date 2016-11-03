@@ -109,8 +109,11 @@ class CharStream {
     
     func getImage() -> String {
         if bufPos >= tokenBegin {
-            return "A"
-            //return buffer[tokenBegin, bufPos + 1]
+            //return buffer[tokenBegin...bufPos + 1]
+            
+            return String(buffer[tokenBegin..<(bufPos + 1)])
+            
+ //           return (buffer.lines as! [String]).joinWithSeparator("")            //return buffer[tokenBegin, bufPos + 1]
 //            return this.buffer.slice(this.tokenBegin, this.bufpos + 1).join("");
         }
 //        return this.buffer.slice(this.tokenBegin, this.bufsize).join("") +
