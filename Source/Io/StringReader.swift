@@ -16,9 +16,6 @@ class StringReader : Reader {
             for i in 0..<length {
                 if((self.index + i) < text.characters.count) {
                     let c = text[text.characters.index(text.startIndex, offsetBy: self.index + i)]
-                    
-                    print("----\(c)")
-                    
                     buffer.insert(c, at: offset + i)
                     charactersRead += 1
                 }

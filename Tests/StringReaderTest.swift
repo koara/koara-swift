@@ -8,7 +8,7 @@ class StringReaderTest: XCTestCase {
         super.setUp()
         self.buffer = [Character]()
     }
-   /*
+
     func testRead() {
         let reader = StringReader(text: "abcd")
         XCTAssertEqual(reader.read(&buffer, offset: 0, length: 4), 4)
@@ -38,16 +38,22 @@ class StringReaderTest: XCTestCase {
         XCTAssertEqual(buffer[2], "a")
         XCTAssertEqual(buffer[3], "b")
     }
-   */
+ 
     func testReadWithOffsetTooLargePartOfString() {
         let reader = StringReader(text: "abcd")
+        buffer.append(" ")
+        buffer.append(" ")
+        buffer.append(" ")
+        buffer.append(" ")
+        buffer.append(" ")
+        buffer.append(" ")
         XCTAssertEqual(reader.read(&buffer, offset: 6, length: 4), 4)
-        XCTAssertNil(buffer[0])
-        XCTAssertNil(buffer[1])
-        XCTAssertNil(buffer[2])
-        XCTAssertNil(buffer[3])
+        XCTAssertEqual(" ", buffer[0])
+        XCTAssertEqual(" ", buffer[1])
+        XCTAssertEqual(" ", buffer[2])
+        XCTAssertEqual(" ", buffer[3])
     }
-    /*
+    
     func testReadUntilEof() {
         let reader = StringReader(text: "abcd")
 
@@ -61,7 +67,7 @@ class StringReaderTest: XCTestCase {
 
         XCTAssertEqual(reader.read(&buffer, offset: 0, length: 2), -1)
     }
-    
+  
     func testReadWithUnicode() {
         let reader = StringReader(text: "ðinæ");
         XCTAssertEqual(reader.read(&buffer, offset: 0, length: 4), 4)
@@ -78,23 +84,31 @@ class StringReaderTest: XCTestCase {
         XCTAssertEqual(buffer[1], "i")
         XCTAssertEqual(buffer.count, 2)
     }
-    
+
     func testReadWithUnicodeAndOffsetPartOfString() {
         let reader = StringReader(text: "ðinæ");
+        buffer.append(" ")
+        buffer.append(" ")
         XCTAssertEqual(reader.read(&buffer, offset: 2, length: 4), 4)
-        XCTAssertNil(buffer[0])
-        XCTAssertNil(buffer[1])
+        XCTAssertEqual(" ", buffer[0])
+        XCTAssertEqual(" ", buffer[1])
         XCTAssertEqual(buffer[2], "ð")
         XCTAssertEqual(buffer[3], "i")
     }
     
     func testReadWithUnicodeAndOffsetTooLargePartOfString() {
         let reader = StringReader(text: "ðinæ");
+        buffer.append(" ")
+        buffer.append(" ")
+        buffer.append(" ")
+        buffer.append(" ")
+        buffer.append(" ")
+        buffer.append(" ")
         XCTAssertEqual(reader.read(&buffer, offset: 6, length: 4), 4)
-        XCTAssertNil(buffer[0])
-        XCTAssertNil(buffer[1])
-        XCTAssertNil(buffer[2])
-        XCTAssertNil(buffer[3])
+        XCTAssertEqual(" ", buffer[0])
+        XCTAssertEqual(" ", buffer[1])
+        XCTAssertEqual(" ", buffer[2])
+        XCTAssertEqual(" ", buffer[3])
     }
     
     func testReadWithUnicodeUntilEof() {
@@ -108,5 +122,5 @@ class StringReaderTest: XCTestCase {
 
         XCTAssertEqual(reader.read(&buffer, offset: 0, length: 2), -1)
     }
-    */
+    
 }
