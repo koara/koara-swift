@@ -1,7 +1,7 @@
 import Foundation
 
 class FileReader {
-    /*
+   
     var index: Int
     var fileName: String
     
@@ -10,7 +10,10 @@ class FileReader {
         self.index = 0
     }
     
-    func read(_ buffer: inout [Int:Character], offset: Int, length: Int) -> Int {
+    func read(_ buffer: inout [Character], offset: Int, length: Int) -> Int {
+        
+        
+                
         var charactersRead = 4
         do {
             let content = try String(contentsOfFile:fileName, encoding: String.Encoding.utf8)
@@ -26,5 +29,5 @@ class FileReader {
             return -1
         }
     }
-    */
+    
 }

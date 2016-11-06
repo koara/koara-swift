@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8035DB621BAB492500466CB3 /* Koara.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8111E3319A95C8B0040E7D1 /* Koara.framework */; };
 		A109D9211D4FA1CA00D8C572 /* StringReaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109D9201D4FA1CA00D8C572 /* StringReaderTest.swift */; };
+		A123F0DC1DCE68E4005B80C7 /* ComplianceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A123F0DA1DCE68E4005B80C7 /* ComplianceTest.swift */; };
 		A1428CC31D8468AE00E45202 /* KoaraError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1428CC21D8468AE00E45202 /* KoaraError.swift */; };
 		A1428CC41D8468AE00E45202 /* KoaraError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1428CC21D8468AE00E45202 /* KoaraError.swift */; };
 		A1428CC61D85A27900E45202 /* CharStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1428CC51D85A27900E45202 /* CharStream.swift */; };
@@ -79,6 +80,7 @@
 
 /* Begin PBXFileReference section */
 		A109D9201D4FA1CA00D8C572 /* StringReaderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringReaderTest.swift; sourceTree = "<group>"; };
+		A123F0DA1DCE68E4005B80C7 /* ComplianceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplianceTest.swift; sourceTree = "<group>"; };
 		A1428CC21D8468AE00E45202 /* KoaraError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KoaraError.swift; sourceTree = "<group>"; };
 		A1428CC51D85A27900E45202 /* CharStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharStream.swift; sourceTree = "<group>"; };
 		A16A5A7F1D7F38C6005EEEB6 /* FileReaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileReaderTests.swift; sourceTree = "<group>"; };
@@ -131,14 +133,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A16A5A841D7FD370005EEEB6 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				A1E2D1951DB736C800C8315C /* filereader.kd */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 		A16A5A851D7FD3BA005EEEB6 /* Io */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,10 +206,11 @@
 		F8111E3F19A95C8B0040E7D1 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				A16A5A841D7FD370005EEEB6 /* Resources */,
+				A1E2D1951DB736C800C8315C /* filereader.kd */,
 				A109D9201D4FA1CA00D8C572 /* StringReaderTest.swift */,
 				A16A5A7F1D7F38C6005EEEB6 /* FileReaderTests.swift */,
 				A1E2D19B1DB7C38C00C8315C /* CharStreamTests.swift */,
+				A123F0DA1DCE68E4005B80C7 /* ComplianceTest.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -372,6 +367,7 @@
 				A109D9211D4FA1CA00D8C572 /* StringReaderTest.swift in Sources */,
 				A16A5ABA1D7FD7A6005EEEB6 /* Code.swift in Sources */,
 				A16A5AE91D7FDA3B005EEEB6 /* StringReader.swift in Sources */,
+				A123F0DC1DCE68E4005B80C7 /* ComplianceTest.swift in Sources */,
 				A16A5ABC1D7FD7A6005EEEB6 /* CodeBlock.swift in Sources */,
 				A16A5AF21D7FDE35005EEEB6 /* Node.swift in Sources */,
 				A16A5AC01D7FD7A6005EEEB6 /* Em.swift in Sources */,
