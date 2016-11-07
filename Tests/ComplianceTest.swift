@@ -3,8 +3,17 @@ import XCTest
 class ComplianceTest: XCTestCase {
     
     func testKoaraToHtml5() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        //kd = File.read("#{TEST_DIR}/input/#{folder}/#{testcase}.kd")
+        //html = File.read("#{TEST_DIR}/output/koara/#{folder}/#{testcase}.kd")
+        
+        let kd = "abc"
+        let html = "<p>abc</p>"
+        let parser = Parser()
+        let document = parser.parse(kd)
+        //renderer = Koara::KoaraRenderer.new
+        //document.accept(renderer)
+        
+        //assert_equal(html, renderer.output)    
     }
 
     
