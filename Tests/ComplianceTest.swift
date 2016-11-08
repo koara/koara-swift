@@ -10,8 +10,8 @@ class ComplianceTest: XCTestCase {
         let html = "<p>abc</p>"
         let parser = Parser()
         let document = parser.parse(kd)
-        //renderer = Koara::KoaraRenderer.new
-        //document.accept(renderer)
+        let renderer = Html5Renderer()
+        document.accept(renderer)
         
         //assert_equal(html, renderer.output)    
     }

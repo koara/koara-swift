@@ -10,6 +10,7 @@
 		8035DB621BAB492500466CB3 /* Koara.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8111E3319A95C8B0040E7D1 /* Koara.framework */; };
 		A109D9211D4FA1CA00D8C572 /* StringReaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109D9201D4FA1CA00D8C572 /* StringReaderTest.swift */; };
 		A123F0DC1DCE68E4005B80C7 /* ComplianceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A123F0DA1DCE68E4005B80C7 /* ComplianceTest.swift */; };
+		A123F0DE1DD1F8F6005B80C7 /* Html5Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A123F0DD1DD1F8F6005B80C7 /* Html5Renderer.swift */; };
 		A1428CC31D8468AE00E45202 /* KoaraError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1428CC21D8468AE00E45202 /* KoaraError.swift */; };
 		A1428CC41D8468AE00E45202 /* KoaraError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1428CC21D8468AE00E45202 /* KoaraError.swift */; };
 		A1428CC61D85A27900E45202 /* CharStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1428CC51D85A27900E45202 /* CharStream.swift */; };
@@ -81,6 +82,7 @@
 /* Begin PBXFileReference section */
 		A109D9201D4FA1CA00D8C572 /* StringReaderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringReaderTest.swift; sourceTree = "<group>"; };
 		A123F0DA1DCE68E4005B80C7 /* ComplianceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplianceTest.swift; sourceTree = "<group>"; };
+		A123F0DD1DD1F8F6005B80C7 /* Html5Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Html5Renderer.swift; sourceTree = "<group>"; };
 		A1428CC21D8468AE00E45202 /* KoaraError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KoaraError.swift; sourceTree = "<group>"; };
 		A1428CC51D85A27900E45202 /* CharStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharStream.swift; sourceTree = "<group>"; };
 		A16A5A7F1D7F38C6005EEEB6 /* FileReaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileReaderTests.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				A16A5A7F1D7F38C6005EEEB6 /* FileReaderTests.swift */,
 				A1E2D19B1DB7C38C00C8315C /* CharStreamTests.swift */,
 				A123F0DA1DCE68E4005B80C7 /* ComplianceTest.swift */,
+				A123F0DD1DD1F8F6005B80C7 /* Html5Renderer.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				A16A5A8C1D7FD506005EEEB6 /* Parser.swift in Sources */,
 				A16A5AC61D7FD7A6005EEEB6 /* Image.swift in Sources */,
 				A17D36641D899CA3003BDAAA /* Token.swift in Sources */,
+				A123F0DE1DD1F8F6005B80C7 /* Html5Renderer.swift in Sources */,
 				A16A5ADD1D7FD95F005EEEB6 /* Strong.swift in Sources */,
 				A1E2D19C1DB7C38C00C8315C /* CharStreamTests.swift in Sources */,
 				A16A5ADA1D7FD8FF005EEEB6 /* Paragraph.swift in Sources */,

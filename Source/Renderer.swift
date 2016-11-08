@@ -1,33 +1,33 @@
 protocol Renderer {
     
-    func visit(_ node: Document)
+    func visitDocument(node: Document)
     
-    func visit(_ node: Heading)
+    func visitHeading(node: Heading)
     
-    func visit(_ node: BlockQuote)
+    func visitBlockQuote(node: BlockQuote)
     
-    func visit(_ node: ListBlock)
+    func visitListBlock(node: ListBlock)
     
-    func visit(_ node: ListItem)
+    func visitListItem(node: ListItem)
     
-    func visit(_ node: CodeBlock)
+    func visitCodeBlock(node: CodeBlock)
     
-    func visit(_ node: Paragraph)
+    func visitParagraph(node: Paragraph)
     
-    func visit(_ node: BlockElement)
+    func visitBlockElement(node: BlockElement)
     
-    func visit(_ node: Image)
+    func visitImage(node: Image)
     
-    func visit(_ node: Link)
+    func visitLink(node: Link)
     
-    func visit(_ node: Text)
+    func visitText(node: Text)
     
-    func visit(_ node: Strong)
+    func visitStrong(node: Strong)
     
-    func visit(_ node: Em)
+    func visitEm(node: Em)
     
-    func visit(_ node: Code)
+    func visitCode(node: Code)
     
-    func visit(_ node: LineBreak)
+    func visitLineBreak(node: LineBreak)
     
 }
