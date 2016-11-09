@@ -1,7 +1,7 @@
 class Text : Node {
     
     func accept(_ renderer : Renderer) {
-        renderer.visit(self)
+        renderer.visitText(node: self)
     }
     
 }

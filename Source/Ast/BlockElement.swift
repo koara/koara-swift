@@ -31,7 +31,7 @@ class BlockElement : Node {
 //    }
 //    
     func accept(_ renderer : Renderer) {
-        renderer.visit(self)
+        renderer.visitBlockElement(node: self)
     }
     
 }

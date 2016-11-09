@@ -1,7 +1,7 @@
 class Em : Node {
     
-    func accept(_ renderer : Renderer) {
-        renderer.visit(self)
+    func accept(renderer : Renderer) {
+        renderer.visitEm(node: self)
     }
     
 }

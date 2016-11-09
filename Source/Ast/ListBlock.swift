@@ -8,7 +8,7 @@ class ListBlock : BlockElement {
     }
         
     override func accept(_ renderer : Renderer) {
-        renderer.visit(self)
+        renderer.visitListBlock(node: self)
     }
     
 }

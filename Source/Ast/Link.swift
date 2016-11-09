@@ -1,7 +1,7 @@
 class Link : Node {
     
     func accept(_ renderer : Renderer) {
-        renderer.visit(self)
+        renderer.visitLink(node: self)
     }
     
 }

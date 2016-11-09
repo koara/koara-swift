@@ -1,7 +1,7 @@
 class Heading : BlockElement {
     
     override func accept(_ renderer : Renderer) {
-        renderer.visit(self)
+        renderer.visitHeading(node: self)
     }
     
     //var level : Int {

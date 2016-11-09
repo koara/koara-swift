@@ -1,7 +1,7 @@
 class Strong : Node {
     
     func accept(_ renderer : Renderer) {
-        renderer.visit(self)
+        renderer.visitStrong(node: self)
     }
     
 }
