@@ -1,9 +1,6 @@
 class Html5Renderer : Renderer {
     
-    //var output : String {
-    //    set (newVal) { self.output = newVal }
-    //    get { return self.output }    }
-    
+    var output : String = ""
     var level : Int = 0
     //private Stack<Integer> listSequence = new Stack<Integer>();
    
@@ -13,15 +10,17 @@ class Html5Renderer : Renderer {
     }
     
     func visitDocument(node: Document) {
-      //  out = new StringBuffer();
-    //  node.childrenAccept(this);
+        output = ""
+        node.childrenAccept(renderer: self);
     }
     
     func visitHeading(node: Heading) {
-        //out.append(indent() + "<h" + node.getValue() + ">");
-        //node.childrenAccept(this);
-        //out.append("</h" + node.getValue() + ">\n");
-        //if(!node.isNested()) { out.append("\n"); }
+        output += indent() + "<h1" + (node.value as! String) + ">"
+        node.childrenAccept(renderer: self);
+        output += "</h1" + (node.value as! String) + ">\n"
+        if !node.isNested() {
+            output += "\n"
+        }
     }
     
     func visitBlockQuote(node: BlockQuote) {

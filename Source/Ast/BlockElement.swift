@@ -13,9 +13,10 @@ class BlockElement : Node {
 //        return children[children.length - 1] == this;
 //    }
 //    
-//    public boolean isNested() {
+        func isNested() -> Bool {
+            return false
 //        return !(getParent() instanceof Document);
-//    }
+        }
 //    
 //    public boolean isSingleChild() {
 //        return ((Node) this.getParent()).getChildren().length == 1;

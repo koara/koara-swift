@@ -13,6 +13,7 @@ class ComplianceTest: XCTestCase {
         let renderer = Html5Renderer()
         document.accept(renderer)
         
+        
         //XCTAssertEqual(html, renderer.output)
     }
 
