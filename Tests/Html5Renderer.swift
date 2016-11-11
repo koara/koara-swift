@@ -24,50 +24,54 @@ class Html5Renderer : Renderer {
     }
     
     func visitBlockQuote(node: BlockQuote) {
-        //out.append(indent() + "<blockquote>");
+        output += indent() + "<blockquote>"
         //if(node.getChildren() != null && node.getChildren().length > 0) { out.append("\n"); }
-        //level++;
+        level += 1
         //node.childrenAccept(this);
-        //level--;
-        //out.append(indent() + "</blockquote>\n");
-        //if(!node.isNested()) { out.append("\n"); }
+        level -= 1
+        output += indent() + "</blockquote>\n"
+        if(node.isNested()) {
+            output += "\n"
+        }
     }
   
     func visitListBlock(node: ListBlock) {
         //listSequence.push(0);
-        //String tag = node.isOrdered() ? "ol" : "ul";
-        //out.append(indent() + "<" + tag + ">\n");
-        //level++;
-        //node.childrenAccept(this);
-        //level--;
-        //out.append(indent() + "</" + tag + ">\n");
-        //if(!node.isNested()) { out.append("\n"); }
+        let tag = node.isOrdered() ? "ol" : "ul"
+        output += indent() + "<" + tag + ">\n"
+        level += 1
+        node.childrenAccept(self);
+        level -= 1
+        output += indent() + "</" = tag + ">\n"
+        if(!node.isNested()) {
+            output += "\n"
+        }
         //listSequence.pop();
     }
    
     func visitListItem(node: ListItem) {
         //Integer seq = listSequence.peek() + 1;
         //listSequence.set(listSequence.size() - 1, seq);
-        //out.append(indent() + "<li");
+        output += indent() + "<li"
         //if(node.getNumber() != null && (!seq.equals(node.getNumber()))) {
         //    out.append(" value=\"" + node.getNumber() + "\"");
         //    listSequence.push(node.getNumber());
         //}
-        //out.append(">");
+        output += ">"
         //if(node.getChildren() != null) {
         //    boolean block = (node.getChildren()[0].getClass() == Paragraph.class || node.getChildren()[0].getClass() == BlockElement.class);
         //
         //    if(node.getChildren().length > 1 || !block) { out.append("\n"); }
-        //    level++;
-        //    node.childrenAccept(this);
-        //    level--;
+                level += 1
+                node.childrenAccept(self);
+                level -= 1
         //    if(node.getChildren().length > 1 || !block) { out.append(indent()); }
         //}
-        //out.append("</li>\n");
+        output += "</li>\n"
     }
     
     func visitCodeBlock(node: CodeBlock) {
-        //out.append(indent() + "<pre><code");
+        output += indent() + "<pre><code"
         //if(node.getLanguage() != null) {
         //    out.append(" class=\"language-" + escape(node.getLanguage()) + "\"");
         //}
