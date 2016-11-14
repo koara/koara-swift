@@ -29,18 +29,18 @@ class Parser {
 //    }
 //    
     func parseReader(_ reader: Reader) -> Document {
-//        cs = CharStream(reader: reader)
-//        tm = TokenManager(stream: cs)
-//        token = Token()
-//        tree = TreeState()
-//        nextTokenKind = -1
+        cs = CharStream(reader: reader)
+        tm = TokenManager(stream: cs)
+        token = Token()
+        tree = TreeState()
+        nextTokenKind = -1
         let document = Document()
-//        tree.openScope()
-//        
-//        while getNextTokenKind() == TokenManager.EOL {
-//            consumeToken(TokenManager.EOL)
-//        }
-//        whiteSpace()
+        tree.openScope()
+        
+        while getNextTokenKind() == TokenManager.EOL {
+            consumeToken(TokenManager.EOL)
+        }
+ //       whiteSpace()
 //        if hasAnyBlockElementsAhead() {
 //            blockElement()
 //            while blockAhead(0) {
@@ -2499,19 +2499,19 @@ class Parser {
 //        return false
 //    }
 //
-//    func getNextTokenKind() -> Int {
+    func getNextTokenKind() -> Int {
 //        if (nextTokenKind != -1) {
 //            return nextTokenKind
 //        } else if ((nextToken = token.next) == nil) {
 //            token.next = tm.getNextToken()
 //            return (nextTokenKind = token.next.kind)
 //        }
-//        nextTokenKind = nextToken.kind
-//        return nextTokenKind
-//    }
-//   
-//    @discardableResult func consumeToken(_ kind : Int) -> Token {
-//        var old : Token = token
+        nextTokenKind = nextToken.kind
+        return nextTokenKind
+    }
+
+    @discardableResult func consumeToken(_ kind : Int) -> Token {
+        var old : Token = token
 //        if token.next != nil {
 //            token = token.next
 //        } else {
@@ -2523,8 +2523,8 @@ class Parser {
 //            return token
 //        }
 //        token = old
-//        return token
-//    }
+        return token
+    }
 //
 //    func getToken(_ index : Int) -> Token {
 //        let t = lookingAhead ? scanPosition : token

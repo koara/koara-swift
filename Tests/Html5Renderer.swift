@@ -37,12 +37,12 @@ class Html5Renderer : Renderer {
   
     func visitListBlock(node: ListBlock) {
         //listSequence.push(0);
-        let tag = node.isOrdered() ? "ol" : "ul"
+        let tag = node.ordered! ? "ol" : "ul"
         output += indent() + "<" + tag + ">\n"
         level += 1
-        node.childrenAccept(self);
+        node.childrenAccept(renderer: self);
         level -= 1
-        output += indent() + "</" = tag + ">\n"
+        output += indent() + "</" + tag + ">\n"
         if(!node.isNested()) {
             output += "\n"
         }
@@ -63,7 +63,7 @@ class Html5Renderer : Renderer {
         //
         //    if(node.getChildren().length > 1 || !block) { out.append("\n"); }
                 level += 1
-                node.childrenAccept(self);
+                node.childrenAccept(renderer: self);
                 level -= 1
         //    if(node.getChildren().length > 1 || !block) { out.append(indent()); }
         //}
@@ -72,62 +72,67 @@ class Html5Renderer : Renderer {
     
     func visitCodeBlock(node: CodeBlock) {
         output += indent() + "<pre><code"
-        //if(node.getLanguage() != null) {
-        //    out.append(" class=\"language-" + escape(node.getLanguage()) + "\"");
-        //}
-        //out.append(">");
-        //out.append(escape(node.getValue().toString()) + "</code></pre>\n");
-        //if(!node.isNested()) { out.append("\n"); }
+        if ((node.language) != nil) {
+            output += " class=\"language-\"" + escape(text: node.language)
+        }
+        output += ">"
+        output += escape(text: node.value as! String) + "</code></pre>\n"
+        if(!node.isNested()) {
+            output += "\n"
+        }
     }
     
     func visitParagraph(node: Paragraph) {
         //if(node.isNested() && (node.getParent() instanceof ListItem) && node.isSingleChild()) {
         //    node.childrenAccept(this);
         //} else {
-        //    out.append(indent() + "<p>");
-        //    node.childrenAccept(this);
-        //    out.append("</p>\n");
-        //    if(!node.isNested()) { out.append("\n"); }
-        //}
+            output += indent() + "<p>"
+            node.childrenAccept(renderer: self)
+            output += "</p>\n"
+        if(node.isNested()) {
+            output += "\n"
+        }
     }
   
     func visitBlockElement(node: BlockElement) {
         //if(node.isNested() && (node.getParent() instanceof ListItem) && node.isSingleChild()) {
         //    node.childrenAccept(this);
         //} else {
-        //    out.append(indent());
-        //    node.childrenAccept(this);
-        //    if(!node.isNested()) { out.append("\n"); }
+            output += indent()
+            node.childrenAccept(renderer: self)
+        if(node.isNested()) {
+            output += "\n"
+        }
         //}
     }
     
     func visitImage(node: Image) {
         //out.append("<img src=\"" + escapeUrl(node.getValue().toString()) + "\" alt=\"");
-        //node.childrenAccept(this);
+        node.childrenAccept(renderer: self);
         //out.append("\" />");
     }
     
     func visitLink(node: Link) {
         //out.append("<a href=\"" + escapeUrl(node.getValue().toString()) + "\">");
-        //node.childrenAccept(this);
+        node.childrenAccept(renderer: self);
         //out.append("</a>");
     }
     
     func visitStrong(node: Strong) {
         //out.append("<strong>");
-        //node.childrenAccept(this);
+        node.childrenAccept(renderer: self);
         //out.append("</strong>");
     }
     
     func visitEm(node: Em) {
         //out.append("<em>");
-        //node.childrenAccept(this);
+        node.childrenAccept(renderer: self);
         //out.append("</em>");
     }
     
     func visitCode(node: Code) {
         //out.append("<code>");
-        //node.childrenAccept(this);
+        node.childrenAccept(renderer: self);
         //out.append("</code>");
     }
     
