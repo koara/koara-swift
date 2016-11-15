@@ -15,6 +15,7 @@
 		A1428CC41D8468AE00E45202 /* KoaraError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1428CC21D8468AE00E45202 /* KoaraError.swift */; };
 		A1428CC61D85A27900E45202 /* CharStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1428CC51D85A27900E45202 /* CharStream.swift */; };
 		A1428CC71D85A27900E45202 /* CharStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1428CC51D85A27900E45202 /* CharStream.swift */; };
+		A16827B71DDB57990048840E /* TokenManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16827B61DDB57990048840E /* TokenManagerTest.swift */; };
 		A16A5A801D7F38C6005EEEB6 /* FileReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5A7F1D7F38C6005EEEB6 /* FileReaderTests.swift */; };
 		A16A5A881D7FD418005EEEB6 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5A871D7FD418005EEEB6 /* TokenManager.swift */; };
 		A16A5A891D7FD418005EEEB6 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16A5A871D7FD418005EEEB6 /* TokenManager.swift */; };
@@ -85,6 +86,7 @@
 		A123F0DD1DD1F8F6005B80C7 /* Html5Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Html5Renderer.swift; sourceTree = "<group>"; };
 		A1428CC21D8468AE00E45202 /* KoaraError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KoaraError.swift; sourceTree = "<group>"; };
 		A1428CC51D85A27900E45202 /* CharStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharStream.swift; sourceTree = "<group>"; };
+		A16827B61DDB57990048840E /* TokenManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenManagerTest.swift; sourceTree = "<group>"; };
 		A16A5A7F1D7F38C6005EEEB6 /* FileReaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileReaderTests.swift; sourceTree = "<group>"; };
 		A16A5A871D7FD418005EEEB6 /* TokenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		A16A5A8A1D7FD506005EEEB6 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				A1E2D19B1DB7C38C00C8315C /* CharStreamTests.swift */,
 				A123F0DA1DCE68E4005B80C7 /* ComplianceTest.swift */,
 				A123F0DD1DD1F8F6005B80C7 /* Html5Renderer.swift */,
+				A16827B61DDB57990048840E /* TokenManagerTest.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				A16A5AF21D7FDE35005EEEB6 /* Node.swift in Sources */,
 				A16A5AC01D7FD7A6005EEEB6 /* Em.swift in Sources */,
 				A1428CC71D85A27900E45202 /* CharStream.swift in Sources */,
+				A16827B71DDB57990048840E /* TokenManagerTest.swift in Sources */,
 				A16A5AE71D7FDA3B005EEEB6 /* FileReader.swift in Sources */,
 				A16A5A8C1D7FD506005EEEB6 /* Parser.swift in Sources */,
 				A16A5AC61D7FD7A6005EEEB6 /* Image.swift in Sources */,

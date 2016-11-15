@@ -2506,18 +2506,18 @@ class Parser {
 //            token.next = tm.getNextToken()
 //            return (nextTokenKind = token.next.kind)
 //        }
-        nextTokenKind = nextToken.kind
+//        nextTokenKind = nextToken.kind
         return nextTokenKind
     }
 
     @discardableResult func consumeToken(_ kind : Int) -> Token {
         var old : Token = token
-//        if token.next != nil {
-//            token = token.next
-//        } else {
+        if token.next != nil {
+            token = token.next
+        } else {
 //            token.next = tm.getNextToken()
 //            token = token.next
-//        }
+        }
 //        nextTokenKind = -1
 //        if (token.kind == kind) {
 //            return token

@@ -12,7 +12,7 @@ class Token {
     var image : String {
         get { return self.image }
     }
-    var next : Token {
+    var next : Token? {
         get { return self.next }
     }
 
