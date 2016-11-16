@@ -37,7 +37,7 @@ class TokenManager {
 //    cs = stream;
     }
 //    
-//    public Token getNextToken() {
+    func getNextToken() -> Token {
 //    try {
 //    int curPos = 0;
 //    while (true) {
@@ -46,8 +46,8 @@ class TokenManager {
 //    } catch (java.io.IOException e) {
 //    matchedKind = 0;
 //    matchedPos = -1;
-//    return fillToken();
-//    }
+        return fillToken()
+    }
 //    
 //    matchedKind = Integer.MAX_VALUE;
 //    matchedPos = 0;
@@ -64,10 +64,9 @@ class TokenManager {
 //    }
 //    }
 //    
-//    private Token fillToken() {
-//    return new Token(matchedKind, cs.getBeginLine(), cs.getBeginColumn(), cs.getEndLine(), cs.getEndColumn(),
-//    cs.getImage());
-//    }
+    func fillToken() -> Token {
+        return Token(kind: 0, beginLine: 0, beginColumn: 0, endLine: 0, endColumn: 0, image: "")
+    }
 //    
 //    private int moveStringLiteralDfa0() throws IOException {
 //    switch (curChar) {

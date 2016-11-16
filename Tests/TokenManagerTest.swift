@@ -3,7 +3,8 @@ import XCTest
 class TokenManagerTest: XCTestCase {
     
     func testEof() {
-        let token = TokenManager(stream: CharStream(reader: StringReader(""))
+        let token = TokenManager(stream: CharStream(reader: StringReader(text: ""))).getNextToken()
+        XCTAssertEqual(TokenManager.EOF, token.kind)
     }
     
     /*
