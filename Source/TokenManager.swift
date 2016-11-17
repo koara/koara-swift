@@ -22,33 +22,47 @@ class TokenManager {
     static let SPACE = 19
     static let TAB = 20
     static let UNDERSCORE = 21
-//    
-//    private CharStream cs;
+
+    let cs : CharStream
 //    private int[] jjrounds = new int[8];
 //    private int[] jjstateSet = new int[16];
-//    private char curChar;
+    var curChar : Character
 //    private int[] jjnextStates = { 2, 3, 5, };
 //    private int jjnewStateCnt;
 //    private int round;
-//    private int matchedPos;
-//    private int matchedKind;
-//    
+    var matchedPos : Int32 = 0
+    var matchedKind : Int32 = 0
+    
     init(stream : CharStream) {
-//    cs = stream;
+        self.cs = stream;
     }
-//    
-    func getNextToken() -> Token {
-//    try {
-//    int curPos = 0;
-//    while (true) {
-//    try {
-//    curChar = cs.beginToken();
-//    } catch (java.io.IOException e) {
-//    matchedKind = 0;
-//    matchedPos = -1;
-        return fillToken()
+    
+    func getNextToken() -> Token? {
+        do {
+            var curPos : Int = 0;
+            while true {
+                do {
+                    curChar = try cs.beginToken()
+                } catch {
+                    matchedKind = 0
+                    matchedPos = -1;
+                    return fillToken()
+                }
+                matchedKind = Int32.max
+                matchedPos = 0
+                curPos = moveStringLiteralDfa0()
+                if matchedKind != Int32.max {
+                    if (matchedPos + 1 < curPos) {
+                        cs.backup(curPos - matchedPos - 1);
+                    }
+                    return fillToken();
+                }
+            }
+        } catch {
+            return nil;
+        }
     }
-//    
+//
 //    matchedKind = Integer.MAX_VALUE;
 //    matchedPos = 0;
 //    curPos = moveStringLiteralDfa0();
@@ -67,8 +81,8 @@ class TokenManager {
     func fillToken() -> Token {
         return Token(kind: 0, beginLine: 0, beginColumn: 0, endLine: 0, endColumn: 0, image: "")
     }
-//    
-//    private int moveStringLiteralDfa0() throws IOException {
+    
+    func moveStringLiteralDfa0() throws -> Int32 {
 //    switch (curChar) {
 //    case 9:
 //    return startNfaWithStates(0, TAB, 8);
@@ -109,16 +123,16 @@ class TokenManager {
 //    default:
 //    return moveNfa(6, 0);
 //    }
-//    }
-//    
-//    private int startNfaWithStates(int pos, int kind, int state) {
-//    matchedKind = kind;
-//    matchedPos = pos;
-//    try {
-//    curChar = cs.readChar();
-//    } catch (IOException e) {
-//    return pos + 1;
-//    }
+    }
+  
+    func startNfaWithStates(pos: Int32, kind: Int32, state: Int32) throws -> Int {
+        matchedKind = kind
+        matchedPos = pos
+        do {
+            curChar = try cs.readChar()
+        } catch {
+            return (pos + 1)
+        }
 //    return moveNfa(state, pos + 1);
 //    }
 //    

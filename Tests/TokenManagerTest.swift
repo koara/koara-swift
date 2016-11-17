@@ -6,20 +6,13 @@ class TokenManagerTest: XCTestCase {
         let token = TokenManager(stream: CharStream(reader: StringReader(text: ""))).getNextToken()
         XCTAssertEqual(TokenManager.EOF, token.kind)
     }
+
+    func testAsterisk() {
+        let token = TokenManager(stream: CharStream(reader: StringReader(text: "*"))).getNextToken()
+        XCTAssertEqual(TokenManager.ASTERISK, token.kind)
+    }
     
     /*
-    @Test
-    public void testEof() {
-    Token token = new TokenManager(new CharStream(new StringReader(""))).getNextToken();
-    assertEquals(TokenManager.EOF, token.kind);
-    }
-    
-    @Test
-    public void testAsterisk() {
-    Token token = new TokenManager(new CharStream(new StringReader("*"))).getNextToken();
-    assertEquals(TokenManager.ASTERISK, token.kind);
-    assertEquals("*", token.image);
-    }
     
     @Test
     public void testBackslash() {
