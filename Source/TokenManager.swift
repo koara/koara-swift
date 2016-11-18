@@ -39,7 +39,7 @@ class TokenManager {
     
     func getNextToken() -> Token? {
         do {
-            var curPos : Int = 0;
+            var curPos : Int32 = 0;
             while true {
                 do {
                     curChar = try cs.beginToken()
@@ -121,73 +121,73 @@ class TokenManager {
 //    case 105:
 //    return moveStringLiteralDfa1(0x2000L);
 //    default:
-//    return moveNfa(6, 0);
+        return moveNfa(startState: 6, curPos: 0)
 //    }
     }
   
-    func startNfaWithStates(pos: Int32, kind: Int32, state: Int32) throws -> Int {
+    func startNfaWithStates(pos: Int32, kind: Int32, state: Int32) throws -> Int32 {
         matchedKind = kind
         matchedPos = pos
         do {
             curChar = try cs.readChar()
         } catch {
-            return (pos + 1)
+            let result : Int32 = pos + 1
+            return result
         }
-//    return moveNfa(state, pos + 1);
-//    }
+        return moveNfa(startState: state, curPos: pos + 1)
+    }
 //    
-//    private int stopAtPos(int pos, int kind) {
+    func stopAtPos(pos: Int32, kind: Int32) -> Int {
 //    matchedKind = kind;
 //    matchedPos = pos;
 //    return pos + 1;
-//    }
-//    
-//    private int moveStringLiteralDfa1(long active) throws IOException {
+    }
+   
+    func moveStringLiteralDfa1(active: Int64) throws -> Int {
 //    curChar = cs.readChar();
 //    if (curChar == 77 || curChar == 109) {
 //    return moveStringLiteralDfa2(active, 0x2000L);
 //    }
 //    return startNfa(0, active);
-//    }
-//    
-//    private int moveStringLiteralDfa2(long old, long active) throws IOException {
+    }
+   
+    func moveStringLiteralDfa2(old: Int64, active: Int64) throws -> Int {
 //    curChar = cs.readChar();
 //    if (curChar == 65 || curChar == 97) {
 //    return moveStringLiteralDfa3(active, 0x2000L);
 //    }
 //    return startNfa(1, active);
-//    
-//    }
-//    
-//    private int moveStringLiteralDfa3(long old, long active) throws IOException {
+    }
+ 
+    func moveStringLiteralDfa3(old: Int64, active: Int64) throws -> Int {
 //    curChar = cs.readChar();
 //    if (curChar == 71 || curChar == 103) {
 //    return moveStringLiteralDfa4(active, 0x2000L);
 //    }
 //    return startNfa(2, active);
-//    }
-//    
-//    private int moveStringLiteralDfa4(long old, long active) throws IOException {
+    }
+    
+    func moveStringLiteralDfa4(old: Int64, active: Int64) throws -> Int {
 //    curChar = cs.readChar();
 //    if (curChar == 69 || curChar == 101) {
 //    return moveStringLiteralDfa5(active, 0x2000L);
 //    }
 //    return startNfa(3, active);
-//    }
-//    
-//    private int moveStringLiteralDfa5(long old, long active) throws IOException {
+    }
+    
+    func moveStringLiteralDfa5(old: Int64, active: Int64) throws -> Int {
 //    curChar = cs.readChar();
 //    if (curChar == 58 && ((active & 0x2000L) != 0L)) {
 //    return stopAtPos(5, 13);
 //    }
 //    return startNfa(4, active);
-//}
-//
-//private int startNfa(int pos, long active) {
+    }
+    
+    func startNfa(pos: Int, active: Int64) -> Int {
 //    return moveNfa(stopStringLiteralDfa(pos, active), pos + 1);
-//}
-//
-//private int moveNfa(int startState, int curPos) {
+    }
+    
+    func moveNfa(startState: Int32, curPos: Int) -> Int {
 //    int startsAt = 0;
 //    jjnewStateCnt = 8;
 //    int i = 1;
@@ -334,23 +334,23 @@ class TokenManager {
 //            return curPos;
 //        }
 //    }
-//}
-//
-//private void checkNAddStates(int start, int end) {
+    }
+
+    func checkNAddStates(start: Int, end: Int) {
 //    do {
 //        checkNAdd(jjnextStates[start]);
 //    } while (start++ != end);
-//}
-//
-//private void checkNAdd(int state) {
+    }
+
+    func checkNAdd(state: Int) {
 //    if (jjrounds[state] != round) {
 //        jjstateSet[jjnewStateCnt++] = state;
 //        jjrounds[state] = round;
 //    }
-//}
-//
-//private int stopStringLiteralDfa(int pos, long active) {
-//    if (pos == 0) {
+    }
+    
+    func stopStringLiteralDfa(pos: Int, active: Int32) -> Int {
+        if pos == 0 {
 //        if ((active & 0x2000L) != 0L) {
 //            matchedKind = 4;
 //            return 0;
@@ -375,8 +375,8 @@ class TokenManager {
 //        matchedKind = 4;
 //        matchedPos = 4;
 //        return 0;
-//    }
-//    return -1;
-//}
+        }
+        return -1
+    }
 
 }
