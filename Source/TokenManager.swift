@@ -28,10 +28,10 @@ class TokenManager {
 //    private int[] jjstateSet = new int[16];
     var curChar : Character
 //    private int[] jjnextStates = { 2, 3, 5, };
-//    private int jjnewStateCnt;
-//    private int round;
+    var jjnewStateCnt : Int32 = 0
+    var round : Int32 = 0
     var matchedPos : Int32 = 0
-    var matchedKind : Int32 = 0
+    var matchedKind : Int = 0
     
     init(stream : CharStream) {
         self.cs = stream;
@@ -48,10 +48,10 @@ class TokenManager {
                     matchedPos = -1;
                     return fillToken()
                 }
-                matchedKind = Int32.max
+                matchedKind = Int.max
                 matchedPos = 0
-                curPos = moveStringLiteralDfa0()
-                if matchedKind != Int32.max {
+                curPos = try moveStringLiteralDfa0()
+                if matchedKind != Int.max {
                     if (matchedPos + 1 < curPos) {
                         cs.backup(curPos - matchedPos - 1);
                     }
@@ -62,27 +62,16 @@ class TokenManager {
             return nil;
         }
     }
-//
-//    matchedKind = Integer.MAX_VALUE;
-//    matchedPos = 0;
-//    curPos = moveStringLiteralDfa0();
-//    if (matchedKind != Integer.MAX_VALUE) {
-//    if (matchedPos + 1 < curPos) {
-//    cs.backup(curPos - matchedPos - 1);
-//    }
-//    return fillToken();
-//    }
-//    }
-//    } catch (IOException e) {
-//    return null;
-//    }
-//    }
-//    
+
     func fillToken() -> Token {
         return Token(kind: 0, beginLine: 0, beginColumn: 0, endLine: 0, endColumn: 0, image: "")
     }
     
     func moveStringLiteralDfa0() throws -> Int32 {
+        switch 3 { //curChar
+        case 9: return try startNfaWithStates(pos: 0, kind: TokenManager.TAB, state: 8)
+        }
+        
 //    switch (curChar) {
 //    case 9:
 //    return startNfaWithStates(0, TAB, 8);
@@ -121,11 +110,11 @@ class TokenManager {
 //    case 105:
 //    return moveStringLiteralDfa1(0x2000L);
 //    default:
-        return moveNfa(startState: 6, curPos: 0)
+        return Int32(moveNfa(startState: 6, curPos: 0))
 //    }
     }
   
-    func startNfaWithStates(pos: Int32, kind: Int32, state: Int32) throws -> Int32 {
+    func startNfaWithStates(pos: Int32, kind: Int, state: Int32) throws -> Int32 {
         matchedKind = kind
         matchedPos = pos
         do {
@@ -134,7 +123,7 @@ class TokenManager {
             let result : Int32 = pos + 1
             return result
         }
-        return moveNfa(startState: state, curPos: pos + 1)
+        return moveNfa(startState: state, curPos: (pos + 1))
     }
 //    
     func stopAtPos(pos: Int32, kind: Int32) -> Int {
