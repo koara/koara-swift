@@ -1,27 +1,27 @@
 class TokenManager {
     
-    static let EOF = 0
-    static let ASTERISK = 1
-    static let BACKSLASH = 2
-    static let BACKTICK = 3
-    static let CHAR_SEQUENCE = 4
-    static let COLON = 5
-    static let DASH = 6
-    static let DIGITS = 7
-    static let DOT = 8
-    static let EOL = 9
-    static let EQ = 10
-    static let ESCAPED_CHAR = 11
-    static let GT = 12
-    static let IMAGE_LABEL = 13
-    static let LBRACK = 14
-    static let LPAREN = 15
-    static let LT = 16
-    static let RBRACK = 17
-    static let RPAREN = 18
-    static let SPACE = 19
-    static let TAB = 20
-    static let UNDERSCORE = 21
+    static let EOF : Int32 = 0
+    static let ASTERISK : Int32  = 1
+    static let BACKSLASH : Int32  = 2
+    static let BACKTICK : Int32  = 3
+    static let CHAR_SEQUENCE : Int32  = 4
+    static let COLON : Int32  = 5
+    static let DASH : Int32  = 6
+    static let DIGITS : Int32  = 7
+    static let DOT : Int32  = 8
+    static let EOL : Int32  = 9
+    static let EQ : Int32  = 10
+    static let ESCAPED_CHAR : Int32  = 11
+    static let GT : Int32  = 12
+    static let IMAGE_LABEL : Int32  = 13
+    static let LBRACK : Int32  = 14
+    static let LPAREN : Int32  = 15
+    static let LT : Int32  = 16
+    static let RBRACK : Int32  = 17
+    static let RPAREN : Int32  = 18
+    static let SPACE : Int32  = 19
+    static let TAB : Int32  = 20
+    static let UNDERSCORE : Int32  = 21
 
     let cs : CharStream
 //    private int[] jjrounds = new int[8];
@@ -31,10 +31,10 @@ class TokenManager {
     var jjnewStateCnt : Int32 = 0
     var round : Int32 = 0
     var matchedPos : Int32 = 0
-    var matchedKind : Int = 0
+    var matchedKind : Int32 = 0
     
     init(stream : CharStream) {
-        self.cs = stream;
+        self.cs = stream
     }
     
     func getNextToken() -> Token? {
@@ -48,10 +48,10 @@ class TokenManager {
                     matchedPos = -1;
                     return fillToken()
                 }
-                matchedKind = Int.max
+                matchedKind = Int32.max
                 matchedPos = 0
                 curPos = try moveStringLiteralDfa0()
-                if matchedKind != Int.max {
+                if matchedKind != Int32.max {
                     if (matchedPos + 1 < curPos) {
                         cs.backup(curPos - matchedPos - 1);
                     }
@@ -70,51 +70,28 @@ class TokenManager {
     func moveStringLiteralDfa0() throws -> Int32 {
         switch 3 { //curChar
         case 9: return try startNfaWithStates(pos: 0, kind: TokenManager.TAB, state: 8)
+        case 32: return try startNfaWithStates(pos: 0, kind: TokenManager.SPACE, state: 8)
+        case 40: return try stopAtPos(pos: 0, kind: TokenManager.LPAREN)
+        case 41: return try stopAtPos(pos: 0, kind: TokenManager.RPAREN)
+        case 42: return try stopAtPos(pos: 0, kind: TokenManager.ASTERISK)
+        case 45: return try stopAtPos(pos: 0, kind: TokenManager.DASH)
+        case 46: return try stopAtPos(pos: 0, kind: TokenManager.DOT)
+        case 58: return try stopAtPos(pos: 0, kind: TokenManager.COLON)
+        case 60: return try stopAtPos(pos: 0, kind: TokenManager.LT)
+        case 61: return try stopAtPos(pos: 0, kind: TokenManager.EQ)
+        case 62: return try stopAtPos(pos: 0, kind: TokenManager.GT)
+        //case 73: return try moveStringLiteralDfa1(0x2000L)
+        case 91: return try stopAtPos(pos: 0, kind: TokenManager.LBRACK)
+        case 92: return try startNfaWithStates(pos: 0, kind: TokenManager.BACKSLASH, 7)
+        case 93: return try stopAtPos(pos: 0, kind: TokenManager.RBRACK)
+        case 95: return try stopAtPos(pos: 0, kind: TokenManager.UNDERSCORE)
+        case 96: return try stopAtPos(pos: 0, kind: TokenManager.BACKTICK)
+        //case 105: return try moveStringLiteralDfa1(0x2000L);
+        default: return moveNfa(startState: 6, curPos: 0)
         }
-        
-//    switch (curChar) {
-//    case 9:
-//    return startNfaWithStates(0, TAB, 8);
-//    case 32:
-//    return startNfaWithStates(0, SPACE, 8);
-//    case 40:
-//    return stopAtPos(0, LPAREN);
-//    case 41:
-//    return stopAtPos(0, RPAREN);
-//    case 42:
-//    return stopAtPos(0, ASTERISK);
-//    case 45:
-//    return stopAtPos(0, DASH);
-//    case 46:
-//    return stopAtPos(0, DOT);
-//    case 58:
-//    return stopAtPos(0, COLON);
-//    case 60:
-//    return stopAtPos(0, LT);
-//    case 61:
-//    return stopAtPos(0, EQ);
-//    case 62:
-//    return stopAtPos(0, GT);
-//    case 73:
-//    return moveStringLiteralDfa1(0x2000L);
-//    case 91:
-//    return stopAtPos(0, LBRACK);
-//    case 92:
-//    return startNfaWithStates(0, BACKSLASH, 7);
-//    case 93:
-//    return stopAtPos(0, RBRACK);
-//    case 95:
-//    return stopAtPos(0, UNDERSCORE);
-//    case 96:
-//    return stopAtPos(0, BACKTICK);
-//    case 105:
-//    return moveStringLiteralDfa1(0x2000L);
-//    default:
-        return Int32(moveNfa(startState: 6, curPos: 0))
-//    }
     }
   
-    func startNfaWithStates(pos: Int32, kind: Int, state: Int32) throws -> Int32 {
+    func startNfaWithStates(pos: Int32, kind: Int32, state: Int32) throws -> Int32 {
         matchedKind = kind
         matchedPos = pos
         do {
@@ -123,16 +100,17 @@ class TokenManager {
             let result : Int32 = pos + 1
             return result
         }
-        return moveNfa(startState: state, curPos: (pos + 1))
+        let newPos : Int32 = pos + 1
+        return moveNfa(startState: state, curPos: newPos)
     }
 //    
-    func stopAtPos(pos: Int32, kind: Int32) -> Int {
+    func stopAtPos(pos: Int32, kind: Int32) -> Int32 {
 //    matchedKind = kind;
 //    matchedPos = pos;
 //    return pos + 1;
     }
    
-    func moveStringLiteralDfa1(active: Int64) throws -> Int {
+    func moveStringLiteralDfa1(active: Int64) throws -> Int32 {
 //    curChar = cs.readChar();
 //    if (curChar == 77 || curChar == 109) {
 //    return moveStringLiteralDfa2(active, 0x2000L);
@@ -176,7 +154,7 @@ class TokenManager {
 //    return moveNfa(stopStringLiteralDfa(pos, active), pos + 1);
     }
     
-    func moveNfa(startState: Int32, curPos: Int) -> Int {
+    func moveNfa(startState: Int32, curPos: Int32) -> Int32 {
 //    int startsAt = 0;
 //    jjnewStateCnt = 8;
 //    int i = 1;
