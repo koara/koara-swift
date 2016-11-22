@@ -68,7 +68,8 @@ class TokenManager {
     }
     
     func moveStringLiteralDfa0() throws -> Int32 {
-        switch 3 { //curChar
+        let s = String(curChar).unicodeScalars
+        switch s[s.startIndex].value {
         case 9: return try startNfaWithStates(pos: 0, kind: TokenManager.TAB, state: 8)
         case 32: return try startNfaWithStates(pos: 0, kind: TokenManager.SPACE, state: 8)
         case 40: return try stopAtPos(pos: 0, kind: TokenManager.LPAREN)
@@ -82,7 +83,7 @@ class TokenManager {
         case 62: return try stopAtPos(pos: 0, kind: TokenManager.GT)
         //case 73: return try moveStringLiteralDfa1(0x2000L)
         case 91: return try stopAtPos(pos: 0, kind: TokenManager.LBRACK)
-        case 92: return try startNfaWithStates(pos: 0, kind: TokenManager.BACKSLASH, 7)
+        case 92: return try startNfaWithStates(pos: 0, kind: TokenManager.BACKSLASH, state: 7)
         case 93: return try stopAtPos(pos: 0, kind: TokenManager.RBRACK)
         case 95: return try stopAtPos(pos: 0, kind: TokenManager.UNDERSCORE)
         case 96: return try stopAtPos(pos: 0, kind: TokenManager.BACKTICK)
@@ -113,46 +114,51 @@ class TokenManager {
    
     func moveStringLiteralDfa1(active: Int64) throws -> Int32 {
         curChar = try cs.readChar()
-//    if (curChar == 77 || curChar == 109) {
+        let s = String(curChar).unicodeScalars
+        if (s[s.startIndex].value == 77 || s[s.startIndex].value == 109) {
 //    return moveStringLiteralDfa2(active, 0x2000L);
-//    }
+        }
         return startNfa(pos: 0, active: active)
     }
    
-    func moveStringLiteralDfa2(old: Int64, active: Int64) throws -> Int {
+    func moveStringLiteralDfa2(old: Int64, active: Int64) throws -> Int32 {
         curChar = try cs.readChar()
-//    if (curChar == 65 || curChar == 97) {
+        let s = String(curChar).unicodeScalars
+        if (s[s.startIndex].value == 65 || s[s.startIndex].value == 97) {
 //    return moveStringLiteralDfa3(active, 0x2000L);
-//    }
+        }
         return startNfa(pos: 1, active: active)
     }
  
-    func moveStringLiteralDfa3(old: Int64, active: Int64) throws -> Int {
+    func moveStringLiteralDfa3(old: Int64, active: Int64) throws -> Int32 {
         curChar = try cs.readChar()
-//    if (curChar == 71 || curChar == 103) {
+        let s = String(curChar).unicodeScalars
+        if (s[s.startIndex].value == 71 || s[s.startIndex].value == 103) {
 //    return moveStringLiteralDfa4(active, 0x2000L);
-//    }
+        }
         return startNfa(pos: 2, active: active)
     }
     
-    func moveStringLiteralDfa4(old: Int64, active: Int64) throws -> Int {
+    func moveStringLiteralDfa4(old: Int64, active: Int64) throws -> Int32 {
         curChar = try cs.readChar()
-//    if (curChar == 69 || curChar == 101) {
+        let s = String(curChar).unicodeScalars
+        if (s[s.startIndex].value == 69 || s[s.startIndex].value == 101) {
 //    return moveStringLiteralDfa5(active, 0x2000L);
-//    }
+        }
         return startNfa(pos: 3, active: active)
     }
     
-    func moveStringLiteralDfa5(old: Int64, active: Int64) throws -> Int {
+    func moveStringLiteralDfa5(old: Int64, active: Int64) throws -> Int32 {
         curChar = try cs.readChar()
-//    if (curChar == 58 && ((active & 0x2000L) != 0L)) {
+        let s = String(curChar).unicodeScalars
+//        if (curChar == 58 && ((active & 0x2000L) != 0L)) {
 //    return stopAtPos(5, 13);
-//    }
+//        }
         return startNfa(pos: 4, active: active)
     }
     
-    func startNfa(pos: Int, active: Int64) -> Int {
-//    return moveNfa(stopStringLiteralDfa(pos, active), pos + 1);
+    func startNfa(pos: Int, active: Int64) -> Int32 {
+    //return moveNfa(stopStringLiteralDfa(pos, active), pos + 1);
     }
     
     func moveNfa(startState: Int32, curPos: Int32) -> Int32 {
