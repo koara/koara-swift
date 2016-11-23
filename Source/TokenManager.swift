@@ -116,7 +116,7 @@ class TokenManager {
         curChar = try cs.readChar()
         let s = String(curChar).unicodeScalars
         if (s[s.startIndex].value == 77 || s[s.startIndex].value == 109) {
-//    return moveStringLiteralDfa2(active, 0x2000L);
+            return moveStringLiteralDfa2(active, 0x2000);
         }
         return startNfa(pos: 0, active: active)
     }
@@ -125,7 +125,7 @@ class TokenManager {
         curChar = try cs.readChar()
         let s = String(curChar).unicodeScalars
         if (s[s.startIndex].value == 65 || s[s.startIndex].value == 97) {
-//    return moveStringLiteralDfa3(active, 0x2000L);
+            return moveStringLiteralDfa3(active, 0x2000)
         }
         return startNfa(pos: 1, active: active)
     }
@@ -134,7 +134,7 @@ class TokenManager {
         curChar = try cs.readChar()
         let s = String(curChar).unicodeScalars
         if (s[s.startIndex].value == 71 || s[s.startIndex].value == 103) {
-//    return moveStringLiteralDfa4(active, 0x2000L);
+            return moveStringLiteralDfa4(old: active, active: 0x2000)
         }
         return startNfa(pos: 2, active: active)
     }
@@ -143,7 +143,7 @@ class TokenManager {
         curChar = try cs.readChar()
         let s = String(curChar).unicodeScalars
         if (s[s.startIndex].value == 69 || s[s.startIndex].value == 101) {
-//    return moveStringLiteralDfa5(active, 0x2000L);
+            return try moveStringLiteralDfa5(old: active, active: 0x2000)
         }
         return startNfa(pos: 3, active: active)
     }
@@ -151,9 +151,9 @@ class TokenManager {
     func moveStringLiteralDfa5(old: Int64, active: Int64) throws -> Int32 {
         curChar = try cs.readChar()
         let s = String(curChar).unicodeScalars
-//        if (curChar == 58 && ((active & 0x2000L) != 0L)) {
-//    return stopAtPos(5, 13);
-//        }
+        if (s[s.startIndex].value == 58 && ((active & 0x2000) != 0)) {
+            return stopAtPos(pos: 5, kind: 13)
+        }
         return startNfa(pos: 4, active: active)
     }
     
