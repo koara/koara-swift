@@ -72,22 +72,22 @@ class TokenManager {
         switch s[s.startIndex].value {
         case 9: return try startNfaWithStates(pos: 0, kind: TokenManager.TAB, state: 8)
         case 32: return try startNfaWithStates(pos: 0, kind: TokenManager.SPACE, state: 8)
-        case 40: return try stopAtPos(pos: 0, kind: TokenManager.LPAREN)
-        case 41: return try stopAtPos(pos: 0, kind: TokenManager.RPAREN)
-        case 42: return try stopAtPos(pos: 0, kind: TokenManager.ASTERISK)
-        case 45: return try stopAtPos(pos: 0, kind: TokenManager.DASH)
-        case 46: return try stopAtPos(pos: 0, kind: TokenManager.DOT)
-        case 58: return try stopAtPos(pos: 0, kind: TokenManager.COLON)
-        case 60: return try stopAtPos(pos: 0, kind: TokenManager.LT)
-        case 61: return try stopAtPos(pos: 0, kind: TokenManager.EQ)
-        case 62: return try stopAtPos(pos: 0, kind: TokenManager.GT)
-        //case 73: return try moveStringLiteralDfa1(0x2000L)
-        case 91: return try stopAtPos(pos: 0, kind: TokenManager.LBRACK)
+        case 40: return stopAtPos(pos: 0, kind: TokenManager.LPAREN)
+        case 41: return stopAtPos(pos: 0, kind: TokenManager.RPAREN)
+        case 42: return stopAtPos(pos: 0, kind: TokenManager.ASTERISK)
+        case 45: return stopAtPos(pos: 0, kind: TokenManager.DASH)
+        case 46: return stopAtPos(pos: 0, kind: TokenManager.DOT)
+        case 58: return stopAtPos(pos: 0, kind: TokenManager.COLON)
+        case 60: return stopAtPos(pos: 0, kind: TokenManager.LT)
+        case 61: return stopAtPos(pos: 0, kind: TokenManager.EQ)
+        case 62: return stopAtPos(pos: 0, kind: TokenManager.GT)
+        case 73: return try moveStringLiteralDfa1(active: 0x2000)
+        case 91: return stopAtPos(pos: 0, kind: TokenManager.LBRACK)
         case 92: return try startNfaWithStates(pos: 0, kind: TokenManager.BACKSLASH, state: 7)
-        case 93: return try stopAtPos(pos: 0, kind: TokenManager.RBRACK)
-        case 95: return try stopAtPos(pos: 0, kind: TokenManager.UNDERSCORE)
-        case 96: return try stopAtPos(pos: 0, kind: TokenManager.BACKTICK)
-        //case 105: return try moveStringLiteralDfa1(0x2000L);
+        case 93: return stopAtPos(pos: 0, kind: TokenManager.RBRACK)
+        case 95: return stopAtPos(pos: 0, kind: TokenManager.UNDERSCORE)
+        case 96: return stopAtPos(pos: 0, kind: TokenManager.BACKTICK)
+        case 105: return try moveStringLiteralDfa1(active: 0x2000)
         default: return moveNfa(startState: 6, curPos: 0)
         }
     }
@@ -116,7 +116,7 @@ class TokenManager {
         curChar = try cs.readChar()
         let s = String(curChar).unicodeScalars
         if (s[s.startIndex].value == 77 || s[s.startIndex].value == 109) {
-            return moveStringLiteralDfa2(active, 0x2000);
+            return try moveStringLiteralDfa2(old: active, active: 0x2000)
         }
         return startNfa(pos: 0, active: active)
     }
