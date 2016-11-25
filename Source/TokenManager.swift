@@ -158,20 +158,21 @@ class TokenManager {
     }
     
     func startNfa(pos: Int, active: Int64) -> Int32 {
-    //return moveNfa(stopStringLiteralDfa(pos, active), pos + 1);
+        return moveNfa(startState: Int32(stopStringLiteralDfa(pos: pos, active: Int32(active))), curPos: pos + 1);
     }
     
     func moveNfa(startState: Int32, curPos: Int32) -> Int32 {
         var startsAt : Int = 0;
         var jjnewStateCnt : Int = 8;
         var i : Int = 1;
-//    jjstateSet[0] = startState;
-//    int kind = 0x7fffffff;
-//    
+        //jjstateSet[0] = startState;
+        var kind = 0x7fffffff;
+//
         while true {
-//        if (++round == 0x7fffffff) {
-//            round = 0x80000001;
-//        }
+            round += 1
+            if (round == 0x7fffffff) {
+                round = 0x80000001
+            }
 //        if (curChar < 64) {
 //            long l = 1L << curChar;
 //            do {
