@@ -162,18 +162,20 @@ class TokenManager {
     }
     
     func moveNfa(startState: Int32, curPos: Int32) -> Int32 {
-        var startsAt : Int = 0;
-        var jjnewStateCnt : Int = 8;
-        var i : Int = 1;
-        //jjstateSet[0] = startState;
-        var kind = 0x7fffffff;
-//
+        var curPos = curPos
+        var startsAt : Int = 0
+        var jjnewStateCnt : Int = 8
+        var i : Int = 1
+        //jjstateSet[0] = startState
+        var kind = 0x7fffffff
+
         while true {
             round += 1
             if (round == 0x7fffffff) {
                 round = 0x80000001
             }
-//        if (curChar < 64) {
+            let s = String(curChar).unicodeScalars
+            if (s[s.startIndex].value < 64) {
 //            long l = 1L << curChar;
 //            do {
 //                switch (jjstateSet[--i]) {
@@ -252,7 +254,7 @@ class TokenManager {
 //                    break;
 //                }
 //            } while (i != startsAt);
-//        } else if (curChar < 128) {
+        } else if s[s.startIndex].value < 128 {
 //            long l = 1L << (curChar & 077);
 //            do {
 //                switch (jjstateSet[--i]) {
@@ -279,7 +281,7 @@ class TokenManager {
 //                    break;
 //                }
 //            } while (i != startsAt);
-//        } else {
+            } else {
 //            do {
 //                switch (jjstateSet[--i]) {
 //                case 6:
@@ -291,15 +293,14 @@ class TokenManager {
 //                    break;
 //                }
 //            } while (i != startsAt);
-//        }
-//        if (kind != 0x7fffffff) {
-//            matchedKind = kind;
-//            matchedPos = curPos;
-//            kind = 0x7fffffff;
-//        }
-//        ++curPos;
-//        
-//        
+            }
+            if (kind != 0x7fffffff) {
+                matchedKind = Int32(kind)
+                matchedPos = curPos;
+                kind = 0x7fffffff;
+            }
+            curPos += 1
+
 //        if ((i = jjnewStateCnt) == (startsAt = 8 - (jjnewStateCnt = startsAt))) {
 //            return curPos;
 //        }
