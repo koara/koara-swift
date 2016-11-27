@@ -24,10 +24,10 @@ class TokenManager {
     static let UNDERSCORE : Int32  = 21
 
     let cs : CharStream
-//    private int[] jjrounds = new int[8];
-//    private int[] jjstateSet = new int[16];
+//    private int[] jjrounds = new int[8]
+//    private int[] jjstateSet = new int[16]
     var curChar : Character
-//    private int[] jjnextStates = { 2, 3, 5, };
+//    private int[] jjnextStates = { 2, 3, 5, }
     var jjnewStateCnt : Int32 = 0
     var round : Int32 = 0
     var matchedPos : Int32 = 0
@@ -39,13 +39,13 @@ class TokenManager {
     
     func getNextToken() -> Token? {
         do {
-            var curPos : Int32 = 0;
+            var curPos : Int32 = 0
             while true {
                 do {
                     curChar = try cs.beginToken()
                 } catch {
                     matchedKind = 0
-                    matchedPos = -1;
+                    matchedPos = -1
                     return fillToken()
                 }
                 matchedKind = Int32.max
@@ -53,13 +53,13 @@ class TokenManager {
                 curPos = try moveStringLiteralDfa0()
                 if matchedKind != Int32.max {
                     if (matchedPos + 1 < curPos) {
-                        cs.backup(curPos - matchedPos - 1);
+                        cs.backup(curPos - matchedPos - 1)
                     }
-                    return fillToken();
+                    return fillToken()
                 }
             }
         } catch {
-            return nil;
+            return nil
         }
     }
 
@@ -158,7 +158,7 @@ class TokenManager {
     }
     
     func startNfa(pos: Int, active: Int64) -> Int32 {
-        return moveNfa(startState: Int32(stopStringLiteralDfa(pos: pos, active: Int32(active))), curPos: pos + 1);
+        return moveNfa(startState: Int32(stopStringLiteralDfa(pos: pos, active: Int32(active))), curPos: pos + 1)
     }
     
     func moveNfa(startState: Int32, curPos: Int32) -> Int32 {
@@ -176,181 +176,182 @@ class TokenManager {
             }
             let s = String(curChar).unicodeScalars
             if (s[s.startIndex].value < 64) {
-//            long l = 1L << curChar;
-//            do {
-//                switch (jjstateSet[--i]) {
-//                case 6:
+                var l : Int64 = 1 << s[s.startIndex].value
+                repeat {
+                    i -= 1
+                    switch jjstateSet[i] {
+//                    case 6:
 //                    if ((0x880098feffffd9ffL & l) != 0L) {
 //                        if (kind > 4) {
-//                            kind = 4;
+//                            kind = 4
 //                        }
-//                        checkNAdd(0);
+//                        checkNAdd(0)
 //                    } else if ((0x3ff000000000000L & l) != 0L) {
 //                        if (kind > 7) {
-//                            kind = 7;
+//                            kind = 7
 //                        }
-//                        checkNAdd(1);
+//                        checkNAdd(1)
 //                    } else if ((0x2400L & l) != 0L) {
 //                        if (kind > 9) {
-//                            kind = 9;
+//                            kind = 9
 //                        }
 //                    } else if ((0x100000200L & l) != 0L) {
-//                        checkNAddStates(0, 2);
+//                        checkNAddStates(0, 2)
 //                    }
 //                    if (curChar == 13) {
-//                        jjstateSet[jjnewStateCnt++] = 4;
+//                        jjstateSet[jjnewStateCnt++] = 4
 //                    }
-//                    break;
+//                    break
 //                case 8:
 //                    if ((0x2400L & l) != 0L) {
 //                        if (kind > 9) {
-//                            kind = 9;
+//                            kind = 9
 //                        }
 //                    } else if ((0x100000200L & l) != 0L) {
-//                        checkNAddStates(0, 2);
+//                        checkNAddStates(0, 2)
 //                    }
 //                    if (curChar == 13) {
-//                        jjstateSet[jjnewStateCnt++] = 4;
+//                        jjstateSet[jjnewStateCnt++] = 4
 //                    }
-//                    break;
+//                    break
 //                case 0:
 //                    if ((0x880098feffffd9ffL & l) != 0L) {
-//                        kind = 4;
-//                        checkNAdd(0);
+//                        kind = 4
+//                        checkNAdd(0)
 //                    }
-//                    break;
+//                    break
 //                case 1:
 //                    if ((0x3ff000000000000L & l) != 0L) {
 //                        if (kind > 7) {
-//                            kind = 7;
+//                            kind = 7
 //                        }
-//                        checkNAdd(1);
+//                        checkNAdd(1)
 //                    }
-//                    break;
+//                    break
 //                case 2:
 //                    if ((0x100000200L & l) != 0L) {
-//                        checkNAddStates(0, 2);
+//                        checkNAddStates(0, 2)
 //                    }
-//                    break;
+//                    break
 //                case 3:
 //                    if ((0x2400L & l) != 0L && kind > 9) {
-//                        kind = 9;
+//                        kind = 9
 //                    }
-//                    break;
+//                    break
 //                case 4:
 //                    if (curChar == 10 && kind > 9) {
-//                        kind = 9;
+//                        kind = 9
 //                    }
-//                    break;
+//                    break
 //                case 5:
 //                    if (curChar == 13) {
-//                        jjstateSet[jjnewStateCnt++] = 4;
+//                        jjstateSet[jjnewStateCnt++] = 4
 //                    }
-//                    break;
+//                    break
 //                case 7:
 //                    if ((0x77ff670000000000L & l) != 0L && kind > 11) {
-//                        kind = 11;
+//                        kind = 11
 //                    }
-//                    break;
+//                    break
 //                }
-//            } while (i != startsAt);
+                } while i != startsAt
         } else if s[s.startIndex].value < 128 {
-//            long l = 1L << (curChar & 077);
+//            long l = 1L << (curChar & 077)
 //            do {
 //                switch (jjstateSet[--i]) {
 //                case 6:
 //                    if (l != 0L) {
 //                        if (kind > 4) {
-//                            kind = 4;
+//                            kind = 4
 //                        }
-//                        checkNAdd(0);
+//                        checkNAdd(0)
 //                    } else if (curChar == 92) {
-//                        jjstateSet[jjnewStateCnt++] = 7;
+//                        jjstateSet[jjnewStateCnt++] = 7
 //                    }
-//                    break;
+//                    break
 //                case 0:
 //                    if ((0xfffffffe47ffffffL & l) != 0L) {
-//                        kind = 4;
-//                        checkNAdd(0);
+//                        kind = 4
+//                        checkNAdd(0)
 //                    }
-//                    break;
+//                    break
 //                case 7:
 //                    if ((0x1b8000000L & l) != 0L && kind > 11) {
-//                        kind = 11;
+//                        kind = 11
 //                    }
-//                    break;
+//                    break
 //                }
-//            } while (i != startsAt);
+//            } while (i != startsAt)
             } else {
 //            do {
 //                switch (jjstateSet[--i]) {
 //                case 6:
 //                case 0:
 //                    if (kind > 4) {
-//                        kind = 4;
+//                        kind = 4
 //                    }
-//                    checkNAdd(0);
-//                    break;
+//                    checkNAdd(0)
+//                    break
 //                }
-//            } while (i != startsAt);
+//            } while (i != startsAt)
             }
             if (kind != 0x7fffffff) {
                 matchedKind = Int32(kind)
-                matchedPos = curPos;
-                kind = 0x7fffffff;
+                matchedPos = curPos
+                kind = 0x7fffffff
             }
             curPos += 1
 
 //        if ((i = jjnewStateCnt) == (startsAt = 8 - (jjnewStateCnt = startsAt))) {
-//            return curPos;
+//            return curPos
 //        }
 //        try {
-//            curChar = cs.readChar();
+//            curChar = cs.readChar()
 //        } catch (IOException e) {
-//            return curPos;
+//            return curPos
 //        }
         }
     }
 
     func checkNAddStates(start: Int, end: Int) {
 //    do {
-//        checkNAdd(jjnextStates[start]);
-//    } while (start++ != end);
+//        checkNAdd(jjnextStates[start])
+//    } while (start++ != end)
     }
 
     func checkNAdd(state: Int) {
 //    if (jjrounds[state] != round) {
-//        jjstateSet[jjnewStateCnt++] = state;
-//        jjrounds[state] = round;
+//        jjstateSet[jjnewStateCnt++] = state
+//        jjrounds[state] = round
 //    }
     }
     
     func stopStringLiteralDfa(pos: Int, active: Int32) -> Int {
         if pos == 0 {
 //        if ((active & 0x2000L) != 0L) {
-//            matchedKind = 4;
-//            return 0;
+//            matchedKind = 4
+//            return 0
 //        } else if ((active & 0x180000L) != 0L) {
-//            return 8;
+//            return 8
 //        } else if ((active & 0x4L) != 0L) {
-//            return 7;
+//            return 7
 //        }
 //    } else if (pos == 1 && (active & 0x2000L) != 0L) {
-//        matchedKind = 4;
-//        matchedPos = 1;
-//        return 0;
+//        matchedKind = 4
+//        matchedPos = 1
+//        return 0
 //    } else if (pos == 2 && (active & 0x2000L) != 0L) {
-//        matchedKind = 4;
-//        matchedPos = 2;
-//        return 0;
+//        matchedKind = 4
+//        matchedPos = 2
+//        return 0
 //    } else if (pos == 3 && (active & 0x2000L) != 0L) {
-//        matchedKind = 4;
-//        matchedPos = 3;
-//        return 0;
+//        matchedKind = 4
+//        matchedPos = 3
+//        return 0
 //    } else if (pos == 4 && (active & 0x2000L) != 0L) {
-//        matchedKind = 4;
-//        matchedPos = 4;
-//        return 0;
+//        matchedKind = 4
+//        matchedPos = 4
+//        return 0
         }
         return -1
     }
