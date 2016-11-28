@@ -37,9 +37,9 @@ class Parser {
         let document = Document()
         tree.openScope()
         
-        while getNextTokenKind() == TokenManager.EOL {
-            consumeToken(TokenManager.EOL)
-        }
+ //       while getNextTokenKind() == TokenManager.EOL {
+ //           consumeToken(TokenManager.EOL)
+ //       }
  //       whiteSpace()
 //        if hasAnyBlockElementsAhead() {
 //            blockElement()
