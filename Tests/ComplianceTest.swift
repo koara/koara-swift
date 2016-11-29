@@ -8,13 +8,10 @@ class ComplianceTest: XCTestCase {
         
         let kd = "abc"
         let html = "<p>abc</p>"
-        let parser = Parser()
-        let document = parser.parse(kd)
-        let renderer = Html5Renderer()
-        document.accept(renderer)
-        
-        print("///////" + renderer.output)
-        
+        //let parser = Parser()
+        //let document = parser.parse(kd)
+        //let renderer = Html5Renderer()
+        //document.accept(renderer)
         //XCTAssertEqual(html, renderer.output)
     }
 
