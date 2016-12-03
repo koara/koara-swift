@@ -7,10 +7,10 @@ class TokenManagerTest: XCTestCase {
         XCTAssertEqual(TokenManager.EOF, token?.kind)
     }
     
-    //func testAsterisk() {
-    //    let token = TokenManager(stream: CharStream(reader: StringReader(text: "*"))).getNextToken()
-    //    XCTAssertEqual(TokenManager.ASTERISK, token?.kind)
-   // }
+    func testAsterisk() {
+        let token = TokenManager(stream: CharStream(reader: StringReader(text: "*"))).getNextToken()
+        XCTAssertEqual(TokenManager.ASTERISK, token?.kind)
+    }
     
     /*
     @Test

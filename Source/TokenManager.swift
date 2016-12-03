@@ -51,12 +51,12 @@ class TokenManager {
                 matchedKind = Int32.max
                 matchedPos = 0
                 curPos = try moveStringLiteralDfa0()
-//                if matchedKind != Int32.max {
-//                    if (matchedPos + 1 < curPos) {
-//                        cs.backup(curPos - matchedPos - 1)
-//                    }
-//                    return fillToken()
-//                }
+                if matchedKind != Int32.max {
+                    if (matchedPos + 1 < curPos) {
+                        cs.backup(curPos - matchedPos - 1)
+                    }
+                    return fillToken()
+                }
             }
         } catch {
             return nil
@@ -64,15 +64,14 @@ class TokenManager {
     }
     
     func fillToken() -> Token {
-        return Token(kind: 0, beginLine: 0, beginColumn: 0, endLine: 0, endColumn: 0, image: "")
+        return Token(kind: matchedKind, beginLine: 0, beginColumn: 0, endLine: 0, endColumn: 0, image: "")
     }
     
     func moveStringLiteralDfa0() throws -> Int32 {
         switch Int((String(describing: curChar!).unicodeScalars.first?.value)!) {
 
         case 42 :
-            print("CORRECT!")
-            return 0
+            return stopAtPos(pos: 0, kind: TokenManager.ASTERISK);
         default:
             //return moveNfa(startState: 6, curPos: 0)
             return 0
@@ -92,12 +91,12 @@ class TokenManager {
 //        return moveNfa(startState: state, curPos: newPos)
 //    }
 // 
-//    func stopAtPos(pos: Int32, kind: Int32) -> Int32 {
-//        matchedKind = kind
-//        matchedPos = pos
-//        let newPos = pos + 1
-//        return newPos
-//    }
+    func stopAtPos(pos: Int32, kind: Int32) -> Int32 {
+        matchedKind = kind
+        matchedPos = pos
+        let newPos = pos + 1
+        return newPos
+    }
 //   
 //    func moveStringLiteralDfa1(active: Int64) throws -> Int32 {
 //        curChar = try cs.readChar()
