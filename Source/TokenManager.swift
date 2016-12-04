@@ -72,25 +72,28 @@ class TokenManager {
 
         case 42 :
             return stopAtPos(pos: 0, kind: TokenManager.ASTERISK);
+        case 92:
+            return try startNfaWithStates(pos: 0, kind: TokenManager.BACKSLASH, state: 7);
         default:
             //return moveNfa(startState: 6, curPos: 0)
             return 0
         }
     }
-//  
-//    func startNfaWithStates(pos: Int32, kind: Int32, state: Int32) throws -> Int32 {
-//        matchedKind = kind
-//        matchedPos = pos
-//        do {
-//            curChar = try cs.readChar()
-//        } catch {
-//            let result : Int32 = pos + 1
-//            return result
-//        }
-//        let newPos : Int32 = pos + 1
-//        return moveNfa(startState: state, curPos: newPos)
-//    }
-// 
+  
+    func startNfaWithStates(pos: Int32, kind: Int32, state: Int32) throws -> Int32 {
+        matchedKind = kind
+        matchedPos = pos
+        do {
+            curChar = try cs.readChar()
+        } catch {
+            let result : Int32 = pos + 1
+            return result
+        }
+        let newPos : Int32 = pos + 1
+        return newPos
+        //return moveNfa(startState: state, curPos: newPos)
+    }
+    
     func stopAtPos(pos: Int32, kind: Int32) -> Int32 {
         matchedKind = kind
         matchedPos = pos
