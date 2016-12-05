@@ -64,7 +64,7 @@ class TokenManager {
     }
     
     func fillToken() -> Token {
-        return Token(kind: matchedKind, beginLine: 0, beginColumn: 0, endLine: 0, endColumn: 0, image: "")
+        return Token(kind: matchedKind, beginLine: cs.getBeginLine(), beginColumn: cs.getBeginColumn(), endLine: cs.getEndLine(), endColumn: cs.getEndColumn(), image: cs.getImage())
     }
     
     func moveStringLiteralDfa0() throws -> Int32 {

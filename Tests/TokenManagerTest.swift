@@ -10,16 +10,17 @@ class TokenManagerTest: XCTestCase {
     func testAsterisk() {
         let token = TokenManager(stream: CharStream(reader: StringReader(text: "*"))).getNextToken()
         XCTAssertEqual(TokenManager.ASTERISK, token?.kind)
+        XCTAssertEqual("*", token?.image)
     }
     
-    
+    /*
     func testBackslash() {
         let token = TokenManager(stream: CharStream(reader: StringReader(text: "\\"))).getNextToken()
         XCTAssertEqual(TokenManager.BACKSLASH, token?.kind)
     }
     
-    /*@Test
-    public void testBacktick() {
+
+func testBacktick() {
     Token token = new TokenManager(new CharStream(new StringReader("`"))).getNextToken();
     assertEquals(TokenManager.BACKTICK, token.kind);
     assertEquals("`", token.image);

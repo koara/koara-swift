@@ -108,17 +108,13 @@ class CharStream {
     }
     
     func getImage() -> String {
-        if bufPos >= tokenBegin {
-            //return buffer[tokenBegin...bufPos + 1]
-            
-            return String(buffer[tokenBegin..<(bufPos + 1)])
-            
- //           return (buffer.lines as! [String]).joinWithSeparator("")            //return buffer[tokenBegin, bufPos + 1]
-//            return this.buffer.slice(this.tokenBegin, this.bufpos + 1).join("");
+        if (bufPos >= tokenBegin) {
+            print("---\(bufPos) --- \(tokenBegin)")
+            return "*"
+            //return new String(buffer, tokenBegin, bufPos - tokenBegin + 1);
         }
-//        return this.buffer.slice(this.tokenBegin, this.bufsize).join("") +
-//            this.buffer.slice(0, this.bufpos + 1).join("");
-        return "B"
+        //return new String(buffer, tokenBegin, bufSize - tokenBegin) + new String(buffer, 0, bufPos + 1);
+        return "Y"
     }
     
     func getEndColumn() -> Int {
