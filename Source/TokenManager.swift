@@ -74,6 +74,8 @@ class TokenManager {
             return stopAtPos(pos: 0, kind: TokenManager.ASTERISK);
         case 92:
             return try startNfaWithStates(pos: 0, kind: TokenManager.BACKSLASH, state: 7);
+        case 96:
+            return stopAtPos(pos: 0, kind: TokenManager.BACKTICK);
         default:
             //return moveNfa(startState: 6, curPos: 0)
             return 0
@@ -86,11 +88,10 @@ class TokenManager {
         do {
             curChar = try cs.readChar()
         } catch {
-            let result : Int32 = pos + 1
-            return result
+            return Int32(pos + 1)
         }
         let newPos : Int32 = pos + 1
-        return newPos
+        return 0
         //return moveNfa(startState: state, curPos: newPos)
     }
     

@@ -10,7 +10,7 @@ class CharStream {
     var line = 1
     var prevCharIsLF = false
     var reader : Reader
-    var buffer = [Character]()
+    var buffer = [Character](repeating: Character(" "), count: 4096)
     var maxNextCharInd = 0
     var inBuf = 0
     var tabSize = 4
@@ -22,7 +22,7 @@ class CharStream {
     func beginToken() throws -> Character {
         tokenBegin = -1
         let c = try readChar()
-        tokenBegin = bufPos;
+        tokenBegin = bufPos
         return c
     }
     
@@ -109,8 +109,10 @@ class CharStream {
     
     func getImage() -> String {
         if (bufPos >= tokenBegin) {
-            print("---\(bufPos) --- \(tokenBegin)")
-            return "*"
+            print("---\(buffer.count)")
+            
+            
+            return String(describing: buffer[tokenBegin..<(bufPos + 1)])
             //return new String(buffer, tokenBegin, bufPos - tokenBegin + 1);
         }
         //return new String(buffer, tokenBegin, bufSize - tokenBegin) + new String(buffer, 0, bufPos + 1);
