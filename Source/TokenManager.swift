@@ -72,6 +72,8 @@ class TokenManager {
 
         case 42 :
             return stopAtPos(pos: 0, kind: TokenManager.ASTERISK);
+        case 58:
+            return stopAtPos(pos: 0, kind: TokenManager.COLON);
         case 92:
             return try startNfaWithStates(pos: 0, kind: TokenManager.BACKSLASH, state: 7);
         case 96:

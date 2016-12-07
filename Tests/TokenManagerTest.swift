@@ -25,28 +25,24 @@ class TokenManagerTest: XCTestCase {
         //XCTAssertEqual("`", token?.image)
     }
     
+    func testCharSequenceLowerCase() {
+    //    let token = TokenManager(stream: CharStream(reader: StringReader(text: "m"))).getNextToken()
+    //    XCTAssertEqual(TokenManager.CHAR_SEQUENCE, token?.kind)
+    //    XCTAssertEqual("m", token?.image)
+    }
+    
+    func testCharSequenceUpperCase() {
+        // let token = TokenManager(stream: CharStream(reader: StringReader(text: "C"))).getNextToken()
+        //    XCTAssertEqual(TokenManager.CHAR_SEQUENCE, token?.kind)
+        //    XCTAssertEqual("C", token?.image)
+    }
+    
+    func testColon() {
+        let token = TokenManager(stream: CharStream(reader: StringReader(text: ":"))).getNextToken()
+        XCTAssertEqual(TokenManager.COLON, token?.kind)
+        //XCTAssertEqual(":", token?.image)
+    }
     /*
-    @Test
-    public void testCharSequenceLowerCase() {
-    Token token = new TokenManager(new CharStream(new StringReader("m"))).getNextToken();
-    assertEquals(TokenManager.CHAR_SEQUENCE, token.kind);
-    assertEquals("m", token.image);
-    }
-    
-    @Test
-    public void testCharSequenceUpperCase() {
-    Token token = new TokenManager(new CharStream(new StringReader("C"))).getNextToken();
-    assertEquals(TokenManager.CHAR_SEQUENCE, token.kind);
-    assertEquals("C", token.image);
-    }
-    
-    @Test
-    public void testColon() {
-    Token token = new TokenManager(new CharStream(new StringReader(":"))).getNextToken();
-    assertEquals(TokenManager.COLON, token.kind);
-    assertEquals(":", token.image);
-    }
-    
     @Test
     public void testDash() {
     Token token = new TokenManager(new CharStream(new StringReader("-"))).getNextToken();
