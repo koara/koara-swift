@@ -71,13 +71,17 @@ class TokenManager {
         switch Int((String(describing: curChar!).unicodeScalars.first?.value)!) {
 
         case 42 :
-            return stopAtPos(pos: 0, kind: TokenManager.ASTERISK);
+            return stopAtPos(pos: 0, kind: TokenManager.ASTERISK)
+        case 45:
+            return stopAtPos(pos: 0, kind: TokenManager.DASH)
+        case 46:
+            return stopAtPos(pos: 0, kind: TokenManager.DOT)
         case 58:
-            return stopAtPos(pos: 0, kind: TokenManager.COLON);
+            return stopAtPos(pos: 0, kind: TokenManager.COLON)
         case 92:
-            return try startNfaWithStates(pos: 0, kind: TokenManager.BACKSLASH, state: 7);
+            return try startNfaWithStates(pos: 0, kind: TokenManager.BACKSLASH, state: 7)
         case 96:
-            return stopAtPos(pos: 0, kind: TokenManager.BACKTICK);
+            return stopAtPos(pos: 0, kind: TokenManager.BACKTICK)
         default:
             //return moveNfa(startState: 6, curPos: 0)
             return 0

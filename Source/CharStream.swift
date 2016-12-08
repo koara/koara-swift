@@ -109,11 +109,7 @@ class CharStream {
     
     func getImage() -> String {
         if (bufPos >= tokenBegin) {
-            print("---\(buffer.count)")
-            
-            
-            return String(describing: buffer[tokenBegin..<(bufPos + 1)])
-            //return new String(buffer, tokenBegin, bufPos - tokenBegin + 1);
+            return String(buffer[tokenBegin..<(bufPos + 1)])
         }
         //return new String(buffer, tokenBegin, bufSize - tokenBegin) + new String(buffer, 0, bufPos + 1);
         return "Y"
