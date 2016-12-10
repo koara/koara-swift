@@ -69,7 +69,8 @@ class TokenManager {
     
     func moveStringLiteralDfa0() throws -> Int32 {
         switch Int((String(describing: curChar!).unicodeScalars.first?.value)!) {
-
+        case 40:
+            return stopAtPos(pos: 0, kind: TokenManager.LPAREN)
         case 42 :
             return stopAtPos(pos: 0, kind: TokenManager.ASTERISK)
         case 45:
@@ -78,6 +79,12 @@ class TokenManager {
             return stopAtPos(pos: 0, kind: TokenManager.DOT)
         case 58:
             return stopAtPos(pos: 0, kind: TokenManager.COLON)
+        case 61:
+            return stopAtPos(pos: 0, kind: TokenManager.EQ)
+        case 62:
+            return stopAtPos(pos: 0, kind: TokenManager.GT)
+        case 91:
+            return stopAtPos(pos: 0, kind: TokenManager.LBRACK)
         case 92:
             return try startNfaWithStates(pos: 0, kind: TokenManager.BACKSLASH, state: 7)
         case 96:
