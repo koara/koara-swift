@@ -104,21 +104,20 @@ class TokenManagerTest: XCTestCase {
         XCTAssertEqual(TokenManager.LPAREN, token?.kind)
         XCTAssertEqual("(", token?.image)
     }
+    
+    func testLt() {
+        let token = TokenManager(stream: CharStream(reader: StringReader(text: "<"))).getNextToken()
+        XCTAssertEqual(TokenManager.LT, token?.kind)
+        XCTAssertEqual("<", token?.image)
+    }
+    
+    
+    func testRbrack() {
+        let token = TokenManager(stream: CharStream(reader: StringReader(text: "]"))).getNextToken()
+        XCTAssertEqual(TokenManager.RBRACK, token?.kind)
+        XCTAssertEqual("]", token?.image)
+    }
     /*
-    @Test
-    public void testLt() {
-    Token token = new TokenManager(new CharStream(new StringReader("<"))).getNextToken();
-    assertEquals(TokenManager.LT, token.kind);
-    assertEquals("<", token.image);
-    }
-    
-    @Test
-    public void testRbrack() {
-    Token token = new TokenManager(new CharStream(new StringReader("]"))).getNextToken();
-    assertEquals(TokenManager.RBRACK, token.kind);
-    assertEquals("]", token.image);
-    }
-    
     @Test
     public void testRparen() {
     Token token = new TokenManager(new CharStream(new StringReader(")"))).getNextToken();

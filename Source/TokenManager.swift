@@ -79,6 +79,8 @@ class TokenManager {
             return stopAtPos(pos: 0, kind: TokenManager.DOT)
         case 58:
             return stopAtPos(pos: 0, kind: TokenManager.COLON)
+        case 60:
+            return stopAtPos(pos: 0, kind: TokenManager.LT)
         case 61:
             return stopAtPos(pos: 0, kind: TokenManager.EQ)
         case 62:
@@ -87,6 +89,8 @@ class TokenManager {
             return stopAtPos(pos: 0, kind: TokenManager.LBRACK)
         case 92:
             return try startNfaWithStates(pos: 0, kind: TokenManager.BACKSLASH, state: 7)
+        case 93:
+            return stopAtPos(pos: 0, kind: TokenManager.RBRACK)
         case 96:
             return stopAtPos(pos: 0, kind: TokenManager.BACKTICK)
         default:
