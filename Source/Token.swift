@@ -11,7 +11,7 @@ class Token {
     init() {
     }
     
-    init(kind: Int32, beginLine: Int, beginColumn: Int, endLine: Int, endColumn: Int, image: String) {
+    init(_ kind: Int32, _ beginLine: Int, _ beginColumn: Int, _ endLine: Int, _ endColumn: Int, _ image: String) {
         self.kind = kind
         self.beginLine = beginLine
         self.beginColumn = beginColumn

@@ -26,7 +26,7 @@ class TokenManagerTest: XCTestCase {
     }
     
     func testCharSequenceLowerCase() {
-    //    let token = TokenManager(stream: CharStream(reader: StringReader(text: "m"))).getNextToken()
+        let token = TokenManager(stream: CharStream(reader: StringReader(text: "m"))).getNextToken()
     //    XCTAssertEqual(TokenManager.CHAR_SEQUENCE, token?.kind)
     //    XCTAssertEqual("m", token?.image)
     }
@@ -46,12 +46,12 @@ class TokenManagerTest: XCTestCase {
     func testDash() {
         let token = TokenManager(stream: CharStream(reader: StringReader(text: "-"))).getNextToken()
         XCTAssertEqual(TokenManager.DASH, token?.kind)
-        //XCTAssertEqual("-", token?.image)
+        XCTAssertEqual("-", token?.image)
 
     }
     
     func testDigits() {
-        let token = TokenManager(stream: CharStream(reader: StringReader(text: "4"))).getNextToken()
+        //let token = TokenManager(stream: CharStream(reader: StringReader(text: "4"))).getNextToken()
         //XCTAssertEqual(TokenManager.DIGITS, token?.kind)
         //XCTAssertEqual("4", token?.image)
     }
@@ -63,7 +63,7 @@ class TokenManagerTest: XCTestCase {
     }
     
     func testEol() {
-        //let token = TokenManager(stream: CharStream(reader: StringReader(text: "\n"))).getNextToken()
+        //let token = TokenManager(stream: CharStream(StringReader("\n"))).getNextToken()
         //XCTAssertEqual(TokenManager.EOL, token?.kind)
         //XCTAssertEqual("\n", token?.image)
 
@@ -71,12 +71,12 @@ class TokenManagerTest: XCTestCase {
     
     func testEq() {
         let token = TokenManager(stream: CharStream(reader: StringReader(text: "="))).getNextToken()
-            XCTAssertEqual(TokenManager.EQ, token?.kind)
+        XCTAssertEqual(TokenManager.EQ, token?.kind)
         XCTAssertEqual("=", token?.image)
     }
     
     func testEscapedChar() {
-        let token = TokenManager(stream: CharStream(reader: StringReader(text: "\\*"))).getNextToken()
+        //let token = TokenManager(stream: CharStream(StringReader(text: "\\*"))).getNextToken()
         //XCTAssertEqual(TokenManager.ESCAPED_CHAR, token?.kind)
         //XCTAssertEqual("\\*", token?.image)
     }
@@ -88,7 +88,7 @@ class TokenManagerTest: XCTestCase {
     }
     
     func testImageLabel() {
-        let token = TokenManager(stream: CharStream(reader: StringReader(text: "image:"))).getNextToken()
+        //let token = TokenManager(stream: CharStream(StringReader("image:"))).getNextToken()
         //XCTAssertEqual(TokenManager.IMAGE_LABEL, token?.kind)
         //XCTAssertEqual("image:", token?.image)
     }
@@ -117,34 +117,30 @@ class TokenManagerTest: XCTestCase {
         XCTAssertEqual(TokenManager.RBRACK, token?.kind)
         XCTAssertEqual("]", token?.image)
     }
-    /*
-    @Test
-    public void testRparen() {
-    Token token = new TokenManager(new CharStream(new StringReader(")"))).getNextToken();
-    assertEquals(TokenManager.RPAREN, token.kind);
-    assertEquals(")", token.image);
+    
+    func testRparen() {
+        let token = TokenManager(stream: CharStream(reader: StringReader(text: ")"))).getNextToken()
+        XCTAssertEqual(TokenManager.RPAREN, token?.kind)
+        XCTAssertEqual(")", token?.image)
     }
     
-    @Test
-    public void testSpace() {
-    Token token = new TokenManager(new CharStream(new StringReader(" "))).getNextToken();
-    assertEquals(TokenManager.SPACE, token.kind);
-    assertEquals(" ", token.image);
+    func testSpace() {
+        let token = TokenManager(stream: CharStream(reader: StringReader(text: " "))).getNextToken()
+        XCTAssertEqual(TokenManager.SPACE, token?.kind)
+        XCTAssertEqual(" ", token?.image)
     }
     
-    @Test
-    public void testTab() {
-    Token token = new TokenManager(new CharStream(new StringReader("\t"))).getNextToken();
-    assertEquals(TokenManager.TAB, token.kind);
-    assertEquals("\t", token.image);
+    func testTab() {
+        let token = TokenManager(stream: CharStream(reader: StringReader(text: "\t"))).getNextToken()
+        XCTAssertEqual(TokenManager.TAB, token?.kind)
+        XCTAssertEqual("\t", token?.image)
     }
     
-    @Test
-    public void testUnderscore() {
-    Token token = new TokenManager(new CharStream(new StringReader("_"))).getNextToken();
-    assertEquals(TokenManager.UNDERSCORE, token.kind);
-    assertEquals("_", token.image);
+    func testUnderscore() {
+        let token = TokenManager(stream: CharStream(reader: StringReader(text: "_"))).getNextToken()
+        XCTAssertEqual(TokenManager.UNDERSCORE, token?.kind)
+        XCTAssertEqual("_", token?.image)
     }
-    */
+    
     
 }

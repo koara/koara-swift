@@ -64,42 +64,50 @@ class TokenManager {
     }
     
     func fillToken() -> Token {
-        return Token(kind: matchedKind, beginLine: cs.getBeginLine(), beginColumn: cs.getBeginColumn(), endLine: cs.getEndLine(), endColumn: cs.getEndColumn(), image: cs.getImage())
+        return Token(matchedKind, cs.getBeginLine(), cs.getBeginColumn(), cs.getEndLine(), cs.getEndColumn(), cs.getImage())
     }
     
     func moveStringLiteralDfa0() throws -> Int32 {
         switch Int((String(describing: curChar!).unicodeScalars.first?.value)!) {
+        case 9:
+            return try startNfaWithStates(0, TokenManager.TAB, 8)
+        case 32:
+            return try startNfaWithStates(0, TokenManager.SPACE, 8)
         case 40:
-            return stopAtPos(pos: 0, kind: TokenManager.LPAREN)
+            return stopAtPos(0, TokenManager.LPAREN)
+        case 41:
+            return stopAtPos(0, TokenManager.RPAREN)
         case 42 :
-            return stopAtPos(pos: 0, kind: TokenManager.ASTERISK)
+            return stopAtPos(0, TokenManager.ASTERISK)
         case 45:
-            return stopAtPos(pos: 0, kind: TokenManager.DASH)
+            return stopAtPos(0, TokenManager.DASH)
         case 46:
-            return stopAtPos(pos: 0, kind: TokenManager.DOT)
+            return stopAtPos(0, TokenManager.DOT)
         case 58:
-            return stopAtPos(pos: 0, kind: TokenManager.COLON)
+            return stopAtPos(0, TokenManager.COLON)
         case 60:
-            return stopAtPos(pos: 0, kind: TokenManager.LT)
+            return stopAtPos(0, TokenManager.LT)
         case 61:
-            return stopAtPos(pos: 0, kind: TokenManager.EQ)
+            return stopAtPos(0, TokenManager.EQ)
         case 62:
-            return stopAtPos(pos: 0, kind: TokenManager.GT)
+            return stopAtPos(0, TokenManager.GT)
         case 91:
-            return stopAtPos(pos: 0, kind: TokenManager.LBRACK)
+            return stopAtPos(0, TokenManager.LBRACK)
         case 92:
-            return try startNfaWithStates(pos: 0, kind: TokenManager.BACKSLASH, state: 7)
+            return try startNfaWithStates(0, TokenManager.BACKSLASH, 7)
         case 93:
-            return stopAtPos(pos: 0, kind: TokenManager.RBRACK)
+            return stopAtPos(0, TokenManager.RBRACK)
+        case 95:
+            return stopAtPos(0, TokenManager.UNDERSCORE)
         case 96:
-            return stopAtPos(pos: 0, kind: TokenManager.BACKTICK)
+            return stopAtPos(0, TokenManager.BACKTICK)
         default:
             //return moveNfa(startState: 6, curPos: 0)
             return 0
         }
     }
   
-    func startNfaWithStates(pos: Int32, kind: Int32, state: Int32) throws -> Int32 {
+    func startNfaWithStates(_ pos: Int32, _ kind: Int32, _ state: Int32) throws -> Int32 {
         matchedKind = kind
         matchedPos = pos
         do {
@@ -112,7 +120,7 @@ class TokenManager {
         //return moveNfa(startState: state, curPos: newPos)
     }
     
-    func stopAtPos(pos: Int32, kind: Int32) -> Int32 {
+    func stopAtPos(_ pos: Int32, _ kind: Int32) -> Int32 {
         matchedKind = kind
         matchedPos = pos
         let newPos = pos + 1

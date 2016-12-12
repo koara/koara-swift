@@ -11,9 +11,6 @@ class FileReader {
     }
     
     func read(_ buffer: inout [Character], offset: Int, length: Int) -> Int {
-        
-        
-                
         var charactersRead = 4
         do {
             let content = try String(contentsOfFile:fileName, encoding: String.Encoding.utf8)
