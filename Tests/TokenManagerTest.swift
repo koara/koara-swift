@@ -27,8 +27,8 @@ class TokenManagerTest: XCTestCase {
     
     func testCharSequenceLowerCase() {
         let token = TokenManager(stream: CharStream(reader: StringReader(text: "m"))).getNextToken()
-    //    XCTAssertEqual(TokenManager.CHAR_SEQUENCE, token?.kind)
-    //    XCTAssertEqual("m", token?.image)
+        XCTAssertEqual(TokenManager.CHAR_SEQUENCE, token?.kind)
+        XCTAssertEqual("m", token?.image)
     }
     
     func testCharSequenceUpperCase() {
