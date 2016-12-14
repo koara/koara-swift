@@ -271,71 +271,69 @@ class TokenManager {
 ////                }
 //                } while i != startsAt
             } else if curCharInt < 128 {
-////            long l = 1L << (curChar & 077)
-                
-                print("XXY \(curCharInt & Int(077))")
-                
-////            do {
-////                switch (jjstateSet[--i]) {
-////                case 6:
-////                    if (l != 0L) {
-////                        if (kind > 4) {
-////                            kind = 4
-////                        }
-////                        checkNAdd(0)
-////                    } else if (curChar == 92) {
-////                        jjstateSet[jjnewStateCnt++] = 7
-////                    }
-////                    break
-////                case 0:
-////                    if ((0xfffffffe47ffffffL & l) != 0L) {
-////                        kind = 4
-////                        checkNAdd(0)
-////                    }
-////                    break
-////                case 7:
-////                    if ((0x1b8000000L & l) != 0L && kind > 11) {
-////                        kind = 11
-////                    }
-////                    break
-////                }
-////            } while (i != startsAt)
+                let l = Int64(1) << Int64(curCharInt & 077)
+                repeat {
+                    i -= 1
+                    switch jjstateSet[i] {
+                    case 6:
+                        if l != 0 {
+                            if kind > 4 {
+                                kind = 4
+                            }
+                            checkNAdd(0)
+                        } else if (curCharInt == 92) {
+                            jjnewStateCnt += 1
+                            jjstateSet[jjnewStateCnt] = 7
+                        }
+                    case 0:
+                        if (0xfffffffe47ffffff & l) != 0 {
+                            kind = 4
+                            checkNAdd(0)
+                        }
+                    case 7:
+                        if ((0x1b8000000 & l) != 0 && kind > 11) {
+                            kind = 11
+                        }
+                    }
+                } while (i != startsAt)
             } else {
-////            do {
-////                switch (jjstateSet[--i]) {
-////                case 6:
-////                case 0:
-////                    if (kind > 4) {
-////                        kind = 4
-////                    }
-////                    checkNAdd(0)
-////                    break
-////                }
-////            } while (i != startsAt)
+                repeat {
+                    i-=1
+                    switch (jjstateSet[i]) {
+                    case 6:
+                        fallthrough
+                    case 0:
+                        if (kind > 4) {
+                            kind = 4
+                        }
+                        checkNAdd(0)
+                    }
+                } while (i != startsAt)
             }
-//            if (kind != 0x7fffffff) {
-//                matchedKind = Int32(kind)
-//                matchedPos = curPos
-//                kind = 0x7fffffff
-//            }
-//            curPos += 1
-//
-////        if ((i = jjnewStateCnt) == (startsAt = 8 - (jjnewStateCnt = startsAt))) {
+            if (kind != 0x7fffffff) {
+                matchedKind = Int32(kind)
+                matchedPos = curPos
+                kind = 0x7fffffff
+            }
+            curPos += 1
+
+            //if ((i = jjnewStateCnt) == (startsAt = 8 - (jjnewStateCnt = startsAt))) {
 ////            return curPos
 ////        }
-////        try {
-////            curChar = cs.readChar()
-////        } catch (IOException e) {
+            do {
+                curChar = cs.readChar()
+            } catch {
                 return curPos
 ////        }
         }
     }
-//
-//    func checkNAddStates(start: Int, end: Int) {
-////    do {
-////        checkNAdd(jjnextStates[start])
-////    } while (start++ != end)
-//    }
+
+    func checkNAddStates(start: Int, end: Int) {
+        repeat {
+            checkNAdd(jjnewStateCnt[start])
+            start+=1
+        } while (start != end)
+    }
 //
 //    func checkNAdd(state: Int) {
 ////    if (jjrounds[state] != round) {
