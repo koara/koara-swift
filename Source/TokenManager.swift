@@ -24,7 +24,7 @@ class TokenManager {
     static let UNDERSCORE : Int32  = 21
 
     let cs : CharStream
-//    private int[] jjrounds = new int[8]
+    var jjrounds = Array<Int32>(repeating: 0, count: 8)
     var jjstateSet = Array<Int32>(repeating: 0, count: 16)
 
     var curChar : Character?
@@ -126,56 +126,56 @@ class TokenManager {
         let newPos = pos + 1
         return newPos
     }
-//   
-//    func moveStringLiteralDfa1(active: Int64) throws -> Int32 {
-//        curChar = try cs.readChar()
-//        let s = String(curChar).unicodeScalars
-//        if (s[s.startIndex].value == 77 || s[s.startIndex].value == 109) {
-//            return try moveStringLiteralDfa2(old: active, active: 0x2000)
-//        }
-//        return startNfa(pos: 0, active: active)
-//    }
-//   
-//    func moveStringLiteralDfa2(old: Int64, active: Int64) throws -> Int32 {
-//        curChar = try cs.readChar()
-//        let s = String(curChar).unicodeScalars
-//        if (s[s.startIndex].value == 65 || s[s.startIndex].value == 97) {
-//            return moveStringLiteralDfa3(active, 0x2000)
-//        }
-//        return startNfa(pos: 1, active: active)
-//    }
-// 
-//    func moveStringLiteralDfa3(old: Int64, active: Int64) throws -> Int32 {
-//        curChar = try cs.readChar()
-//        let s = String(curChar).unicodeScalars
-//        if (s[s.startIndex].value == 71 || s[s.startIndex].value == 103) {
-//            return moveStringLiteralDfa4(old: active, active: 0x2000)
-//        }
-//        return startNfa(pos: 2, active: active)
-//    }
-//    
-//    func moveStringLiteralDfa4(old: Int64, active: Int64) throws -> Int32 {
-//        curChar = try cs.readChar()
-//        let s = String(curChar).unicodeScalars
-//        if (s[s.startIndex].value == 69 || s[s.startIndex].value == 101) {
-//            return try moveStringLiteralDfa5(old: active, active: 0x2000)
-//        }
-//        return startNfa(pos: 3, active: active)
-//    }
-//    
-//    func moveStringLiteralDfa5(old: Int64, active: Int64) throws -> Int32 {
-//        curChar = try cs.readChar()
-//        let s = String(curChar).unicodeScalars
-//        if (s[s.startIndex].value == 58 && ((active & 0x2000) != 0)) {
-//            return stopAtPos(pos: 5, kind: 13)
-//        }
-//        return startNfa(pos: 4, active: active)
-//    }
-//    
-//    func startNfa(pos: Int, active: Int64) -> Int32 {
-//        return moveNfa(startState: Int32(stopStringLiteralDfa(pos: pos, active: Int32(active))), curPos: pos + 1)
-//    }
-//    
+
+    func moveStringLiteralDfa1(active: Int64) throws -> Int32 {
+        curChar = try cs.readChar()
+        let s = String(curChar).unicodeScalars
+        if (s[s.startIndex].value == 77 || s[s.startIndex].value == 109) {
+            return try moveStringLiteralDfa2(old: active, active: 0x2000)
+        }
+        return startNfa(pos: 0, active: active)
+    }
+
+    func moveStringLiteralDfa2(old: Int64, active: Int64) throws -> Int32 {
+        curChar = try cs.readChar()
+        let s = String(curChar).unicodeScalars
+        if (s[s.startIndex].value == 65 || s[s.startIndex].value == 97) {
+            return moveStringLiteralDfa3(active, 0x2000)
+        }
+        return startNfa(pos: 1, active: active)
+    }
+    
+    func moveStringLiteralDfa3(old: Int64, active: Int64) throws -> Int32 {
+        curChar = try cs.readChar()
+        let s = String(curChar).unicodeScalars
+        if (s[s.startIndex].value == 71 || s[s.startIndex].value == 103) {
+            return moveStringLiteralDfa4(old: active, active: 0x2000)
+        }
+        return startNfa(pos: 2, active: active)
+    }
+
+    func moveStringLiteralDfa4(old: Int64, active: Int64) throws -> Int32 {
+        curChar = try cs.readChar()
+        let s = String(curChar).unicodeScalars
+        if (s[s.startIndex].value == 69 || s[s.startIndex].value == 101) {
+            return try moveStringLiteralDfa5(old: active, active: 0x2000)
+        }
+        return startNfa(pos: 3, active: active)
+    }
+
+    func moveStringLiteralDfa5(old: Int64, active: Int64) throws -> Int32 {
+        curChar = try cs.readChar()
+        let s = String(curChar).unicodeScalars
+        if (s[s.startIndex].value == 58 && ((active & 0x2000) != 0)) {
+            return stopAtPos(pos: 5, kind: 13)
+        }
+        return startNfa(pos: 4, active: active)
+    }
+
+    func startNfa(pos: Int, active: Int64) -> Int32 {
+        return moveNfa(startState: Int32(stopStringLiteralDfa(pos: pos, active: Int32(active))), curPos: pos + 1)
+    }
+  
     func moveNfa(startState: Int32, curPos: Int32) -> Int32 {
         var curPos = curPos
         var startsAt : Int = 0
@@ -324,7 +324,7 @@ class TokenManager {
                 curChar = cs.readChar()
             } catch {
                 return curPos
-////        }
+            }
         }
     }
 
@@ -334,42 +334,43 @@ class TokenManager {
             start+=1
         } while (start != end)
     }
-//
-//    func checkNAdd(state: Int) {
-////    if (jjrounds[state] != round) {
-////        jjstateSet[jjnewStateCnt++] = state
-////        jjrounds[state] = round
-////    }
-//    }
-//    
-//    func stopStringLiteralDfa(pos: Int, active: Int32) -> Int {
-//        if pos == 0 {
-////        if ((active & 0x2000L) != 0L) {
-////            matchedKind = 4
-////            return 0
-////        } else if ((active & 0x180000L) != 0L) {
-////            return 8
-////        } else if ((active & 0x4L) != 0L) {
-////            return 7
-////        }
-////    } else if (pos == 1 && (active & 0x2000L) != 0L) {
-////        matchedKind = 4
-////        matchedPos = 1
-////        return 0
-////    } else if (pos == 2 && (active & 0x2000L) != 0L) {
-////        matchedKind = 4
-////        matchedPos = 2
-////        return 0
-////    } else if (pos == 3 && (active & 0x2000L) != 0L) {
-////        matchedKind = 4
-////        matchedPos = 3
-////        return 0
-////    } else if (pos == 4 && (active & 0x2000L) != 0L) {
-////        matchedKind = 4
-////        matchedPos = 4
-////        return 0
-//        }
-//        return -1
-//    }
-//
+
+    func checkNAdd(state: Int) {
+        if (jjrounds[state] != round) {
+            jjnewStateCnt += 1
+            jjstateSet[jjnewStateCnt] = state
+            jjrounds[state] = round
+        }
+    }
+
+    func stopStringLiteralDfa(pos: Int, active: Int32) -> Int {
+        if pos == 0 {
+            if (active & 0x2000) != 0 {
+                matchedKind = 4
+                return 0
+            } else if ((active & 0x180000) != 0) {
+                return 8
+            } else if ((active & 0x4) != 0) {
+                return 7
+            }
+        } else if (pos == 1 && (active & 0x2000) != 0) {
+            matchedKind = 4
+            matchedPos = 1
+            return 0
+        } else if (pos == 2 && (active & 0x2000) != 0) {
+            matchedKind = 4
+            matchedPos = 2
+            return 0
+        } else if (pos == 3 && (active & 0x2000) != 0) {
+            matchedKind = 4
+            matchedPos = 3
+            return 0
+        } else if (pos == 4 && (active & 0x2000) != 0) {
+            matchedKind = 4
+            matchedPos = 4
+            return 0
+        }
+        return -1
+    }
+    
 }
