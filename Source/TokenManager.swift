@@ -28,7 +28,7 @@ class TokenManager {
     var jjstateSet = Array<Int32>(repeating: 0, count: 16)
 
     var curChar : Character?
-//    private int[] jjnextStates = { 2, 3, 5, }
+    var jjnextStates = Array<Int>(arrayLiteral: 2, 3, 5)
     var jjnewStateCnt : Int32 = 0
     var round : Int64 = 0
     var matchedPos : Int32 = 0
@@ -75,33 +75,33 @@ class TokenManager {
         case 32:
             return try startNfaWithStates(0, TokenManager.SPACE, 8)
         case 40:
-            return stopAtPos(0, TokenManager.LPAREN)
+            return stopAtPos(pos: 0, kind: TokenManager.LPAREN)
         case 41:
-            return stopAtPos(0, TokenManager.RPAREN)
+            return stopAtPos(pos: 0, kind: TokenManager.RPAREN)
         case 42 :
-            return stopAtPos(0, TokenManager.ASTERISK)
+            return stopAtPos(pos: 0, kind: TokenManager.ASTERISK)
         case 45:
-            return stopAtPos(0, TokenManager.DASH)
+            return stopAtPos(pos: 0, kind: TokenManager.DASH)
         case 46:
-            return stopAtPos(0, TokenManager.DOT)
+            return stopAtPos(pos: 0, kind: TokenManager.DOT)
         case 58:
-            return stopAtPos(0, TokenManager.COLON)
+            return stopAtPos(pos: 0, kind: TokenManager.COLON)
         case 60:
-            return stopAtPos(0, TokenManager.LT)
+            return stopAtPos(pos: 0, kind: TokenManager.LT)
         case 61:
-            return stopAtPos(0, TokenManager.EQ)
+            return stopAtPos(pos: 0, kind: TokenManager.EQ)
         case 62:
-            return stopAtPos(0, TokenManager.GT)
+            return stopAtPos(pos: 0, kind: TokenManager.GT)
         case 91:
-            return stopAtPos(0, TokenManager.LBRACK)
+            return stopAtPos(pos: 0, kind: TokenManager.LBRACK)
         case 92:
             return try startNfaWithStates(0, TokenManager.BACKSLASH, 7)
         case 93:
-            return stopAtPos(0, TokenManager.RBRACK)
+            return stopAtPos(pos: 0, kind: TokenManager.RBRACK)
         case 95:
-            return stopAtPos(0, TokenManager.UNDERSCORE)
+            return stopAtPos(pos: 0, kind: TokenManager.UNDERSCORE)
         case 96:
-            return stopAtPos(0, TokenManager.BACKTICK)
+            return stopAtPos(pos: 0, kind: TokenManager.BACKTICK)
         default:
             return moveNfa(startState: 6, curPos: 0)
         }
@@ -116,11 +116,10 @@ class TokenManager {
             return Int32(pos + 1)
         }
         let newPos : Int32 = pos + 1
-        return 0
-        //return moveNfa(startState: state, curPos: newPos)
+        return moveNfa(startState: state, curPos: newPos)
     }
     
-    func stopAtPos(_ pos: Int32, _ kind: Int32) -> Int32 {
+    func stopAtPos(pos: Int32, kind: Int32) -> Int32 {
         matchedKind = kind
         matchedPos = pos
         let newPos = pos + 1
@@ -129,8 +128,8 @@ class TokenManager {
 
     func moveStringLiteralDfa1(active: Int64) throws -> Int32 {
         curChar = try cs.readChar()
-        let s = String(curChar).unicodeScalars
-        if (s[s.startIndex].value == 77 || s[s.startIndex].value == 109) {
+        var curCharInt = Int((String(describing: curChar!).unicodeScalars.first?.value)!)
+        if (curCharInt == 77 || curCharInt == 109) {
             return try moveStringLiteralDfa2(old: active, active: 0x2000)
         }
         return startNfa(pos: 0, active: active)
@@ -138,8 +137,8 @@ class TokenManager {
 
     func moveStringLiteralDfa2(old: Int64, active: Int64) throws -> Int32 {
         curChar = try cs.readChar()
-        let s = String(curChar).unicodeScalars
-        if (s[s.startIndex].value == 65 || s[s.startIndex].value == 97) {
+        var curCharInt = Int((String(describing: curChar!).unicodeScalars.first?.value)!)
+        if (curCharInt == 65 || curCharInt == 97) {
             return moveStringLiteralDfa3(active, 0x2000)
         }
         return startNfa(pos: 1, active: active)
@@ -147,7 +146,7 @@ class TokenManager {
     
     func moveStringLiteralDfa3(old: Int64, active: Int64) throws -> Int32 {
         curChar = try cs.readChar()
-        let s = String(curChar).unicodeScalars
+        var curCharInt = Int((String(describing: curChar!).unicodeScalars.first?.value)!)
         if (s[s.startIndex].value == 71 || s[s.startIndex].value == 103) {
             return moveStringLiteralDfa4(old: active, active: 0x2000)
         }
@@ -156,8 +155,8 @@ class TokenManager {
 
     func moveStringLiteralDfa4(old: Int64, active: Int64) throws -> Int32 {
         curChar = try cs.readChar()
-        let s = String(curChar).unicodeScalars
-        if (s[s.startIndex].value == 69 || s[s.startIndex].value == 101) {
+        var curCharInt = Int((String(describing: curChar!).unicodeScalars.first?.value)!)
+        if (curCharInt == 69 || curCharInt == 101) {
             return try moveStringLiteralDfa5(old: active, active: 0x2000)
         }
         return startNfa(pos: 3, active: active)
@@ -165,9 +164,9 @@ class TokenManager {
 
     func moveStringLiteralDfa5(old: Int64, active: Int64) throws -> Int32 {
         curChar = try cs.readChar()
-        let s = String(curChar).unicodeScalars
-        if (s[s.startIndex].value == 58 && ((active & 0x2000) != 0)) {
-            return stopAtPos(pos: 5, kind: 13)
+        var curCharInt = Int((String(describing: curChar!).unicodeScalars.first?.value)!)
+        if (curCharInt == 58 && ((active & 0x2000) != 0)) {
+            return stopAtPos(5, 13)
         }
         return startNfa(pos: 4, active: active)
     }
@@ -191,85 +190,79 @@ class TokenManager {
             }
             var curCharInt = Int((String(describing: curChar!).unicodeScalars.first?.value)!)
             if (curCharInt < 64) {
-//                var l : Int64 = 1 << s[s.startIndex].value
-//                repeat {
-//                    i -= 1
-//                    switch jjstateSet[i] {
-////                    case 6:
-////                    if ((0x880098feffffd9ffL & l) != 0L) {
-////                        if (kind > 4) {
-////                            kind = 4
-////                        }
-////                        checkNAdd(0)
-////                    } else if ((0x3ff000000000000L & l) != 0L) {
-////                        if (kind > 7) {
-////                            kind = 7
-////                        }
-////                        checkNAdd(1)
-////                    } else if ((0x2400L & l) != 0L) {
-////                        if (kind > 9) {
-////                            kind = 9
-////                        }
-////                    } else if ((0x100000200L & l) != 0L) {
-////                        checkNAddStates(0, 2)
-////                    }
-////                    if (curChar == 13) {
-////                        jjstateSet[jjnewStateCnt++] = 4
-////                    }
-////                    break
-////                case 8:
-////                    if ((0x2400L & l) != 0L) {
-////                        if (kind > 9) {
-////                            kind = 9
-////                        }
-////                    } else if ((0x100000200L & l) != 0L) {
-////                        checkNAddStates(0, 2)
-////                    }
-////                    if (curChar == 13) {
-////                        jjstateSet[jjnewStateCnt++] = 4
-////                    }
-////                    break
-////                case 0:
-////                    if ((0x880098feffffd9ffL & l) != 0L) {
-////                        kind = 4
-////                        checkNAdd(0)
-////                    }
-////                    break
-////                case 1:
-////                    if ((0x3ff000000000000L & l) != 0L) {
-////                        if (kind > 7) {
-////                            kind = 7
-////                        }
-////                        checkNAdd(1)
-////                    }
-////                    break
-////                case 2:
-////                    if ((0x100000200L & l) != 0L) {
-////                        checkNAddStates(0, 2)
-////                    }
-////                    break
-////                case 3:
-////                    if ((0x2400L & l) != 0L && kind > 9) {
-////                        kind = 9
-////                    }
-////                    break
-////                case 4:
-////                    if (curChar == 10 && kind > 9) {
-////                        kind = 9
-////                    }
-////                    break
-////                case 5:
-////                    if (curChar == 13) {
-////                        jjstateSet[jjnewStateCnt++] = 4
-////                    }
-////                    break
-////                case 7:
-////                    if ((0x77ff670000000000L & l) != 0L && kind > 11) {
-////                        kind = 11
-////                    }
-////                    break
-////                }
-//                } while i != startsAt
+                var l : Int64 = 1 << curCharInt
+                repeat {
+                    i -= 1
+                    switch jjstateSet[i] {
+                    case 6:
+                        if (0x880098feffffd9ff & l) != 0 {
+                            if kind > 4 {
+                                kind = 4
+                            }
+                            checkNAdd(state: 0)
+                        } else if (0x3ff000000000000 & l) != 0 {
+                            if (kind > 7) {
+                                kind = 7
+                            }
+                            checkNAdd(state: 1)
+                        } else if (0x2400 & l) != 0 {
+                            if (kind > 9) {
+                                kind = 9
+                            }
+                        } else if (0x100000200 & l) != 0 {
+                            checkNAddStates(start: 0, end: 2)
+                        }
+                        if (curCharInt == 13) {
+                            jjnewStateCnt += 1
+                            jjstateSet[jjnewStateCnt] = 4
+                        }
+                    case 8:
+                        if (0x2400 & l) != 0 {
+                            if (kind > 9) {
+                                kind = 9
+                            }
+                        } else if (0x100000200 & l) != 0 {
+                            checkNAddStates(start: 0, end: 2)
+                        }
+                        if (curCharInt == 13) {
+                            jjnewStateCnt += 1
+                            jjstateSet[jjnewStateCnt] = 4
+                        }
+                    case 0:
+                        if (0x880098feffffd9ff & l) != 0 {
+                            kind = 4
+                            checkNAdd(state: 0)
+                        }
+                    case 1:
+                        if (0x3ff000000000000 & l) != 0 {
+                            if (kind > 7) {
+                                kind = 7
+                            }
+                            checkNAdd(state: 1)
+                        }
+                    case 2:
+                        if (0x100000200 & l) != 0 {
+                            checkNAddStates(start: 0, end: 2)
+                        }
+                    case 3:
+                        if (0x2400 & l) != 0 && kind > 9 {
+                            kind = 9
+                        }
+                    case 4:
+                        if (curCharInt == 10 && kind > 9) {
+                            kind = 9
+                        }
+                    case 5:
+                        if (curCharInt == 13) {
+                            jjnewStateCnt += 1
+                            jjstateSet[jjnewStateCnt] = 4
+                        }
+                    case 7:
+                        if ((0x77ff670000000000 & l) != 0 && kind > 11) {
+                            kind = 11
+                        }
+                    }
+                } while i != startsAt
             } else if curCharInt < 128 {
                 let l = Int64(1) << Int64(curCharInt & 077)
                 repeat {
