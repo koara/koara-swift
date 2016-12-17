@@ -24,8 +24,8 @@ class TokenManager {
     static let UNDERSCORE : Int32  = 21
 
     let cs : CharStream
-    var jjrounds = Array<Int32>(repeating: 0, count: 8)
-    var jjstateSet = Array<Int32>(repeating: 0, count: 16)
+    var jjrounds = Array<Int64>(repeating: 0, count: 8)
+    var jjstateSet = Array<Int64>(repeating: 0, count: 16)
 
     var curChar : Character?
     var jjnextStates = Array<Int>(arrayLiteral: 2, 3, 5)
@@ -139,7 +139,7 @@ class TokenManager {
         curChar = try cs.readChar()
         var curCharInt = Int((String(describing: curChar!).unicodeScalars.first?.value)!)
         if (curCharInt == 65 || curCharInt == 97) {
-            return moveStringLiteralDfa3(active, 0x2000)
+            return moveStringLiteralDfa3(old: active, active: 0x2000)
         }
         return startNfa(pos: 1, active: active)
     }
@@ -147,8 +147,8 @@ class TokenManager {
     func moveStringLiteralDfa3(old: Int64, active: Int64) throws -> Int32 {
         curChar = try cs.readChar()
         var curCharInt = Int((String(describing: curChar!).unicodeScalars.first?.value)!)
-        if (s[s.startIndex].value == 71 || s[s.startIndex].value == 103) {
-            return moveStringLiteralDfa4(old: active, active: 0x2000)
+        if (curCharInt == 71 || curCharInt == 103) {
+            return try moveStringLiteralDfa4(old: active, active: 0x2000)
         }
         return startNfa(pos: 2, active: active)
     }
@@ -166,7 +166,7 @@ class TokenManager {
         curChar = try cs.readChar()
         var curCharInt = Int((String(describing: curChar!).unicodeScalars.first?.value)!)
         if (curCharInt == 58 && ((active & 0x2000) != 0)) {
-            return stopAtPos(5, 13)
+            return stopAtPos(pos: 5, kind: 13)
         }
         return startNfa(pos: 4, active: active)
     }
@@ -264,6 +264,8 @@ class TokenManager {
                     }
                 } while i != startsAt
             } else if curCharInt < 128 {
+                print("//")
+                
                 let l = Int64(1) << Int64(curCharInt & 077)
                 repeat {
                     i -= 1
@@ -273,7 +275,7 @@ class TokenManager {
                             if kind > 4 {
                                 kind = 4
                             }
-                            checkNAdd(0)
+                            checkNAdd(state: 0)
                         } else if (curCharInt == 92) {
                             jjnewStateCnt += 1
                             jjstateSet[jjnewStateCnt] = 7
@@ -281,7 +283,7 @@ class TokenManager {
                     case 0:
                         if (0xfffffffe47ffffff & l) != 0 {
                             kind = 4
-                            checkNAdd(0)
+                            checkNAdd(state: 0)
                         }
                     case 7:
                         if ((0x1b8000000 & l) != 0 && kind > 11) {
@@ -299,7 +301,7 @@ class TokenManager {
                         if (kind > 4) {
                             kind = 4
                         }
-                        checkNAdd(0)
+                        checkNAdd(state: 0)
                     }
                 } while (i != startsAt)
             }
@@ -314,7 +316,7 @@ class TokenManager {
 ////            return curPos
 ////        }
             do {
-                curChar = cs.readChar()
+                curChar = try cs.readChar()
             } catch {
                 return curPos
             }
@@ -323,8 +325,8 @@ class TokenManager {
 
     func checkNAddStates(start: Int, end: Int) {
         repeat {
-            checkNAdd(jjnewStateCnt[start])
-            start+=1
+            checkNAdd(state: jjnewStateCnt[start])
+            start += 1
         } while (start != end)
     }
 
