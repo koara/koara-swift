@@ -324,6 +324,7 @@ class TokenManager {
     }
 
     func checkNAddStates(start: Int, end: Int) {
+        var start = start
         repeat {
             checkNAdd(state: jjnewStateCnt[start])
             start += 1
