@@ -92,6 +92,8 @@ class TokenManager {
             return stopAtPos(pos: 0, kind: TokenManager.EQ)
         case 62:
             return stopAtPos(pos: 0, kind: TokenManager.GT)
+        case 73:
+            return try moveStringLiteralDfa1(active: 0x2000)
         case 91:
             return stopAtPos(pos: 0, kind: TokenManager.LBRACK)
         case 92:
@@ -102,6 +104,8 @@ class TokenManager {
             return stopAtPos(pos: 0, kind: TokenManager.UNDERSCORE)
         case 96:
             return stopAtPos(pos: 0, kind: TokenManager.BACKTICK)
+        case 105:
+            return try moveStringLiteralDfa1(active: 0x2000);
         default:
             return moveNfa(startState: 6, curPos: 0)
         }
@@ -127,6 +131,8 @@ class TokenManager {
     }
 
     func moveStringLiteralDfa1(active: Int64) throws -> Int32 {
+        print("--")
+        
         curChar = try cs.readChar()
         var curCharInt = Int((String(describing: curChar!).unicodeScalars.first?.value)!)
         if (curCharInt == 77 || curCharInt == 109) {
@@ -190,13 +196,13 @@ class TokenManager {
             }
             var curCharInt = Int((String(describing: curChar!).unicodeScalars.first?.value)!)
             if (curCharInt < 64) {
-                var l : Int64 = 0
-                //var l : Int64 = 1 << curCharInt
-                /*repeat {
+                let l = 1 << curCharInt;
+    
+                repeat {
                     i -= 1
                     switch jjstateSet[i] {
                     case 6:
-                        if (0x880098feffffd9ff & l) != 0 {
+                        if (-8646743063567279617 & l) != 0 {
                             if kind > 4 {
                                 kind = 4
                             }
@@ -229,11 +235,11 @@ class TokenManager {
                             jjnewStateCnt += 1
                             jjstateSet[jjnewStateCnt] = 4
                         }
-                    case 0:
-                        if (0x880098feffffd9ff & l) != 0 {
-                            kind = 4
-                            checkNAdd(state: 0)
-                        }
+                    //case 0:
+                    //    if (0x880098feffffd9ff & l) != 0 {
+                    //        kind = 4
+                    //        checkNAdd(state: 0)
+                    //    }
                     case 1:
                         if (0x3ff000000000000 & l) != 0 {
                             if (kind > 7) {
@@ -264,7 +270,7 @@ class TokenManager {
                         }
                     default: break
                     }
-                } while i != startsAt*/
+                } while i != startsAt
             } else if curCharInt < 128 {
                 let l = 1 << (curCharInt & 0o77)
                 repeat {
@@ -273,7 +279,6 @@ class TokenManager {
                     case 6:
                         if l != 0 {
                             if kind > 4 {
-                                print("YYY")
                                 kind = 4
                             }
                             checkNAdd(state: 0)
