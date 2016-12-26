@@ -25,7 +25,7 @@ class TokenManager {
 
     let cs : CharStream
     var jjrounds = Array<Int64>(repeating: 0, count: 8)
-    var jjstateSet = Array<Int64>(repeating: 0, count: 16)
+    var jjstateSet = Array<Int32>(repeating: 0, count: 16)
 
     var curChar : Character?
     var jjnextStates = Array<Int>(arrayLiteral: 2, 3, 5)
@@ -139,7 +139,7 @@ class TokenManager {
         curChar = try cs.readChar()
         var curCharInt = Int((String(describing: curChar!).unicodeScalars.first?.value)!)
         if (curCharInt == 65 || curCharInt == 97) {
-            return moveStringLiteralDfa3(old: active, active: 0x2000)
+            return try moveStringLiteralDfa3(old: active, active: 0x2000)
         }
         return startNfa(pos: 1, active: active)
     }
@@ -190,8 +190,9 @@ class TokenManager {
             }
             var curCharInt = Int((String(describing: curChar!).unicodeScalars.first?.value)!)
             if (curCharInt < 64) {
-                var l : Int64 = 1 << curCharInt
-                repeat {
+                var l : Int64 = 0
+                //var l : Int64 = 1 << curCharInt
+                /*repeat {
                     i -= 1
                     switch jjstateSet[i] {
                     case 6:
@@ -261,18 +262,18 @@ class TokenManager {
                         if ((0x77ff670000000000 & l) != 0 && kind > 11) {
                             kind = 11
                         }
+                    default: break
                     }
-                } while i != startsAt
+                } while i != startsAt*/
             } else if curCharInt < 128 {
-                print("//")
-                
-                let l = Int64(1) << Int64(curCharInt & 077)
+                let l = 1 << (curCharInt & 0o77)
                 repeat {
                     i -= 1
                     switch jjstateSet[i] {
                     case 6:
                         if l != 0 {
                             if kind > 4 {
+                                print("YYY")
                                 kind = 4
                             }
                             checkNAdd(state: 0)
@@ -280,17 +281,21 @@ class TokenManager {
                             jjnewStateCnt += 1
                             jjstateSet[jjnewStateCnt] = 7
                         }
-                    case 0:
-                        if (0xfffffffe47ffffff & l) != 0 {
+                   case 0:
+                        //if (0xfffffffe47ffffff & l) != 0 {
                             kind = 4
                             checkNAdd(state: 0)
-                        }
+                        //}
                     case 7:
                         if ((0x1b8000000 & l) != 0 && kind > 11) {
                             kind = 11
                         }
+                    default:
+                        break;
                     }
                 } while (i != startsAt)
+                
+                
             } else {
                 repeat {
                     i-=1
@@ -302,6 +307,7 @@ class TokenManager {
                             kind = 4
                         }
                         checkNAdd(state: 0)
+                    default: break
                     }
                 } while (i != startsAt)
             }
@@ -326,7 +332,7 @@ class TokenManager {
     func checkNAddStates(start: Int, end: Int) {
         var start = start
         repeat {
-            checkNAdd(state: jjnewStateCnt[start])
+            checkNAdd(state: jjnextStates[start])
             start += 1
         } while (start != end)
     }
@@ -334,7 +340,7 @@ class TokenManager {
     func checkNAdd(state: Int) {
         if (jjrounds[state] != round) {
             jjnewStateCnt += 1
-            jjstateSet[jjnewStateCnt] = state
+            jjstateSet[Int(jjnewStateCnt)] = Int32(state)
             jjrounds[state] = round
         }
     }

@@ -32,9 +32,9 @@ class TokenManagerTest: XCTestCase {
     }
     
     func testCharSequenceUpperCase() {
-        // let token = TokenManager(stream: CharStream(reader: StringReader(text: "C"))).getNextToken()
-        //    XCTAssertEqual(TokenManager.CHAR_SEQUENCE, token?.kind)
-        //    XCTAssertEqual("C", token?.image)
+        let token = TokenManager(stream: CharStream(reader: StringReader(text: "C"))).getNextToken()
+        XCTAssertEqual(TokenManager.CHAR_SEQUENCE, token?.kind)
+        XCTAssertEqual("C", token?.image)
     }
     
     func testColon() {
