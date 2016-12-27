@@ -16,13 +16,19 @@ class FileReader {
             let handle: FileHandle? = try FileHandle(forReadingFrom: file)
             if let handle = handle {
                 handle.seek(toFileOffset: UInt64(index))
-                let fileContent = String(data: handle.readData(ofLength: length), encoding: .utf8)!
+                let fileContent = String(data: handle.readData(ofLength: length * 4), encoding: .utf8)!
             
                 if fileContent != "" {
                     for (i, c) in fileContent.characters.enumerated() {
+                        
+                        print("---\(c)")
+                        
                         buffer.insert(c, at: offset + i)
                         charactersRead += 1
                         index += 1
+                        if(charactersRead >= length) {
+                            return charactersRead
+                        }
                     }
                     return charactersRead
                 }

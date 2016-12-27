@@ -67,6 +67,8 @@
 		A17D36641D899CA3003BDAAA /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17D36621D899CA3003BDAAA /* Token.swift */; };
 		A18829EF1E129CAC0054295E /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18829EE1E129CAC0054295E /* Character.swift */; };
 		A18829F01E129CAC0054295E /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18829EE1E129CAC0054295E /* Character.swift */; };
+		A18829F21E12A7C50054295E /* filereader-unicode.kd in Resources */ = {isa = PBXBuildFile; fileRef = A18829F11E12A7C50054295E /* filereader-unicode.kd */; };
+		A18829F31E12A7C50054295E /* filereader-unicode.kd in Resources */ = {isa = PBXBuildFile; fileRef = A18829F11E12A7C50054295E /* filereader-unicode.kd */; };
 		A1E2D1961DB736C800C8315C /* filereader.kd in Resources */ = {isa = PBXBuildFile; fileRef = A1E2D1951DB736C800C8315C /* filereader.kd */; };
 		A1E2D1971DB736C800C8315C /* filereader.kd in Resources */ = {isa = PBXBuildFile; fileRef = A1E2D1951DB736C800C8315C /* filereader.kd */; };
 		A1E2D19C1DB7C38C00C8315C /* CharStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E2D19B1DB7C38C00C8315C /* CharStreamTests.swift */; };
@@ -115,6 +117,7 @@
 		A17D365C1D8998C6003BDAAA /* TreeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeState.swift; sourceTree = "<group>"; };
 		A17D36621D899CA3003BDAAA /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		A18829EE1E129CAC0054295E /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		A18829F11E12A7C50054295E /* filereader-unicode.kd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "filereader-unicode.kd"; sourceTree = "<group>"; };
 		A1E2D1951DB736C800C8315C /* filereader.kd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = filereader.kd; sourceTree = "<group>"; };
 		A1E2D19B1DB7C38C00C8315C /* CharStreamTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharStreamTests.swift; sourceTree = "<group>"; };
 		F8111E3319A95C8B0040E7D1 /* Koara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,6 +217,7 @@
 		F8111E3F19A95C8B0040E7D1 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				A18829F11E12A7C50054295E /* filereader-unicode.kd */,
 				A1E2D1951DB736C800C8315C /* filereader.kd */,
 				A109D9201D4FA1CA00D8C572 /* StringReaderTest.swift */,
 				A16A5A7F1D7F38C6005EEEB6 /* FileReaderTests.swift */,
@@ -318,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1E2D1961DB736C800C8315C /* filereader.kd in Resources */,
+				A18829F21E12A7C50054295E /* filereader-unicode.kd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1E2D1971DB736C800C8315C /* filereader.kd in Resources */,
+				A18829F31E12A7C50054295E /* filereader-unicode.kd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
