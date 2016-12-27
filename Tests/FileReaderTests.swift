@@ -11,8 +11,7 @@ class FileReaderTest: XCTestCase {
     }
     
     func testRead() throws {
-        let file = URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader.kd")
-        let reader = FileReader(file: file)
+        let reader = FileReader(file: URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader.kd"))
         XCTAssertEqual(reader.read(&buffer, offset: 0, length: 4), 4)
         XCTAssertEqual(buffer[0], "a")
         XCTAssertEqual(buffer[1], "b")
@@ -23,8 +22,7 @@ class FileReaderTest: XCTestCase {
     }
     
     func testReadPartOfString() {
-        let file = URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader.kd")
-        let reader = FileReader(file: file)
+        let reader = FileReader(file: URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader.kd"))
         XCTAssertEqual(reader.read(&buffer, offset: 0, length: 2), 2)
         XCTAssertEqual(buffer[0], "a")
         XCTAssertEqual(buffer[1], "b")
@@ -32,8 +30,7 @@ class FileReaderTest: XCTestCase {
     }
     
     func testReadWithOffsetPartOfString() {
-        let file = URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader.kd")
-        let reader = FileReader(file: file)
+        let reader = FileReader(file: URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader.kd"))
         buffer.append(" ")
         buffer.append(" ")
         XCTAssertEqual(reader.read(&buffer, offset: 2, length: 4), 4)
@@ -44,8 +41,7 @@ class FileReaderTest: XCTestCase {
     }
     
     func testReadWithOffsetTooLargePartOfString() {
-        let file = URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader.kd")
-        let reader = FileReader(file: file)
+        let reader = FileReader(file: URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader.kd"))
         buffer.append(" ")
         buffer.append(" ")
         buffer.append(" ")
@@ -60,8 +56,7 @@ class FileReaderTest: XCTestCase {
     }
     
     func testReadUntilEof() {
-        let file = URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader.kd")
-        let reader = FileReader(file: file)
+        let reader = FileReader(file: URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader.kd"))
         XCTAssertEqual(reader.read(&buffer, offset: 0, length: 2), 2)
         XCTAssertEqual(buffer[0], "a")
         XCTAssertEqual(buffer[1], "b")
@@ -74,8 +69,7 @@ class FileReaderTest: XCTestCase {
     }
 
     func testReadWithUnicode() {
-        let file = URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader-unicode.kd")
-        let reader = FileReader(file: file)
+        let reader = FileReader(file: URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader-unicode.kd"))
         XCTAssertEqual(reader.read(&buffer, offset: 0, length: 4), 4)
         XCTAssertEqual(buffer[0], "ð")
         XCTAssertEqual(buffer[1], "i")
@@ -85,8 +79,7 @@ class FileReaderTest: XCTestCase {
     }
     
     func testReadWithUnicodePartOfString() {
-        let file = URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader-unicode.kd")
-        let reader = FileReader(file: file)
+        let reader = FileReader(file: URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader-unicode.kd"))
         XCTAssertEqual(reader.read(&buffer, offset: 0, length: 2), 2)
         XCTAssertEqual(buffer[0], "ð")
         XCTAssertEqual(buffer[1], "i")
@@ -94,8 +87,7 @@ class FileReaderTest: XCTestCase {
     }
     
     func testReadWithUnicodeAndOffsetPartOfString() {
-        let file = URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader-unicode.kd")
-        let reader = FileReader(file: file)
+        let reader = FileReader(file: URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader-unicode.kd"))
         buffer.append(" ")
         buffer.append(" ")
         XCTAssertEqual(reader.read(&buffer, offset: 2, length: 4), 4)
@@ -106,8 +98,7 @@ class FileReaderTest: XCTestCase {
     }
 
     func testReadWithUnicodeAndOffsetTooLargePartOfString() {
-        let file = URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader-unicode.kd")
-        let reader = FileReader(file: file)
+        let reader = FileReader(file: URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader-unicode.kd"))
         buffer.append(" ")
         buffer.append(" ")
         buffer.append(" ")
@@ -122,8 +113,7 @@ class FileReaderTest: XCTestCase {
     }
 
     func testReadWithUnicodeUntilEof() {
-        let file = URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader-unicode.kd")
-        let reader = FileReader(file: file)
+        let reader = FileReader(file: URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader-unicode.kd"))
         XCTAssertEqual(reader.read(&buffer, offset: 0, length: 3), 3)
         XCTAssertEqual(buffer[0], "ð")
         XCTAssertEqual(buffer[1], "i")
