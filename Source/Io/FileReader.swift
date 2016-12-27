@@ -3,28 +3,35 @@ import Foundation
 class FileReader {
    
     var index: Int
-    var fileName: String
+    var file: URL
     
-    init(fileName: String) {
-        self.fileName = fileName
+    init(file: URL) {
+        self.file = file
         self.index = 0
     }
     
     func read(_ buffer: inout [Character], offset: Int, length: Int) -> Int {
-        var charactersRead = 4
+        var charactersRead = 0
         do {
-            let content = try String(contentsOfFile:fileName, encoding: String.Encoding.utf8)
-           
+            let handle: FileHandle? = try FileHandle(forReadingFrom: file)
+            if let handle = handle {
+                handle.seek(toFileOffset: UInt64(index))
+                let fileContent = String(data: handle.readData(ofLength: length), encoding: .utf8)!
             
-            buffer[0] = "a"
-            buffer[1] = "b"
-            buffer[2] = "c"
-            buffer[3] = "d"
-            
-            return charactersRead
+                if fileContent != "" {
+                    for (i, c) in fileContent.characters.enumerated() {
+                        buffer.insert(c, at: offset + i)
+                        charactersRead += 1
+                        index += 1
+                    }
+                    return charactersRead
+                }
+                handle.closeFile()
+            }
         } catch {
             return -1
         }
+        return -1
     }
     
 }

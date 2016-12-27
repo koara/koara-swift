@@ -131,8 +131,6 @@ class TokenManager {
     }
 
     func moveStringLiteralDfa1(active: Int64) throws -> Int32 {
-        print("--")
-        
         curChar = try cs.readChar()
         var curCharInt = Int((String(describing: curChar!).unicodeScalars.first?.value)!)
         if (curCharInt == 77 || curCharInt == 109) {
