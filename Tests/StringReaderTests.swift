@@ -16,7 +16,12 @@ class StringReaderTests: QuickSpec {
     it("read") {
         let reader = StringReader(text: "abcd")
         expect(reader.read(&buffer, offset: 0, length: 4)).to(equal(4))
-
+        expect(buffer[0]).to(equal("a"))
+        expect(buffer[1]).to(equal("b"))
+        expect(buffer[2]).to(equal("c"))
+        expect(buffer[3]).to(equal("d"))
+        expect(buffer.count).to(equal(4))
+        expect(reader.read(&buffer, offset: 0, length: 4)).to(equal(-1))
     }
     
     it("readPartOfString") {
@@ -24,18 +29,7 @@ class StringReaderTests: QuickSpec {
     
     
     
-    /*
-    func testRead() {
-        let reader = StringReader(text: "abcd")
-        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 4), 4)
-        XCTAssertEqual(buffer[0], "a")
-        XCTAssertEqual(buffer[1], "b")
-        XCTAssertEqual(buffer[2], "c")
-        XCTAssertEqual(buffer[3], "d")
-        XCTAssertEqual(buffer.count, 4)
-        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 4), -1)
-    }
-    
+    /*    
     func testReadPartOfString() {
         let reader = StringReader(text: "abcd")
         XCTAssertEqual(reader.read(&buffer, offset: 0, length: 2), 2)
