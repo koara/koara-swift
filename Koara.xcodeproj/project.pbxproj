@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A17742971E1517B700AB88FF /* StringReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17742381E14F73E00AB88FF /* StringReaderTests.swift */; };
-		A177429E1E1519B200AB88FF /* Koara.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17742801E1516E100AB88FF /* Koara.framework */; };
 		A17742AE1E152D2B00AB88FF /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17742AD1E152D2B00AB88FF /* StringReader.swift */; };
-		A17742AF1E152DA300AB88FF /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17742AD1E152D2B00AB88FF /* StringReader.swift */; };
+		A17742B21E1539C100AB88FF /* Koara.h in Headers */ = {isa = PBXBuildFile; fileRef = A17742B11E1539C100AB88FF /* Koara.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A17742B61E153D1C00AB88FF /* Koara.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17742801E1516E100AB88FF /* Koara.framework */; };
+		A17742B81E153E2300AB88FF /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17742B71E153E2300AB88FF /* Parser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A177429C1E1519A600AB88FF /* PBXContainerItemProxy */ = {
+		A17742B41E153D0A00AB88FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A17741291E13F67C00AB88FF /* Project object */;
 			proxyType = 1;
@@ -28,6 +29,8 @@
 		A17742801E1516E100AB88FF /* Koara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17742881E1516E100AB88FF /* Koara iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Koara iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17742AD1E152D2B00AB88FF /* StringReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringReader.swift; path = Source/StringReader.swift; sourceTree = "<group>"; };
+		A17742B11E1539C100AB88FF /* Koara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Koara.h; path = Source/Koara.h; sourceTree = "<group>"; };
+		A17742B71E153E2300AB88FF /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A177429E1E1519B200AB88FF /* Koara.framework in Frameworks */,
+				A17742B61E153D1C00AB88FF /* Koara.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				A17742AD1E152D2B00AB88FF /* StringReader.swift */,
+				A17742B11E1539C100AB88FF /* Koara.h */,
+				A17742B71E153E2300AB88FF /* Parser.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -82,6 +87,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A17742B21E1539C100AB88FF /* Koara.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +123,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				A177429D1E1519A600AB88FF /* PBXTargetDependency */,
+				A17742B51E153D0A00AB88FF /* PBXTargetDependency */,
 			);
 			name = "Koara iOS Tests";
 			productName = KoaraTests;
@@ -184,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A17742B81E153E2300AB88FF /* Parser.swift in Sources */,
 				A17742AE1E152D2B00AB88FF /* StringReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,7 +199,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A17742AF1E152DA300AB88FF /* StringReader.swift in Sources */,
 				A17742971E1517B700AB88FF /* StringReaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,10 +206,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A177429D1E1519A600AB88FF /* PBXTargetDependency */ = {
+		A17742B51E153D0A00AB88FF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A177427F1E1516E100AB88FF /* Koara iOS */;
-			targetProxy = A177429C1E1519A600AB88FF /* PBXContainerItemProxy */;
+			targetProxy = A17742B41E153D0A00AB88FF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -211,12 +217,14 @@
 		A177412D1E13F67C00AB88FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: andy.vandenheuvel@gmail.com (DGEE84MG7S)";
 			};
 			name = Debug;
 		};
 		A177412E1E13F67C00AB88FF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: andy.vandenheuvel@gmail.com (DGEE84MG7S)";
 			};
 			name = Release;
 		};
@@ -242,8 +250,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -308,8 +315,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
