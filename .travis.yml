@@ -6,7 +6,7 @@ env:
     - LANG=en_US.UTF-8
     - LC_ALL=en_US.UTF-8
     - WORKSPACE="Koara.xcworkspace"
-    #- IOS_FRAMEWORK_SCHEME="Koara-iOS"
+    - IOS_FRAMEWORK_SCHEME="Koara"
     #- IOS_FRAMEWORK_SCHEME="Koara-iOS"
     #- OSX_FRAMEWORK_SCHEME="Koara-Mac"
     #- TVOS_FRAMEWORK_SCHEME="Koara-tvOS"
