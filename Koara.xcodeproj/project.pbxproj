@@ -9,12 +9,8 @@
 /* Begin PBXBuildFile section */
 		A17742971E1517B700AB88FF /* StringReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17742381E14F73E00AB88FF /* StringReaderTests.swift */; };
 		A177429E1E1519B200AB88FF /* Koara.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17742801E1516E100AB88FF /* Koara.framework */; };
-		A17742A01E151A1300AB88FF /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A177429A1E15184300AB88FF /* Reader.swift */; };
-		A17742A11E151A1300AB88FF /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17742791E1515BC00AB88FF /* StringReader.swift */; };
-		A17742A21E151A1300AB88FF /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A177421B1E14F6CD00AB88FF /* Parser.swift */; };
-		A17742A31E151A9B00AB88FF /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A177429A1E15184300AB88FF /* Reader.swift */; };
-		A17742A41E151A9B00AB88FF /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17742791E1515BC00AB88FF /* StringReader.swift */; };
-		A17742A51E151A9B00AB88FF /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A177421B1E14F6CD00AB88FF /* Parser.swift */; };
+		A17742AE1E152D2B00AB88FF /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17742AD1E152D2B00AB88FF /* StringReader.swift */; };
+		A17742AF1E152DA300AB88FF /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17742AD1E152D2B00AB88FF /* StringReader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,12 +24,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A177421B1E14F6CD00AB88FF /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Source/Parser.swift; sourceTree = "<group>"; };
 		A17742381E14F73E00AB88FF /* StringReaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringReaderTests.swift; path = Tests/StringReaderTests.swift; sourceTree = "<group>"; };
-		A17742791E1515BC00AB88FF /* StringReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringReader.swift; path = Source/Io/StringReader.swift; sourceTree = "<group>"; };
 		A17742801E1516E100AB88FF /* Koara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17742881E1516E100AB88FF /* Koara iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Koara iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A177429A1E15184300AB88FF /* Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reader.swift; path = Source/Io/Reader.swift; sourceTree = "<group>"; };
+		A17742AD1E152D2B00AB88FF /* StringReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringReader.swift; path = Source/StringReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,19 +70,9 @@
 		A177421A1E14F6C500AB88FF /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				A17742781E1515AE00AB88FF /* Io */,
-				A177421B1E14F6CD00AB88FF /* Parser.swift */,
+				A17742AD1E152D2B00AB88FF /* StringReader.swift */,
 			);
 			name = Source;
-			sourceTree = "<group>";
-		};
-		A17742781E1515AE00AB88FF /* Io */ = {
-			isa = PBXGroup;
-			children = (
-				A177429A1E15184300AB88FF /* Reader.swift */,
-				A17742791E1515BC00AB88FF /* StringReader.swift */,
-			);
-			name = Io;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +135,7 @@
 				TargetAttributes = {
 					A177427F1E1516E100AB88FF = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					A17742871E1516E100AB88FF = {
@@ -199,9 +184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A17742A01E151A1300AB88FF /* Reader.swift in Sources */,
-				A17742A11E151A1300AB88FF /* StringReader.swift in Sources */,
-				A17742A21E151A1300AB88FF /* Parser.swift in Sources */,
+				A17742AE1E152D2B00AB88FF /* StringReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,9 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A17742A31E151A9B00AB88FF /* Reader.swift in Sources */,
-				A17742A41E151A9B00AB88FF /* StringReader.swift in Sources */,
-				A17742A51E151A9B00AB88FF /* Parser.swift in Sources */,
+				A17742AF1E152DA300AB88FF /* StringReader.swift in Sources */,
 				A17742971E1517B700AB88FF /* StringReaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
