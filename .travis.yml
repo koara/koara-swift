@@ -1,7 +1,12 @@
 language: objective-c
 osx_image: xcode8
-matrix:
-  - DESTINATION="OS=10.0,name=iPhone 7 Plus"
-  - DESTINATION="OS=9.0,name=iPhone 6"
+env:
+  matrix:
+    - DESTINATION="OS=10.0,name=iPhone 7 Plus"
+    - DESTINATION="OS=9.0,name=iPhone 6"
 script:
+  - set -o pipefail
+  - xcodebuild -version
+  - xcodebuild -showsdks
+
   - xcodebuild -workspace "Koara.xcworkspace" -scheme "Koara iOS" -sdk "iphonesimulator10.0" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test;
