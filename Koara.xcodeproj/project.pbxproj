@@ -28,7 +28,7 @@
 		A177425E1E14F84300AB88FF /* Koara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17742601E14F84300AB88FF /* Koara.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Koara.h; sourceTree = "<group>"; };
 		A17742611E14F84300AB88FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A17742661E14F84300AB88FF /* KoaraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KoaraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A17742661E14F84300AB88FF /* Koara iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Koara iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A177426B1E14F84300AB88FF /* KoaraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoaraTests.swift; sourceTree = "<group>"; };
 		A177426D1E14F84300AB88FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,7 +59,7 @@
 				A17742191E14F6BC00AB88FF /* Tests */,
 				A177425E1E14F84300AB88FF /* Koara.framework */,
 				A177425F1E14F84300AB88FF /* Koara */,
-				A17742661E14F84300AB88FF /* KoaraTests.xctest */,
+				A17742661E14F84300AB88FF /* Koara iOS Tests.xctest */,
 				A177426A1E14F84300AB88FF /* KoaraTests */,
 			);
 			sourceTree = "<group>";
@@ -112,9 +112,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A177425D1E14F84300AB88FF /* Koara */ = {
+		A177425D1E14F84300AB88FF /* Koara iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A177426F1E14F84300AB88FF /* Build configuration list for PBXNativeTarget "Koara" */;
+			buildConfigurationList = A177426F1E14F84300AB88FF /* Build configuration list for PBXNativeTarget "Koara iOS" */;
 			buildPhases = (
 				A17742591E14F84300AB88FF /* Sources */,
 				A177425A1E14F84300AB88FF /* Frameworks */,
@@ -125,14 +125,14 @@
 			);
 			dependencies = (
 			);
-			name = Koara;
+			name = "Koara iOS";
 			productName = Koara;
 			productReference = A177425E1E14F84300AB88FF /* Koara.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A17742651E14F84300AB88FF /* KoaraTests */ = {
+		A17742651E14F84300AB88FF /* Koara iOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A17742721E14F84300AB88FF /* Build configuration list for PBXNativeTarget "KoaraTests" */;
+			buildConfigurationList = A17742721E14F84300AB88FF /* Build configuration list for PBXNativeTarget "Koara iOS Tests" */;
 			buildPhases = (
 				A17742621E14F84300AB88FF /* Sources */,
 				A17742631E14F84300AB88FF /* Frameworks */,
@@ -143,9 +143,9 @@
 			dependencies = (
 				A17742691E14F84300AB88FF /* PBXTargetDependency */,
 			);
-			name = KoaraTests;
+			name = "Koara iOS Tests";
 			productName = KoaraTests;
-			productReference = A17742661E14F84300AB88FF /* KoaraTests.xctest */;
+			productReference = A17742661E14F84300AB88FF /* Koara iOS Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -179,8 +179,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A177425D1E14F84300AB88FF /* Koara */,
-				A17742651E14F84300AB88FF /* KoaraTests */,
+				A177425D1E14F84300AB88FF /* Koara iOS */,
+				A17742651E14F84300AB88FF /* Koara iOS Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -223,7 +223,7 @@
 /* Begin PBXTargetDependency section */
 		A17742691E14F84300AB88FF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A177425D1E14F84300AB88FF /* Koara */;
+			target = A177425D1E14F84300AB88FF /* Koara iOS */;
 			targetProxy = A17742681E14F84300AB88FF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -294,7 +294,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = io.koara.Koara;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Koara;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -352,7 +352,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = io.koara.Koara;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Koara;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -477,7 +477,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A177426F1E14F84300AB88FF /* Build configuration list for PBXNativeTarget "Koara" */ = {
+		A177426F1E14F84300AB88FF /* Build configuration list for PBXNativeTarget "Koara iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A17742701E14F84300AB88FF /* Debug */,
@@ -485,7 +485,7 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		A17742721E14F84300AB88FF /* Build configuration list for PBXNativeTarget "KoaraTests" */ = {
+		A17742721E14F84300AB88FF /* Build configuration list for PBXNativeTarget "Koara iOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A17742731E14F84300AB88FF /* Debug */,
