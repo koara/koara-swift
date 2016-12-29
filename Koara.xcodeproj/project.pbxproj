@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A17742671E14F84300AB88FF /* Koara.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A177425E1E14F84300AB88FF /* Koara.framework */; };
+		A17742771E1513E500AB88FF /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17742381E14F73E00AB88FF /* ParserTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,6 +196,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A17742771E1513E500AB88FF /* ParserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
