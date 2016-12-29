@@ -1,5 +1,5 @@
 source "https://rubygems.org"
 
-gem 'slather'
+gem 'slather', '>= 2.3.0'
 
 gemspec
