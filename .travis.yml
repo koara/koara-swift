@@ -1,4 +1,5 @@
 language: objective-c
 osx_image: xcode8
 script:
+  - xcodebuild -list
   - xcodebuild test -scheme "Koara iOS" -destination "platform=iOS Simulator,name=iPhone 6"
