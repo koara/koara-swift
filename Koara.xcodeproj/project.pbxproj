@@ -57,9 +57,8 @@
 			children = (
 				A177421A1E14F6C500AB88FF /* Source */,
 				A17742191E14F6BC00AB88FF /* Tests */,
-				A177425E1E14F84300AB88FF /* Koara.framework */,
+				A17742761E150FD300AB88FF /* Products */,
 				A177425F1E14F84300AB88FF /* Koara */,
-				A17742661E14F84300AB88FF /* Koara iOS Tests.xctest */,
 				A177426A1E14F84300AB88FF /* KoaraTests */,
 			);
 			sourceTree = "<group>";
@@ -96,6 +95,15 @@
 				A177426D1E14F84300AB88FF /* Info.plist */,
 			);
 			path = KoaraTests;
+			sourceTree = "<group>";
+		};
+		A17742761E150FD300AB88FF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A177425E1E14F84300AB88FF /* Koara.framework */,
+				A17742661E14F84300AB88FF /* Koara iOS Tests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
