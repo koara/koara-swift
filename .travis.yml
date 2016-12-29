@@ -1,4 +1,7 @@
 language: objective-c
 osx_image: xcode8
+matrix:
+  - DESTINATION="platform=iOS Simulator,name=iPhone 6"
 script:
-- xcodebuild test -scheme "Koara" -destination "platform=iOS Simulator,name=iPhone 6"
+  # E.g: xcodebuild test -scheme "Koara" -destination "platform=iOS Simulator,name=iPhone 6"
+  - xcodebuild test -scheme "Koara" -destination $DESTINATION
