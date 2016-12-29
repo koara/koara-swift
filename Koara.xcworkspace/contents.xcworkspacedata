@@ -4,4 +4,10 @@
    <FileRef
       location = "container:Koara.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Koara.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
 </Workspace>

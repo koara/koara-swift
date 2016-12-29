@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D0202255C0F4BAC3581898D /* Pods_Koara_iOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 572DF4875227071FE42ECF94 /* Pods_Koara_iOS_Tests.framework */; };
 		A17742971E1517B700AB88FF /* StringReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17742381E14F73E00AB88FF /* StringReaderTests.swift */; };
 		A17742AE1E152D2B00AB88FF /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17742AD1E152D2B00AB88FF /* StringReader.swift */; };
 		A17742B21E1539C100AB88FF /* Koara.h in Headers */ = {isa = PBXBuildFile; fileRef = A17742B11E1539C100AB88FF /* Koara.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A17742B61E153D1C00AB88FF /* Koara.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17742801E1516E100AB88FF /* Koara.framework */; };
-		A17742B81E153E2300AB88FF /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17742B71E153E2300AB88FF /* Parser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,12 +25,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		32BD3FD27F061C13F91537D5 /* Pods-Koara iOS Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koara iOS Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Koara iOS Tests/Pods-Koara iOS Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		572DF4875227071FE42ECF94 /* Pods_Koara_iOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koara_iOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		913E5D6D1EE221DD99A825B2 /* Pods-Koara iOS Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koara iOS Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Koara iOS Tests/Pods-Koara iOS Tests.release.xcconfig"; sourceTree = "<group>"; };
 		A17742381E14F73E00AB88FF /* StringReaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringReaderTests.swift; path = Tests/StringReaderTests.swift; sourceTree = "<group>"; };
 		A17742801E1516E100AB88FF /* Koara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17742881E1516E100AB88FF /* Koara iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Koara iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17742AD1E152D2B00AB88FF /* StringReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringReader.swift; path = Source/StringReader.swift; sourceTree = "<group>"; };
 		A17742B11E1539C100AB88FF /* Koara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Koara.h; path = Source/Koara.h; sourceTree = "<group>"; };
-		A17742B71E153E2300AB88FF /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,12 +48,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				A17742B61E153D1C00AB88FF /* Koara.framework in Frameworks */,
+				9D0202255C0F4BAC3581898D /* Pods_Koara_iOS_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		230D86B1F178E525C4517E01 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				32BD3FD27F061C13F91537D5 /* Pods-Koara iOS Tests.debug.xcconfig */,
+				913E5D6D1EE221DD99A825B2 /* Pods-Koara iOS Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A17741281E13F67C00AB88FF = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +71,8 @@
 				A17742191E14F6BC00AB88FF /* Tests */,
 				A17742801E1516E100AB88FF /* Koara.framework */,
 				A17742881E1516E100AB88FF /* Koara iOS Tests.xctest */,
+				230D86B1F178E525C4517E01 /* Pods */,
+				FFCD30CFF4E61215B9FB6919 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,9 +89,16 @@
 			children = (
 				A17742AD1E152D2B00AB88FF /* StringReader.swift */,
 				A17742B11E1539C100AB88FF /* Koara.h */,
-				A17742B71E153E2300AB88FF /* Parser.swift */,
 			);
 			name = Source;
+			sourceTree = "<group>";
+		};
+		FFCD30CFF4E61215B9FB6919 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				572DF4875227071FE42ECF94 /* Pods_Koara_iOS_Tests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,9 +137,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A17742941E1516E100AB88FF /* Build configuration list for PBXNativeTarget "Koara iOS Tests" */;
 			buildPhases = (
+				18E419A768CF827118468806 /* [CP] Check Pods Manifest.lock */,
 				A17742841E1516E100AB88FF /* Sources */,
 				A17742851E1516E100AB88FF /* Frameworks */,
 				A17742861E1516E100AB88FF /* Resources */,
+				8DFE1D664954D63853DC28D5 /* [CP] Embed Pods Frameworks */,
+				21FD27EE63CADE4C4D2EA5D2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -185,12 +209,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		18E419A768CF827118468806 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		21FD27EE63CADE4C4D2EA5D2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koara iOS Tests/Pods-Koara iOS Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8DFE1D664954D63853DC28D5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koara iOS Tests/Pods-Koara iOS Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A177427B1E1516E100AB88FF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A17742B81E153E2300AB88FF /* Parser.swift in Sources */,
 				A17742AE1E152D2B00AB88FF /* StringReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,8 +424,9 @@
 		};
 		A17742951E1516E100AB88FF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32BD3FD27F061C13F91537D5 /* Pods-Koara iOS Tests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -408,8 +480,9 @@
 		};
 		A17742961E1516E100AB88FF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 913E5D6D1EE221DD99A825B2 /* Pods-Koara iOS Tests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
