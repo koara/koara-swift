@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A17742671E14F84300AB88FF /* Koara.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A177425E1E14F84300AB88FF /* Koara.framework */; };
 		A17742771E1513E500AB88FF /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17742381E14F73E00AB88FF /* ParserTests.swift */; };
+		A177427A1E1515BC00AB88FF /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17742791E1515BC00AB88FF /* StringReader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +27,7 @@
 		A17742381E14F73E00AB88FF /* ParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParserTests.swift; path = Tests/ParserTests.swift; sourceTree = "<group>"; };
 		A177425E1E14F84300AB88FF /* Koara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17742661E14F84300AB88FF /* Koara iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Koara iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A17742791E1515BC00AB88FF /* StringReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringReader.swift; path = Source/Io/StringReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 		A177421A1E14F6C500AB88FF /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				A17742781E1515AE00AB88FF /* Io */,
 				A177421B1E14F6CD00AB88FF /* Parser.swift */,
 			);
 			name = Source;
@@ -79,6 +82,14 @@
 				A17742661E14F84300AB88FF /* Koara iOS Tests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A17742781E1515AE00AB88FF /* Io */ = {
+			isa = PBXGroup;
+			children = (
+				A17742791E1515BC00AB88FF /* StringReader.swift */,
+			);
+			name = Io;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,6 +130,8 @@
 				A17742621E14F84300AB88FF /* Sources */,
 				A17742631E14F84300AB88FF /* Frameworks */,
 				A17742641E14F84300AB88FF /* Resources */,
+				9752955C97535C619B914D36 /* [CP] Embed Pods Frameworks */,
+				85C11E8EB9ED13C09154F597 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -141,6 +154,7 @@
 				TargetAttributes = {
 					A177425D1E14F84300AB88FF = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					A17742651E14F84300AB88FF = {
@@ -184,11 +198,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		85C11E8EB9ED13C09154F597 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koara iOS Tests/Pods-Koara iOS Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9752955C97535C619B914D36 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koara iOS Tests/Pods-Koara iOS Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A17742591E14F84300AB88FF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A177427A1E1515BC00AB88FF /* StringReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +397,7 @@
 		A17742731E14F84300AB88FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -403,6 +452,7 @@
 		A17742741E14F84300AB88FF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
