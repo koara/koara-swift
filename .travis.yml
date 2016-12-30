@@ -5,7 +5,9 @@ before_install:
   - gem install slather
 script:
   - set -o pipefail
-  - xcodebuild -workspace "Koara.xcworkspace" -destination "OS=10.2,name=iPhone 7 Plus" -sdk="iphonesimulator10.2" -scheme "Koara iOS" test
+  - xcodebuild -version
+  - xcodebuild -showsdks
+  - xcodebuild -workspace "Koara.xcworkspace" -destination "OS=10.0,name=iPhone 7 Plus" -sdk="iphonesimulator10.2" -scheme "Koara iOS" test
 after_success:
   - slather
 
