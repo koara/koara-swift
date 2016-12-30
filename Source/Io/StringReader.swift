@@ -1,6 +1,6 @@
 import Foundation
 
-public class StringReader {
+public class StringReader : Reader {
     
     var index: Int
     var text: String

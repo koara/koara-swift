@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A177427F1E1516E100AB88FF"
+               BlueprintIdentifier = "A1C363AA1E15920C00CC1874"
                BuildableName = "Koara.framework"
                BlueprintName = "Koara iOS"
                ReferencedContainer = "container:Koara.xcodeproj">
@@ -26,14 +26,13 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A17742871E1516E100AB88FF"
+               BlueprintIdentifier = "A1C363B21E15920C00CC1874"
                BuildableName = "Koara iOS Tests.xctest"
                BlueprintName = "Koara iOS Tests"
                ReferencedContainer = "container:Koara.xcodeproj">
@@ -43,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A177427F1E1516E100AB88FF"
+            BlueprintIdentifier = "A1C363AA1E15920C00CC1874"
             BuildableName = "Koara.framework"
             BlueprintName = "Koara iOS"
             ReferencedContainer = "container:Koara.xcodeproj">
@@ -65,7 +64,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A177427F1E1516E100AB88FF"
+            BlueprintIdentifier = "A1C363AA1E15920C00CC1874"
             BuildableName = "Koara.framework"
             BlueprintName = "Koara iOS"
             ReferencedContainer = "container:Koara.xcodeproj">
@@ -83,7 +82,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A177427F1E1516E100AB88FF"
+            BlueprintIdentifier = "A1C363AA1E15920C00CC1874"
             BuildableName = "Koara.framework"
             BlueprintName = "Koara iOS"
             ReferencedContainer = "container:Koara.xcodeproj">
