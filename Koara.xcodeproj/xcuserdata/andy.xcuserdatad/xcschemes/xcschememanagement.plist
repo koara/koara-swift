@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Koara iOS.xcscheme_^#shared#^_</key>
+		<key>Koara iOS.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -88,6 +88,26 @@
 			<true/>
 		</dict>
 		<key>A17742E21E1558D000AB88FF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A1B9D2DA1E16E28200BC2DA9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A1B9D2E21E16E28200BC2DA9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A1B9D2F61E17F97A00BC2DA9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A1B9D2FE1E17F97A00BC2DA9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
