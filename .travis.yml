@@ -1,4 +1,4 @@
 language: objective-c
 osx_image: xcode8.2
 script:
-  - xcodebuild -showsdks
+  - xcodebuild -workspace "Koara.xcworkspace" -scheme "Koara iOS" -destination "OS=10.2,name=iPhone 7 Plus" test
