@@ -5,4 +5,4 @@ env:
   - LC_CTYPE=en_US.UTF-8
   - LANG=en_US.UTF-8
 script:
-  - xcodebuild -workspace "Koara.xcworkspace" -scheme "Koara iOS" -destination "OS=10.2,name=iPhone 7 Plus" -sdk "iphonesimulator10.2" -configuration Debug test;
+  - xcodebuild -workspace "Koara.xcworkspace" -scheme "Koara iOS" -destination "OS=10.2,name=iPhone 7 Plus" -sdk "iphonesimulator10.2" -configuration "Debug" test
