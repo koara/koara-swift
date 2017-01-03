@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A1B9D2F61E17F97A00BC2DA9"
+               BlueprintIdentifier = "A19B5AA41E1C022200213D1D"
                BuildableName = "Koara.framework"
                BlueprintName = "Koara iOS"
                ReferencedContainer = "container:Koara.xcodeproj">
@@ -33,7 +33,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A1B9D2FE1E17F97A00BC2DA9"
+               BlueprintIdentifier = "A19B5AAC1E1C022200213D1D"
                BuildableName = "Koara iOS Tests.xctest"
                BlueprintName = "Koara iOS Tests"
                ReferencedContainer = "container:Koara.xcodeproj">
@@ -43,7 +43,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A1B9D2F61E17F97A00BC2DA9"
+            BlueprintIdentifier = "A19B5AA41E1C022200213D1D"
             BuildableName = "Koara.framework"
             BlueprintName = "Koara iOS"
             ReferencedContainer = "container:Koara.xcodeproj">
@@ -65,7 +65,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A1B9D2F61E17F97A00BC2DA9"
+            BlueprintIdentifier = "A19B5AA41E1C022200213D1D"
             BuildableName = "Koara.framework"
             BlueprintName = "Koara iOS"
             ReferencedContainer = "container:Koara.xcodeproj">
@@ -83,7 +83,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A1B9D2F61E17F97A00BC2DA9"
+            BlueprintIdentifier = "A19B5AA41E1C022200213D1D"
             BuildableName = "Koara.framework"
             BlueprintName = "Koara iOS"
             ReferencedContainer = "container:Koara.xcodeproj">
