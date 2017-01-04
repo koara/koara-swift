@@ -119,10 +119,10 @@ class FileReaderTest: XCTestCase {
         XCTAssertEqual(buffer[0], "ð")
         XCTAssertEqual(buffer[1], "i")
 
-        //XCTAssertEqual(reader.read(&buffer, offset: 0, length: 3), 1)
-        //XCTAssertEqual(buffer[0], "æ")
+        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 3), 1)
+        XCTAssertEqual(buffer[0], "æ")
     
-        //XCTAssertEqual(reader.read(&buffer, offset: 0, length: 2), -1)
+        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 2), -1)
     }
     
 }
