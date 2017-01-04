@@ -10,12 +10,15 @@ class ComplianceTest: XCTestCase {
         //let html = try String(contentsOf: testsuite.appendingPathComponent("output/html5/paragraphs/paragraphs-001-simple.htm"), encoding: .utf8)
         
         
-        //let parser = Parser()
-        //let document = parser.parse("T")
-        //let renderer = Html5Renderer()
-        //document.accept(renderer)
+        let kd = "T"
+        //let html = "<p>T</p>"
         
-        //print("Output: \(renderer.output)")
+        let parser = Parser()
+        let document = parser.parse(kd)
+        let renderer = Html5Renderer()
+        document.accept(renderer)
+        
+        print("Output: \(renderer.output)")
         
     }
 

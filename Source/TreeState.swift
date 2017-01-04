@@ -12,14 +12,16 @@ class TreeState {
     }
     
     func closeScope(_ n : Node) {
-//        var a = nodeArity()
+        var a = nodeArity()
         currentMark = marks.removeLast()
-//        while (a-=1) > 0 {
-//        var c = popNode()
-//    c.setParent(n);
-//    n.add(c, a);
-//        }
-//    pushNode(n);
+        a -= 1
+        while(a > 0) {
+            let c = popNode()
+            c.parent = n;
+            n.add(n: c, i: a);
+            a -= 1
+        }
+        pushNode(n);
     }
 //    
     func addSingleValue(_ n : Node, t : Token) {

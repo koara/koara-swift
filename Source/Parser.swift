@@ -13,11 +13,11 @@ public class Parser {
     var modules : [String] = ["paragraphs", "headings", "lists", "links", "images", "formatting", "blockquotes", "code"]
     let lookAheadSuccess : KoaraError
     
-    init() {
+    public init() {
         self.lookAheadSuccess = KoaraError.LookaheadSuccess()
     }
     
-    func parse(_ text: String) -> Document {
+    public func parse(_ text: String) -> Document {
         return self.parseReader(StringReader(text: text))
     }
     
@@ -56,7 +56,7 @@ public class Parser {
             //            whiteSpace()
         //}
         //        consumeToken(TokenManager.EOF)
-        //        tree.closeScope(document)
+        tree.closeScope(document)
         return document
     }
     
