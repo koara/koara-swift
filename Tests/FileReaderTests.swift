@@ -29,7 +29,7 @@ class FileReaderTest: XCTestCase {
         XCTAssertEqual(buffer[1], "b")
         XCTAssertEqual(buffer.count, 2)
     }
-    /*
+    
     func testReadWithOffsetPartOfString() {
         let reader = FileReader(file: URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader.kd"))
         buffer.append(" ")
@@ -78,7 +78,7 @@ class FileReaderTest: XCTestCase {
         XCTAssertEqual(buffer[3], "æ")
         XCTAssertEqual(buffer.count, 4)
     }
-    
+
     func testReadWithUnicodePartOfString() {
         let reader = FileReader(file: URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader-unicode.kd"))
         XCTAssertEqual(reader.read(&buffer, offset: 0, length: 2), 2)
@@ -119,10 +119,10 @@ class FileReaderTest: XCTestCase {
         XCTAssertEqual(buffer[0], "ð")
         XCTAssertEqual(buffer[1], "i")
 
-        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 3), 1)
-        XCTAssertEqual(buffer[0], "æ")
+        //XCTAssertEqual(reader.read(&buffer, offset: 0, length: 3), 1)
+        //XCTAssertEqual(buffer[0], "æ")
     
-        XCTAssertEqual(reader.read(&buffer, offset: 0, length: 2), -1)
-    }*/
+        //XCTAssertEqual(reader.read(&buffer, offset: 0, length: 2), -1)
+    }
     
 }
