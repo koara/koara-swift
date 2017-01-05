@@ -23,11 +23,11 @@ class TreeState {
         }
         pushNode(n);
     }
-//    
+    
     func addSingleValue(_ n : Node, t : Token) {
-        openScope();
-//    n.setValue(t.image);
-        closeScope(n);
+        openScope()
+        n.value = t.image as AnyObject
+        closeScope(n)
     }
     
     func nodeArity() -> Int {

@@ -6,15 +6,15 @@ public class Node {
     
     func add(n: Node, i: Int) {
         print("I \(i)")
-        children.insert(n, at: i)
+       // children.insert(n, at: i)
     }
 
     public func childrenAccept(renderer: Renderer) {
-    //    if children != nil {
-    //    for (int i = 0; i < children.length; ++i) {
-    //    children[i].accept(renderer);
-    //    }
-    //    }
+      //  for c in children {
+      //      c.accept(renderer);
+      //  }
     }
+    
+    //public abstract void accept(Renderer renderer)
     
 }
