@@ -1,10 +1,10 @@
 public class Token {
  
     public var kind: Int32?
-    var beginLine: Int?
-    var beginColumn: Int?
-    var endLine: Int?
-    var endColumn: Int?
+    var beginLine: Int = 0
+    var beginColumn: Int = 0
+    var endLine: Int = 0
+    var endColumn: Int = 0
     public var image: String?
     var next : Token?
     

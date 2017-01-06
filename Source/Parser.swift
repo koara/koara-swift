@@ -88,20 +88,20 @@ public class Parser {
         }
         whiteSpace()
         while headingHasInlineElementsAhead() {
-        if hasTextAhead() {
-            text()
-        } else if (modules.contains("images") && hasImageAhead()) {
-            image()
-    //            } else if (modules.contains("links") && hasLinkAhead()) {
-    //                link()
-    //            } else if (modules.contains("formatting") && hasStrongAhead()) {
-    //                strong()
-    //            } else if (modules.contains("formatting") && hasEmAhead()) {
-    //                em()
-    //            } else if (modules.contains("code") && hasCodeAhead()) {
-    //                code()
-    //            } else {
-    //                looseChar()
+            if hasTextAhead() {
+                text()
+            } else if (modules.contains("images") && hasImageAhead()) {
+                image()
+            } else if (modules.contains("links") && hasLinkAhead()) {
+                link()
+            } else if (modules.contains("formatting") && hasStrongAhead()) {
+                strong()
+            } else if (modules.contains("formatting") && hasEmAhead()) {
+                em()
+            } else if (modules.contains("code") && hasCodeAhead()) {
+                code()
+            } else {
+                looseChar()
             }
         }
         heading.value = headingLevel as AnyObject
@@ -109,89 +109,89 @@ public class Parser {
     }
     
     func blockQuote() {
-    //        let blockQuote = BlockQuote()
-    //        tree.openScope()
-    //        currentQuoteLevel += 1
-    //        consumeToken(TokenManager.GT)
-    //        while blockQuoteHasEmptyLineAhead() {
-    //            blockQuoteEmptyLine()
-    //        }
-    //        whiteSpace()
-    //        if blockQuoteHasAnyBlockElementseAhead() {
-    //            blockElement()
-    //            while (blockAhead(0)) {
-    //                while (getNextTokenKind() == TokenManager.EOL) {
-    //                    consumeToken(TokenManager.EOL)
-    //                    whiteSpace()
-    //                    blockQuotePrefix()
-    //                }
-    //                blockElement()
-    //            }
-    //        }
-    //        while (hasBlockQuoteEmptyLinesAhead()) {
-    //            blockQuoteEmptyLine()
-    //        }
-    //        currentQuoteLevel -= 1
-    //        tree.closeScope(blockQuote)
+        let blockQuote = BlockQuote()
+        tree.openScope()
+        currentQuoteLevel += 1
+        consumeToken(TokenManager.GT)
+        while blockQuoteHasEmptyLineAhead() {
+            blockQuoteEmptyLine()
+        }
+        whiteSpace()
+        if blockQuoteHasAnyBlockElementseAhead() {
+            blockElement()
+            while (blockAhead(0)) {
+                while (getNextTokenKind() == TokenManager.EOL) {
+                    consumeToken(TokenManager.EOL)
+                    whiteSpace()
+                    blockQuotePrefix()
+                }
+                blockElement()
+            }
+        }
+        while (hasBlockQuoteEmptyLinesAhead()) {
+            blockQuoteEmptyLine()
+        }
+        currentQuoteLevel -= 1
+        tree.closeScope(blockQuote)
     }
-    //
-    //    func blockQuotePrefix() {
-    //        var i : Int = 0
-    //        repeat {
-    //            consumeToken(TokenManager.GT)
-    //            whiteSpace()
-    //            i += 1
-    //        } while i < currentQuoteLevel
-    //    }
-    //
-    //    func blockQuoteEmptyLine() {
-    //        consumeToken(TokenManager.EOL)
-    //        whiteSpace()
-    //        repeat {
-    //            consumeToken(TokenManager.GT)
-    //            whiteSpace()
-    //        } while (getNextTokenKind() == TokenManager.GT)
-    //    }
-    //
+    
+    func blockQuotePrefix() {
+        var i : Int = 0
+        repeat {
+            consumeToken(TokenManager.GT)
+            whiteSpace()
+            i += 1
+        } while i < currentQuoteLevel
+    }
+    
+    func blockQuoteEmptyLine() {
+        consumeToken(TokenManager.EOL)
+        whiteSpace()
+        repeat {
+            consumeToken(TokenManager.GT)
+            whiteSpace()
+        } while (getNextTokenKind() == TokenManager.GT)
+    }
+    
     func unorderedList() {
-    //        let list = ListBlock(ordered: false)
-    //        tree.openScope()
-    //        let listBeginColumn = unorderedListItem()
-    //        while listItemAhead(listBeginColumn, ordered: false) {
-    //            while getNextTokenKind() == TokenManager.EOL {
-    //                consumeToken(TokenManager.EOL)
-    //            }
-    //            whiteSpace()
-    //            if currentQuoteLevel > 0 {
-    //                blockQuotePrefix()
-    //            }
-    //            unorderedListItem()
-    //        }
-    //        tree.closeScope(list)
+        let list = ListBlock(ordered: false)
+        tree.openScope()
+        let listBeginColumn = unorderedListItem()
+        while listItemAhead(listBeginColumn, ordered: false) {
+            while getNextTokenKind() == TokenManager.EOL {
+                consumeToken(TokenManager.EOL)
+            }
+            whiteSpace()
+            if currentQuoteLevel > 0 {
+                blockQuotePrefix()
+            }
+            unorderedListItem()
+        }
+        tree.closeScope(list)
     }
-    //
-    //    func unorderedListItem() -> Int {
-    //        let listItem = ListItem()
-    //        tree.openScope()
-    //        let t = consumeToken(TokenManager.DASH)
-    //        whiteSpace()
-    //        if listItemHasInlineElements() {
-    //            blockElement()
-    //            while blockAhead(t.beginColumn) {
-    //                while getNextTokenKind() == TokenManager.EOL {
-    //                    consumeToken(TokenManager.EOL)
-    //                    whiteSpace()
-    //                    if (currentQuoteLevel > 0) {
-    //                        blockQuotePrefix()
-    //                    }
-    //                }
-    //                blockElement()
-    //            }
-    //        }
-    //        tree.closeScope(listItem)
-    //        return t.beginColumn
-    //    }
-    //
+
+    func unorderedListItem() -> Int {
+        let listItem = ListItem()
+        tree.openScope()
+        let t = consumeToken(TokenManager.DASH)
+        whiteSpace()
+        if listItemHasInlineElements() {
+            blockElement()
+            while blockAhead(t.beginColumn) {
+                while getNextTokenKind() == TokenManager.EOL {
+                    consumeToken(TokenManager.EOL)
+                    whiteSpace()
+                    if (currentQuoteLevel > 0) {
+                        blockQuotePrefix()
+                    }
+                }
+                blockElement()
+            }
+        }
+        tree.closeScope(listItem)
+        return t.beginColumn
+    }
+    
     func orderedList() {
     //        var list = ListBlock(ordered: true)
     //        tree.openScope()
@@ -411,8 +411,8 @@ public class Parser {
         //        image.value = ref as AnyObject
         //        tree.closeScope(image)
     }
-        //
-        //    func link() {
+
+    func link() {
         //        var link = Link()
         //        tree.openScope()
         //        var ref = ""
@@ -440,9 +440,9 @@ public class Parser {
         //        }
         //        link.value = ref as AnyObject
         //        tree.closeScope(link)
-        //    }
-        //
-        //    func strong() {
+    }
+
+    func strong() {
         //        var strong = Strong()
         //        tree.openScope()
         //        consumeToken(TokenManager.ASTERISK)
@@ -471,9 +471,9 @@ public class Parser {
         //        }
         //        consumeToken(TokenManager.ASTERISK)
         //        tree.closeScope(strong)
-        //    }
-        //
-        //    func em() {
+    }
+
+    func em() {
         //        var em = Em()
         //        tree.openScope()
         //        consumeToken(TokenManager.UNDERSCORE)
@@ -502,16 +502,16 @@ public class Parser {
         //        }
         //        consumeToken(TokenManager.UNDERSCORE)
         //        tree.closeScope(em)
-        //    }
-        //
-        //    func code() {
+    }
+
+    func code() {
         //        var code = Code()
         //        tree.openScope()
         //        consumeToken(TokenManager.BACKTICK)
         //        codeText()
         //        consumeToken(TokenManager.BACKTICK)
         //        tree.closeScope(code)
-        //    }
+    }
         //
         //    func codeText() {
         //        var text = Text()
@@ -570,7 +570,7 @@ public class Parser {
         //        tree.closeScope(text)
         //    }
         //
-        //    func looseChar() {
+    func looseChar() {
         //        var text = Text()
         //        tree.openScope()
         //        switch (getNextTokenKind()) {
@@ -585,7 +585,7 @@ public class Parser {
         //        default: break
         //        }
         //        tree.closeScope(text)
-        //    }
+    }
         //
         //    func lineBreak() {
         //        var linebreak = LineBreak()
@@ -1127,24 +1127,24 @@ public class Parser {
             return false
         }
         
-        //    func listItemAhead(_ listBeginColumn : Int, ordered : Bool) -> Bool {
-        ////    if (getNextTokenKind() == EOL) {
-        ////    for (int i = 2, eol = 1;; i++) {
-        ////    Token t = getToken(i);
-        ////
-        ////    if (t.kind == EOL && ++eol > 2) {
-        ////    return false
-        ////    } else if (t.kind != SPACE && t.kind != TAB && t.kind != GT && t.kind != EOL) {
-        ////    if (ordered) {
-        ////    return (t.kind == DIGITS && getToken(i + 1).kind == DOT && t.beginColumn >= listBeginColumn)
-        ////    }
-        ////    return t.kind == DASH && t.beginColumn >= listBeginColumn
-        ////    }
-        ////    }
-        ////    }
-        //        return false
-        //    }
-        //
+        func listItemAhead(_ listBeginColumn : Int, ordered : Bool) -> Bool {
+            if (getNextTokenKind() == TokenManager.EOL) {
+//                for (int i = 2, eol = 1;; i++) {
+//                    Token t = getToken(i);
+//        
+//                    if (t.kind == EOL && ++eol > 2) {
+//                        return false
+//                    } else if (t.kind != TokenManager.SPACE && t.kind != TokenManager.TAB && t.kind != GT && t.kind != TokenManager.EOL) {
+//                        if (ordered) {
+//                            return (t.kind == TokenManager.DIGITS && getToken(i + 1).kind == TokenManager.DOT && t.beginColumn >= listBeginColumn)
+//                        }
+//                        return t.kind == TokenManager.DASH && t.beginColumn >= listBeginColumn
+//                    }
+//                }
+            }
+            return false
+        }
+        
         //    func textAhead() -> Bool {
         ////    if (getNextTokenKind() == EOL && getToken(2).kind != EOL) {
         ////    int i = skip(2, SPACE, TAB)
@@ -1267,84 +1267,84 @@ public class Parser {
             return true
         //        }
         }
-        //
-        //    func blockQuoteHasEmptyLineAhead() -> Bool {
-        //        lookAhead = 2147483647
-        //        scanPosition = token
-        //        lastPosition = scanPosition
-        //        do {
-        //            return try !scanBlockQuoteEmptyLine()
-        //        } catch {
-        //            return true
-        //        }
-        //    }
-        //
-        //    func hasStrongAhead() -> Bool {
+
+    func blockQuoteHasEmptyLineAhead() -> Bool {
+        lookAhead = 2147483647
+        scanPosition = token
+        lastPosition = scanPosition
+        do {
+            return try !scanBlockQuoteEmptyLine()
+        } catch {
+            return true
+        }
+    }
+
+    func hasStrongAhead() -> Bool {
         //        lookAhead = 2147483647
         //        scanPosition = token
         //        lastPosition = scanPosition
         //        do {
         //            return try !scanStrong()
         //        } catch {
-        //            return true
+            return true
         //        }
-        //    }
-        //
-        //    func hasEmAhead() -> Bool {
+    }
+
+    func hasEmAhead() -> Bool {
         //        lookAhead = 2147483647
         //        scanPosition = token
         //        lastPosition = scanPosition
         //        do {
         //            return try !scanEm()
         //        } catch {
-        //            return true
+        return true
         //        }
-        //    }
-        //
-        //    func hasCodeAhead() -> Bool {
+    }
+
+    func hasCodeAhead() -> Bool {
         //        lookAhead = 2147483647
         //        scanPosition = token
         //        lastPosition = scanPosition
         //        do {
         //            return try !scanCode()
         //        } catch {
-        //            return true
+        return true
         //        }
-        //    }
-        //
-        //    func blockQuoteHasAnyBlockElementseAhead() -> Bool {
-        //        lookAhead = 1
-        //        scanPosition = token
-        //        lastPosition = scanPosition
-        //        do {
-        //            return try !scanMoreBlockElements()
-        //        } catch {
-        //            return true
-        //        }
-        //    }
-        //
-        //    func hasBlockQuoteEmptyLinesAhead() -> Bool {
-        //        lookAhead = 2147483647
-        //        scanPosition = token
-        //        lastPosition = scanPosition
-        //        do {
-        //            return try !scanBlockQuoteEmptyLines()
-        //        } catch {
-        //            return true
-        //        }
-        //    }
-        //
-        //    func listItemHasInlineElements() -> Bool {
-        //        lookAhead = 1
-        //        scanPosition = token
-        //        lastPosition = scanPosition
-        //        do {
-        //            return try !scanMoreBlockElements()
-        //        } catch {
-        //            return true
-        //        }
-        //    }
-        //
+    }
+        
+    func blockQuoteHasAnyBlockElementseAhead() -> Bool {
+        lookAhead = 1
+        scanPosition = token
+        lastPosition = scanPosition
+        do {
+            return try !scanMoreBlockElements()
+        } catch {
+            return true
+        }
+    }
+        
+    func hasBlockQuoteEmptyLinesAhead() -> Bool {
+        lookAhead = 2147483647
+        scanPosition = token
+        lastPosition = scanPosition
+        do {
+            return try !scanBlockQuoteEmptyLines()
+        } catch {
+            return true
+        }
+    }
+        
+    func listItemHasInlineElements() -> Bool {
+        lookAhead = 1
+        scanPosition = token
+        lastPosition = scanPosition
+        do {
+            return try !scanMoreBlockElements()
+        } catch {
+            return true
+        }
+    }
+        
         //    func hasInlineTextAhead() -> Bool {
         //        lookAhead = 1
         //        scanPosition = token
@@ -1477,16 +1477,16 @@ public class Parser {
         //        }
         //    }
         //
-        //    func hasLinkAhead() -> Bool {
+    func hasLinkAhead() -> Bool {
         //        lookAhead = 2147483647
         //        scanPosition = token
         //        lastPosition = scanPosition
         //        do {
         //            return try !scanLink()
         //        } catch  {
-        //            return true
+            return true
         //        }
-        //    }
+    }
         
         //    func strongEmWithinStrongAhead() -> Bool {
         //        lookAhead = 2147483647
@@ -1800,18 +1800,18 @@ public class Parser {
         //        return try scanCodeTextTokensAhead()
         //    }
         //
-        //    func scanWhitspaceTokens() throws -> Bool{
-        //        var xsp : Token
-        //        while true {
-        //            xsp = scanPosition
-        //            if try scanWhitspaceToken() {
-        //                scanPosition = xsp
-        //                break
-        //            }
-        //        }
-        //        return false
-        //    }
-        //
+        func scanWhitspaceTokens() throws -> Bool{
+            var xsp : Token
+            while true {
+                xsp = scanPosition
+                if try scanWhitspaceToken() {
+                    scanPosition = xsp
+                    break
+                }
+            }
+            return false
+        }
+        
         //    func scanWhitespaceTokenBeforeEol() throws -> Bool {
         //        return try (scanWhitspaceTokens() || scanToken(TokenManager.EOL))
         //    }
@@ -2409,40 +2409,40 @@ public class Parser {
             return false
         }
         
-        //    func scanWhitspaceToken() throws -> Bool {
-        //        let xsp = scanPosition
-        //        if try scanToken(TokenManager.SPACE) {
-        //            scanPosition = xsp
-        //            if try scanToken(TokenManager.TAB) {
-        //                return true
-        //            }
-        //        }
-        //        return false
-        //    }
-        //
+        func scanWhitspaceToken() throws -> Bool {
+            let xsp = scanPosition
+            if try scanToken(TokenManager.SPACE) {
+                scanPosition = xsp
+                if try scanToken(TokenManager.TAB) {
+                    return true
+                }
+            }
+            return false
+        }
+        
         func scanFencedCodeBlock() throws -> Bool {
             return try scanToken(TokenManager.BACKTICK) || scanToken(TokenManager.BACKTICK) || scanToken(TokenManager.BACKTICK)
         }
-        //
-        //    func scanBlockQuoteEmptyLines() throws -> Bool {
-        //        return try (scanBlockQuoteEmptyLine() || scanToken(TokenManager.EOL))
-        //}
-        //
-        //    func scanBlockQuoteEmptyLine() throws -> Bool {
-        //        if try scanToken(TokenManager.EOL) || scanWhitspaceTokens() || scanToken(TokenManager.GT) || scanWhitspaceTokens() {
-        //            return true
-        //        }
-        //        var xsp : Token
-        //        while true {
-        //            xsp = scanPosition
-        //            if try scanToken(TokenManager.GT) || scanWhitspaceTokens() {
-        //                scanPosition = xsp
-        //                break
-        //            }
-        //        }
-        //        return false
-        //    }
-        //
+        
+        func scanBlockQuoteEmptyLines() throws -> Bool {
+            return try (scanBlockQuoteEmptyLine() || scanToken(TokenManager.EOL))
+        }
+        
+        func scanBlockQuoteEmptyLine() throws -> Bool {
+            if try scanToken(TokenManager.EOL) || scanWhitspaceTokens() || scanToken(TokenManager.GT) || scanWhitspaceTokens() {
+                return true
+            }
+            var xsp : Token
+            while true {
+                xsp = scanPosition
+                if try scanToken(TokenManager.GT) || scanWhitspaceTokens() {
+                    scanPosition = xsp
+                    break
+                }
+            }
+            return false
+        }
+        
         func scanForHeadersigns() throws -> Bool {
             if try scanToken(TokenManager.EQ) {
                 return true
