@@ -5,4 +5,4 @@ env:
   - LC_CTYPE=en_US.UTF-8
   - LANG=en_US.UTF-8
 script:
-  - xcodebuild test -scheme "Koara iOS" -sdk iphonesimulator -destination "OS=8.1,name=iPad 2"
+  - xcodebuild -scheme "Koara iOS" -sdk "iphonesimulator10.2" -destination "OS=10.0,name=iPhone 7 Plus" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
