@@ -1,16 +1,19 @@
 language: objective-c
 osx_image: xcode8.2
-env:
-  - DESTINATION="platform=iOS Simulator,OS=10.0,name=iPhone 7 Plus"
-  - DESTINATION="platform=iOS Simulator,OS=9.0,name=iPhone 6"
-  - DESTINATION="platform=iOS Simulator,OS=8.1,name=iPhone 4s"
-before_install:
-  - gem install slather
+
 env:
   global:
-  - LC_CTYPE=en_US.UTF-8
-  - LANG=en_US.UTF-8
+    - LANG=en_US.UTF-8
+    - LC_ALL=en_US.UTF-8
+  matrix:
+    - DESTINATION="platform=iOS Simulator,OS=10.0,name=iPhone 7 Plus"
+    - DESTINATION="platform=iOS Simulator,OS=9.0,name=iPhone 6"
+    - DESTINATION="platform=iOS Simulator,OS=8.1,name=iPhone 4s"
+before_install:
+  - gem install slather
+
 script:
   - travis_retry xcodebuild -scheme "Koara iOS" -destination "$DESTINATION" build-for-testing test
+
 after_success:
   - slather
