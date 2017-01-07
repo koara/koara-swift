@@ -8,12 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A19B5AAE1E1C022200213D1D /* Koara.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B5AA51E1C022200213D1D /* Koara.framework */; };
-		A19B5ABC1E1C027D00213D1D /* CharStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A3E1E1645A200419AB4 /* CharStreamTests.swift */; };
-		A19B5ABD1E1C027D00213D1D /* ComplianceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A3F1E1645A200419AB4 /* ComplianceTest.swift */; };
-		A19B5ABE1E1C027D00213D1D /* Html5Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A401E1645A200419AB4 /* Html5Renderer.swift */; };
-		A19B5ABF1E1C027D00213D1D /* TokenManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A411E1645A200419AB4 /* TokenManagerTest.swift */; };
-		A19B5AC01E1C027D00213D1D /* FileReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0B1E16452800419AB4 /* FileReaderTests.swift */; };
-		A19B5AC11E1C027D00213D1D /* StringReaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C363A31E15916300CC1874 /* StringReaderTest.swift */; };
 		A19B5AC21E1C028E00213D1D /* BlockElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A1E1E16457700419AB4 /* BlockElement.swift */; };
 		A19B5AC31E1C028E00213D1D /* BlockQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A1F1E16457700419AB4 /* BlockQuote.swift */; };
 		A19B5AC41E1C028E00213D1D /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A201E16457700419AB4 /* Code.swift */; };
@@ -42,6 +36,7 @@
 		A19B5ADB1E1C028E00213D1D /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A131E16454A00419AB4 /* TokenManager.swift */; };
 		A19B5ADC1E1C028E00213D1D /* TreeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A141E16454A00419AB4 /* TreeState.swift */; };
 		A19B5ADD1E1C02FA00213D1D /* Koara.h in Headers */ = {isa = PBXBuildFile; fileRef = A17742B11E1539C100AB88FF /* Koara.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A19B5ADE1E212E8600213D1D /* StringReaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C363A31E15916300CC1874 /* StringReaderTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -353,12 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A19B5ABC1E1C027D00213D1D /* CharStreamTests.swift in Sources */,
-				A19B5ABD1E1C027D00213D1D /* ComplianceTest.swift in Sources */,
-				A19B5ABE1E1C027D00213D1D /* Html5Renderer.swift in Sources */,
-				A19B5ABF1E1C027D00213D1D /* TokenManagerTest.swift in Sources */,
-				A19B5AC01E1C027D00213D1D /* FileReaderTests.swift in Sources */,
-				A19B5AC11E1C027D00213D1D /* StringReaderTest.swift in Sources */,
+				A19B5ADE1E212E8600213D1D /* StringReaderTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

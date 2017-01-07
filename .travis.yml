@@ -6,9 +6,18 @@ env:
     - LANG=en_US.UTF-8
     - LC_ALL=en_US.UTF-8
   matrix:
-    - DESTINATION="platform=iOS Simulator,OS=10.0,name=iPhone 7 Plus"
+    - DESTINATION="platform=iOS Simulator,OS=10.2,name=iPhone 7 Plus"
+    - DESTINATION="platform=iOS Simulator,OS=10.1,name=iPhone 7"
+    - DESTINATION="platform=iOS Simulator,OS=10.0,name=iPhone SE"
+    - DESTINATION="platform=iOS Simulator,OS=9.3,name=iPhone 6s Plus"
+    - DESTINATION="platform=iOS Simulator,OS=9.2,name=iPhone 6s"
+    - DESTINATION="platform=iOS Simulator,OS=9.1,name=iPhone 6 Plus"
     - DESTINATION="platform=iOS Simulator,OS=9.0,name=iPhone 6"
+    - DESTINATION="platform=iOS Simulator,OS=8.4,name=iPhone 5s"
+    - DESTINATION="platform=iOS Simulator,OS=8.3,name=iPhone 5c"
+    - DESTINATION="platform=iOS Simulator,OS=8.2,name=iPhone 5"
     - DESTINATION="platform=iOS Simulator,OS=8.1,name=iPhone 4s"
+
 before_install:
   - gem install slather
 
