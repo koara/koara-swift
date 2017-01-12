@@ -16,7 +16,7 @@ env:
     - SCHEME="Koara iOS"   DESTINATION="platform=iOS Simulator,OS=9.0,name=iPad Air"                            SEND_TO_COVERALLS=NO
     - SCHEME="Koara iOS"   DESTINATION="platform=iOS Simulator,OS=10.0,name=iPad Air 2"                         SEND_TO_COVERALLS=NO
     - SCHEME="Koara macOS" DESTINATION="platform=macOS"                                                         SEND_TO_COVERALLS=NO
-    - SCHEME="Koara tvOs"  DESTINATION="platform=tvOS Simulator,OS=10.1,name=Apple TV 1080p"                                                         SEND_TO_COVERALLS=NO
+    - SCHEME="Koara tvOS"  DESTINATION="platform=tvOS Simulator,OS=10.1,name=Apple TV 1080p"                                                         SEND_TO_COVERALLS=NO
 before_install:
   - gem install slather
 
