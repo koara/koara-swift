@@ -24,8 +24,6 @@ before_install:
 script:
   - if [ $RUN_TESTS == "YES" ]; then
       travis_retry xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" build-for-testing test
-    else
-      travis_retry xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" build
     fi
 
 after_success:
