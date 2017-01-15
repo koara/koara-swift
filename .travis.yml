@@ -17,19 +17,15 @@ env:
     - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.0,name=iPad Air 2"          RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
     - SCHEME="Koara macOS"    DESTINATION="platform=macOS"                                          RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
     - SCHEME="Koara tvOS"     DESTINATION="platform=tvOS Simulator,OS=10.1,name=Apple TV 1080p"     RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    - SCHEME="Koara watchOS"  DESTINATION="platform=watchOS,OS=3.0,name=Apple Watch - 42mm"         RUN_TESTS="NO"    SEND_TO_COVERALLS="NO"
+    #- SCHEME="Koara watchOS"  DESTINATION="platform=watchOS,OS=3.0,name=Apple Watch - 42mm"         RUN_TESTS="NO"    SEND_TO_COVERALLS="NO"
 before_install:
-  - gem install slather
+- gem install slather
 
 script:
-- if [ $RUN_TESTS == "YES" ]; then
-    travis_retry xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" build-for-testing test
-  else
-    travis_retry xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" build
-  fi
+- travis_retry xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" build-for-testing test
 
 after_success:
-  - if [ $SEND_TO_COVERALLS == "YES" ]; then
-      echo "Send to coveralls"
-      slather
-    fi
+- if [ $SEND_TO_COVERALLS == "YES" ]; then
+    echo "Send to coveralls"
+    slather
+  fi
