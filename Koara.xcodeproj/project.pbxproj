@@ -96,7 +96,6 @@
 		A19B5B511E253CB700213D1D /* TreeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A141E16454A00419AB4 /* TreeState.swift */; };
 		A19B5B581E253CBD00213D1D /* Koara.h in Headers */ = {isa = PBXBuildFile; fileRef = A17742B11E1539C100AB88FF /* Koara.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A19B5B591E253CEE00213D1D /* StringReaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C363A31E15916300CC1874 /* StringReaderTest.swift */; };
-		A19B5B631E28E8AB00213D1D /* Koara.h in Headers */ = {isa = PBXBuildFile; fileRef = A19B5B611E28E8AB00213D1D /* Koara.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A19B5B671E28E8C500213D1D /* BlockElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A1E1E16457700419AB4 /* BlockElement.swift */; };
 		A19B5B681E28E8C500213D1D /* BlockQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A1F1E16457700419AB4 /* BlockQuote.swift */; };
 		A19B5B691E28E8C500213D1D /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A201E16457700419AB4 /* Code.swift */; };
@@ -189,8 +188,6 @@
 		A19B5B271E253B3700213D1D /* Koara tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Koara tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A19B5B361E253B5200213D1D /* Koara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A19B5B5F1E28E8AB00213D1D /* Koara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A19B5B611E28E8AB00213D1D /* Koara.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Koara.h; sourceTree = "<group>"; };
-		A19B5B621E28E8AB00213D1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1C3639F1E15915700CC1874 /* Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reader.swift; path = Source/Io/Reader.swift; sourceTree = "<group>"; };
 		A1C363A01E15915700CC1874 /* StringReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringReader.swift; path = Source/Io/StringReader.swift; sourceTree = "<group>"; };
 		A1C363A31E15916300CC1874 /* StringReaderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringReaderTest.swift; path = Tests/StringReaderTest.swift; sourceTree = "<group>"; };
@@ -286,7 +283,6 @@
 				A19B5B271E253B3700213D1D /* Koara tvOS Tests.xctest */,
 				A19B5B361E253B5200213D1D /* Koara.framework */,
 				A19B5B5F1E28E8AB00213D1D /* Koara.framework */,
-				A19B5B601E28E8AB00213D1D /* Koara */,
 			);
 			sourceTree = "<group>";
 		};
@@ -319,15 +315,6 @@
 				A17742B11E1539C100AB88FF /* Koara.h */,
 			);
 			name = Source;
-			sourceTree = "<group>";
-		};
-		A19B5B601E28E8AB00213D1D /* Koara */ = {
-			isa = PBXGroup;
-			children = (
-				A19B5B611E28E8AB00213D1D /* Koara.h */,
-				A19B5B621E28E8AB00213D1D /* Info.plist */,
-			);
-			path = Koara;
 			sourceTree = "<group>";
 		};
 		A1C3639E1E15912C00CC1874 /* Io */ = {
@@ -371,7 +358,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A19B5B631E28E8AB00213D1D /* Koara.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

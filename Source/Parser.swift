@@ -1,22 +1,22 @@
 public class Parser {
     
-//    var cs : CharStream!
-//    var token, nextToken, scanPosition, lastPosition : Token!
-//    var tm : TokenManager!
-//    var tree : TreeState!
-//    var currentBlockLevel : Int = 0
-//    var currentQuoteLevel : Int = 0
-//    var lookAhead : Int = 0
-//    var nextTokenKind : Int32 = 0
-//    var lookingAhead : Bool = false
-//    var semanticLookAhead : Bool = false
-//    var modules : [String] = ["paragraphs", "headings", "lists", "links", "images", "formatting", "blockquotes", "code"]
-//    let lookAheadSuccess : KoaraError
-//    
-//    public init() {
-//        self.lookAheadSuccess = KoaraError.LookaheadSuccess()
-//    }
-//    
+    var cs : CharStream!
+    var token, nextToken, scanPosition, lastPosition : Token!
+    var tm : TokenManager!
+    var tree : TreeState!
+    var currentBlockLevel : Int = 0
+    var currentQuoteLevel : Int = 0
+    var lookAhead : Int = 0
+    var nextTokenKind : Int32 = 0
+    var lookingAhead : Bool = false
+    var semanticLookAhead : Bool = false
+    var modules : [String] = ["paragraphs", "headings", "lists", "links", "images", "formatting", "blockquotes", "code"]
+    let lookAheadSuccess : KoaraError
+
+    public init() {
+        self.lookAheadSuccess = KoaraError.LookaheadSuccess()
+    }
+    
 //    public func parse(_ text: String) -> Document {
 //        return self.parseReader(StringReader(text: text))
 //    }
