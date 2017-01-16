@@ -1,31 +1,31 @@
 public class TokenManager {
     
-//    public static let EOF : Int32 = 0
-//    public static let ASTERISK : Int32  = 1
-//    public static let BACKSLASH : Int32  = 2
-//    public static let BACKTICK : Int32  = 3
-//    public static let CHAR_SEQUENCE : Int32  = 4
-//    public static let COLON : Int32  = 5
-//    public static let DASH : Int32  = 6
-//    public static let DIGITS : Int32  = 7
-//    public static let DOT : Int32  = 8
-//    public static let EOL : Int32  = 9
-//    public static let EQ : Int32  = 10
-//    public static let ESCAPED_CHAR : Int32  = 11
-//    public static let GT : Int32  = 12
-//    public static let IMAGE_LABEL : Int32  = 13
-//    public static let LBRACK : Int32  = 14
-//    public static let LPAREN : Int32  = 15
-//    public static let LT : Int32  = 16
-//    public static let RBRACK : Int32  = 17
-//    public static let RPAREN : Int32  = 18
-//    public static let SPACE : Int32  = 19
-//    public static let TAB : Int32  = 20
-//    public static let UNDERSCORE : Int32  = 21
-//
-//    let cs : CharStream
-//    var jjrounds = Array<Int64>(repeating: 0, count: 8)
-//    var jjstateSet = Array<Int32>(repeating: 0, count: 16)
+    public static let EOF : Int32 = 0
+    public static let ASTERISK : Int32  = 1
+    public static let BACKSLASH : Int32  = 2
+    public static let BACKTICK : Int32  = 3
+    public static let CHAR_SEQUENCE : Int32  = 4
+    public static let COLON : Int32  = 5
+    public static let DASH : Int32  = 6
+    public static let DIGITS : Int32  = 7
+    public static let DOT : Int32  = 8
+    public static let EOL : Int32  = 9
+    public static let EQ : Int32  = 10
+    public static let ESCAPED_CHAR : Int32  = 11
+    public static let GT : Int32  = 12
+    public static let IMAGE_LABEL : Int32  = 13
+    public static let LBRACK : Int32  = 14
+    public static let LPAREN : Int32  = 15
+    public static let LT : Int32  = 16
+    public static let RBRACK : Int32  = 17
+    public static let RPAREN : Int32  = 18
+    public static let SPACE : Int32  = 19
+    public static let TAB : Int32  = 20
+    public static let UNDERSCORE : Int32  = 21
+
+    let cs : CharStream
+    var jjrounds = Array<Int64>(repeating: 0, count: 8)
+    var jjstateSet = Array<Int32>(repeating: 0, count: 16)
 //
 //    var curChar : Character?
 //    var jjnextStates = Array<Int>(arrayLiteral: 2, 3, 5)
@@ -34,10 +34,10 @@ public class TokenManager {
 //    var matchedPos : Int32 = 0
 //    var matchedKind : Int32 = 0
 //    
-//    public init(stream : CharStream) {
-//        self.cs = stream
-//    }
-//
+    public init(stream : CharStream) {
+        self.cs = stream
+    }
+
 //    public func getNextToken() -> Token? {
 //        do {
 //            var curPos : Int32 = 0

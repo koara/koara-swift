@@ -17,24 +17,24 @@ public class Parser {
         self.lookAheadSuccess = KoaraError.LookaheadSuccess()
     }
     
-//    public func parse(_ text: String) -> Document {
-//        return self.parseReader(StringReader(text: text))
+    public func parse(_ text: String) -> Document {
+        return self.parseReader(StringReader(text: text))
+    }
+    
+//    public func parseFile(_ file) throws -> Document {
+//        if(!file.getName().toLowerCase().endsWith(".kd")) {
+//            throw new IllegalArgumentException("Can only parse files with extension .kd")
+//        }
+//        return parseReader(new FileReader(file))
 //    }
-//    
-//    //    public Document parseFile(File file) throws IOException {
-//    //    if(!file.getName().toLowerCase().endsWith(".kd")) {
-//    //    throw new IllegalArgumentException("Can only parse files with extension .kd")
-//    //    }
-//    //    return parseReader(new FileReader(file))
-//    //    }
-//    //
-//    func parseReader(_ reader: Reader) -> Document {
-//        cs = CharStream(reader: reader)
-//        tm = TokenManager(stream: cs)
-//        token = Token()
-//        tree = TreeState()
-//        nextTokenKind = -1
-//        let document = Document()
+    
+    func parseReader(_ reader: Reader) -> Document {
+        cs = CharStream(reader: reader)
+        tm = TokenManager(stream: cs)
+        token = Token()
+        tree = TreeState()
+        nextTokenKind = -1
+        let document = Document()
 //        tree.openScope()
 //        
 //        while getNextTokenKind() == TokenManager.EOL {
@@ -57,8 +57,8 @@ public class Parser {
 //        }
 //        consumeToken(TokenManager.EOF)
 //        tree.closeScope(document)
-//        return document
-//    }
+        return document
+    }
 //    
 //    func blockElement() {
 //        currentBlockLevel += 1
