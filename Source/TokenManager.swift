@@ -26,14 +26,14 @@ public class TokenManager {
     let cs : CharStream
     var jjrounds = Array<Int64>(repeating: 0, count: 8)
     var jjstateSet = Array<Int32>(repeating: 0, count: 16)
-//
-//    var curChar : Character?
-//    var jjnextStates = Array<Int>(arrayLiteral: 2, 3, 5)
-//    var jjnewStateCnt : Int32 = 0
-//    var round : Int64 = 0
-//    var matchedPos : Int32 = 0
-//    var matchedKind : Int32 = 0
-//    
+
+    var curChar : Character?
+    var jjnextStates = Array<Int>(arrayLiteral: 2, 3, 5)
+    var jjnewStateCnt : Int32 = 0
+    var round : Int64 = 0
+    var matchedPos : Int32 = 0
+    var matchedKind : Int32 = 0
+    
     public init(stream : CharStream) {
         self.cs = stream
     }
@@ -342,34 +342,34 @@ public class TokenManager {
 //        }
 //    }
 //
-//    func stopStringLiteralDfa(pos: Int, active: Int32) -> Int {
-//        if pos == 0 {
-//            if (active & 0x2000) != 0 {
-//                matchedKind = 4
-//                return 0
-//            } else if ((active & 0x180000) != 0) {
-//                return 8
-//            } else if ((active & 0x4) != 0) {
-//                return 7
-//            }
-//        } else if (pos == 1 && (active & 0x2000) != 0) {
-//            matchedKind = 4
-//            matchedPos = 1
-//            return 0
-//        } else if (pos == 2 && (active & 0x2000) != 0) {
-//            matchedKind = 4
-//            matchedPos = 2
-//            return 0
-//        } else if (pos == 3 && (active & 0x2000) != 0) {
-//            matchedKind = 4
-//            matchedPos = 3
-//            return 0
-//        } else if (pos == 4 && (active & 0x2000) != 0) {
-//            matchedKind = 4
-//            matchedPos = 4
-//            return 0
-//        }
-//        return -1
-//    }
-//    
+    func stopStringLiteralDfa(pos: Int, active: Int32) -> Int {
+        if pos == 0 {
+            if (active & 0x2000) != 0 {
+                matchedKind = 4
+                return 0
+            } else if ((active & 0x180000) != 0) {
+                return 8
+            } else if ((active & 0x4) != 0) {
+                return 7
+            }
+        } else if (pos == 1 && (active & 0x2000) != 0) {
+            matchedKind = 4
+            matchedPos = 1
+            return 0
+        } else if (pos == 2 && (active & 0x2000) != 0) {
+            matchedKind = 4
+            matchedPos = 2
+            return 0
+        } else if (pos == 3 && (active & 0x2000) != 0) {
+            matchedKind = 4
+            matchedPos = 3
+            return 0
+        } else if (pos == 4 && (active & 0x2000) != 0) {
+            matchedKind = 4
+            matchedPos = 4
+            return 0
+        }
+        return -1
+    }
+    
 }
