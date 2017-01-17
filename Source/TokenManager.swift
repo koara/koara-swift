@@ -38,294 +38,294 @@ public class TokenManager {
         self.cs = stream
     }
 
-//    public func getNextToken() -> Token? {
-//        do {
-//            var curPos : Int32 = 0
-//            while true {
-//                do {
-//                    curChar = try cs.beginToken()
-//                } catch {
-//                    matchedKind = 0
-//                    matchedPos = -1
-//                    return fillToken()
-//                }
-//                matchedKind = Int32.max
-//                matchedPos = 0
-//                curPos = try moveStringLiteralDfa0()
-//                if matchedKind != Int32.max {
-//                    if (matchedPos + 1 < curPos) {
-//                        cs.backup(curPos - matchedPos - 1)
-//                    }
-//                    return fillToken()
-//                }
-//            }
-//        } catch {
-//            return nil
-//        }
-//    }
-//    
-//    func fillToken() -> Token {
-//        return Token(matchedKind, cs.getBeginLine(), cs.getBeginColumn(), cs.getEndLine(), cs.getEndColumn(), cs.getImage())
-//    }
-//    
-//    func moveStringLiteralDfa0() throws -> Int32 {
-//        switch Int((String(describing: curChar!).unicodeScalars.first?.value)!) {
-//        case 9:
-//            return try startNfaWithStates(0, TokenManager.TAB, 8)
-//        case 32:
-//            return try startNfaWithStates(0, TokenManager.SPACE, 8)
-//        case 40:
-//            return stopAtPos(pos: 0, kind: TokenManager.LPAREN)
-//        case 41:
-//            return stopAtPos(pos: 0, kind: TokenManager.RPAREN)
-//        case 42 :
-//            return stopAtPos(pos: 0, kind: TokenManager.ASTERISK)
-//        case 45:
-//            return stopAtPos(pos: 0, kind: TokenManager.DASH)
-//        case 46:
-//            return stopAtPos(pos: 0, kind: TokenManager.DOT)
-//        case 58:
-//            return stopAtPos(pos: 0, kind: TokenManager.COLON)
-//        case 60:
-//            return stopAtPos(pos: 0, kind: TokenManager.LT)
-//        case 61:
-//            return stopAtPos(pos: 0, kind: TokenManager.EQ)
-//        case 62:
-//            return stopAtPos(pos: 0, kind: TokenManager.GT)
-//        case 73:
-//            return try moveStringLiteralDfa1(active: 0x2000)
-//        case 91:
-//            return stopAtPos(pos: 0, kind: TokenManager.LBRACK)
-//        case 92:
-//            return try startNfaWithStates(0, TokenManager.BACKSLASH, 7)
-//        case 93:
-//            return stopAtPos(pos: 0, kind: TokenManager.RBRACK)
-//        case 95:
-//            return stopAtPos(pos: 0, kind: TokenManager.UNDERSCORE)
-//        case 96:
-//            return stopAtPos(pos: 0, kind: TokenManager.BACKTICK)
-//        case 105:
-//            return try moveStringLiteralDfa1(active: 0x2000);
-//        default:
-//            return moveNfa(startState: 6, curPos: 0)
-//        }
-//    }
-//  
-//    func startNfaWithStates(_ pos: Int32, _ kind: Int32, _ state: Int32) throws -> Int32 {
-//        matchedKind = kind
-//        matchedPos = pos
-//        do {
-//            curChar = try cs.readChar()
-//        } catch {
-//            return Int32(pos + 1)
-//        }
-//        let newPos : Int32 = pos + 1
-//        return moveNfa(startState: state, curPos: newPos)
-//    }
-//    
-//    func stopAtPos(pos: Int32, kind: Int32) -> Int32 {
-//        matchedKind = kind
-//        matchedPos = pos
-//        let newPos = pos + 1
-//        return newPos
-//    }
-//
-//    func moveStringLiteralDfa1(active: Int64) throws -> Int32 {
-//        curChar = try cs.readChar()
-//        if (curChar?.asciiValue == 77 || curChar?.asciiValue == 109) {
-//            return try moveStringLiteralDfa2(old: active, active: 0x2000)
-//        }
-//        return startNfa(pos: 0, active: active)
-//    }
-//
-//    func moveStringLiteralDfa2(old: Int64, active: Int64) throws -> Int32 {
-//        curChar = try cs.readChar()
-//        if (curChar?.asciiValue == 65 || curChar?.asciiValue == 97) {
-//            return try moveStringLiteralDfa3(old: active, active: 0x2000)
-//        }
-//        return startNfa(pos: 1, active: active)
-//    }
-//    
-//    func moveStringLiteralDfa3(old: Int64, active: Int64) throws -> Int32 {
-//        curChar = try cs.readChar()
-//        if (curChar?.asciiValue == 71 || curChar?.asciiValue == 103) {
-//            return try moveStringLiteralDfa4(old: active, active: 0x2000)
-//        }
-//        return startNfa(pos: 2, active: active)
-//    }
-//
-//    func moveStringLiteralDfa4(old: Int64, active: Int64) throws -> Int32 {
-//        curChar = try cs.readChar()
-//        if (curChar?.asciiValue == 69 || curChar?.asciiValue == 101) {
-//            return try moveStringLiteralDfa5(old: active, active: 0x2000)
-//        }
-//        return startNfa(pos: 3, active: active)
-//    }
-//
-//    func moveStringLiteralDfa5(old: Int64, active: Int64) throws -> Int32 {
-//        curChar = try cs.readChar()
-//        if (curChar?.asciiValue == 58 && ((active & 0x2000) != 0)) {
-//            return stopAtPos(pos: 5, kind: 13)
-//        }
-//        return startNfa(pos: 4, active: active)
-//    }
-//
-//    func startNfa(pos: Int, active: Int64) -> Int32 {
-//        return moveNfa(startState: Int32(stopStringLiteralDfa(pos: pos, active: Int32(active))), curPos: pos + 1)
-//    }
-//  
-//    func moveNfa(startState: Int32, curPos: Int32) -> Int32 {
-//        var curPos = curPos
-//        var startsAt : Int = 0
-//        var jjnewStateCnt : Int = 8
-//        var i : Int = 1
-//        jjstateSet[0] = startState
-//        var kind = 0x7fffffff
-//
-//        while true {
-//            round += 1
-//            if round == 0x7fffffff {
-//                round = 0x80000001
-//            }
-//            if ((curChar?.asciiValue!)! < 64) {
-//                let l = 1 << (curChar?.asciiValue!)!;
-//    
-//                repeat {
-//                    i -= 1
-//                    switch jjstateSet[i] {
-//                    case 6:
-//                        if (-8646743063567279617 & l) != 0 {
-//                            if kind > 4 {
-//                                kind = 4
-//                            }
-//                            checkNAdd(state: 0)
-//                        } else if (0x3ff000000000000 & l) != 0 {
-//                            if (kind > 7) {
-//                                kind = 7
-//                            }
-//                            checkNAdd(state: 1)
-//                        } else if (0x2400 & l) != 0 {
-//                            if (kind > 9) {
-//                                kind = 9
-//                            }
-//                        } else if (0x100000200 & l) != 0 {
-//                            checkNAddStates(start: 0, end: 2)
-//                        }
-//                        if (curChar?.asciiValue == 13) {
-//                            jjnewStateCnt += 1
-//                            jjstateSet[jjnewStateCnt] = 4
-//                        }
-//                    case 8:
-//                        if (0x2400 & l) != 0 {
-//                            if (kind > 9) {
-//                                kind = 9
-//                            }
-//                        } else if (0x100000200 & l) != 0 {
-//                            checkNAddStates(start: 0, end: 2)
-//                        }
-//                        if (curChar?.asciiValue == 13) {
-//                            jjnewStateCnt += 1
-//                            jjstateSet[jjnewStateCnt] = 4
-//                        }
-//                    //case 0:
-//                    //    if (0x880098feffffd9ff & l) != 0 {
-//                    //        kind = 4
-//                    //        checkNAdd(state: 0)
-//                    //    }
-//                    case 1:
-//                        if (0x3ff000000000000 & l) != 0 {
-//                            if (kind > 7) {
-//                                kind = 7
-//                            }
-//                            checkNAdd(state: 1)
-//                        }
-//                    case 2:
-//                        if (0x100000200 & l) != 0 {
-//                            checkNAddStates(start: 0, end: 2)
-//                        }
-//                    case 3:
-//                        if (0x2400 & l) != 0 && kind > 9 {
-//                            kind = 9
-//                        }
-//                    case 4:
-//                        if (curChar?.asciiValue == 10 && kind > 9) {
-//                            kind = 9
-//                        }
-//                    case 5:
-//                        if (curChar?.asciiValue == 13) {
-//                            jjnewStateCnt += 1
-//                            jjstateSet[jjnewStateCnt] = 4
-//                        }
-//                    case 7:
-//                        if ((0x77ff670000000000 & l) != 0 && kind > 11) {
-//                            kind = 11
-//                        }
-//                    default: break
-//                    }
-//                } while i != startsAt
-//            } else if (curChar?.asciiValue)! < 128 {
-//                let l = 1 << ((curChar?.asciiValue)! & 0o77)
-//                repeat {
-//                    i -= 1
-//                    switch jjstateSet[i] {
-//                    case 6:
-//                        if l != 0 {
-//                            if kind > 4 {
-//                                kind = 4
-//                            }
-//                            checkNAdd(state: 0)
-//                        } else if (curChar?.asciiValue == 92) {
-//                            jjnewStateCnt += 1
-//                            jjstateSet[jjnewStateCnt] = 7
-//                        }
-//                   case 0:
-//                        //if (0xfffffffe47ffffff & l) != 0 {
-//                            kind = 4
-//                            checkNAdd(state: 0)
-//                        //}
-//                    case 7:
-//                        if ((0x1b8000000 & l) != 0 && kind > 11) {
-//                            kind = 11
-//                        }
-//                    default:
-//                        break;
-//                    }
-//                } while (i != startsAt)
-//                
-//                
-//            } else {
-//                repeat {
-//                    i-=1
-//                    switch (jjstateSet[i]) {
-//                    case 6:
-//                        fallthrough
-//                    case 0:
-//                        if (kind > 4) {
-//                            kind = 4
-//                        }
-//                        checkNAdd(state: 0)
-//                    default: break
-//                    }
-//                } while (i != startsAt)
-//            }
-//            if (kind != 0x7fffffff) {
-//                matchedKind = Int32(kind)
-//                matchedPos = curPos
-//                kind = 0x7fffffff
-//            }
-//            curPos += 1
-//
-//            //if ((i = jjnewStateCnt) == (startsAt = 8 - (jjnewStateCnt = startsAt))) {
-//////            return curPos
-//////        }
-//            do {
-//                curChar = try cs.readChar()
-//            } catch {
-//                return curPos
-//            }
-//        }
-//    }
-//
+    public func getNextToken() -> Token? {
+        do {
+            var curPos : Int32 = 0
+            while true {
+                do {
+                    curChar = try cs.beginToken()
+                } catch {
+                    matchedKind = 0
+                    matchedPos = -1
+                    return fillToken()
+                }
+                matchedKind = Int32.max
+                matchedPos = 0
+                curPos = try moveStringLiteralDfa0()
+                if matchedKind != Int32.max {
+                    if (matchedPos + 1 < curPos) {
+                        cs.backup(curPos - matchedPos - 1)
+                    }
+                    return fillToken()
+                }
+            }
+        } catch {
+            return nil
+        }
+    }
+    
+    func fillToken() -> Token {
+        return Token(matchedKind, cs.getBeginLine(), cs.getBeginColumn(), cs.getEndLine(), cs.getEndColumn(), cs.getImage())
+    }
+    
+    func moveStringLiteralDfa0() throws -> Int32 {
+        switch Int((String(describing: curChar!).unicodeScalars.first?.value)!) {
+        case 9:
+            return try startNfaWithStates(0, TokenManager.TAB, 8)
+        case 32:
+            return try startNfaWithStates(0, TokenManager.SPACE, 8)
+        case 40:
+            return stopAtPos(pos: 0, kind: TokenManager.LPAREN)
+        case 41:
+            return stopAtPos(pos: 0, kind: TokenManager.RPAREN)
+        case 42 :
+            return stopAtPos(pos: 0, kind: TokenManager.ASTERISK)
+        case 45:
+            return stopAtPos(pos: 0, kind: TokenManager.DASH)
+        case 46:
+            return stopAtPos(pos: 0, kind: TokenManager.DOT)
+        case 58:
+            return stopAtPos(pos: 0, kind: TokenManager.COLON)
+        case 60:
+            return stopAtPos(pos: 0, kind: TokenManager.LT)
+        case 61:
+            return stopAtPos(pos: 0, kind: TokenManager.EQ)
+        case 62:
+            return stopAtPos(pos: 0, kind: TokenManager.GT)
+        case 73:
+            return try moveStringLiteralDfa1(active: 0x2000)
+        case 91:
+            return stopAtPos(pos: 0, kind: TokenManager.LBRACK)
+        case 92:
+            return try startNfaWithStates(0, TokenManager.BACKSLASH, 7)
+        case 93:
+            return stopAtPos(pos: 0, kind: TokenManager.RBRACK)
+        case 95:
+            return stopAtPos(pos: 0, kind: TokenManager.UNDERSCORE)
+        case 96:
+            return stopAtPos(pos: 0, kind: TokenManager.BACKTICK)
+        case 105:
+            return try moveStringLiteralDfa1(active: 0x2000);
+        default:
+            return moveNfa(startState: 6, curPos: 0)
+        }
+    }
+  
+    func startNfaWithStates(_ pos: Int32, _ kind: Int32, _ state: Int32) throws -> Int32 {
+        matchedKind = kind
+        matchedPos = pos
+        do {
+            curChar = try cs.readChar()
+        } catch {
+            return Int32(pos + 1)
+        }
+        let newPos : Int32 = pos + 1
+        return moveNfa(startState: state, curPos: newPos)
+    }
+    
+    func stopAtPos(pos: Int32, kind: Int32) -> Int32 {
+        matchedKind = kind
+        matchedPos = pos
+        let newPos = pos + 1
+        return newPos
+    }
+
+    func moveStringLiteralDfa1(active: Int64) throws -> Int32 {
+        curChar = try cs.readChar()
+        if (curChar?.asciiValue == 77 || curChar?.asciiValue == 109) {
+            return try moveStringLiteralDfa2(old: active, active: 0x2000)
+        }
+        return startNfa(pos: 0, active: active)
+    }
+
+    func moveStringLiteralDfa2(old: Int64, active: Int64) throws -> Int32 {
+        curChar = try cs.readChar()
+        if (curChar?.asciiValue == 65 || curChar?.asciiValue == 97) {
+            return try moveStringLiteralDfa3(old: active, active: 0x2000)
+        }
+        return startNfa(pos: 1, active: active)
+    }
+    
+    func moveStringLiteralDfa3(old: Int64, active: Int64) throws -> Int32 {
+        curChar = try cs.readChar()
+        if (curChar?.asciiValue == 71 || curChar?.asciiValue == 103) {
+            return try moveStringLiteralDfa4(old: active, active: 0x2000)
+        }
+        return startNfa(pos: 2, active: active)
+    }
+
+    func moveStringLiteralDfa4(old: Int64, active: Int64) throws -> Int32 {
+        curChar = try cs.readChar()
+        if (curChar?.asciiValue == 69 || curChar?.asciiValue == 101) {
+            return try moveStringLiteralDfa5(old: active, active: 0x2000)
+        }
+        return startNfa(pos: 3, active: active)
+    }
+
+    func moveStringLiteralDfa5(old: Int64, active: Int64) throws -> Int32 {
+        curChar = try cs.readChar()
+        if (curChar?.asciiValue == 58 && ((active & 0x2000) != 0)) {
+            return stopAtPos(pos: 5, kind: 13)
+        }
+        return startNfa(pos: 4, active: active)
+    }
+
+    func startNfa(pos: Int, active: Int64) -> Int32 {
+        return moveNfa(startState: Int32(stopStringLiteralDfa(pos: pos, active: Int64(active))), curPos: pos + 1)
+    }
+  
+    func moveNfa(startState: Int32, curPos: Int32) -> Int32 {
+        var curPos = curPos
+        var startsAt : Int = 0
+        var jjnewStateCnt : Int = 8
+        var i : Int = 1
+        jjstateSet[0] = startState
+        var kind = 0x7fffffff
+
+        while true {
+            round += 1
+            if round == 0x7fffffff {
+                round = 0x80000001
+            }
+            if ((curChar?.asciiValue!)! < 64) {
+                let l : Int64 = Int64(1) << Int64(curChar!.asciiValue!)
+                
+                repeat {
+                    i -= 1
+                    switch jjstateSet[i] {
+                    case 6:
+                        if (-8646743063567279617 & l) != 0 {
+                            if kind > 4 {
+                                kind = 4
+                            }
+                            checkNAdd(state: 0)
+                        } else if (0x3ff000000000000 & l) != 0 {
+                            if (kind > 7) {
+                                kind = 7
+                            }
+                            checkNAdd(state: 1)
+                        } else if (0x2400 & l) != 0 {
+                            if (kind > 9) {
+                                kind = 9
+                            }
+                        } else if (0x100000200 & l) != 0 {
+                            checkNAddStates(start: 0, end: 2)
+                        }
+                        if (curChar?.asciiValue == 13) {
+                            jjnewStateCnt += 1
+                            jjstateSet[jjnewStateCnt] = 4
+                        }
+                    case 8:
+                        if (0x2400 & l) != 0 {
+                            if (kind > 9) {
+                                kind = 9
+                            }
+                        } else if (0x100000200 & l) != 0 {
+                            checkNAddStates(start: 0, end: 2)
+                        }
+                        if (curChar?.asciiValue == 13) {
+                            jjnewStateCnt += 1
+                            jjstateSet[jjnewStateCnt] = 4
+                        }
+                    //case 0:
+                    //    if (0x880098feffffd9ff & l) != 0 {
+                    //        kind = 4
+                    //        checkNAdd(state: 0)
+                    //    }
+                    case 1:
+                        if (0x3ff000000000000 & l) != 0 {
+                            if (kind > 7) {
+                                kind = 7
+                            }
+                            checkNAdd(state: 1)
+                        }
+                    case 2:
+                        if (0x100000200 & l) != 0 {
+                            checkNAddStates(start: 0, end: 2)
+                        }
+                    case 3:
+                        if (0x2400 & l) != 0 && kind > 9 {
+                            kind = 9
+                        }
+                    case 4:
+                        if (curChar?.asciiValue == 10 && kind > 9) {
+                            kind = 9
+                        }
+                    case 5:
+                        if (curChar?.asciiValue == 13) {
+                            jjnewStateCnt += 1
+                            jjstateSet[jjnewStateCnt] = 4
+                        }
+                    case 7:
+                        if ((0x77ff670000000000 & l) != 0 && kind > 11) {
+                            kind = 11
+                        }
+                    default: break
+                    }
+                } while i != startsAt
+            } else if (curChar?.asciiValue)! < 128 {
+                let l = Int64(1) << Int64((curChar?.asciiValue)! & 0o77)
+                repeat {
+                    i -= 1
+                    switch jjstateSet[i] {
+                    case 6:
+                        if l != 0 {
+                            if kind > 4 {
+                                kind = 4
+                            }
+                            checkNAdd(state: 0)
+                        } else if (curChar?.asciiValue == 92) {
+                            jjnewStateCnt += 1
+                            jjstateSet[jjnewStateCnt] = 7
+                        }
+                   case 0:
+                        //if (0xfffffffe47ffffff & l) != 0 {
+                            kind = 4
+                            checkNAdd(state: 0)
+                        //}
+                    case 7:
+                        if ((0x1b8000000 & l) != 0 && kind > 11) {
+                            kind = 11
+                        }
+                    default:
+                        break;
+                    }
+                } while (i != startsAt)
+                
+                
+            } else {
+                repeat {
+                    i-=1
+                    switch (jjstateSet[i]) {
+                    case 6:
+                        fallthrough
+                    case 0:
+                        if (kind > 4) {
+                            kind = 4
+                        }
+                        checkNAdd(state: 0)
+                    default: break
+                    }
+                } while (i != startsAt)
+            }
+            if (kind != 0x7fffffff) {
+                matchedKind = Int32(kind)
+                matchedPos = curPos
+                kind = 0x7fffffff
+            }
+            curPos += 1
+
+            //if ((i = jjnewStateCnt) == (startsAt = 8 - (jjnewStateCnt = startsAt))) {
+////            return curPos
+////        }
+            do {
+                curChar = try cs.readChar()
+            } catch {
+                return curPos
+            }
+        }
+    }
+
     func checkNAddStates(start: Int, end: Int) {
         var start = start
         repeat {
