@@ -326,21 +326,21 @@ public class TokenManager {
 //        }
 //    }
 //
-//    func checkNAddStates(start: Int, end: Int) {
-//        var start = start
-//        repeat {
-//            checkNAdd(state: jjnextStates[start])
-//            start += 1
-//        } while (start != end)
-//    }
-//
-//    func checkNAdd(state: Int) {
-//        if (jjrounds[state] != round) {
-//            jjnewStateCnt += 1
-//            jjstateSet[Int(jjnewStateCnt)] = Int32(state)
-//            jjrounds[state] = round
-//        }
-//    }
+    func checkNAddStates(start: Int, end: Int) {
+        var start = start
+        repeat {
+            checkNAdd(state: jjnextStates[start])
+            start += 1
+        } while (start != end)
+    }
+
+    func checkNAdd(state: Int) {
+        if (jjrounds[state] != round) {
+            jjnewStateCnt += 1
+            jjstateSet[Int(jjnewStateCnt)] = Int32(state)
+            jjrounds[state] = round
+        }
+    }
 
     func stopStringLiteralDfa(pos: Int, active: Int64) -> Int {
         if pos == 0 {
