@@ -35,7 +35,7 @@ public class Parser {
         tree = TreeState()
         nextTokenKind = -1
         let document = Document()
-//        tree.openScope()
+        tree.openScope()
 //        
 //        while getNextTokenKind() == TokenManager.EOL {
 //            consumeToken(TokenManager.EOL)
@@ -56,7 +56,7 @@ public class Parser {
 //            whiteSpace()
 //        }
 //        consumeToken(TokenManager.EOF)
-//        tree.closeScope(document)
+        tree.closeScope(document)
         return document
     }
 //    
@@ -2505,45 +2505,45 @@ public class Parser {
 //            return false
 //        }
 //        
-//        func getNextTokenKind() -> Int32 {
-//            //        if (nextTokenKind != -1) {
-//            //            return nextTokenKind
-//            //        } else if ((nextToken = token.next) == nil) {
-//            //            token.next = tm.getNextToken()
-//            //            return (nextTokenKind = token.next.kind)
-//            //        }
-//            //        nextTokenKind = nextToken.kind
-//            return nextTokenKind
-//        }
-//        
-//        @discardableResult func consumeToken(_ kind : Int32) -> Token {
-//            //let old : Token = token
-//            if token.next != nil {
-//                token = token.next
-//            } else {
-//                //            token.next = tm.getNextToken()
-//                //            token = token.next
-//            }
-//            //        nextTokenKind = -1
-//            //        if (token.kind == kind) {
-//            //            return token
-//            //        }
-//            //        token = old
-//            return token
-//        }
-//        
-//        func getToken(_ index : Int) -> Token {
-//            let t = lookingAhead ? scanPosition : token;
-//            //for (int i = 0; i < index; i++) {
-//            //if (t.next != null) {
-//            //t = t.next;
-//            //} else {
-//            //t = t.next = tm.getNextToken();
-//            //}
-//            //}
-//            return t!
-//        }
-//        
+        func getNextTokenKind() -> Int32 {
+            //        if (nextTokenKind != -1) {
+            //            return nextTokenKind
+            //        } else if ((nextToken = token.next) == nil) {
+            //            token.next = tm.getNextToken()
+            //            return (nextTokenKind = token.next.kind)
+            //        }
+            //        nextTokenKind = nextToken.kind
+            return nextTokenKind
+        }
+        
+        @discardableResult func consumeToken(_ kind : Int32) -> Token {
+            //let old : Token = token
+            if token.next != nil {
+                token = token.next
+            } else {
+                //            token.next = tm.getNextToken()
+                //            token = token.next
+            }
+            //        nextTokenKind = -1
+            //        if (token.kind == kind) {
+            //            return token
+            //        }
+            //        token = old
+            return token
+        }
+        
+        func getToken(_ index : Int) -> Token {
+            let t = lookingAhead ? scanPosition : token;
+            //for (int i = 0; i < index; i++) {
+            //if (t.next != null) {
+            //t = t.next;
+            //} else {
+            //t = t.next = tm.getNextToken();
+            //}
+            //}
+            return t!
+        }
+//
 //        //    public void setModules(String... modules) {
 //        //    this.modules = Arrays.asList(modules)
 //        //    }

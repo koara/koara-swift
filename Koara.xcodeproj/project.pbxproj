@@ -123,6 +123,9 @@
 		A19B5B7F1E28E8C500213D1D /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A121E16454A00419AB4 /* Token.swift */; };
 		A19B5B801E28E8C500213D1D /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A131E16454A00419AB4 /* TokenManager.swift */; };
 		A19B5B811E28E8C500213D1D /* TreeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A141E16454A00419AB4 /* TreeState.swift */; };
+		A19B5B821E2D507E00213D1D /* CharStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A3E1E1645A200419AB4 /* CharStreamTests.swift */; };
+		A19B5B831E2D509700213D1D /* CharStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A3E1E1645A200419AB4 /* CharStreamTests.swift */; };
+		A19B5B841E2D50A000213D1D /* CharStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A3E1E1645A200419AB4 /* CharStreamTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -643,6 +646,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A19B5B821E2D507E00213D1D /* CharStreamTests.swift in Sources */,
 				A19B5ADE1E212E8600213D1D /* StringReaderTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -685,6 +689,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A19B5B831E2D509700213D1D /* CharStreamTests.swift in Sources */,
 				A19B5AFB1E24089700213D1D /* StringReaderTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -727,6 +732,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A19B5B841E2D50A000213D1D /* CharStreamTests.swift in Sources */,
 				A19B5B591E253CEE00213D1D /* StringReaderTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
