@@ -174,175 +174,175 @@ public class TokenManager {
 //        return moveNfa(startState: Int32(stopStringLiteralDfa(pos: pos, active: Int32(active))), curPos: pos + 1)
 //    }
 //  
-    func moveNfa(startState: Int32, curPos: Int32) -> Int32 {
-        var curPos = curPos
-        var startsAt : Int = 0
-        var jjnewStateCnt : Int = 8
-        var i : Int = 1
-        jjstateSet[0] = startState
-        var kind = 0x7fffffff
+//    func moveNfa(startState: Int32, curPos: Int32) -> Int32 {
+//        var curPos = curPos
+//        var startsAt : Int = 0
+//        var jjnewStateCnt : Int = 8
+//        var i : Int = 1
+//        jjstateSet[0] = startState
+//        var kind = 0x7fffffff
+//
+//        while true {
+//            round += 1
+//            if round == 0x7fffffff {
+//                round = 0x80000001
+//            }
+//            if ((curChar?.asciiValue!)! < 64) {
+//                let l = 1 << (curChar?.asciiValue!)!;
+//    
+//                repeat {
+//                    i -= 1
+//                    switch jjstateSet[i] {
+//                    case 6:
+//                        if (-8646743063567279617 & l) != 0 {
+//                            if kind > 4 {
+//                                kind = 4
+//                            }
+//                            checkNAdd(state: 0)
+//                        } else if (0x3ff000000000000 & l) != 0 {
+//                            if (kind > 7) {
+//                                kind = 7
+//                            }
+//                            checkNAdd(state: 1)
+//                        } else if (0x2400 & l) != 0 {
+//                            if (kind > 9) {
+//                                kind = 9
+//                            }
+//                        } else if (0x100000200 & l) != 0 {
+//                            checkNAddStates(start: 0, end: 2)
+//                        }
+//                        if (curChar?.asciiValue == 13) {
+//                            jjnewStateCnt += 1
+//                            jjstateSet[jjnewStateCnt] = 4
+//                        }
+//                    case 8:
+//                        if (0x2400 & l) != 0 {
+//                            if (kind > 9) {
+//                                kind = 9
+//                            }
+//                        } else if (0x100000200 & l) != 0 {
+//                            checkNAddStates(start: 0, end: 2)
+//                        }
+//                        if (curChar?.asciiValue == 13) {
+//                            jjnewStateCnt += 1
+//                            jjstateSet[jjnewStateCnt] = 4
+//                        }
+//                    //case 0:
+//                    //    if (0x880098feffffd9ff & l) != 0 {
+//                    //        kind = 4
+//                    //        checkNAdd(state: 0)
+//                    //    }
+//                    case 1:
+//                        if (0x3ff000000000000 & l) != 0 {
+//                            if (kind > 7) {
+//                                kind = 7
+//                            }
+//                            checkNAdd(state: 1)
+//                        }
+//                    case 2:
+//                        if (0x100000200 & l) != 0 {
+//                            checkNAddStates(start: 0, end: 2)
+//                        }
+//                    case 3:
+//                        if (0x2400 & l) != 0 && kind > 9 {
+//                            kind = 9
+//                        }
+//                    case 4:
+//                        if (curChar?.asciiValue == 10 && kind > 9) {
+//                            kind = 9
+//                        }
+//                    case 5:
+//                        if (curChar?.asciiValue == 13) {
+//                            jjnewStateCnt += 1
+//                            jjstateSet[jjnewStateCnt] = 4
+//                        }
+//                    case 7:
+//                        if ((0x77ff670000000000 & l) != 0 && kind > 11) {
+//                            kind = 11
+//                        }
+//                    default: break
+//                    }
+//                } while i != startsAt
+//            } else if (curChar?.asciiValue)! < 128 {
+//                let l = 1 << ((curChar?.asciiValue)! & 0o77)
+//                repeat {
+//                    i -= 1
+//                    switch jjstateSet[i] {
+//                    case 6:
+//                        if l != 0 {
+//                            if kind > 4 {
+//                                kind = 4
+//                            }
+//                            checkNAdd(state: 0)
+//                        } else if (curChar?.asciiValue == 92) {
+//                            jjnewStateCnt += 1
+//                            jjstateSet[jjnewStateCnt] = 7
+//                        }
+//                   case 0:
+//                        //if (0xfffffffe47ffffff & l) != 0 {
+//                            kind = 4
+//                            checkNAdd(state: 0)
+//                        //}
+//                    case 7:
+//                        if ((0x1b8000000 & l) != 0 && kind > 11) {
+//                            kind = 11
+//                        }
+//                    default:
+//                        break;
+//                    }
+//                } while (i != startsAt)
+//                
+//                
+//            } else {
+//                repeat {
+//                    i-=1
+//                    switch (jjstateSet[i]) {
+//                    case 6:
+//                        fallthrough
+//                    case 0:
+//                        if (kind > 4) {
+//                            kind = 4
+//                        }
+//                        checkNAdd(state: 0)
+//                    default: break
+//                    }
+//                } while (i != startsAt)
+//            }
+//            if (kind != 0x7fffffff) {
+//                matchedKind = Int32(kind)
+//                matchedPos = curPos
+//                kind = 0x7fffffff
+//            }
+//            curPos += 1
+//
+//            //if ((i = jjnewStateCnt) == (startsAt = 8 - (jjnewStateCnt = startsAt))) {
+//////            return curPos
+//////        }
+//            do {
+//                curChar = try cs.readChar()
+//            } catch {
+//                return curPos
+//            }
+//        }
+//    }
+//
+//    func checkNAddStates(start: Int, end: Int) {
+//        var start = start
+//        repeat {
+//            checkNAdd(state: jjnextStates[start])
+//            start += 1
+//        } while (start != end)
+//    }
+//
+//    func checkNAdd(state: Int) {
+//        if (jjrounds[state] != round) {
+//            jjnewStateCnt += 1
+//            jjstateSet[Int(jjnewStateCnt)] = Int32(state)
+//            jjrounds[state] = round
+//        }
+//    }
 
-        while true {
-            round += 1
-            if round == 0x7fffffff {
-                round = 0x80000001
-            }
-            if ((curChar?.asciiValue!)! < 64) {
-                let l = 1 << (curChar?.asciiValue!)!;
-    
-                repeat {
-                    i -= 1
-                    switch jjstateSet[i] {
-                    case 6:
-                        if (-8646743063567279617 & l) != 0 {
-                            if kind > 4 {
-                                kind = 4
-                            }
-                            checkNAdd(state: 0)
-                        } else if (0x3ff000000000000 & l) != 0 {
-                            if (kind > 7) {
-                                kind = 7
-                            }
-                            checkNAdd(state: 1)
-                        } else if (0x2400 & l) != 0 {
-                            if (kind > 9) {
-                                kind = 9
-                            }
-                        } else if (0x100000200 & l) != 0 {
-                            checkNAddStates(start: 0, end: 2)
-                        }
-                        if (curChar?.asciiValue == 13) {
-                            jjnewStateCnt += 1
-                            jjstateSet[jjnewStateCnt] = 4
-                        }
-                    case 8:
-                        if (0x2400 & l) != 0 {
-                            if (kind > 9) {
-                                kind = 9
-                            }
-                        } else if (0x100000200 & l) != 0 {
-                            checkNAddStates(start: 0, end: 2)
-                        }
-                        if (curChar?.asciiValue == 13) {
-                            jjnewStateCnt += 1
-                            jjstateSet[jjnewStateCnt] = 4
-                        }
-                    //case 0:
-                    //    if (0x880098feffffd9ff & l) != 0 {
-                    //        kind = 4
-                    //        checkNAdd(state: 0)
-                    //    }
-                    case 1:
-                        if (0x3ff000000000000 & l) != 0 {
-                            if (kind > 7) {
-                                kind = 7
-                            }
-                            checkNAdd(state: 1)
-                        }
-                    case 2:
-                        if (0x100000200 & l) != 0 {
-                            checkNAddStates(start: 0, end: 2)
-                        }
-                    case 3:
-                        if (0x2400 & l) != 0 && kind > 9 {
-                            kind = 9
-                        }
-                    case 4:
-                        if (curChar?.asciiValue == 10 && kind > 9) {
-                            kind = 9
-                        }
-                    case 5:
-                        if (curChar?.asciiValue == 13) {
-                            jjnewStateCnt += 1
-                            jjstateSet[jjnewStateCnt] = 4
-                        }
-                    case 7:
-                        if ((0x77ff670000000000 & l) != 0 && kind > 11) {
-                            kind = 11
-                        }
-                    default: break
-                    }
-                } while i != startsAt
-            } else if (curChar?.asciiValue)! < 128 {
-                let l = 1 << ((curChar?.asciiValue)! & 0o77)
-                repeat {
-                    i -= 1
-                    switch jjstateSet[i] {
-                    case 6:
-                        if l != 0 {
-                            if kind > 4 {
-                                kind = 4
-                            }
-                            checkNAdd(state: 0)
-                        } else if (curChar?.asciiValue == 92) {
-                            jjnewStateCnt += 1
-                            jjstateSet[jjnewStateCnt] = 7
-                        }
-                   case 0:
-                        //if (0xfffffffe47ffffff & l) != 0 {
-                            kind = 4
-                            checkNAdd(state: 0)
-                        //}
-                    case 7:
-                        if ((0x1b8000000 & l) != 0 && kind > 11) {
-                            kind = 11
-                        }
-                    default:
-                        break;
-                    }
-                } while (i != startsAt)
-                
-                
-            } else {
-                repeat {
-                    i-=1
-                    switch (jjstateSet[i]) {
-                    case 6:
-                        fallthrough
-                    case 0:
-                        if (kind > 4) {
-                            kind = 4
-                        }
-                        checkNAdd(state: 0)
-                    default: break
-                    }
-                } while (i != startsAt)
-            }
-            if (kind != 0x7fffffff) {
-                matchedKind = Int32(kind)
-                matchedPos = curPos
-                kind = 0x7fffffff
-            }
-            curPos += 1
-
-            //if ((i = jjnewStateCnt) == (startsAt = 8 - (jjnewStateCnt = startsAt))) {
-////            return curPos
-////        }
-            do {
-                curChar = try cs.readChar()
-            } catch {
-                return curPos
-            }
-        }
-    }
-
-    func checkNAddStates(start: Int, end: Int) {
-        var start = start
-        repeat {
-            checkNAdd(state: jjnextStates[start])
-            start += 1
-        } while (start != end)
-    }
-
-    func checkNAdd(state: Int) {
-        if (jjrounds[state] != round) {
-            jjnewStateCnt += 1
-            jjstateSet[Int(jjnewStateCnt)] = Int32(state)
-            jjrounds[state] = round
-        }
-    }
-
-    func stopStringLiteralDfa(pos: Int, active: Int32) -> Int {
+    func stopStringLiteralDfa(pos: Int, active: Int64) -> Int {
         if pos == 0 {
             if (active & 0x2000) != 0 {
                 matchedKind = 4
