@@ -36,10 +36,10 @@ public class Parser {
         nextTokenKind = -1
         let document = Document()
         tree.openScope()
-//        
-//        while getNextTokenKind() == TokenManager.EOL {
-//            consumeToken(TokenManager.EOL)
-//        }
+        
+        while getNextTokenKind() == TokenManager.EOL {
+            consumeToken(TokenManager.EOL)
+        }
 //        whiteSpace()
 //        if hasAnyBlockElementsAhead() {
 //            blockElement()
@@ -1108,25 +1108,25 @@ public class Parser {
 //        //        return false
 //        //    }
 //        //
-//        func headingAhead(_ offset : Int) -> Bool {
-//            if getToken(offset).kind == TokenManager.EQ {
-//                var heading : Int = 1
-//                var i = offset + 1
-//                
-//                repeat {
-//                    if (getToken(i).kind != TokenManager.EQ) {
-//                        return true
-//                    }
-//                    heading+=1
-//                    if (heading > 6) {
-//                        return false
-//                    }
-//                    i+=1
-//                } while(true)
-//            }
-//            return false
-//        }
-//        
+        func headingAhead(_ offset : Int) -> Bool {
+            if getToken(offset).kind == TokenManager.EQ {
+                var heading : Int = 1
+                var i = offset + 1
+                
+                repeat {
+                    if (getToken(i).kind != TokenManager.EQ) {
+                        return true
+                    }
+                    heading+=1
+                    if (heading > 6) {
+                        return false
+                    }
+                    i+=1
+                } while(true)
+            }
+            return false
+        }
+//
 //        func listItemAhead(_ listBeginColumn : Int, ordered : Bool) -> Bool {
 //            if (getNextTokenKind() == TokenManager.EOL) {
 ////                for (int i = 2, eol = 1;; i++) {
@@ -2394,20 +2394,20 @@ public class Parser {
 //        //        return false
 //        //    }
 //        //
-//        func scanParagraph() throws -> Bool {
-//            //        var xsp : Token
-//            //        if try scanInlineElement() {
-//            //            return true
-//            //        }
-//            //        while true {
-//            //            xsp = scanPosition
-//            //            if try scanInlineElement() {
-//            //                scanPosition = xsp
-//            //                break
-//            //            }
-//            //        }
-//            return false
-//        }
+        func scanParagraph() throws -> Bool {
+            //        var xsp : Token
+            //        if try scanInlineElement() {
+            //            return true
+            //        }
+            //        while true {
+            //            xsp = scanPosition
+            //            if try scanInlineElement() {
+            //                scanPosition = xsp
+            //                break
+            //            }
+            //        }
+            return false
+        }
 //        
 //        func scanWhitspaceToken() throws -> Bool {
 //            let xsp = scanPosition
@@ -2420,10 +2420,10 @@ public class Parser {
 //            return false
 //        }
 //        
-//        func scanFencedCodeBlock() throws -> Bool {
-//            return try scanToken(TokenManager.BACKTICK) || scanToken(TokenManager.BACKTICK) || scanToken(TokenManager.BACKTICK)
-//        }
-//        
+        func scanFencedCodeBlock() throws -> Bool {
+            return try scanToken(TokenManager.BACKTICK) || scanToken(TokenManager.BACKTICK) || scanToken(TokenManager.BACKTICK)
+        }
+        
 //        func scanBlockQuoteEmptyLines() throws -> Bool {
 //            return try (scanBlockQuoteEmptyLine() || scanToken(TokenManager.EOL))
 //        }
@@ -2443,68 +2443,68 @@ public class Parser {
 //            return false
 //        }
 //        
-//        func scanForHeadersigns() throws -> Bool {
-//            if try scanToken(TokenManager.EQ) {
-//                return true
-//            }
-//            //        var xsp : Token
-//            //        while true {
-//            //            xsp = scanPosition
-//            //            if try scanToken(TokenManager.EQ) {
-//            //                scanPosition = xsp
-//            //                break
-//            //            }
-//            //        }
-//            return false
-//        }
-//        
-//        func scanMoreBlockElements() throws -> Bool {
-//            let xsp = scanPosition
-//            lookingAhead = true
-//            semanticLookAhead = headingAhead(1)
-//            lookingAhead = false
-//            if try !semanticLookAhead || scanForHeadersigns() {
-//                scanPosition = xsp
-//                if try scanToken(TokenManager.GT) {
-//                    scanPosition = xsp
-//                    if try scanToken(TokenManager.DASH) {
-//                        scanPosition = xsp
-//                        if try scanToken(TokenManager.DIGITS) || scanToken(TokenManager.DOT) {
-//                            scanPosition = xsp
-//                            if try scanFencedCodeBlock() {
-//                                scanPosition = xsp
-//                                return try scanParagraph()
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//            return false
-//        }
-//        
-//        func scanToken(_ kind : Int32) throws -> Bool {
-//            //        if (scanPosition == lastPosition) {
-//            //            lookAhead -= 1
-//            //            if scanPosition.next == nil {
-//            //                scanPosition.next = tm.getNextToken()
-//            //                scanPosition = scanPosition.next
-//            //                lastPosition = scanPosition
-//            //            } else {
-//            //                scanPosition = scanPosition.next
-//            //                lastPosition = scanPosition
-//            //            }
-//            //        } else {
-//            //            scanPosition = scanPosition.next
-//            //        }
-//            //        if (scanPosition.kind != kind) {
-//            //            return true
-//            //        }
-//            //        if (lookAhead == 0 && (scanPosition == lastPosition)) {
-//            //            throw lookAheadSuccess
-//            //        }
-//            return false
-//        }
-//        
+        func scanForHeadersigns() throws -> Bool {
+            if try scanToken(TokenManager.EQ) {
+                return true
+            }
+            //        var xsp : Token
+            //        while true {
+            //            xsp = scanPosition
+            //            if try scanToken(TokenManager.EQ) {
+            //                scanPosition = xsp
+            //                break
+            //            }
+            //        }
+            return false
+        }
+        
+        func scanMoreBlockElements() throws -> Bool {
+            let xsp = scanPosition
+            lookingAhead = true
+            semanticLookAhead = headingAhead(1)
+            lookingAhead = false
+            if try !semanticLookAhead || scanForHeadersigns() {
+                scanPosition = xsp
+                if try scanToken(TokenManager.GT) {
+                    scanPosition = xsp
+                    if try scanToken(TokenManager.DASH) {
+                        scanPosition = xsp
+                        if try scanToken(TokenManager.DIGITS) || scanToken(TokenManager.DOT) {
+                            scanPosition = xsp
+                            if try scanFencedCodeBlock() {
+                                scanPosition = xsp
+                                return try scanParagraph()
+                            }
+                        }
+                    }
+                }
+            }
+            return false
+        }
+        
+        func scanToken(_ kind : Int32) throws -> Bool {
+            //        if (scanPosition == lastPosition) {
+            //            lookAhead -= 1
+            //            if scanPosition.next == nil {
+            //                scanPosition.next = tm.getNextToken()
+            //                scanPosition = scanPosition.next
+            //                lastPosition = scanPosition
+            //            } else {
+            //                scanPosition = scanPosition.next
+            //                lastPosition = scanPosition
+            //            }
+            //        } else {
+            //            scanPosition = scanPosition.next
+            //        }
+            //        if (scanPosition.kind != kind) {
+            //            return true
+            //        }
+            //        if (lookAhead == 0 && (scanPosition == lastPosition)) {
+            //            throw lookAheadSuccess
+            //        }
+            return false
+        }
+        
         func getNextTokenKind() -> Int32 {
             //        if (nextTokenKind != -1) {
             //            return nextTokenKind
