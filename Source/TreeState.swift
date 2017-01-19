@@ -15,7 +15,7 @@ class TreeState {
         var a = nodeArity()
         currentMark = marks.removeLast()
         a -= 1
-        while(a > 0) {
+        while(a >= 0) {
             let c = popNode()
             c.parent = n;
             n.add(n: c, i: a);

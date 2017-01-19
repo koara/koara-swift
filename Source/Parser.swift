@@ -40,28 +40,28 @@ public class Parser {
         while getNextTokenKind() == TokenManager.EOL {
             consumeToken(TokenManager.EOL)
         }
-//        whiteSpace()
-//        if hasAnyBlockElementsAhead() {
-//            blockElement()
-//            while blockAhead(0) {
-//                while (getNextTokenKind() == TokenManager.EOL) {
-//                    consumeToken(TokenManager.EOL)
-//                    whiteSpace()
-//                }
-//                blockElement()
-//            }
-//            while (getNextTokenKind() == TokenManager.EOL) {
-//                consumeToken(TokenManager.EOL)
-//            }
-//            whiteSpace()
-//        }
-//        consumeToken(TokenManager.EOF)
+        whiteSpace()
+        if hasAnyBlockElementsAhead() {
+            blockElement()
+            while blockAhead(0) {
+                while (getNextTokenKind() == TokenManager.EOL) {
+                    consumeToken(TokenManager.EOL)
+                    whiteSpace()
+                }
+                blockElement()
+            }
+            while (getNextTokenKind() == TokenManager.EOL) {
+                consumeToken(TokenManager.EOL)
+            }
+            whiteSpace()
+        }
+        consumeToken(TokenManager.EOF)
         tree.closeScope(document)
         return document
     }
-//    
-//    func blockElement() {
-//        currentBlockLevel += 1
+    
+    func blockElement() {
+        currentBlockLevel += 1
 //        if (modules.contains("headings") && headingAhead(1)) {
 //            heading()
 //        } else if (modules.contains("blockquotes") && getNextTokenKind() == TokenManager.GT) {
@@ -73,11 +73,11 @@ public class Parser {
 //        } else if (modules.contains("code") && hasFencedCodeBlockAhead()) {
 //            fencedCodeBlock()
 //        } else {
-//            paragraph()
+            paragraph()
 //        }
-//        currentBlockLevel -= 1
-//    }
-//    
+        currentBlockLevel -= 1
+    }
+    
 //    func heading() {
 //        let heading = Heading()
 //        tree.openScope()
@@ -317,77 +317,77 @@ public class Parser {
 //    //        codeBlock.value = s as AnyObject
 //    //        tree.closeScope(codeBlock)
 //    }
-//    
-//    func paragraph() {
-//        var paragraph = modules.contains("paragraphs") ? Paragraph() : BlockElement()
-//        tree.openScope()
-//        inline()
-//        //        while textAhead() {
-//        //            lineBreak()
-//        //            whiteSpace()
-//        //            if modules.contains("blockquotes") {
-//        //                while (getNextTokenKind() == TokenManager.GT) {
-//        //                    consumeToken(TokenManager.GT)
-//        //                    whiteSpace()
-//        //                }
-//        //            }
-//        //            inline()
-//        //        }
-//        tree.closeScope(paragraph)
-//    }
-//    
-//    func text() {
-//        var text = Text()
-//        tree.openScope()
-//        var s = ""
-//        //while textHasTokensAhead() {
-//        //switch getNextTokenKind() {
-//        //case TokenManager.CHAR_SEQUENCE:
-//            //s += consumeToken(TokenManager.CHAR_SEQUENCE).image
-//            //            case TokenManager.BACKSLASH:
-//            //                s += consumeToken(TokenManager.BACKSLASH).image
-//            //            case TokenManager.COLON:
-//            //                s += consumeToken(TokenManager.COLON).image
-//            //            case TokenManager.DASH:
-//            //                s += consumeToken(TokenManager.DASH).image
-//            //            case TokenManager.DIGITS:
-//            //                s += consumeToken(TokenManager.DIGITS).image
-//            //            case TokenManager.DOT:
-//            //                s += consumeToken(TokenManager.DOT).image
-//            //            case TokenManager.EQ:
-//            //                s += consumeToken(TokenManager.EQ).image
-//            //            case TokenManager.ESCAPED_CHAR:
-//            //                s += consumeToken(TokenManager.ESCAPED_CHAR).image
-//            //            case TokenManager.GT:
-//            //                s += consumeToken(TokenManager.GT).image
-//            //            case TokenManager.IMAGE_LABEL:
-//            //                s += consumeToken(TokenManager.IMAGE_LABEL).image
-//            //            case TokenManager.LPAREN:
-//            //                s += consumeToken(TokenManager.LPAREN).image
-//            //            case TokenManager.LT:
-//            //                s += consumeToken(TokenManager.LT).image
-//            //            case TokenManager.RBRACK:
-//            //                s += consumeToken(TokenManager.RBRACK).image
-//            //            case TokenManager.RPAREN:
-//        //                s += consumeToken(TokenManager.RPAREN).image
-//        //default:
-//            //                if (!nextAfterSpace(TokenManager.EOL, TokenManager.EOF)) {
-//            //                    switch getNextTokenKind() {
-//            //                    case TokenManager.SPACE:
-//            //                        s += consumeToken(TokenManager.SPACE).image
-//            //                    case TokenManager.TAB:
-//            //                        consumeToken(TokenManager.TAB)
-//            //                        s += "    "
-//            //                    default: break
-//            //                    }
-//            //                }
-//            //break
-//        //}
-//         //ç       }
-//        text.value = s as AnyObject
-//        tree.closeScope(text)
-//    }
-//    
+ 
+    func paragraph() {
+        var paragraph = modules.contains("paragraphs") ? Paragraph() : BlockElement()
+        tree.openScope()
+        inline()
+        //        while textAhead() {
+        //            lineBreak()
+        //            whiteSpace()
+        //            if modules.contains("blockquotes") {
+        //                while (getNextTokenKind() == TokenManager.GT) {
+        //                    consumeToken(TokenManager.GT)
+        //                    whiteSpace()
+        //                }
+        //            }
+        //            inline()
+        //        }
+        tree.closeScope(paragraph)
+    }
+
+    func text() {
+        var text = Text()
+        tree.openScope()
+        var s = "X"
+        //while textHasTokensAhead() {
+        //switch getNextTokenKind() {
+        //case TokenManager.CHAR_SEQUENCE:
+            //s += consumeToken(TokenManager.CHAR_SEQUENCE).image
+            //            case TokenManager.BACKSLASH:
+            //                s += consumeToken(TokenManager.BACKSLASH).image
+            //            case TokenManager.COLON:
+            //                s += consumeToken(TokenManager.COLON).image
+            //            case TokenManager.DASH:
+            //                s += consumeToken(TokenManager.DASH).image
+            //            case TokenManager.DIGITS:
+            //                s += consumeToken(TokenManager.DIGITS).image
+            //            case TokenManager.DOT:
+            //                s += consumeToken(TokenManager.DOT).image
+            //            case TokenManager.EQ:
+            //                s += consumeToken(TokenManager.EQ).image
+            //            case TokenManager.ESCAPED_CHAR:
+            //                s += consumeToken(TokenManager.ESCAPED_CHAR).image
+            //            case TokenManager.GT:
+            //                s += consumeToken(TokenManager.GT).image
+            //            case TokenManager.IMAGE_LABEL:
+            //                s += consumeToken(TokenManager.IMAGE_LABEL).image
+            //            case TokenManager.LPAREN:
+            //                s += consumeToken(TokenManager.LPAREN).image
+            //            case TokenManager.LT:
+            //                s += consumeToken(TokenManager.LT).image
+            //            case TokenManager.RBRACK:
+            //                s += consumeToken(TokenManager.RBRACK).image
+            //            case TokenManager.RPAREN:
+        //                s += consumeToken(TokenManager.RPAREN).image
+        //default:
+            //                if (!nextAfterSpace(TokenManager.EOL, TokenManager.EOF)) {
+            //                    switch getNextTokenKind() {
+            //                    case TokenManager.SPACE:
+            //                        s += consumeToken(TokenManager.SPACE).image
+            //                    case TokenManager.TAB:
+            //                        consumeToken(TokenManager.TAB)
+            //                        s += "    "
+            //                    default: break
+            //                    }
+            //                }
+            //break
+        //}
+         //ç       }
+        text.value = s as AnyObject
+        tree.closeScope(text)
+    }
+    
 //    func image() {
 //        //        var image = Image()
 //        //        tree.openScope()
@@ -658,25 +658,25 @@ public class Parser {
 //        //        return ""
 //        //    }
 //        //
-//        func inline() {
-//            //        repeat {
-//            //            if hasInlineTextAhead() {
-//            text()
-//            //            } else if modules.contains("images") && hasImageAhead() {
-//            //                image()
-//            //            } else if modules.contains("links") && hasLinkAhead() {
-//            //                link()
-//            //            } else if modules.contains("formatting") && multilineAhead(TokenManager.ASTERISK) {
-//            //                strongMultiline()
-//            //            } else if modules.contains("formatting") && multilineAhead(TokenManager.UNDERSCORE) {
-//            //                emMultiline()
-//            //            } else if modules.contains("code") && multilineAhead(TokenManager.BACKTICK) {
-//            //                codeMultiline()
-//            //            } else {
-//            //                looseChar()
-//            //           }
-//            //        } while hasInlineElementAhead()
-//        }
+        func inline() {
+            //        repeat {
+            //            if hasInlineTextAhead() {
+            text()
+            //            } else if modules.contains("images") && hasImageAhead() {
+            //                image()
+            //            } else if modules.contains("links") && hasLinkAhead() {
+            //                link()
+            //            } else if modules.contains("formatting") && multilineAhead(TokenManager.ASTERISK) {
+            //                strongMultiline()
+            //            } else if modules.contains("formatting") && multilineAhead(TokenManager.UNDERSCORE) {
+            //                emMultiline()
+            //            } else if modules.contains("code") && multilineAhead(TokenManager.BACKTICK) {
+            //                codeMultiline()
+            //            } else {
+            //                looseChar()
+            //           }
+            //        } while hasInlineElementAhead()
+        }
 //        //
 //        //    func resourceText() {
 //        //        var text = Text()
@@ -1021,54 +1021,54 @@ public class Parser {
 //        //    }
 //        //
 //    
-//        func whiteSpace() {
-//            while getNextTokenKind() == TokenManager.SPACE || getNextTokenKind() == TokenManager.TAB {
-//                consumeToken(getNextTokenKind())
-//            }
-//        }
-//    
-//        func hasAnyBlockElementsAhead() -> Bool {
-//            do {
-//                lookAhead = 1
-//                scanPosition = token
-//                lastPosition = scanPosition
-//                return try !scanMoreBlockElements()
-//            } catch {
-//                return true
-//            }
-//        }
-//    
-//        func blockAhead(_ blockBeginColumn : Int) -> Bool {
-//        ////    int quoteLevel
-//        ////
-//        ////    if (getNextTokenKind() == EOL) {
-//        //        var t : Token
-//        //        var i : Int = 2
-//        ////    quoteLevel = 0
-//        //        repeat {
-//        ////    quoteLevel = 0
-//        //            repeat {
-//        //                i += 1
-//        //                t = getToken(i)
-//        ////    if (t.kind == GT) {
-//        ////    if (t.beginColumn == 1 && currentBlockLevel > 0 && currentQuoteLevel == 0) {
-//        ////    return false
-//        ////    }
-//        ////    quoteLevel++
-//        ////    }
-//        //            } while (t.kind == TokenManager.GT || t.kind == TokenManager.SPACE || t.kind == TokenManager.TAB)
-//        ////    if (quoteLevel > currentQuoteLevel) {
-//        ////    return true
-//        ////    }
-//        ////    if (quoteLevel < currentQuoteLevel) {
-//        ////    return false
-//        ////    }
-//        //        } while (t.kind == TokenManager.EOL)
-//        ////    return t.kind != EOF && (currentBlockLevel == 0 || t.beginColumn >= blockBeginColumn + 2)
-//        ////    }
-//            return false
-//        }
-//    
+        func whiteSpace() {
+            while getNextTokenKind() == TokenManager.SPACE || getNextTokenKind() == TokenManager.TAB {
+                consumeToken(getNextTokenKind())
+            }
+        }
+    
+        func hasAnyBlockElementsAhead() -> Bool {
+            do {
+                lookAhead = 1
+                scanPosition = token
+                lastPosition = scanPosition
+                return try !scanMoreBlockElements()
+            } catch {
+                return true
+            }
+        }
+    
+        func blockAhead(_ blockBeginColumn : Int) -> Bool {
+        ////    int quoteLevel
+        ////
+        ////    if (getNextTokenKind() == EOL) {
+        //        var t : Token
+        //        var i : Int = 2
+        ////    quoteLevel = 0
+        //        repeat {
+        ////    quoteLevel = 0
+        //            repeat {
+        //                i += 1
+        //                t = getToken(i)
+        ////    if (t.kind == GT) {
+        ////    if (t.beginColumn == 1 && currentBlockLevel > 0 && currentQuoteLevel == 0) {
+        ////    return false
+        ////    }
+        ////    quoteLevel++
+        ////    }
+        //            } while (t.kind == TokenManager.GT || t.kind == TokenManager.SPACE || t.kind == TokenManager.TAB)
+        ////    if (quoteLevel > currentQuoteLevel) {
+        ////    return true
+        ////    }
+        ////    if (quoteLevel < currentQuoteLevel) {
+        ////    return false
+        ////    }
+        //        } while (t.kind == TokenManager.EOL)
+        ////    return t.kind != EOF && (currentBlockLevel == 0 || t.beginColumn >= blockBeginColumn + 2)
+        ////    }
+            return false
+        }
+    
 //        //    func multilineAhead(_ token : Int) -> Bool {
 //        ////    if (getNextTokenKind() == token && getToken(2).kind != token && getToken(2).kind != EOL) {
 //        ////
@@ -1800,18 +1800,18 @@ public class Parser {
 //        //        return try scanCodeTextTokensAhead()
 //        //    }
 //        //
-//        func scanWhitspaceTokens() throws -> Bool{
-//            var xsp : Token
-//            while true {
-//                xsp = scanPosition
-//                if try scanWhitspaceToken() {
-//                    scanPosition = xsp
-//                    break
-//                }
-//            }
-//            return false
-//        }
-//        
+        func scanWhitspaceTokens() throws -> Bool{
+            var xsp : Token
+            while true {
+                xsp = scanPosition
+                if try scanWhitspaceToken() {
+                    scanPosition = xsp
+                    break
+                }
+            }
+            return false
+        }
+//
 //        //    func scanWhitespaceTokenBeforeEol() throws -> Bool {
 //        //        return try (scanWhitspaceTokens() || scanToken(TokenManager.EOL))
 //        //    }
@@ -2408,41 +2408,41 @@ public class Parser {
             //        }
             return false
         }
-//        
-//        func scanWhitspaceToken() throws -> Bool {
-//            let xsp = scanPosition
-//            if try scanToken(TokenManager.SPACE) {
-//                scanPosition = xsp
-//                if try scanToken(TokenManager.TAB) {
-//                    return true
-//                }
-//            }
-//            return false
-//        }
-//        
+        
+        func scanWhitspaceToken() throws -> Bool {
+            let xsp = scanPosition
+            if try scanToken(TokenManager.SPACE) {
+                scanPosition = xsp
+                if try scanToken(TokenManager.TAB) {
+                    return true
+                }
+            }
+            return false
+        }
+        
         func scanFencedCodeBlock() throws -> Bool {
             return try scanToken(TokenManager.BACKTICK) || scanToken(TokenManager.BACKTICK) || scanToken(TokenManager.BACKTICK)
         }
         
-//        func scanBlockQuoteEmptyLines() throws -> Bool {
-//            return try (scanBlockQuoteEmptyLine() || scanToken(TokenManager.EOL))
-//        }
-//        
-//        func scanBlockQuoteEmptyLine() throws -> Bool {
-//            if try scanToken(TokenManager.EOL) || scanWhitspaceTokens() || scanToken(TokenManager.GT) || scanWhitspaceTokens() {
-//                return true
-//            }
-//            var xsp : Token
-//            while true {
-//                xsp = scanPosition
-//                if try scanToken(TokenManager.GT) || scanWhitspaceTokens() {
-//                    scanPosition = xsp
-//                    break
-//                }
-//            }
-//            return false
-//        }
-//        
+        func scanBlockQuoteEmptyLines() throws -> Bool {
+            return try (scanBlockQuoteEmptyLine() || scanToken(TokenManager.EOL))
+        }
+        
+        func scanBlockQuoteEmptyLine() throws -> Bool {
+            if try scanToken(TokenManager.EOL) || scanWhitspaceTokens() || scanToken(TokenManager.GT) || scanWhitspaceTokens() {
+                return true
+            }
+            var xsp : Token
+            while true {
+                xsp = scanPosition
+                if try scanToken(TokenManager.GT) || scanWhitspaceTokens() {
+                    scanPosition = xsp
+                    break
+                }
+            }
+            return false
+        }
+        
         func scanForHeadersigns() throws -> Bool {
             if try scanToken(TokenManager.EQ) {
                 return true

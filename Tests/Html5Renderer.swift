@@ -85,6 +85,7 @@ class Html5Renderer : Renderer {
     }
     
     func visitParagraph(node: Paragraph) {
+                print("H: P")
         //if(node.isNested() && (node.getParent() instanceof ListItem) && node.isSingleChild()) {
         //    node.childrenAccept(this);
         //} else {

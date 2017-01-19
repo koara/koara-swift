@@ -2,7 +2,7 @@ public class LineBreak : Node {
     
     //var explicit : Bool
     
-    func accept(renderer : Renderer) {
+    override func accept(renderer : Renderer) {
         renderer.visitLineBreak(node: self)
     }
     

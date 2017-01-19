@@ -132,6 +132,12 @@
 		A19B5B881E2FE63E00213D1D /* FileReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0B1E16452800419AB4 /* FileReaderTests.swift */; };
 		A19B5B891E2FE64300213D1D /* FileReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0B1E16452800419AB4 /* FileReaderTests.swift */; };
 		A19B5B8A1E2FE64700213D1D /* FileReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0B1E16452800419AB4 /* FileReaderTests.swift */; };
+		A19B5B8B1E311B6300213D1D /* ComplianceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A3F1E1645A200419AB4 /* ComplianceTest.swift */; };
+		A19B5B8C1E311B6A00213D1D /* ComplianceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A3F1E1645A200419AB4 /* ComplianceTest.swift */; };
+		A19B5B8D1E311B6E00213D1D /* ComplianceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A3F1E1645A200419AB4 /* ComplianceTest.swift */; };
+		A19B5B8E1E311B8B00213D1D /* Html5Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A401E1645A200419AB4 /* Html5Renderer.swift */; };
+		A19B5B8F1E311B9000213D1D /* Html5Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A401E1645A200419AB4 /* Html5Renderer.swift */; };
+		A19B5B901E311B9600213D1D /* Html5Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A401E1645A200419AB4 /* Html5Renderer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -652,6 +658,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A19B5B8E1E311B8B00213D1D /* Html5Renderer.swift in Sources */,
+				A19B5B8B1E311B6300213D1D /* ComplianceTest.swift in Sources */,
 				A19B5B881E2FE63E00213D1D /* FileReaderTests.swift in Sources */,
 				A19B5B851E2E753E00213D1D /* TokenManagerTest.swift in Sources */,
 				A19B5B821E2D507E00213D1D /* CharStreamTests.swift in Sources */,
@@ -697,6 +705,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A19B5B8F1E311B9000213D1D /* Html5Renderer.swift in Sources */,
+				A19B5B8C1E311B6A00213D1D /* ComplianceTest.swift in Sources */,
 				A19B5B891E2FE64300213D1D /* FileReaderTests.swift in Sources */,
 				A19B5B861E2E754400213D1D /* TokenManagerTest.swift in Sources */,
 				A19B5B831E2D509700213D1D /* CharStreamTests.swift in Sources */,
@@ -742,6 +752,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A19B5B901E311B9600213D1D /* Html5Renderer.swift in Sources */,
+				A19B5B8D1E311B6E00213D1D /* ComplianceTest.swift in Sources */,
 				A19B5B8A1E2FE64700213D1D /* FileReaderTests.swift in Sources */,
 				A19B5B871E2E754800213D1D /* TokenManagerTest.swift in Sources */,
 				A19B5B841E2D50A000213D1D /* CharStreamTests.swift in Sources */,
