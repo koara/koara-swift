@@ -340,50 +340,50 @@ public class Parser {
         var text = Text()
         tree.openScope()
         var s = "X"
-        //while textHasTokensAhead() {
-        //switch getNextTokenKind() {
-        //case TokenManager.CHAR_SEQUENCE:
-            //s += consumeToken(TokenManager.CHAR_SEQUENCE).image
-            //            case TokenManager.BACKSLASH:
-            //                s += consumeToken(TokenManager.BACKSLASH).image
-            //            case TokenManager.COLON:
-            //                s += consumeToken(TokenManager.COLON).image
-            //            case TokenManager.DASH:
-            //                s += consumeToken(TokenManager.DASH).image
-            //            case TokenManager.DIGITS:
-            //                s += consumeToken(TokenManager.DIGITS).image
-            //            case TokenManager.DOT:
-            //                s += consumeToken(TokenManager.DOT).image
-            //            case TokenManager.EQ:
-            //                s += consumeToken(TokenManager.EQ).image
-            //            case TokenManager.ESCAPED_CHAR:
-            //                s += consumeToken(TokenManager.ESCAPED_CHAR).image
-            //            case TokenManager.GT:
-            //                s += consumeToken(TokenManager.GT).image
-            //            case TokenManager.IMAGE_LABEL:
-            //                s += consumeToken(TokenManager.IMAGE_LABEL).image
-            //            case TokenManager.LPAREN:
-            //                s += consumeToken(TokenManager.LPAREN).image
-            //            case TokenManager.LT:
-            //                s += consumeToken(TokenManager.LT).image
-            //            case TokenManager.RBRACK:
-            //                s += consumeToken(TokenManager.RBRACK).image
-            //            case TokenManager.RPAREN:
-        //                s += consumeToken(TokenManager.RPAREN).image
-        //default:
-            //                if (!nextAfterSpace(TokenManager.EOL, TokenManager.EOF)) {
-            //                    switch getNextTokenKind() {
-            //                    case TokenManager.SPACE:
-            //                        s += consumeToken(TokenManager.SPACE).image
-            //                    case TokenManager.TAB:
-            //                        consumeToken(TokenManager.TAB)
-            //                        s += "    "
-            //                    default: break
-            //                    }
-            //                }
-            //break
-        //}
-         //ç       }
+//        while textHasTokensAhead() {
+//        switch getNextTokenKind() {
+//        case TokenManager.CHAR_SEQUENCE:
+//            s += consumeToken(TokenManager.CHAR_SEQUENCE).image
+//                        case TokenManager.BACKSLASH:
+//                            s += consumeToken(TokenManager.BACKSLASH).image
+//                        case TokenManager.COLON:
+//                            s += consumeToken(TokenManager.COLON).image
+//                        case TokenManager.DASH:
+//                            s += consumeToken(TokenManager.DASH).image
+//                        case TokenManager.DIGITS:
+//                            s += consumeToken(TokenManager.DIGITS).image
+//                        case TokenManager.DOT:
+//                            s += consumeToken(TokenManager.DOT).image
+//                        case TokenManager.EQ:
+//                            s += consumeToken(TokenManager.EQ).image
+//                        case TokenManager.ESCAPED_CHAR:
+//                            s += consumeToken(TokenManager.ESCAPED_CHAR).image
+//                        case TokenManager.GT:
+//                            s += consumeToken(TokenManager.GT).image
+//                        case TokenManager.IMAGE_LABEL:
+//                            s += consumeToken(TokenManager.IMAGE_LABEL).image
+//                        case TokenManager.LPAREN:
+//                            s += consumeToken(TokenManager.LPAREN).image
+//                        case TokenManager.LT:
+//                            s += consumeToken(TokenManager.LT).image
+//                        case TokenManager.RBRACK:
+//                            s += consumeToken(TokenManager.RBRACK).image
+//                        case TokenManager.RPAREN:
+//                        s += consumeToken(TokenManager.RPAREN).image
+//        default:
+//                            if (!nextAfterSpace(TokenManager.EOL, TokenManager.EOF)) {
+//                                switch getNextTokenKind() {
+//                                case TokenManager.SPACE:
+//                                    s += consumeToken(TokenManager.SPACE).image
+//                                case TokenManager.TAB:
+//                                    consumeToken(TokenManager.TAB)
+//                                    s += "    "
+//                                default: break
+//                                }
+//                            }
+//            break
+//        }
+//        }
         text.value = s as AnyObject
         tree.closeScope(text)
     }
@@ -1598,17 +1598,17 @@ public class Parser {
 //        //        }
 //        //    }
 //        //
-//        //    func textHasTokensAhead() -> Bool {
-//        //        lookAhead = 1
-//        //        scanPosition = token
-//        //        lastPosition = scanPosition
-//        //        do {
-//        //            return try !scanText()
-//        //        } catch {
-//        //            return true
-//        //        }
-//        //    }
-//        //
+            func textHasTokensAhead() -> Bool {
+                lookAhead = 1
+                scanPosition = token
+                lastPosition = scanPosition
+                do {
+                    return try !scanText()
+                } catch {
+                    return true
+                }
+            }
+        
 //        //    func scanLooseChar() throws -> Bool {
 //        //        let xsp : Token = scanPosition
 //        //        if try scanToken(TokenManager.ASTERISK) {
@@ -1624,58 +1624,58 @@ public class Parser {
 //        //        return false
 //        //    }
 //        //
-//        //    func scanText() throws -> Bool {
-//        //        let xsp : Token = scanPosition
-//        //        if try scanToken(TokenManager.BACKSLASH) {
-//        //            scanPosition = xsp
-//        //            if try scanToken(TokenManager.CHAR_SEQUENCE) {
-//        //                scanPosition = xsp
-//        //                if try scanToken(TokenManager.COLON) {
-//        //                    scanPosition = xsp
-//        //                    if try scanToken(TokenManager.DASH) {
-//        //                        scanPosition = xsp
-//        //                        if try scanToken(TokenManager.DIGITS) {
-//        //                            scanPosition = xsp
-//        //                            if try scanToken(TokenManager.DOT) {
-//        //                                scanPosition = xsp
-//        //                                if try scanToken(TokenManager.EQ) {
-//        //                                    scanPosition = xsp
-//        //                                    if try scanToken(TokenManager.ESCAPED_CHAR) {
-//        //                                        scanPosition = xsp
-//        //                                        if try scanToken(TokenManager.GT) {
-//        //                                            scanPosition = xsp
-//        //                                            if try scanToken(TokenManager.IMAGE_LABEL) {
-//        //                                                scanPosition = xsp
-//        //                                                if try scanToken(TokenManager.LPAREN) {
-//        //                                                    scanPosition = xsp
-//        //                                                    if try scanToken(TokenManager.LT) {
-//        //                                                        scanPosition = xsp
-//        //                                                        if try scanToken(TokenManager.RBRACK) {
-//        //                                                            scanPosition = xsp
-//        //                                                            if try scanToken(TokenManager.RPAREN) {
-//        //                                                                scanPosition = xsp
-//        //                                                                lookingAhead = true
-//        //                                                                semanticLookAhead = !nextAfterSpace(TokenManager.EOL, TokenManager.EOF)
-//        //                                                                lookingAhead = false
-//        //                                                                return try !semanticLookAhead || scanWhitspaceToken()
-//        //                                                            }
-//        //                                                        }
-//        //                                                    }
-//        //                                                }
-//        //                                            }
-//        //                                        }
-//        //                                    }
-//        //                                }
-//        //                            }
-//        //                        }
-//        //                    }
-//        //
-//        //                }
-//        //            }
-//        //        }
-//        //        return false
-//        //    }
-//        //
+            func scanText() throws -> Bool {
+                let xsp : Token = scanPosition
+                if try scanToken(TokenManager.BACKSLASH) {
+                    scanPosition = xsp
+                    if try scanToken(TokenManager.CHAR_SEQUENCE) {
+                        scanPosition = xsp
+                        if try scanToken(TokenManager.COLON) {
+                            scanPosition = xsp
+                            if try scanToken(TokenManager.DASH) {
+                                scanPosition = xsp
+                                if try scanToken(TokenManager.DIGITS) {
+                                    scanPosition = xsp
+                                    if try scanToken(TokenManager.DOT) {
+                                        scanPosition = xsp
+                                        if try scanToken(TokenManager.EQ) {
+                                            scanPosition = xsp
+                                            if try scanToken(TokenManager.ESCAPED_CHAR) {
+                                                scanPosition = xsp
+                                                if try scanToken(TokenManager.GT) {
+                                                    scanPosition = xsp
+                                                    if try scanToken(TokenManager.IMAGE_LABEL) {
+                                                        scanPosition = xsp
+                                                        if try scanToken(TokenManager.LPAREN) {
+                                                            scanPosition = xsp
+                                                            if try scanToken(TokenManager.LT) {
+                                                                scanPosition = xsp
+                                                                if try scanToken(TokenManager.RBRACK) {
+                                                                    scanPosition = xsp
+                                                                    if try scanToken(TokenManager.RPAREN) {
+                                                                        scanPosition = xsp
+                                                                        lookingAhead = true
+                                                                        //semanticLookAhead = !nextAfterSpace(TokenManager.EOL, TokenManager.EOF)
+                                                                        lookingAhead = false
+                                                                        return try !semanticLookAhead || scanWhitspaceToken()
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+        
+                        }
+                    }
+                }
+                return false
+            }
+        
 //        //    func scanTextTokens() throws -> Bool {
 //        //        if try scanText() {
 //        //            return true
