@@ -22,7 +22,9 @@ before_install:
 - gem install slather
 
 script:
-- travis_retry xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" build-for-testing test
+- if [ $RUN_TESTS == "YES" ]; then
+    travis_retry xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" build-for-testing test
+  fi
 
 after_success:
 - if [ $SEND_TO_COVERALLS == "YES" ]; then
