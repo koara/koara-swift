@@ -339,51 +339,51 @@ public class Parser {
     func text() {
         var text = Text()
         tree.openScope()
-        var s = "X"
-//        while textHasTokensAhead() {
-//        switch getNextTokenKind() {
-//        case TokenManager.CHAR_SEQUENCE:
-//            s += consumeToken(TokenManager.CHAR_SEQUENCE).image
-//                        case TokenManager.BACKSLASH:
-//                            s += consumeToken(TokenManager.BACKSLASH).image
-//                        case TokenManager.COLON:
-//                            s += consumeToken(TokenManager.COLON).image
-//                        case TokenManager.DASH:
-//                            s += consumeToken(TokenManager.DASH).image
-//                        case TokenManager.DIGITS:
-//                            s += consumeToken(TokenManager.DIGITS).image
-//                        case TokenManager.DOT:
-//                            s += consumeToken(TokenManager.DOT).image
-//                        case TokenManager.EQ:
-//                            s += consumeToken(TokenManager.EQ).image
-//                        case TokenManager.ESCAPED_CHAR:
-//                            s += consumeToken(TokenManager.ESCAPED_CHAR).image
-//                        case TokenManager.GT:
-//                            s += consumeToken(TokenManager.GT).image
-//                        case TokenManager.IMAGE_LABEL:
-//                            s += consumeToken(TokenManager.IMAGE_LABEL).image
-//                        case TokenManager.LPAREN:
-//                            s += consumeToken(TokenManager.LPAREN).image
-//                        case TokenManager.LT:
-//                            s += consumeToken(TokenManager.LT).image
-//                        case TokenManager.RBRACK:
-//                            s += consumeToken(TokenManager.RBRACK).image
-//                        case TokenManager.RPAREN:
-//                        s += consumeToken(TokenManager.RPAREN).image
-//        default:
-//                            if (!nextAfterSpace(TokenManager.EOL, TokenManager.EOF)) {
-//                                switch getNextTokenKind() {
-//                                case TokenManager.SPACE:
-//                                    s += consumeToken(TokenManager.SPACE).image
-//                                case TokenManager.TAB:
-//                                    consumeToken(TokenManager.TAB)
-//                                    s += "    "
-//                                default: break
-//                                }
-//                            }
-//            break
-//        }
-//        }
+        var s = ""
+        while textHasTokensAhead() {
+            switch getNextTokenKind() {
+                case TokenManager.CHAR_SEQUENCE:
+                    s += consumeToken(TokenManager.CHAR_SEQUENCE).image!
+            //            case TokenManager.BACKSLASH:
+            //                s += consumeToken(TokenManager.BACKSLASH).image
+            //            case TokenManager.COLON:
+            //                s += consumeToken(TokenManager.COLON).image
+            //            case TokenManager.DASH:
+            //                s += consumeToken(TokenManager.DASH).image
+            //            case TokenManager.DIGITS:
+            //                s += consumeToken(TokenManager.DIGITS).image
+            //            case TokenManager.DOT:
+            //                s += consumeToken(TokenManager.DOT).image
+            //            case TokenManager.EQ:
+            //                s += consumeToken(TokenManager.EQ).image
+            //            case TokenManager.ESCAPED_CHAR:
+            //                s += consumeToken(TokenManager.ESCAPED_CHAR).image
+            //            case TokenManager.GT:
+            //                s += consumeToken(TokenManager.GT).image
+            //            case TokenManager.IMAGE_LABEL:
+            //                s += consumeToken(TokenManager.IMAGE_LABEL).image
+            //            case TokenManager.LPAREN:
+            //                s += consumeToken(TokenManager.LPAREN).image
+            //            case TokenManager.LT:
+            //                s += consumeToken(TokenManager.LT).image
+            //            case TokenManager.RBRACK:
+            //                s += consumeToken(TokenManager.RBRACK).image
+            //            case TokenManager.RPAREN:
+        //                s += consumeToken(TokenManager.RPAREN).image
+            default:
+            //                if (!nextAfterSpace(TokenManager.EOL, TokenManager.EOF)) {
+            //                    switch getNextTokenKind() {
+            //                    case TokenManager.SPACE:
+            //                        s += consumeToken(TokenManager.SPACE).image
+            //                    case TokenManager.TAB:
+            //                        consumeToken(TokenManager.TAB)
+            //                        s += "    "
+            //                    default: break
+            //                    }
+            //                }
+                break
+            }
+        }
         text.value = s as AnyObject
         tree.closeScope(text)
     }
@@ -1163,11 +1163,11 @@ public class Parser {
 //        //        return false
 //        //    }
 //        //
-//        //    func nextAfterSpace(_ tokens : Int...) -> Bool {
-//        //        let i : Int = skip(1, tokens: [TokenManager.SPACE, TokenManager.TAB])
-//        //        return tokens.contains(getToken(i).kind)
-//        //    }
-//        //
+            func nextAfterSpace(_ tokens : Int32...) -> Bool {
+                let i : Int = skip(1, tokens: [TokenManager.SPACE, TokenManager.TAB])
+                return tokens.contains(getToken(i).kind!)
+            }
+        
 //        //    func newQuoteLevel(_ offset : Int) -> Int {
 //        ////    int quoteLevel = 0
 //        ////    for (int i = offset;; i++) {
@@ -1181,15 +1181,15 @@ public class Parser {
 //        ////    }
 //        //    }
 //        //
-//        //    func skip(_ offset : Int, tokens : [Int]) -> Int {
-//        ////    List<Integer> tokenList = Arrays.asList(tokens)
-//        ////    for (int i = offset;; i++) {
-//        ////    Token t = getToken(i)
-//        ////    if (!tokenList.contains(t.kind)) {
-//        //        return 0 //    return i
-//        ////    }
-//        ////    }
-//        //    }
+            func skip(_ offset : Int, tokens : [Int32]) -> Int {
+        //    List<Integer> tokenList = Arrays.asList(tokens)
+        //    for (int i = offset;; i++) {
+        //    Token t = getToken(i)
+        //    if (!tokenList.contains(t.kind)) {
+                return 0 //    return i
+        //    }
+        //    }
+            }
 //        //
 //        func hasOrderedListAhead() -> Bool {
 //            lookAhead = 2
@@ -1655,7 +1655,7 @@ public class Parser {
                                                                     if try scanToken(TokenManager.RPAREN) {
                                                                         scanPosition = xsp
                                                                         lookingAhead = true
-                                                                        //semanticLookAhead = !nextAfterSpace(TokenManager.EOL, TokenManager.EOF)
+                                                                        semanticLookAhead = !nextAfterSpace(TokenManager.EOL, TokenManager.EOF)
                                                                         lookingAhead = false
                                                                         return try !semanticLookAhead || scanWhitspaceToken()
                                                                     }

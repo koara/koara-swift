@@ -10,13 +10,12 @@ public class Node {
 
     public func childrenAccept(renderer: Renderer) {
         for c in children {
-            
-
-            //c.accept(renderer: renderer)
+            print(c)
+            c.accept(renderer: renderer)
         }
     }
     
-    func accept(renderer: Renderer) {
+    public func accept(renderer: Renderer) {
         preconditionFailure("This method must be overriden")
     }
     

@@ -7,7 +7,7 @@ public class ListBlock : BlockElement {
         self.ordered = ordered
     }
         
-    override func accept(_ renderer : Renderer) {
+    override public func accept(renderer : Renderer) {
         renderer.visitListBlock(node: self)
     }
     

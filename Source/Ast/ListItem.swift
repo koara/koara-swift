@@ -5,7 +5,7 @@ public class ListItem : BlockElement {
         set { self.number = newValue }
     }
     
-    override func accept(_ renderer : Renderer) {
+    override public func accept(renderer : Renderer) {
         renderer.visitListItem(node: self)
     }
     

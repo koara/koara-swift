@@ -1,6 +1,6 @@
 public class BlockQuote : BlockElement {
     
-    override func accept(_ renderer : Renderer) {
+    override public func accept(renderer : Renderer) {
         renderer.visitBlockQuote(node: self)
     }
     

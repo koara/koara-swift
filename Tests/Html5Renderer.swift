@@ -85,7 +85,6 @@ class Html5Renderer : Renderer {
     }
     
     func visitParagraph(node: Paragraph) {
-                print("H: P")
         //if(node.isNested() && (node.getParent() instanceof ListItem) && node.isSingleChild()) {
         //    node.childrenAccept(this);
         //} else {
@@ -140,11 +139,11 @@ class Html5Renderer : Renderer {
     }
     
     func visitText(node: Text) {
-        //out.append(escape(node.getValue().toString()));
+        output += escape(text: node.value as! String)
     }
     
     func escape(text: String) -> String {
-        return ""
+        return text
         //return text.replaceAll("&", "&amp;")
         //    .replaceAll("<", "&lt;")
         //    .replaceAll(">", "&gt;")

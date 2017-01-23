@@ -1,6 +1,6 @@
 public class Heading : BlockElement {
     
-    override func accept(_ renderer : Renderer) {
+    override public func accept(renderer : Renderer) {
         renderer.visitHeading(node: self)
     }
     

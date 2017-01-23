@@ -31,8 +31,8 @@ public class BlockElement : Node {
 //        return null;
 //    }
 //    
-    func accept(_ renderer : Renderer) {
-        renderer.visitBlockElement(node: self)
+    override public func accept(renderer: Renderer) {
+        preconditionFailure("This method must be overriden")
     }
     
 }
