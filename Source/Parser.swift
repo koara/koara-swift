@@ -344,34 +344,34 @@ public class Parser {
             switch getNextTokenKind() {
                 case TokenManager.CHAR_SEQUENCE:
                     s += consumeToken(TokenManager.CHAR_SEQUENCE).image!
-            //            case TokenManager.BACKSLASH:
-            //                s += consumeToken(TokenManager.BACKSLASH).image
-            //            case TokenManager.COLON:
-            //                s += consumeToken(TokenManager.COLON).image
-            //            case TokenManager.DASH:
-            //                s += consumeToken(TokenManager.DASH).image
-            //            case TokenManager.DIGITS:
-            //                s += consumeToken(TokenManager.DIGITS).image
-            //            case TokenManager.DOT:
-            //                s += consumeToken(TokenManager.DOT).image
-            //            case TokenManager.EQ:
-            //                s += consumeToken(TokenManager.EQ).image
-            //            case TokenManager.ESCAPED_CHAR:
-            //                s += consumeToken(TokenManager.ESCAPED_CHAR).image
-            //            case TokenManager.GT:
-            //                s += consumeToken(TokenManager.GT).image
-            //            case TokenManager.IMAGE_LABEL:
-            //                s += consumeToken(TokenManager.IMAGE_LABEL).image
-            //            case TokenManager.LPAREN:
-            //                s += consumeToken(TokenManager.LPAREN).image
-            //            case TokenManager.LT:
-            //                s += consumeToken(TokenManager.LT).image
-            //            case TokenManager.RBRACK:
-            //                s += consumeToken(TokenManager.RBRACK).image
-            //            case TokenManager.RPAREN:
-        //                s += consumeToken(TokenManager.RPAREN).image
-            default:
-            //                if (!nextAfterSpace(TokenManager.EOL, TokenManager.EOF)) {
+                case TokenManager.BACKSLASH:
+                    s += consumeToken(TokenManager.BACKSLASH).image!
+                case TokenManager.COLON:
+                    s += consumeToken(TokenManager.COLON).image!
+                case TokenManager.DASH:
+                    s += consumeToken(TokenManager.DASH).image!
+                case TokenManager.DIGITS:
+                    s += consumeToken(TokenManager.DIGITS).image!
+                case TokenManager.DOT:
+                    s += consumeToken(TokenManager.DOT).image!
+                case TokenManager.EQ:
+                    s += consumeToken(TokenManager.EQ).image!
+                case TokenManager.ESCAPED_CHAR:
+                    s += consumeToken(TokenManager.ESCAPED_CHAR).image!
+                case TokenManager.GT:
+                    s += consumeToken(TokenManager.GT).image!
+                case TokenManager.IMAGE_LABEL:
+                    s += consumeToken(TokenManager.IMAGE_LABEL).image!
+                case TokenManager.LPAREN:
+                    s += consumeToken(TokenManager.LPAREN).image!
+                case TokenManager.LT:
+                    s += consumeToken(TokenManager.LT).image!
+                case TokenManager.RBRACK:
+                    s += consumeToken(TokenManager.RBRACK).image!
+                case TokenManager.RPAREN:
+                    s += consumeToken(TokenManager.RPAREN).image!
+                default:
+                            //                if (!nextAfterSpace(TokenManager.EOL, TokenManager.EOF)) {
             //                    switch getNextTokenKind() {
             //                    case TokenManager.SPACE:
             //                        s += consumeToken(TokenManager.SPACE).image
@@ -2506,29 +2506,31 @@ public class Parser {
         }
         
         func getNextTokenKind() -> Int32 {
-            //        if (nextTokenKind != -1) {
-            //            return nextTokenKind
-            //        } else if ((nextToken = token.next) == nil) {
-            //            token.next = tm.getNextToken()
-            //            return (nextTokenKind = token.next.kind)
-            //        }
-            //        nextTokenKind = nextToken.kind
+            if (nextTokenKind != -1) {
+                return nextTokenKind
+            } else if token.next == nil {
+                nextToken = token.next
+                token.next = tm.getNextToken()
+                nextTokenKind = token.next!.kind!
+                return nextTokenKind
+            }
+            nextTokenKind = nextToken.kind!
             return nextTokenKind
         }
         
         @discardableResult func consumeToken(_ kind : Int32) -> Token {
-            //let old : Token = token
-            if token.next != nil {
+            let old = token
+            if token.next == nil {
                 token = token.next
             } else {
-                //            token.next = tm.getNextToken()
-                //            token = token.next
+                token.next = tm.getNextToken()
+                token = token.next
             }
-            //        nextTokenKind = -1
-            //        if (token.kind == kind) {
-            //            return token
-            //        }
-            //        token = old
+            nextTokenKind = -1
+            if token.kind == kind {
+                return token
+            }
+            token = old
             return token
         }
         
