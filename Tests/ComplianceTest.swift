@@ -14,11 +14,11 @@ class ComplianceTest: XCTestCase {
         //let html = "<p>a</p>"
         
         let parser = Parser()
-       // let document = parser.parse(kd)
-       // let renderer = Html5Renderer()
-       // document.accept(renderer)
+        //let document = parser.parse(kd)
+        //let renderer = Html5Renderer()
+        //document.accept(renderer)
         
-        print("Output: \(renderer.output)")
+        //print("Output: \(renderer.output)")
         
     }
 

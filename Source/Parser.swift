@@ -2508,19 +2508,23 @@ public class Parser {
         func getNextTokenKind() -> Int32 {
             if (nextTokenKind != -1) {
                 return nextTokenKind
-            } else if token.next == nil {
+            } else {
                 nextToken = token.next
-                token.next = tm.getNextToken()
-                nextTokenKind = token.next!.kind!
-                return nextTokenKind
+                if(nextToken == nil) {
+                    token.next = tm.getNextToken()
+                    nextTokenKind = token.next!.kind!
+                    return nextTokenKind
+
+                }
             }
             nextTokenKind = nextToken.kind!
             return nextTokenKind
         }
         
         @discardableResult func consumeToken(_ kind : Int32) -> Token {
+            print("C1: \(kind)")
             let old = token
-            if token.next == nil {
+            if token.next != nil {
                 token = token.next
             } else {
                 token.next = tm.getNextToken()
