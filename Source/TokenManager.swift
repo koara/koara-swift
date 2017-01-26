@@ -264,9 +264,12 @@ public class TokenManager {
                     }
                 } while i != startsAt
             } else if (curChar?.asciiValue)! < 128 {
+                  print("I: \(i)")
+                
                 let l = Int64(1) << Int64((curChar?.asciiValue)! & 0o77)
                 repeat {
                     i -= 1
+                 
                     switch jjstateSet[i] {
                     case 6:
                         if l != 0 {
@@ -314,10 +317,12 @@ public class TokenManager {
                 kind = 0x7fffffff
             }
             curPos += 1
-
-            //if ((i = jjnewStateCnt) == (startsAt = 8 - (jjnewStateCnt = startsAt))) {
-////            return curPos
-////        }
+            i = jjnewStateCnt
+            jjnewStateCnt = startsAt
+            startsAt = 8 - jjnewStateCnt
+            if i == startsAt {
+                return curPos
+            }
             do {
                 curChar = try cs.readChar()
             } catch {

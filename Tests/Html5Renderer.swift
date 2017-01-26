@@ -91,7 +91,7 @@ class Html5Renderer : Renderer {
             output += indent() + "<p>"
             node.childrenAccept(renderer: self)
             output += "</p>\n"
-        if(node.isNested()) {
+        if(!node.isNested()) {
             output += "\n"
         }
     }
@@ -178,6 +178,10 @@ class Html5Renderer : Renderer {
         //}
         //return new String(buf);
         return ""
+    }
+    
+    func getOutput() -> String {
+        return output.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
 }

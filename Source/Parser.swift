@@ -2483,25 +2483,25 @@ public class Parser {
         }
         
         func scanToken(_ kind : Int32) throws -> Bool {
-            //        if (scanPosition == lastPosition) {
-            //            lookAhead -= 1
-            //            if scanPosition.next == nil {
-            //                scanPosition.next = tm.getNextToken()
-            //                scanPosition = scanPosition.next
-            //                lastPosition = scanPosition
-            //            } else {
-            //                scanPosition = scanPosition.next
-            //                lastPosition = scanPosition
-            //            }
-            //        } else {
-            //            scanPosition = scanPosition.next
-            //        }
-            //        if (scanPosition.kind != kind) {
-            //            return true
-            //        }
-            //        if (lookAhead == 0 && (scanPosition == lastPosition)) {
-            //            throw lookAheadSuccess
-            //        }
+            if (scanPosition === lastPosition) {
+                lookAhead -= 1
+                if scanPosition.next == nil {
+                    scanPosition.next = tm.getNextToken()
+                    scanPosition = scanPosition.next
+                    lastPosition = scanPosition
+                } else {
+                    scanPosition = scanPosition.next
+                    lastPosition = scanPosition
+                }
+            } else {
+                scanPosition = scanPosition.next
+            }
+            if (scanPosition.kind != kind) {
+                return true
+            }
+            if (lookAhead == 0 && (scanPosition === lastPosition)) {
+                throw lookAheadSuccess
+            }
             return false
         }
         
@@ -2522,7 +2522,6 @@ public class Parser {
         }
         
         @discardableResult func consumeToken(_ kind : Int32) -> Token {
-            print("C1: \(kind)")
             let old = token
             if token.next != nil {
                 token = token.next
