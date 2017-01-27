@@ -2548,9 +2548,9 @@ public class Parser {
             //}
             return t!
         }
-//
-//        //    public void setModules(String... modules) {
-//        //    this.modules = Arrays.asList(modules)
-//        //    }
+    
+    func setModules(modules: String...) {
+        self.modules = modules
+    }
     
 }
