@@ -2538,15 +2538,16 @@ public class Parser {
         }
         
         func getToken(_ index : Int) -> Token {
-            let t = lookingAhead ? scanPosition : token;
-            //for (int i = 0; i < index; i++) {
-            //if (t.next != null) {
-            //t = t.next;
-            //} else {
-            //t = t.next = tm.getNextToken();
-            //}
-            //}
-            return t!
+            var t = lookingAhead ? scanPosition! : token!;
+            for _ in 0..<index {
+                if (t.next != nil) {
+                    t = t.next!
+                } else {
+                    t.next = tm.getNextToken()
+                    t = t.next!
+                }
+            }
+            return t
         }
     
     func setModules(modules: String...) {

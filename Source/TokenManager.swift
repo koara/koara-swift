@@ -183,13 +183,13 @@ public class TokenManager {
         var kind = 0x7fffffff
 
         while true {
+            
             round += 1
             if round == 0x7fffffff {
                 round = 0x80000001
             }
             if ((curChar?.asciiValue!)! < 64) {
                 let l : Int64 = Int64(1) << Int64(curChar!.asciiValue!)
-                
                 repeat {
                     i -= 1
                     switch jjstateSet[i] {
@@ -264,12 +264,10 @@ public class TokenManager {
                     }
                 } while i != startsAt
             } else if (curChar?.asciiValue)! < 128 {
-                  print("I: \(i)")
-                
                 let l = Int64(1) << Int64((curChar?.asciiValue)! & 0o77)
                 repeat {
                     i -= 1
-                 
+   
                     switch jjstateSet[i] {
                     case 6:
                         if l != 0 {
