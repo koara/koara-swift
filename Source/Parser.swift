@@ -2361,7 +2361,7 @@ public class Parser {
 //        //        return false
 //        //    }
 //        //
-//        //    func scanInlineElement() throws -> Bool {
+    func scanInlineElement() throws -> Bool {
 //        //        let xsp = scanPosition
 //        //        if try scanTextTokens() {
 //        //            scanPosition = xsp
@@ -2391,21 +2391,21 @@ public class Parser {
 //        //                }
 //        //            }
 //        //        }
-//        //        return false
-//        //    }
-//        //
+            return false
+        }
+
         func scanParagraph() throws -> Bool {
-            //        var xsp : Token
-            //        if try scanInlineElement() {
-            //            return true
-            //        }
-            //        while true {
-            //            xsp = scanPosition
-            //            if try scanInlineElement() {
-            //                scanPosition = xsp
-            //                break
-            //            }
-            //        }
+            var xsp : Token
+            if try scanInlineElement() {
+                return true
+            }
+            while true {
+                xsp = scanPosition
+                if try scanInlineElement() {
+                    scanPosition = xsp
+                    break
+                }
+            }
             return false
         }
         
@@ -2447,14 +2447,14 @@ public class Parser {
             if try scanToken(TokenManager.EQ) {
                 return true
             }
-            //        var xsp : Token
-            //        while true {
-            //            xsp = scanPosition
-            //            if try scanToken(TokenManager.EQ) {
-            //                scanPosition = xsp
-            //                break
-            //            }
-            //        }
+            var xsp : Token
+            while true {
+                xsp = scanPosition
+                if try scanToken(TokenManager.EQ) {
+                    scanPosition = xsp
+                    break
+                }
+            }
             return false
         }
         
