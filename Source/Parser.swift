@@ -658,216 +658,216 @@ public class Parser {
         return ""
     }
 
-        func inline() {
-            //        repeat {
-            //            if hasInlineTextAhead() {
-            text()
-            //            } else if modules.contains("images") && hasImageAhead() {
-            //                image()
-            //            } else if modules.contains("links") && hasLinkAhead() {
-            //                link()
-            //            } else if modules.contains("formatting") && multilineAhead(TokenManager.ASTERISK) {
-            //                strongMultiline()
-            //            } else if modules.contains("formatting") && multilineAhead(TokenManager.UNDERSCORE) {
-            //                emMultiline()
-            //            } else if modules.contains("code") && multilineAhead(TokenManager.BACKTICK) {
-            //                codeMultiline()
-            //            } else {
-            //                looseChar()
-            //           }
-            //        } while hasInlineElementAhead()
+    func inline() {
+        repeat {
+            if hasInlineTextAhead() {
+                text()
+            } else if modules.contains("images") && hasImageAhead() {
+                image()
+            } else if modules.contains("links") && hasLinkAhead() {
+                link()
+            } else if modules.contains("formatting") && multilineAhead(TokenManager.ASTERISK) {
+                strongMultiline()
+            } else if modules.contains("formatting") && multilineAhead(TokenManager.UNDERSCORE) {
+                emMultiline()
+            } else if modules.contains("code") && multilineAhead(TokenManager.BACKTICK) {
+                codeMultiline()
+            } else {
+                looseChar()
+            }
+        } while hasInlineElementAhead()
+    }
+
+    func resourceText() {
+        var text = Text()
+        tree.openScope()
+        var s = ""
+        repeat {
+            switch getNextTokenKind() {
+                case TokenManager.CHAR_SEQUENCE:
+                    s += consumeToken(TokenManager.CHAR_SEQUENCE).image
+                case TokenManager.BACKSLASH:
+                    s += consumeToken(TokenManager.BACKSLASH).image
+                case TokenManager.COLON:
+                    s += consumeToken(TokenManager.COLON).image
+                case TokenManager.DASH:
+                    s += consumeToken(TokenManager.DASH).image
+                case TokenManager.DIGITS:
+                    s += consumeToken(TokenManager.DIGITS).image
+                case TokenManager.DOT:
+                    s += consumeToken(TokenManager.DOT).image
+                case TokenManager.EQ:
+                    s += consumeToken(TokenManager.EQ).image
+                case TokenManager.ESCAPED_CHAR:
+                    s += consumeToken(TokenManager.ESCAPED_CHAR).image // substring - 1
+                case TokenManager.IMAGE_LABEL:
+                    s += consumeToken(TokenManager.IMAGE_LABEL).image
+                case TokenManager.GT:
+                    s += consumeToken(TokenManager.GT).image
+                case TokenManager.LPAREN:
+                    s += consumeToken(TokenManager.LPAREN).image
+                case TokenManager.LT:
+                    s += consumeToken(TokenManager.LT).image
+                case TokenManager.RPAREN:
+                    s += consumeToken(TokenManager.RPAREN).image
+                default:
+                    if !nextAfterSpace(TokenManager.RBRACK) {
+                    switch getNextTokenKind() {
+                        case TokenManager.SPACE:
+                            s.append(consumeToken(TokenManager.SPACE).image)
+                        case TokenManager.TAB:
+                            consumeToken(TokenManager.TAB)
+                            s += "    "
+                        default: break
+                    }
+                }
+            }
+        } while resourceHasElementAhead()
+        text.value = s as AnyObject
+        tree.closeScope(text)
+    }
+
+    func resourceUrl() -> String {
+        consumeToken(TokenManager.LPAREN)
+        whiteSpace()
+        let ref = resourceUrlText()
+        whiteSpace()
+        consumeToken(TokenManager.RPAREN)
+        return ref
+    }
+
+    func resourceUrlText() -> String {
+        var s = ""
+        while resourceTextHasElementsAhead() {
+            switch getNextTokenKind() {
+            case TokenManager.CHAR_SEQUENCE:
+                s += consumeToken(TokenManager.CHAR_SEQUENCE).image
+            case TokenManager.ASTERISK:
+                s += consumeToken(TokenManager.ASTERISK).image
+            case TokenManager.BACKSLASH:
+                s += consumeToken(TokenManager.BACKSLASH).image
+            case TokenManager.CHAR_SEQUENCE:
+                s += consumeToken(TokenManager.CHAR_SEQUENCE).image
+            case TokenManager.COLON:
+                s += consumeToken(TokenManager.COLON).image
+            case TokenManager.DASH:
+                s += consumeToken(TokenManager.DASH).image
+            case TokenManager.DIGITS:
+                s += consumeToken(TokenManager.DIGITS).image
+            case TokenManager.DOT:
+                s += consumeToken(TokenManager.DOT).image
+            case TokenManager.EQ:
+                s += consumeToken(TokenManager.EQ).image
+            case TokenManager.ESCAPED_CHAR:
+                s += consumeToken(TokenManager.ESCAPED_CHAR).image // substring - 1
+            case TokenManager.IMAGE_LABEL:
+                s += consumeToken(TokenManager.IMAGE_LABEL).image
+            case TokenManager.GT:
+                s += consumeToken(TokenManager.GT).image
+            case TokenManager.LBRACK:
+                s += consumeToken(TokenManager.LBRACK).image
+            case TokenManager.LPAREN:
+                s += consumeToken(TokenManager.LPAREN).image
+            case TokenManager.LT:
+                s += consumeToken(TokenManager.LT).image
+            case TokenManager.RBRACK:
+                s += consumeToken(TokenManager.RBRACK).image
+            case TokenManager.UNDERSCORE:
+                s += consumeToken(TokenManager.UNDERSCORE).image
+            default:
+                if !nextAfterSpace(TokenManager.RPAREN) {
+                    switch getNextTokenKind() {
+                        case TokenManager.SPACE:
+                            s += consumeToken(TokenManager.SPACE).image
+                        case TokenManager.TAB:
+                            consumeToken(TokenManager.TAB)
+                            s += "    "
+                        default: break
+                    }
+                }
+            }
         }
-//        //
-//        //    func resourceText() {
-//        //        var text = Text()
-//        //        tree.openScope()
-//        //        var s = ""
-//        //        repeat {
-//        //            switch getNextTokenKind() {
-//        //            case TokenManager.CHAR_SEQUENCE:
-//        //                s += consumeToken(TokenManager.CHAR_SEQUENCE).image
-//        //            case TokenManager.BACKSLASH:
-//        //                s += consumeToken(TokenManager.BACKSLASH).image
-//        //            case TokenManager.COLON:
-//        //                s += consumeToken(TokenManager.COLON).image
-//        //            case TokenManager.DASH:
-//        //                s += consumeToken(TokenManager.DASH).image
-//        //            case TokenManager.DIGITS:
-//        //                s += consumeToken(TokenManager.DIGITS).image
-//        //            case TokenManager.DOT:
-//        //                s += consumeToken(TokenManager.DOT).image
-//        //            case TokenManager.EQ:
-//        //                s += consumeToken(TokenManager.EQ).image
-//        //            case TokenManager.ESCAPED_CHAR:
-//        //                s += consumeToken(TokenManager.ESCAPED_CHAR).image // substring - 1
-//        //            case TokenManager.IMAGE_LABEL:
-//        //                s += consumeToken(TokenManager.IMAGE_LABEL).image
-//        //            case TokenManager.GT:
-//        //                s += consumeToken(TokenManager.GT).image
-//        //            case TokenManager.LPAREN:
-//        //                s += consumeToken(TokenManager.LPAREN).image
-//        //            case TokenManager.LT:
-//        //                s += consumeToken(TokenManager.LT).image
-//        //            case TokenManager.RPAREN:
-//        //                s += consumeToken(TokenManager.RPAREN).image
-//        //            default:
-//        //                if !nextAfterSpace(TokenManager.RBRACK) {
-//        //                    switch getNextTokenKind() {
-//        //                    case TokenManager.SPACE:
-//        //                        s.append(consumeToken(TokenManager.SPACE).image)
-//        //                    case TokenManager.TAB:
-//        //                        consumeToken(TokenManager.TAB)
-//        //                        s += "    "
-//        //                    default: break
-//        //                    }
-//        //                }
-//        //            }
-//        //        } while resourceHasElementAhead()
-//        //        text.value = s as AnyObject
-//        //        tree.closeScope(text)
-//        //    }
-//        //
-//        //    func resourceUrl() -> String {
-//        //        consumeToken(TokenManager.LPAREN)
-//        //        whiteSpace()
-//        //        let ref = resourceUrlText()
-//        //        whiteSpace()
-//        //        consumeToken(TokenManager.RPAREN)
-//        //        return ref
-//        //    }
-//        //
-//        //    func resourceUrlText() -> String {
-//        //        var s = ""
-//        //        while resourceTextHasElementsAhead() {
-//        //            switch getNextTokenKind() {
-//        //            case TokenManager.CHAR_SEQUENCE:
-//        //                s += consumeToken(TokenManager.CHAR_SEQUENCE).image
-//        //            case TokenManager.ASTERISK:
-//        //                s += consumeToken(TokenManager.ASTERISK).image
-//        //            case TokenManager.BACKSLASH:
-//        //                s += consumeToken(TokenManager.BACKSLASH).image
-//        //            case TokenManager.CHAR_SEQUENCE:
-//        //                s += consumeToken(TokenManager.CHAR_SEQUENCE).image
-//        //            case TokenManager.COLON:
-//        //                s += consumeToken(TokenManager.COLON).image
-//        //            case TokenManager.DASH:
-//        //                s += consumeToken(TokenManager.DASH).image
-//        //            case TokenManager.DIGITS:
-//        //                s += consumeToken(TokenManager.DIGITS).image
-//        //            case TokenManager.DOT:
-//        //                s += consumeToken(TokenManager.DOT).image
-//        //            case TokenManager.EQ:
-//        //                s += consumeToken(TokenManager.EQ).image
-//        //            case TokenManager.ESCAPED_CHAR:
-//        //                s += consumeToken(TokenManager.ESCAPED_CHAR).image // substring - 1
-//        //            case TokenManager.IMAGE_LABEL:
-//        //                s += consumeToken(TokenManager.IMAGE_LABEL).image
-//        //            case TokenManager.GT:
-//        //                s += consumeToken(TokenManager.GT).image
-//        //            case TokenManager.LBRACK:
-//        //                s += consumeToken(TokenManager.LBRACK).image
-//        //            case TokenManager.LPAREN:
-//        //                s += consumeToken(TokenManager.LPAREN).image
-//        //            case TokenManager.LT:
-//        //                s += consumeToken(TokenManager.LT).image
-//        //            case TokenManager.RBRACK:
-//        //                s += consumeToken(TokenManager.RBRACK).image
-//        //            case TokenManager.UNDERSCORE:
-//        //                s += consumeToken(TokenManager.UNDERSCORE).image
-//        //            default:
-//        //                if !nextAfterSpace(TokenManager.RPAREN) {
-//        //                    switch getNextTokenKind() {
-//        //                    case TokenManager.SPACE:
-//        //                        s += consumeToken(TokenManager.SPACE).image
-//        //                    case TokenManager.TAB:
-//        //                        consumeToken(TokenManager.TAB)
-//        //                        s += "    "
-//        //                    default: break
-//        //                    }
-//        //                }
-//        //            }
-//        //        }
-//        //        return s
-//        //    }
-//        //
-//        //    func strongMultiline() {
-//        //        var strong = Strong()
-//        //        tree.openScope()
-//        //        consumeToken(TokenManager.ASTERISK)
-//        //        strongMultilineContent()
-//        //        while textAhead() {
-//        //            lineBreak()
-//        //            whiteSpace()
-//        //            strongMultilineContent()
-//        //        }
-//        //        consumeToken(TokenManager.ASTERISK)
-//        //        tree.closeScope(strong)
-//        //    }
-//        //
-//        //    func strongMultilineContent() {
-//        //        repeat {
-//        //            if hasTextAhead() {
-//        //                text()
-//        //            } else if modules.contains("images") && hasImageAhead() {
-//        //                image()
-//        //            } else if modules.contains("links") && hasLinkAhead() {
-//        //                link()
-//        //            } else if modules.contains("code") && hasCodeAhead() {
-//        //                code()
-//        //            } else if hasEmWithinStrongMultiline() {
-//        //                emWithinStrongMultiline()
-//        //            } else {
-//        //                switch getNextTokenKind() {
-//        //                case TokenManager.BACKTICK:
-//        //                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK))
-//        //                case TokenManager.LBRACK:
-//        //                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK))
-//        //                case TokenManager.UNDERSCORE:
-//        //                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.UNDERSCORE))
-//        //                default: break
-//        //                }
-//        //            }
-//        //        } while strongMultilineHasElementsAhead()
-//        //    }
-//        //
-//        //    func strongWithinEmMultiline() {
-//        //        var strong = Strong()
-//        //        tree.openScope()
-//        //        consumeToken(TokenManager.ASTERISK)
-//        //        strongWithinEmMultilineContent()
-//        //        while (textAhead()) {
-//        //            lineBreak()
-//        //            strongWithinEmMultilineContent()
-//        //        }
-//        //        consumeToken(TokenManager.ASTERISK)
-//        //        tree.closeScope(strong)
-//        //    }
-//        //
-//        //    func strongWithinEmMultilineContent() {
-//        //        repeat {
-//        //            if hasTextAhead() {
-//        //                text()
-//        //            } else if modules.contains("images") && hasImageAhead() {
-//        //                image()
-//        //            } else if modules.contains("links") && hasLinkAhead() {
-//        //                link()
-//        //            } else if modules.contains("code") && hasCodeAhead() {
-//        //                code()
-//        //            } else {
-//        //                switch getNextTokenKind() {
-//        //                case TokenManager.BACKTICK:
-//        //                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK))
-//        //                case TokenManager.LBRACK:
-//        //                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK))
-//        //                case TokenManager.UNDERSCORE:
-//        //                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.UNDERSCORE))
-//        //                default: break
-//        //            }
-//        //            }
-//        //        } while strongWithinEmMultilineHasElementsAhead()
-//        //    }
-//        //
-//        //    func strongWithinEm() {
+        return s
+    }
+
+    func strongMultiline() {
+        var strong = Strong()
+        tree.openScope()
+        consumeToken(TokenManager.ASTERISK)
+        strongMultilineContent()
+        while textAhead() {
+            lineBreak()
+            whiteSpace()
+            strongMultilineContent()
+        }
+        consumeToken(TokenManager.ASTERISK)
+        tree.closeScope(strong)
+    }
+
+    func strongMultilineContent() {
+        repeat {
+            if hasTextAhead() {
+                text()
+            } else if modules.contains("images") && hasImageAhead() {
+                image()
+            } else if modules.contains("links") && hasLinkAhead() {
+                link()
+            } else if modules.contains("code") && hasCodeAhead() {
+                code()
+            } else if hasEmWithinStrongMultiline() {
+                emWithinStrongMultiline()
+            } else {
+                switch getNextTokenKind() {
+                    case TokenManager.BACKTICK:
+                        tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK))
+                    case TokenManager.LBRACK:
+                        tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK))
+                    case TokenManager.UNDERSCORE:
+                        tree.addSingleValue(Text(), t: consumeToken(TokenManager.UNDERSCORE))
+                    default: break
+                }
+            }
+        } while strongMultilineHasElementsAhead()
+    }
+
+    func strongWithinEmMultiline() {
+        var strong = Strong()
+        tree.openScope()
+        consumeToken(TokenManager.ASTERISK)
+        strongWithinEmMultilineContent()
+        while (textAhead()) {
+            lineBreak()
+            strongWithinEmMultilineContent()
+        }
+        consumeToken(TokenManager.ASTERISK)
+        tree.closeScope(strong)
+    }
+
+    func strongWithinEmMultilineContent() {
+        repeat {
+            if hasTextAhead() {
+                text()
+            } else if modules.contains("images") && hasImageAhead() {
+                image()
+            } else if modules.contains("links") && hasLinkAhead() {
+                link()
+            } else if modules.contains("code") && hasCodeAhead() {
+                code()
+            } else {
+                switch getNextTokenKind() {
+                    case TokenManager.BACKTICK:
+                        tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK))
+                    case TokenManager.LBRACK:
+                        tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK))
+                    case TokenManager.UNDERSCORE:
+                        tree.addSingleValue(Text(), t: consumeToken(TokenManager.UNDERSCORE))
+                    default: break
+                }
+            }
+        } while strongWithinEmMultilineHasElementsAhead()
+    }
+
+//    func strongWithinEm() {
 //        //        var strong = Strong()
 //        //        tree.openScope()
 //        //        consumeToken(TokenManager.ASTERISK)
@@ -2064,332 +2064,332 @@ public class Parser {
             return try scanToken(TokenManager.ASTERISK)
         }
 
-//        //    func scanStrongWithinEmMultilineElements() throws -> Bool {
-//        //        let xsp : Token = scanPosition
-//        //        if try scanTextTokens() {
-//        //            scanPosition = xsp
-//        //            if try scanImage() {
-//        //                scanPosition = xsp
-//        //                if try scanLink() {
-//        //                    scanPosition = xsp
-//        //                    if try scanCode() {
-//        //                        scanPosition = xsp
-//        //                        if try scanToken(TokenManager.BACKTICK) {
-//        //                            scanPosition = xsp
-//        //                            if try scanToken(TokenManager.LBRACK) {
-//        //                                scanPosition = xsp
-//        //                                return try scanToken(TokenManager.UNDERSCORE)
-//        //                            }
-//        //                        }
-//        //                    }
-//        //                }
-//        //            }
-//        //        }
-//        //        return false
-//        //    }
-//        //
-//        //    func scanForMoreStrongWithinEmMultilineElements() throws -> Bool {
-//        //        if try scanStrongWithinEmMultilineElements() {
-//        //            return true
-//        //        }
-//        //        var xsp : Token
-//        //        while true {
-//        //            xsp = scanPosition
-//        //            if try scanStrongWithinEmMultilineElements() {
-//        //                scanPosition = xsp
-//        //                break
-//        //            }
-//        //        }
-//        //        return false
-//        //    }
-//        //
-//        //    func scanStrongWithinEmMultiline() throws -> Bool {
-//        //        if try scanToken(TokenManager.ASTERISK) || scanForMoreStrongWithinEmMultilineElements() {
-//        //            return true
-//        //        }
-//        //        var xsp : Token
-//        //        while true {
-//        //            xsp = scanPosition
-//        //            if try scanWhitespaceTokenBeforeEol() || scanForMoreStrongWithinEmMultilineElements() {
-//        //                scanPosition = xsp
-//        //                break
-//        //            }
-//        //        }
-//        //        return try scanToken(TokenManager.ASTERISK)
-//        //    }
-//        //
-//        //    func scanStrongMultilineElements() throws -> Bool {
-//        //        let xsp : Token = scanPosition
-//        //        if try scanTextTokens() {
-//        //            scanPosition = xsp
-//        //            if try scanImage() {
-//        //                scanPosition = xsp
-//        //                if try scanLink() {
-//        //                    scanPosition = xsp
-//        //                    if try scanCode() {
-//        //                        scanPosition = xsp
-//        //                        if try scanEmWithinStrongMultiline() {
-//        //                            scanPosition = xsp
-//        //                            if try scanToken(TokenManager.BACKTICK) {
-//        //                                scanPosition = xsp
-//        //                                if try scanToken(TokenManager.LBRACK) {
-//        //                                    scanPosition = xsp
-//        //                                    return try scanToken(TokenManager.UNDERSCORE)
-//        //                                }
-//        //                            }
-//        //                        }
-//        //                    }
-//        //                }
-//        //            }
-//        //        }
-//        //        return false
-//        //    }
-//        //
-//        //    func scanResourceTextElement() throws -> Bool {
-//        //        let xsp = scanPosition
-//        //        if try scanToken(TokenManager.ASTERISK) {
-//        //            scanPosition = xsp
-//        //            if try scanToken(TokenManager.BACKSLASH) {
-//        //                scanPosition = xsp
-//        //                if try scanToken(TokenManager.BACKTICK) {
-//        //                    scanPosition = xsp
-//        //                    if try scanToken(TokenManager.CHAR_SEQUENCE) {
-//        //                        scanPosition = xsp
-//        //                        if try scanToken(TokenManager.COLON) {
-//        //                            scanPosition = xsp
-//        //                            if try scanToken(TokenManager.DASH) {
-//        //                                scanPosition = xsp
-//        //                                if try scanToken(TokenManager.DIGITS) {
-//        //                                    scanPosition = xsp
-//        //                                    if try scanToken(TokenManager.DOT) {
-//        //                                        scanPosition = xsp
-//        //                                        if try scanToken(TokenManager.EQ) {
-//        //                                            scanPosition = xsp
-//        //                                            if try scanToken(TokenManager.ESCAPED_CHAR) {
-//        //                                                scanPosition = xsp
-//        //                                                if try scanToken(TokenManager.IMAGE_LABEL) {
-//        //                                                    scanPosition = xsp
-//        //                                                    if try scanToken(TokenManager.GT) {
-//        //                                                        scanPosition = xsp
-//        //                                                        if try scanToken(TokenManager.LBRACK) {
-//        //                                                            scanPosition = xsp
-//        //                                                            if try scanToken(TokenManager.LPAREN) {
-//        //                                                                scanPosition = xsp
-//        //                                                                if try scanToken(TokenManager.LT) {
-//        //                                                                    scanPosition = xsp
-//        //                                                                    if try scanToken(TokenManager.RBRACK) {
-//        //                                                                        scanPosition = xsp
-//        //                                                                        if try scanToken(TokenManager.UNDERSCORE) {
-//        //                                                                            scanPosition = xsp
-//        //                                                                            lookingAhead = true
-//        //                                                                            semanticLookAhead = !nextAfterSpace(TokenManager.RPAREN)
-//        //                                                                            lookingAhead = false
-//        //                                                                            return try (!semanticLookAhead || scanWhitspaceToken())
-//        //                                                                        }
-//        //                                                                    }
-//        //                                                                }
-//        //                                                            }
-//        //                                                        }
-//        //                                                    }
-//        //                                                }
-//        //                                            }
-//        //                                        }
-//        //                                    }
-//        //                                }
-//        //                            }
-//        //                        }
-//        //                    }
-//        //                }
-//        //            }
-//        //        }
-//        //        return false
-//        //    }
-//        //
-//        //    func scanImageElement() throws -> Bool {
-//        //        let xsp = scanPosition
-//        //        if try scanResourceElements() {
-//        //            scanPosition = xsp
-//        //            if try scanLooseChar() {
-//        //                return true
-//        //            }
-//        //        }
-//        //        return false
-//        //    }
-//        //
-//        //    func scanResourceTextElements() throws -> Bool {
-//        //        var xsp : Token
-//        //        while true {
-//        //            xsp = scanPosition
-//        //            if try scanResourceTextElement() {
-//        //                scanPosition = xsp
-//        //                break
-//        //            }
-//        //        }
-//        //        return false
-//        //    }
-//        //
-//        //    func scanResourceUrl() throws -> Bool {
-//        //        return try scanToken(TokenManager.LPAREN) || scanWhitspaceTokens() || scanResourceTextElements() || scanWhitspaceTokens() || scanToken(TokenManager.RPAREN)
-//        //    }
-//        //
-//        //    func scanLinkElement() throws -> Bool {
-//        //        let xsp = scanPosition
-//        //        if try scanImage() {
-//        //            scanPosition = xsp
-//        //            if try scanStrong() {
-//        //                scanPosition = xsp
-//        //                if try scanEm() {
-//        //                    scanPosition = xsp
-//        //                    if try scanCode() {
-//        //                        scanPosition = xsp
-//        //                        if try scanResourceElements() {
-//        //                            scanPosition = xsp
-//        //                            return try scanLooseChar()
-//        //                        }
-//        //                    }
-//        //                }
-//        //            }
-//        //        }
-//        //        return false
-//        //    }
-//        //
-//        //    func scanResourceElement() throws -> Bool {
-//        //        let xsp = scanPosition
-//        //        if try scanToken(TokenManager.BACKSLASH) {
-//        //            scanPosition = xsp
-//        //            if try scanToken(TokenManager.COLON) {
-//        //                scanPosition = xsp
-//        //                if try scanToken(TokenManager.CHAR_SEQUENCE) {
-//        //                    scanPosition = xsp
-//        //                    if try scanToken(TokenManager.DASH) {
-//        //                        scanPosition = xsp
-//        //                        if try scanToken(TokenManager.DIGITS) {
-//        //                            scanPosition = xsp
-//        //                            if try scanToken(TokenManager.DOT) {
-//        //                                scanPosition = xsp
-//        //                                if try scanToken(TokenManager.EQ) {
-//        //                                    scanPosition = xsp
-//        //                                    if try scanToken(TokenManager.ESCAPED_CHAR) {
-//        //                                        scanPosition = xsp
-//        //                                        if try scanToken(TokenManager.IMAGE_LABEL) {
-//        //                                            scanPosition = xsp
-//        //                                            if try scanToken(TokenManager.GT) {
-//        //                                                scanPosition = xsp
-//        //                                                if try scanToken(TokenManager.LPAREN) {
-//        //                                                    scanPosition = xsp
-//        //                                                    if try scanToken(TokenManager.LT) {
-//        //                                                        scanPosition = xsp
-//        //                                                        if try scanToken(TokenManager.RPAREN) {
-//        //                                                            scanPosition = xsp
-//        //                                                            lookingAhead = true
-//        //                                                            semanticLookAhead = !nextAfterSpace(TokenManager.RBRACK)
-//        //                                                            lookingAhead = false
-//        //                                                            return try !(semanticLookAhead || scanWhitspaceToken())
-//        //                                                        }
-//        //                                                    }
-//        //                                                }
-//        //                                            }
-//        //                                        }
-//        //                                    }
-//        //                                }
-//        //                            }
-//        //                        }
-//        //                    }
-//        //                }
-//        //            }
-//        //        }
-//        //        return false
-//        //    }
-//        //
-//        //    func scanResourceElements() throws -> Bool {
-//        //        if try scanResourceElement() {
-//        //            return true
-//        //        }
-//        //        var xsp : Token
-//        //        while true {
-//        //            xsp = scanPosition
-//        //            if try scanResourceElement() {
-//        //                scanPosition = xsp
-//        //                break
-//        //            }
-//        //        }
-//        //        return false
-//        //    }
-//        //
-//        //    func scanLink() throws -> Bool {
-//        //        if try scanToken(TokenManager.LBRACK) || scanWhitspaceTokens() || scanLinkElement() {
-//        //            return true
-//        //        }
-//        //        var xsp : Token
-//        //        while true {
-//        //            xsp = scanPosition
-//        //            if try scanLinkElement() {
-//        //                scanPosition = xsp
-//        //                break
-//        //            }
-//        //        }
-//        //        if try scanWhitspaceTokens() || scanToken(TokenManager.RBRACK) {
-//        //            return true
-//        //        }
-//        //        xsp = scanPosition
-//        //        if try scanResourceUrl() {
-//        //            scanPosition = xsp
-//        //        }
-//        //        return false
-//        //    }
-//        //
-//        //    func scanImage() throws -> Bool {
-//        //        if (try scanToken(TokenManager.LBRACK) || scanWhitspaceTokens() || scanToken(TokenManager.IMAGE_LABEL) || scanImageElement()) {
-//        //            return true
-//        //        }
-//        //        var xsp : Token
-//        //        while true {
-//        //            xsp = scanPosition
-//        //            if try scanImageElement() {
-//        //                scanPosition = xsp
-//        //                break
-//        //            }
-//        //        }
-//        //        if try scanWhitspaceTokens() || scanToken(TokenManager.RBRACK) {
-//        //            return true
-//        //        }
-//        //        xsp = scanPosition
-//        //        if try scanResourceUrl() {
-//        //            scanPosition = xsp
-//        //        }
-//        //        return false
-//        //    }
-//        //
-    func scanInlineElement() throws -> Bool {
-//        //        let xsp = scanPosition
-//        //        if try scanTextTokens() {
-//        //            scanPosition = xsp
-//        //            if try scanImage() {
-//        //                scanPosition = xsp
-//        //                if try scanLink() {
-//        //                    scanPosition = xsp
-//        //                    lookingAhead = true
-//        //                    semanticLookAhead = multilineAhead(TokenManager.ASTERISK)
-//        //                    lookingAhead = false
-//        //                    if try !semanticLookAhead || scanToken(TokenManager.ASTERISK) {
-//        //                        scanPosition = xsp
-//        //                        lookingAhead = true
-//        //                        semanticLookAhead = multilineAhead(TokenManager.UNDERSCORE)
-//        //                        lookingAhead = false
-//        //                        if try !semanticLookAhead || scanToken(TokenManager.UNDERSCORE) {
-//        //                            scanPosition = xsp
-//        //                            lookingAhead = true
-//        //                            semanticLookAhead = multilineAhead(TokenManager.BACKTICK)
-//        //                            lookingAhead = false
-//        //                            if try !semanticLookAhead || scanCodeMultiline() {
-//        //                                scanPosition = xsp
-//        //                                return try scanLooseChar()
-//        //                            }
-//        //                        }
-//        //                    }
-//        //                }
-//        //            }
-//        //        }
+        func scanStrongWithinEmMultilineElements() throws -> Bool {
+            let xsp : Token = scanPosition
+            if try scanTextTokens() {
+                scanPosition = xsp
+                if try scanImage() {
+                    scanPosition = xsp
+                    if try scanLink() {
+                        scanPosition = xsp
+                        if try scanCode() {
+                            scanPosition = xsp
+                            if try scanToken(TokenManager.BACKTICK) {
+                                scanPosition = xsp
+                                if try scanToken(TokenManager.LBRACK) {
+                                    scanPosition = xsp
+                                    return try scanToken(TokenManager.UNDERSCORE)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return false
+        }
+
+        func scanForMoreStrongWithinEmMultilineElements() throws -> Bool {
+            if try scanStrongWithinEmMultilineElements() {
+                return true
+            }
+            var xsp : Token
+            while true {
+                xsp = scanPosition
+                if try scanStrongWithinEmMultilineElements() {
+                    scanPosition = xsp
+                    break
+                }
+            }
+            return false
+        }
+
+        func scanStrongWithinEmMultiline() throws -> Bool {
+            if try scanToken(TokenManager.ASTERISK) || scanForMoreStrongWithinEmMultilineElements() {
+                return true
+            }
+            var xsp : Token
+            while true {
+                xsp = scanPosition
+                if try scanWhitespaceTokenBeforeEol() || scanForMoreStrongWithinEmMultilineElements() {
+                    scanPosition = xsp
+                    break
+                }
+            }
+            return try scanToken(TokenManager.ASTERISK)
+        }
+
+        func scanStrongMultilineElements() throws -> Bool {
+            let xsp : Token = scanPosition
+            if try scanTextTokens() {
+                scanPosition = xsp
+                if try scanImage() {
+                    scanPosition = xsp
+                    if try scanLink() {
+                        scanPosition = xsp
+                        if try scanCode() {
+                            scanPosition = xsp
+                            if try scanEmWithinStrongMultiline() {
+                                scanPosition = xsp
+                                if try scanToken(TokenManager.BACKTICK) {
+                                    scanPosition = xsp
+                                    if try scanToken(TokenManager.LBRACK) {
+                                        scanPosition = xsp
+                                        return try scanToken(TokenManager.UNDERSCORE)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return false
+        }
+
+        func scanResourceTextElement() throws -> Bool {
+            let xsp = scanPosition
+            if try scanToken(TokenManager.ASTERISK) {
+                scanPosition = xsp
+                if try scanToken(TokenManager.BACKSLASH) {
+                    scanPosition = xsp
+                    if try scanToken(TokenManager.BACKTICK) {
+                        scanPosition = xsp
+                        if try scanToken(TokenManager.CHAR_SEQUENCE) {
+                            scanPosition = xsp
+                            if try scanToken(TokenManager.COLON) {
+                                scanPosition = xsp
+                                if try scanToken(TokenManager.DASH) {
+                                    scanPosition = xsp
+                                    if try scanToken(TokenManager.DIGITS) {
+                                        scanPosition = xsp
+                                        if try scanToken(TokenManager.DOT) {
+                                            scanPosition = xsp
+                                            if try scanToken(TokenManager.EQ) {
+                                                    scanPosition = xsp
+                                                    if try scanToken(TokenManager.ESCAPED_CHAR) {
+                                                        scanPosition = xsp
+                                                        if try scanToken(TokenManager.IMAGE_LABEL) {
+                                                            scanPosition = xsp
+                                                            if try scanToken(TokenManager.GT) {
+                                                                scanPosition = xsp
+                                                                if try scanToken(TokenManager.LBRACK) {
+                                                                    scanPosition = xsp
+                                                                    if try scanToken(TokenManager.LPAREN) {
+                                                                        scanPosition = xsp
+                                                                        if try scanToken(TokenManager.LT) {
+                                                                            scanPosition = xsp
+                                                                            if try scanToken(TokenManager.RBRACK) {
+                                                                                scanPosition = xsp
+                                                                                if try scanToken(TokenManager.UNDERSCORE) {
+                                                                                    scanPosition = xsp
+                                                                                    lookingAhead = true
+                                                                                    semanticLookAhead = !nextAfterSpace(TokenManager.RPAREN)
+                                                                                    lookingAhead = false
+                                                                                    return try (!semanticLookAhead || scanWhitspaceToken())
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return false
+        }
+
+        func scanImageElement() throws -> Bool {
+            let xsp = scanPosition
+            if try scanResourceElements() {
+                scanPosition = xsp
+                if try scanLooseChar() {
+                    return true
+                }
+            }
+            return false
+        }
+
+        func scanResourceTextElements() throws -> Bool {
+            var xsp : Token
+            while true {
+                xsp = scanPosition
+                if try scanResourceTextElement() {
+                    scanPosition = xsp
+                    break
+                }
+            }
+            return false
+        }
+
+        func scanResourceUrl() throws -> Bool {
+            return try scanToken(TokenManager.LPAREN) || scanWhitspaceTokens() || scanResourceTextElements() || scanWhitspaceTokens() || scanToken(TokenManager.RPAREN)
+        }
+
+        func scanLinkElement() throws -> Bool {
+            let xsp = scanPosition
+            if try scanImage() {
+                scanPosition = xsp
+                if try scanStrong() {
+                    scanPosition = xsp
+                    if try scanEm() {
+                        scanPosition = xsp
+                        if try scanCode() {
+                            scanPosition = xsp
+                            if try scanResourceElements() {
+                                scanPosition = xsp
+                                return try scanLooseChar()
+                            }
+                        }
+                    }
+                }
+            }
+            return false
+        }
+
+        func scanResourceElement() throws -> Bool {
+            let xsp = scanPosition
+            if try scanToken(TokenManager.BACKSLASH) {
+                scanPosition = xsp
+                if try scanToken(TokenManager.COLON) {
+                    scanPosition = xsp
+                    if try scanToken(TokenManager.CHAR_SEQUENCE) {
+                        scanPosition = xsp
+                        if try scanToken(TokenManager.DASH) {
+                            scanPosition = xsp
+                            if try scanToken(TokenManager.DIGITS) {
+                                scanPosition = xsp
+                                if try scanToken(TokenManager.DOT) {
+                                    scanPosition = xsp
+                                    if try scanToken(TokenManager.EQ) {
+                                        scanPosition = xsp
+                                        if try scanToken(TokenManager.ESCAPED_CHAR) {
+                                            scanPosition = xsp
+                                            if try scanToken(TokenManager.IMAGE_LABEL) {
+                                                scanPosition = xsp
+                                                if try scanToken(TokenManager.GT) {
+                                                    scanPosition = xsp
+                                                    if try scanToken(TokenManager.LPAREN) {
+                                                        scanPosition = xsp
+                                                        if try scanToken(TokenManager.LT) {
+                                                            scanPosition = xsp
+                                                            if try scanToken(TokenManager.RPAREN) {
+                                                                scanPosition = xsp
+                                                                lookingAhead = true
+                                                                semanticLookAhead = !nextAfterSpace(TokenManager.RBRACK)
+                                                                lookingAhead = false
+                                                                return try !(semanticLookAhead || scanWhitspaceToken())
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return false
+        }
+
+        func scanResourceElements() throws -> Bool {
+            if try scanResourceElement() {
+                return true
+            }
+            var xsp : Token
+            while true {
+                xsp = scanPosition
+                if try scanResourceElement() {
+                    scanPosition = xsp
+                    break
+                }
+            }
+            return false
+        }
+
+        func scanLink() throws -> Bool {
+            if try scanToken(TokenManager.LBRACK) || scanWhitspaceTokens() || scanLinkElement() {
+                return true
+            }
+            var xsp : Token
+            while true {
+                xsp = scanPosition
+                if try scanLinkElement() {
+                    scanPosition = xsp
+                    break
+                }
+            }
+            if try scanWhitspaceTokens() || scanToken(TokenManager.RBRACK) {
+                return true
+            }
+            xsp = scanPosition
+            if try scanResourceUrl() {
+                scanPosition = xsp
+            }
+            return false
+        }
+
+        func scanImage() throws -> Bool {
+            if (try scanToken(TokenManager.LBRACK) || scanWhitspaceTokens() || scanToken(TokenManager.IMAGE_LABEL) || scanImageElement()) {
+                return true
+            }
+            var xsp : Token
+            while true {
+                xsp = scanPosition
+                if try scanImageElement() {
+                    scanPosition = xsp
+                    break
+                }
+            }
+            if try scanWhitspaceTokens() || scanToken(TokenManager.RBRACK) {
+                return true
+            }
+            xsp = scanPosition
+            if try scanResourceUrl() {
+                scanPosition = xsp
+            }
+            return false
+        }
+
+        func scanInlineElement() throws -> Bool {
+            let xsp = scanPosition
+            if try scanTextTokens() {
+                scanPosition = xsp
+                if try scanImage() {
+                    scanPosition = xsp
+                    if try scanLink() {
+                        scanPosition = xsp
+                        lookingAhead = true
+                        semanticLookAhead = multilineAhead(TokenManager.ASTERISK)
+                        lookingAhead = false
+                        if try !semanticLookAhead || scanToken(TokenManager.ASTERISK) {
+                            scanPosition = xsp
+                            lookingAhead = true
+                            semanticLookAhead = multilineAhead(TokenManager.UNDERSCORE)
+                            lookingAhead = false
+                            if try !semanticLookAhead || scanToken(TokenManager.UNDERSCORE) {
+                                scanPosition = xsp
+                                lookingAhead = true
+                                semanticLookAhead = multilineAhead(TokenManager.BACKTICK)
+                                lookingAhead = false
+                                if try !semanticLookAhead || scanCodeMultiline() {
+                                    scanPosition = xsp
+                                    return try scanLooseChar()
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             return false
         }
 
