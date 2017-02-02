@@ -210,9 +210,9 @@ public class Parser {
     }
 
     func orderedListItem() -> Int {
-        var listItem = ListItem()
+        let listItem = ListItem()
         tree.openScope()
-        var t = consumeToken(TokenManager.DIGITS)
+        let t = consumeToken(TokenManager.DIGITS)
         consumeToken(TokenManager.DOT)
         whiteSpace()
         if listItemHasInlineElements() {
@@ -228,7 +228,7 @@ public class Parser {
                 blockElement()
             }
         }
-        listItem.number = Int(t.image)!
+        listItem.number = Int(t.image!)!
         tree.closeScope(listItem)
         return t.beginColumn
     }
@@ -253,46 +253,46 @@ public class Parser {
         while kind != TokenManager.EOF && ((kind != TokenManager.EOL && kind != TokenManager.BACKTICK) || !fencesAhead()) {
             switch kind {
             case TokenManager.CHAR_SEQUENCE:
-                s += consumeToken(TokenManager.CHAR_SEQUENCE).image
+                s += consumeToken(TokenManager.CHAR_SEQUENCE).image!
             case TokenManager.ASTERISK:
-                s += consumeToken(TokenManager.ASTERISK).image
+                s += consumeToken(TokenManager.ASTERISK).image!
             case TokenManager.BACKSLASH:
-                s += consumeToken(TokenManager.BACKSLASH).image
+                s += consumeToken(TokenManager.BACKSLASH).image!
             case TokenManager.COLON:
-                s += consumeToken(TokenManager.COLON).image
+                s += consumeToken(TokenManager.COLON).image!
             case TokenManager.DASH:
-                s += consumeToken(TokenManager.DASH).image
+                s += consumeToken(TokenManager.DASH).image!
             case TokenManager.DIGITS:
-                s += consumeToken(TokenManager.DIGITS).image
+                s += consumeToken(TokenManager.DIGITS).image!
             case TokenManager.DOT:
-                s += consumeToken(TokenManager.DOT).image
+                s += consumeToken(TokenManager.DOT).image!
             case TokenManager.EQ:
-                s += consumeToken(TokenManager.EQ).image
+                s += consumeToken(TokenManager.EQ).image!
             case TokenManager.ESCAPED_CHAR:
-                s += consumeToken(TokenManager.ESCAPED_CHAR).image
+                s += consumeToken(TokenManager.ESCAPED_CHAR).image!
             case TokenManager.IMAGE_LABEL:
-                s += consumeToken(TokenManager.IMAGE_LABEL).image
+                s += consumeToken(TokenManager.IMAGE_LABEL).image!
             case TokenManager.LT:
-                s += consumeToken(TokenManager.LT).image
+                s += consumeToken(TokenManager.LT).image!
             case TokenManager.GT:
-                s += consumeToken(TokenManager.GT).image
+                s += consumeToken(TokenManager.GT).image!
             case TokenManager.LBRACK:
-                s += consumeToken(TokenManager.LBRACK).image
+                s += consumeToken(TokenManager.LBRACK).image!
             case TokenManager.RBRACK:
-                s += consumeToken(TokenManager.RBRACK).image
+                s += consumeToken(TokenManager.RBRACK).image!
             case TokenManager.LPAREN:
-                s += consumeToken(TokenManager.LPAREN).image
+                s += consumeToken(TokenManager.LPAREN).image!
             case TokenManager.RPAREN:
-                s += consumeToken(TokenManager.RPAREN).image
+                s += consumeToken(TokenManager.RPAREN).image!
             case TokenManager.UNDERSCORE:
-                s += consumeToken(TokenManager.UNDERSCORE).image
+                s += consumeToken(TokenManager.UNDERSCORE).image!
             case TokenManager.BACKTICK:
-                s += consumeToken(TokenManager.BACKTICK).image
+                s += consumeToken(TokenManager.BACKTICK).image!
             default:
                 if !nextAfterSpace(TokenManager.EOL, TokenManager.EOF) {
                     switch kind {
                     case TokenManager.SPACE:
-                        s += consumeToken(TokenManager.SPACE).image
+                        s += consumeToken(TokenManager.SPACE).image!
                     case TokenManager.TAB:
                         consumeToken(TokenManager.TAB)
                         s += "    "
@@ -374,7 +374,7 @@ public class Parser {
                     if (!nextAfterSpace(TokenManager.EOL, TokenManager.EOF)) {
                         switch getNextTokenKind() {
                             case TokenManager.SPACE:
-                                s += consumeToken(TokenManager.SPACE).image
+                                s += consumeToken(TokenManager.SPACE).image!
                         case TokenManager.TAB:
                             consumeToken(TokenManager.TAB)
                             s += "    "
@@ -520,44 +520,44 @@ public class Parser {
         repeat {
             switch getNextTokenKind() {
                 case TokenManager.CHAR_SEQUENCE:
-                    s += consumeToken(TokenManager.CHAR_SEQUENCE).image
+                    s += consumeToken(TokenManager.CHAR_SEQUENCE).image!
                 case TokenManager.ASTERISK:
-                    s += consumeToken(TokenManager.ASTERISK).image
+                    s += consumeToken(TokenManager.ASTERISK).image!
                 case TokenManager.BACKSLASH:
-                    s += consumeToken(TokenManager.BACKSLASH).image
+                    s += consumeToken(TokenManager.BACKSLASH).image!
                 case TokenManager.COLON:
-                    s += consumeToken(TokenManager.COLON).image
+                    s += consumeToken(TokenManager.COLON).image!
                 case TokenManager.DASH:
-                    s += consumeToken(TokenManager.DASH).image
+                    s += consumeToken(TokenManager.DASH).image!
                 case TokenManager.DIGITS:
-                    s += consumeToken(TokenManager.CHAR_SEQUENCE).image
+                    s += consumeToken(TokenManager.CHAR_SEQUENCE).image!
                 case TokenManager.DOT:
-                    s += consumeToken(TokenManager.CHAR_SEQUENCE).image
+                    s += consumeToken(TokenManager.CHAR_SEQUENCE).image!
                 case TokenManager.EQ:
-                    s += consumeToken(TokenManager.CHAR_SEQUENCE).image
+                    s += consumeToken(TokenManager.CHAR_SEQUENCE).image!
                 case TokenManager.ESCAPED_CHAR:
-                    s += consumeToken(TokenManager.CHAR_SEQUENCE).image
+                    s += consumeToken(TokenManager.CHAR_SEQUENCE).image!
                 case TokenManager.IMAGE_LABEL:
-                    s += consumeToken(TokenManager.IMAGE_LABEL).image
+                    s += consumeToken(TokenManager.IMAGE_LABEL).image!
                 case TokenManager.LT:
-                    s += consumeToken(TokenManager.LT).image
+                    s += consumeToken(TokenManager.LT).image!
                 case TokenManager.LBRACK:
-                    s += consumeToken(TokenManager.LBRACK).image
+                    s += consumeToken(TokenManager.LBRACK).image!
                 case TokenManager.RBRACK:
-                    s += consumeToken(TokenManager.RBRACK).image
+                    s += consumeToken(TokenManager.RBRACK).image!
                 case TokenManager.LPAREN:
-                    s += consumeToken(TokenManager.LPAREN).image
+                    s += consumeToken(TokenManager.LPAREN).image!
                 case TokenManager.GT:
-                    s += consumeToken(TokenManager.GT).image
+                    s += consumeToken(TokenManager.GT).image!
                 case TokenManager.RPAREN:
-                    s += consumeToken(TokenManager.RPAREN).image
+                    s += consumeToken(TokenManager.RPAREN).image!
                 case TokenManager.UNDERSCORE:
-                    s += consumeToken(TokenManager.UNDERSCORE).image
+                    s += consumeToken(TokenManager.UNDERSCORE).image!
                 default:
                     if !nextAfterSpace(TokenManager.EOL, TokenManager.EOF) {
                         switch getNextTokenKind() {
                             case TokenManager.SPACE:
-                                s += consumeToken(TokenManager.SPACE).image
+                                s += consumeToken(TokenManager.SPACE).image!
                             case TokenManager.TAB:
                                 consumeToken(TokenManager.TAB)
                                 s += "    "
@@ -571,7 +571,7 @@ public class Parser {
         }
 
     func looseChar() {
-        var text = Text()
+        let text = Text()
         tree.openScope()
         switch (getNextTokenKind()) {
             case TokenManager.ASTERISK:
@@ -588,13 +588,13 @@ public class Parser {
     }
 
     func lineBreak() {
-        var linebreak = LineBreak()
+        let linebreak = LineBreak()
         tree.openScope()
         while getNextTokenKind() == TokenManager.SPACE || getNextTokenKind() == TokenManager.TAB {
             consumeToken(getNextTokenKind())
         }
-        var t = consumeToken(TokenManager.EOL)
-        linebreak.setExplicit(t.image.startsWith("  "))
+        let t = consumeToken(TokenManager.EOL)
+        linebreak.explicit = false //t.image!.startsWith("  ")
         tree.closeScope(linebreak)
     }
 
@@ -613,43 +613,43 @@ public class Parser {
         repeat {
             switch getNextTokenKind() {
                 case TokenManager.CHAR_SEQUENCE:
-                    s += consumeToken(TokenManager.CHAR_SEQUENCE).image
+                    s += consumeToken(TokenManager.CHAR_SEQUENCE).image!
                 case TokenManager.ASTERISK:
-                    s += consumeToken(TokenManager.ASTERISK).image
+                    s += consumeToken(TokenManager.ASTERISK).image!
                 case TokenManager.BACKSLASH:
-                    s += consumeToken(TokenManager.BACKSLASH).image
+                    s += consumeToken(TokenManager.BACKSLASH).image!
                 case TokenManager.BACKTICK:
-                    s += consumeToken(TokenManager.BACKTICK).image
+                    s += consumeToken(TokenManager.BACKTICK).image!
                 case TokenManager.COLON:
-                    s += consumeToken(TokenManager.COLON).image
+                    s += consumeToken(TokenManager.COLON).image!
                 case TokenManager.DASH:
-                    s += consumeToken(TokenManager.DASH).image
+                    s += consumeToken(TokenManager.DASH).image!
                 case TokenManager.DIGITS:
-                    s += consumeToken(TokenManager.DIGITS).image
+                    s += consumeToken(TokenManager.DIGITS).image!
                 case TokenManager.DOT:
-                    s += consumeToken(TokenManager.DOT).image
+                    s += consumeToken(TokenManager.DOT).image!
                 case TokenManager.EQ:
-                    s += consumeToken(TokenManager.EQ).image
+                    s += consumeToken(TokenManager.EQ).image!
                 case TokenManager.ESCAPED_CHAR:
-                    s += consumeToken(TokenManager.ESCAPED_CHAR).image
+                    s += consumeToken(TokenManager.ESCAPED_CHAR).image!
                 case TokenManager.IMAGE_LABEL:
-                    s += consumeToken(TokenManager.IMAGE_LABEL).image
+                    s += consumeToken(TokenManager.IMAGE_LABEL).image!
                 case TokenManager.LT:
-                    s += consumeToken(TokenManager.LT).image
+                    s += consumeToken(TokenManager.LT).image!
                 case TokenManager.GT:
-                    s += consumeToken(TokenManager.GT).image
+                    s += consumeToken(TokenManager.GT).image!
                 case TokenManager.LBRACK:
-                    s += consumeToken(TokenManager.LBRACK).image
+                    s += consumeToken(TokenManager.LBRACK).image!
                 case TokenManager.RBRACK:
-                    s += consumeToken(TokenManager.RBRACK).image
+                    s += consumeToken(TokenManager.RBRACK).image!
                 case TokenManager.LPAREN:
-                    s += consumeToken(TokenManager.LPAREN).image
+                    s += consumeToken(TokenManager.LPAREN).image!
                 case TokenManager.RPAREN:
-                    s += consumeToken(TokenManager.RPAREN).image
+                    s += consumeToken(TokenManager.RPAREN).image!
                 case TokenManager.UNDERSCORE:
-                    s += consumeToken(TokenManager.UNDERSCORE).image
+                    s += consumeToken(TokenManager.UNDERSCORE).image!
                 case TokenManager.SPACE:
-                    s += consumeToken(TokenManager.SPACE).image
+                    s += consumeToken(TokenManager.SPACE).image!
                 case TokenManager.TAB:
                     s += "    "
                 default: break
@@ -685,36 +685,36 @@ public class Parser {
         repeat {
             switch getNextTokenKind() {
                 case TokenManager.CHAR_SEQUENCE:
-                    s += consumeToken(TokenManager.CHAR_SEQUENCE).image
+                    s += consumeToken(TokenManager.CHAR_SEQUENCE).image!
                 case TokenManager.BACKSLASH:
-                    s += consumeToken(TokenManager.BACKSLASH).image
+                    s += consumeToken(TokenManager.BACKSLASH).image!
                 case TokenManager.COLON:
-                    s += consumeToken(TokenManager.COLON).image
+                    s += consumeToken(TokenManager.COLON).image!
                 case TokenManager.DASH:
-                    s += consumeToken(TokenManager.DASH).image
+                    s += consumeToken(TokenManager.DASH).image!
                 case TokenManager.DIGITS:
-                    s += consumeToken(TokenManager.DIGITS).image
+                    s += consumeToken(TokenManager.DIGITS).image!
                 case TokenManager.DOT:
-                    s += consumeToken(TokenManager.DOT).image
+                    s += consumeToken(TokenManager.DOT).image!
                 case TokenManager.EQ:
-                    s += consumeToken(TokenManager.EQ).image
+                    s += consumeToken(TokenManager.EQ).image!
                 case TokenManager.ESCAPED_CHAR:
-                    s += consumeToken(TokenManager.ESCAPED_CHAR).image // substring - 1
+                    s += consumeToken(TokenManager.ESCAPED_CHAR).image! // substring - 1
                 case TokenManager.IMAGE_LABEL:
-                    s += consumeToken(TokenManager.IMAGE_LABEL).image
+                    s += consumeToken(TokenManager.IMAGE_LABEL).image!
                 case TokenManager.GT:
-                    s += consumeToken(TokenManager.GT).image
+                    s += consumeToken(TokenManager.GT).image!
                 case TokenManager.LPAREN:
-                    s += consumeToken(TokenManager.LPAREN).image
+                    s += consumeToken(TokenManager.LPAREN).image!
                 case TokenManager.LT:
-                    s += consumeToken(TokenManager.LT).image
+                    s += consumeToken(TokenManager.LT).image!
                 case TokenManager.RPAREN:
-                    s += consumeToken(TokenManager.RPAREN).image
+                    s += consumeToken(TokenManager.RPAREN).image!
                 default:
                     if !nextAfterSpace(TokenManager.RBRACK) {
                     switch getNextTokenKind() {
                         case TokenManager.SPACE:
-                            s.append(consumeToken(TokenManager.SPACE).image)
+                            s.append(consumeToken(TokenManager.SPACE).image!)
                         case TokenManager.TAB:
                             consumeToken(TokenManager.TAB)
                             s += "    "
@@ -741,44 +741,44 @@ public class Parser {
         while resourceTextHasElementsAhead() {
             switch getNextTokenKind() {
             case TokenManager.CHAR_SEQUENCE:
-                s += consumeToken(TokenManager.CHAR_SEQUENCE).image
+                s += consumeToken(TokenManager.CHAR_SEQUENCE).image!
             case TokenManager.ASTERISK:
-                s += consumeToken(TokenManager.ASTERISK).image
+                s += consumeToken(TokenManager.ASTERISK).image!
             case TokenManager.BACKSLASH:
-                s += consumeToken(TokenManager.BACKSLASH).image
+                s += consumeToken(TokenManager.BACKSLASH).image!
             case TokenManager.CHAR_SEQUENCE:
-                s += consumeToken(TokenManager.CHAR_SEQUENCE).image
+                s += consumeToken(TokenManager.CHAR_SEQUENCE).image!
             case TokenManager.COLON:
-                s += consumeToken(TokenManager.COLON).image
+                s += consumeToken(TokenManager.COLON).image!
             case TokenManager.DASH:
-                s += consumeToken(TokenManager.DASH).image
+                s += consumeToken(TokenManager.DASH).image!
             case TokenManager.DIGITS:
-                s += consumeToken(TokenManager.DIGITS).image
+                s += consumeToken(TokenManager.DIGITS).image!
             case TokenManager.DOT:
-                s += consumeToken(TokenManager.DOT).image
+                s += consumeToken(TokenManager.DOT).image!
             case TokenManager.EQ:
-                s += consumeToken(TokenManager.EQ).image
+                s += consumeToken(TokenManager.EQ).image!
             case TokenManager.ESCAPED_CHAR:
-                s += consumeToken(TokenManager.ESCAPED_CHAR).image // substring - 1
+                s += consumeToken(TokenManager.ESCAPED_CHAR).image! // substring - 1
             case TokenManager.IMAGE_LABEL:
-                s += consumeToken(TokenManager.IMAGE_LABEL).image
+                s += consumeToken(TokenManager.IMAGE_LABEL).image!
             case TokenManager.GT:
-                s += consumeToken(TokenManager.GT).image
+                s += consumeToken(TokenManager.GT).image!
             case TokenManager.LBRACK:
-                s += consumeToken(TokenManager.LBRACK).image
+                s += consumeToken(TokenManager.LBRACK).image!
             case TokenManager.LPAREN:
-                s += consumeToken(TokenManager.LPAREN).image
+                s += consumeToken(TokenManager.LPAREN).image!
             case TokenManager.LT:
-                s += consumeToken(TokenManager.LT).image
+                s += consumeToken(TokenManager.LT).image!
             case TokenManager.RBRACK:
-                s += consumeToken(TokenManager.RBRACK).image
+                s += consumeToken(TokenManager.RBRACK).image!
             case TokenManager.UNDERSCORE:
-                s += consumeToken(TokenManager.UNDERSCORE).image
+                s += consumeToken(TokenManager.UNDERSCORE).image!
             default:
                 if !nextAfterSpace(TokenManager.RPAREN) {
                     switch getNextTokenKind() {
                         case TokenManager.SPACE:
-                            s += consumeToken(TokenManager.SPACE).image
+                            s += consumeToken(TokenManager.SPACE).image!
                         case TokenManager.TAB:
                             consumeToken(TokenManager.TAB)
                             s += "    "
@@ -867,210 +867,208 @@ public class Parser {
         } while strongWithinEmMultilineHasElementsAhead()
     }
 
-//    func strongWithinEm() {
-//        //        var strong = Strong()
-//        //        tree.openScope()
-//        //        consumeToken(TokenManager.ASTERISK)
-//        //        repeat {
-//        //            if hasTextAhead() {
-//        //                text()
-//        //            } else if modules.contains("images") && hasImageAhead() {
-//        //                image()
-//        //            } else if modules.contains("links") && hasLinkAhead() {
-//        //                link()
-//        //            } else if modules.contains("code") && hasCodeAhead() {
-//        //                code()
-//        //            } else {
-//        //                switch getNextTokenKind() {
-//        //                case TokenManager.BACKTICK:
-//        //                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK))
-//        //                case TokenManager.LBRACK:
-//        //                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK))
-//        //                case TokenManager.UNDERSCORE:
-//        //                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.UNDERSCORE))
-//        //                default: break
-//        //                }
-//        //            }
-//        //        } while strongWithinEmHasElementsAhead()
-//        //        consumeToken(TokenManager.ASTERISK)
-//        //        tree.closeScope(strong)
-//        //    }
-//        //
-//        //    func emMultiline() {
-//        //        var em = Em()
-//        //        tree.openScope()
-//        //        consumeToken(TokenManager.UNDERSCORE)
-//        //        emMultilineContent()
-//        //        while (textAhead()) {
-//        //            lineBreak()
-//        //            whiteSpace()
-//        //            emMultilineContent()
-//        //        }
-//        //        consumeToken(TokenManager.UNDERSCORE)
-//        //        tree.closeScope(em)
-//        //    }
-//        //
-//        //    func emMultilineContent() {
-//        //        repeat {
-//        //            if hasTextAhead() {
-//        //                text()
-//        //            } else if modules.contains("images") && hasImageAhead() {
-//        //                image()
-//        //            } else if modules.contains("links") && hasLinkAhead() {
-//        //                link()
-//        //            } else if modules.contains("code") && multilineAhead(TokenManager.BACKTICK) {
-//        //                codeMultiline()
-//        //            } else if hasStrongWithinEmMultilineAhead() {
-//        //                strongWithinEmMultiline()
-//        //            } else {
-//        //                switch getNextTokenKind() {
-//        //                case TokenManager.ASTERISK:
-//        //                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.ASTERISK))
-//        //                case TokenManager.BACKTICK:
-//        //                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK))
-//        //                case TokenManager.LBRACK:
-//        //                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK))
-//        //                default: break
-//        //                }
-//        //            }
-//        //        } while emMultilineContentHasElementsAhead()
-//        //    }
-//        //
-//        //    func emWithinStrongMultiline() {
-//        //        var em = Em()
-//        //        tree.openScope()
-//        //        consumeToken(TokenManager.UNDERSCORE)
-//        //        emWithinStrongMultilineContent()
-//        //        while (textAhead()) {
-//        //            lineBreak()
-//        //            emWithinStrongMultilineContent()
-//        //        }
-//        //        consumeToken(TokenManager.UNDERSCORE)
-//        //        tree.closeScope(em)
-//        //    }
-//        //
-//        //    func emWithinStrongMultilineContent() {
-//        //        repeat {
-//        //            if hasTextAhead() {
-//        //                text()
-//        //            } else if modules.contains("images") && hasImageAhead() {
-//        //                image()
-//        //            } else if modules.contains("links") && hasLinkAhead() {
-//        //                link()
-//        //            } else if modules.contains("code") && hasCodeAhead() {
-//        //                code()
-//        //            } else {
-//        //                switch getNextTokenKind() {
-//        //                case TokenManager.ASTERISK:
-//        //                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.ASTERISK))
-//        //                case TokenManager.BACKTICK:
-//        //                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK))
-//        //                case TokenManager.LBRACK:
-//        //                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK))
-//        //                default: break
-//        //                }
-//        //            }
-//        //        } while emWithinStrongMultilineContentHasElementsAhead()
-//        //    }
-//        //
-//        //    func emWithinStrong() {
-//        //        var em = Em()
-//        //        tree.openScope()
-//        //        consumeToken(TokenManager.UNDERSCORE)
-//        //        repeat {
-//        //            if hasTextAhead() {
-//        //                text()
-//        //            } else if modules.contains("images") && hasImageAhead() {
-//        //                image()
-//        //            } else if modules.contains("links") && hasLinkAhead() {
-//        //                link()
-//        //            } else if modules.contains("code") && hasCodeAhead() {
-//        //                code()
-//        //            } else {
-//        //                switch getNextTokenKind() {
-//        //                case TokenManager.ASTERISK:
-//        //                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.ASTERISK))
-//        //                case TokenManager.BACKTICK:
-//        //                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK))
-//        //                case TokenManager.LBRACK:
-//        //                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK))
-//        //                default: break
-//        //                }
-//        //            }
-//        //        } while emWithinStrongHasElementsAhead()
-//        //        consumeToken(TokenManager.UNDERSCORE)
-//        //        tree.closeScope(em)
-//        //    }
-//        //
-//        //    func codeMultiline() {
-//        //        var code = Code()
-//        //        tree.openScope()
-//        //        consumeToken(TokenManager.BACKTICK)
-//        //        codeText()
-//        //        while textAhead() {
-//        //            lineBreak()
-//        //            whiteSpace()
-//        //            while getNextTokenKind() == TokenManager.GT {
-//        //                consumeToken(TokenManager.GT)
-//        //                whiteSpace()
-//        //            }
-//        //            codeText()
-//        //        }
-//        //        consumeToken(TokenManager.BACKTICK)
-//        //        tree.closeScope(code)
-//        //    }
-//        //
-//    
-        func whiteSpace() {
-            while getNextTokenKind() == TokenManager.SPACE || getNextTokenKind() == TokenManager.TAB {
-                consumeToken(getNextTokenKind())
+    func strongWithinEm() {
+        var strong = Strong()
+        tree.openScope()
+        consumeToken(TokenManager.ASTERISK)
+        repeat {
+            if hasTextAhead() {
+                text()
+            } else if modules.contains("images") && hasImageAhead() {
+                image()
+            } else if modules.contains("links") && hasLinkAhead() {
+                link()
+            } else if modules.contains("code") && hasCodeAhead() {
+                code()
+            } else {
+                switch getNextTokenKind() {
+                case TokenManager.BACKTICK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK))
+                case TokenManager.LBRACK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK))
+                case TokenManager.UNDERSCORE:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.UNDERSCORE))
+                default: break
+                }
             }
+        } while strongWithinEmHasElementsAhead()
+        consumeToken(TokenManager.ASTERISK)
+        tree.closeScope(strong)
+    }
+
+    func emMultiline() {
+        var em = Em()
+        tree.openScope()
+        consumeToken(TokenManager.UNDERSCORE)
+        emMultilineContent()
+        while (textAhead()) {
+            lineBreak()
+            whiteSpace()
+            emMultilineContent()
         }
-    
-        func hasAnyBlockElementsAhead() -> Bool {
-            do {
-                lookAhead = 1
-                scanPosition = token
-                lastPosition = scanPosition
-                return try !scanMoreBlockElements()
-            } catch {
-                return true
+        consumeToken(TokenManager.UNDERSCORE)
+        tree.closeScope(em)
+    }
+
+    func emMultilineContent() {
+        repeat {
+            if hasTextAhead() {
+                text()
+            } else if modules.contains("images") && hasImageAhead() {
+                image()
+            } else if modules.contains("links") && hasLinkAhead() {
+                link()
+            } else if modules.contains("code") && multilineAhead(TokenManager.BACKTICK) {
+                codeMultiline()
+            } else if hasStrongWithinEmMultilineAhead() {
+                strongWithinEmMultiline()
+            } else {
+                switch getNextTokenKind() {
+                case TokenManager.ASTERISK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.ASTERISK))
+                case TokenManager.BACKTICK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK))
+                case TokenManager.LBRACK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK))
+                default: break
+                }
             }
+        } while emMultilineContentHasElementsAhead()
+    }
+
+    func emWithinStrongMultiline() {
+        var em = Em()
+        tree.openScope()
+        consumeToken(TokenManager.UNDERSCORE)
+        emWithinStrongMultilineContent()
+        while (textAhead()) {
+            lineBreak()
+            emWithinStrongMultilineContent()
         }
+        consumeToken(TokenManager.UNDERSCORE)
+        tree.closeScope(em)
+    }
+
+    func emWithinStrongMultilineContent() {
+        repeat {
+            if hasTextAhead() {
+                text()
+            } else if modules.contains("images") && hasImageAhead() {
+                image()
+            } else if modules.contains("links") && hasLinkAhead() {
+                link()
+            } else if modules.contains("code") && hasCodeAhead() {
+                code()
+            } else {
+                switch getNextTokenKind() {
+                case TokenManager.ASTERISK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.ASTERISK))
+                case TokenManager.BACKTICK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK))
+                case TokenManager.LBRACK:
+                    tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK))
+                default: break
+                }
+            }
+        } while emWithinStrongMultilineContentHasElementsAhead()
+    }
+
+    func emWithinStrong() {
+        var em = Em()
+        tree.openScope()
+        consumeToken(TokenManager.UNDERSCORE)
+        repeat {
+            if hasTextAhead() {
+                text()
+            } else if modules.contains("images") && hasImageAhead() {
+                image()
+            } else if modules.contains("links") && hasLinkAhead() {
+                link()
+            } else if modules.contains("code") && hasCodeAhead() {
+                code()
+            } else {
+                switch getNextTokenKind() {
+                    case TokenManager.ASTERISK:
+                        tree.addSingleValue(Text(), t: consumeToken(TokenManager.ASTERISK))
+                    case TokenManager.BACKTICK:
+                        tree.addSingleValue(Text(), t: consumeToken(TokenManager.BACKTICK))
+                    case TokenManager.LBRACK:
+                        tree.addSingleValue(Text(), t: consumeToken(TokenManager.LBRACK))
+                    default: break
+                }
+            }
+        } while emWithinStrongHasElementsAhead()
+        consumeToken(TokenManager.UNDERSCORE)
+        tree.closeScope(em)
+    }
+
+    func codeMultiline() {
+        var code = Code()
+        tree.openScope()
+        consumeToken(TokenManager.BACKTICK)
+        codeText()
+        while textAhead() {
+            lineBreak()
+            whiteSpace()
+            while getNextTokenKind() == TokenManager.GT {
+                consumeToken(TokenManager.GT)
+                whiteSpace()
+            }
+            codeText()
+        }
+        consumeToken(TokenManager.BACKTICK)
+        tree.closeScope(code)
+    }
+
+    func whiteSpace() {
+        while getNextTokenKind() == TokenManager.SPACE || getNextTokenKind() == TokenManager.TAB {
+            consumeToken(getNextTokenKind())
+        }
+    }
+
+    func hasAnyBlockElementsAhead() -> Bool {
+        do {
+            lookAhead = 1
+            scanPosition = token
+            lastPosition = scanPosition
+            return try !scanMoreBlockElements()
+        } catch {
+            return true
+        }
+    }
     
-        func blockAhead(_ blockBeginColumn : Int) -> Bool {
-        ////    int quoteLevel
-        ////
-        ////    if (getNextTokenKind() == EOL) {
-        //        var t : Token
-        //        var i : Int = 2
-        ////    quoteLevel = 0
-        //        repeat {
-        ////    quoteLevel = 0
-        //            repeat {
-        //                i += 1
-        //                t = getToken(i)
-        ////    if (t.kind == GT) {
-        ////    if (t.beginColumn == 1 && currentBlockLevel > 0 && currentQuoteLevel == 0) {
-        ////    return false
-        ////    }
-        ////    quoteLevel++
-        ////    }
-        //            } while (t.kind == TokenManager.GT || t.kind == TokenManager.SPACE || t.kind == TokenManager.TAB)
-        ////    if (quoteLevel > currentQuoteLevel) {
-        ////    return true
-        ////    }
-        ////    if (quoteLevel < currentQuoteLevel) {
-        ////    return false
-        ////    }
-        //        } while (t.kind == TokenManager.EOL)
-        ////    return t.kind != EOF && (currentBlockLevel == 0 || t.beginColumn >= blockBeginColumn + 2)
-        ////    }
+    func blockAhead(_ blockBeginColumn : Int) -> Bool {
+        var quoteLevel : Int
+        if (getNextTokenKind() == TokenManager.EOL) {
+            var t : Token
+            var i : Int = 2
+            quoteLevel = 0
+            repeat {
+                quoteLevel = 0
+                repeat {
+                    i += 1
+                    t = getToken(i)
+                    if (t.kind == TokenManager.GT) {
+                        if (t.beginColumn == 1 && currentBlockLevel > 0 && currentQuoteLevel == 0) {
+                            return false
+                        }
+                        quoteLevel += 1
+                    }
+                } while (t.kind == TokenManager.GT || t.kind == TokenManager.SPACE || t.kind == TokenManager.TAB)
+                if (quoteLevel > currentQuoteLevel) {
+                    return true
+                }
+                if (quoteLevel < currentQuoteLevel) {
+                    return false
+                }
+            } while (t.kind == TokenManager.EOL)
+            return t.kind != TokenManager.EOF && (currentBlockLevel == 0 || t.beginColumn >= blockBeginColumn + 2)
+        }
             return false
-        }
+    }
     
-//        //    func multilineAhead(_ token : Int) -> Bool {
-//        ////    if (getNextTokenKind() == token && getToken(2).kind != token && getToken(2).kind != EOL) {
+    func multilineAhead(_ token : Int32) -> Bool {
+        if (getNextTokenKind() == token && getToken(2).kind != token && getToken(2).kind != TokenManager.EOL) {
 //        ////
 //        ////    for (int i = 2;; i++) {
 //        ////    Token t = getToken(i)
@@ -1095,40 +1093,40 @@ public class Parser {
 //        ////    return false
 //        ////    }
 //        ////    }
-//        ////    }
-//        //        return false
-//        //    }
-//        //
-//        //    func fencesAhead() -> Bool {
-//        //        var i = skip(2, tokens: [TokenManager.SPACE, TokenManager.TAB, TokenManager.GT])
-//        ////    if (getToken(i).kind == BACKTICK && getToken(i + 1).kind == BACKTICK && getToken(i + 2).kind == BACKTICK) {
-//        ////    i = skip(i + 3, SPACE, TAB)
-//        ////    return getToken(i).kind == EOL || getToken(i).kind == EOF
-//        ////    }
-//        //        return false
-//        //    }
-//        //
-        func headingAhead(_ offset : Int) -> Bool {
-            if getToken(offset).kind == TokenManager.EQ {
-                var heading : Int = 1
-                var i = offset + 1
-                
-                repeat {
-                    if (getToken(i).kind != TokenManager.EQ) {
-                        return true
-                    }
-                    heading+=1
-                    if (heading > 6) {
-                        return false
-                    }
-                    i+=1
-                } while(true)
-            }
-            return false
         }
-//
-//        func listItemAhead(_ listBeginColumn : Int, ordered : Bool) -> Bool {
-//            if (getNextTokenKind() == TokenManager.EOL) {
+        return false
+    }
+
+    func fencesAhead() -> Bool {
+        var i = skip(2, tokens: [TokenManager.SPACE, TokenManager.TAB, TokenManager.GT])
+        if (getToken(i).kind == TokenManager.BACKTICK && getToken(i + 1).kind == TokenManager.BACKTICK && getToken(i + 2).kind == TokenManager.BACKTICK) {
+            i = skip(i + 3, tokens: [TokenManager.SPACE, TokenManager.TAB])
+            return getToken(i).kind == TokenManager.EOL || getToken(i).kind == TokenManager.EOF
+        }
+        return false
+    }
+
+    func headingAhead(_ offset : Int) -> Bool {
+        if getToken(offset).kind == TokenManager.EQ {
+            var heading : Int = 1
+            var i = offset + 1
+            
+            repeat {
+                if (getToken(i).kind != TokenManager.EQ) {
+                    return true
+                }
+                heading+=1
+                if (heading > 6) {
+                    return false
+                }
+                i+=1
+            } while(true)
+        }
+        return false
+    }
+
+    func listItemAhead(_ listBeginColumn : Int, ordered : Bool) -> Bool {
+        if (getNextTokenKind() == TokenManager.EOL) {
 ////                for (int i = 2, eol = 1;; i++) {
 ////                    Token t = getToken(i);
 ////        
@@ -1141,11 +1139,11 @@ public class Parser {
 ////                        return t.kind == TokenManager.DASH && t.beginColumn >= listBeginColumn
 ////                    }
 ////                }
-//            }
-//            return false
-//        }
-//        
-//        //    func textAhead() -> Bool {
+        }
+        return false
+    }
+
+    func textAhead() -> Bool {
 //        ////    if (getNextTokenKind() == EOL && getToken(2).kind != EOL) {
 //        ////    int i = skip(2, SPACE, TAB)
 //        ////    int quoteLevel = newQuoteLevel(i)
@@ -1160,28 +1158,28 @@ public class Parser {
 //        ////    && !(modules.contains("headings") && headingAhead(i))
 //        ////    }
 //        ////    }
-//        //        return false
-//        //    }
-//        //
-            func nextAfterSpace(_ tokens : Int32...) -> Bool {
-                let i : Int = skip(1, tokens: [TokenManager.SPACE, TokenManager.TAB])
-                return tokens.contains(getToken(i).kind!)
-            }
+        return false
+    }
+
+    func nextAfterSpace(_ tokens : Int32...) -> Bool {
+        let i : Int = skip(1, tokens: [TokenManager.SPACE, TokenManager.TAB])
+        return tokens.contains(getToken(i).kind!)
+    }
         
-//        //    func newQuoteLevel(_ offset : Int) -> Int {
-//        ////    int quoteLevel = 0
+    func newQuoteLevel(_ offset : Int) -> Int {
+//        var quoteLevel = 0
 //        ////    for (int i = offset;; i++) {
 //        ////    Token t = getToken(i)
 //        ////    if (t.kind == GT) {
 //        ////    quoteLevel++
 //        ////    } else if (t.kind != SPACE && t.kind != TAB) {
-//        //        return 0 //    return quoteLevel
+        return 0 //    return quoteLevel
 //        ////    }
 //        ////
 //        ////    }
-//        //    }
-//        //
-            func skip(_ offset : Int, tokens : [Int32]) -> Int {
+    }
+
+    func skip(_ offset : Int, tokens : [Int32]) -> Int {
         //    List<Integer> tokenList = Arrays.asList(tokens)
         //    for (int i = offset;; i++) {
         //    Token t = getToken(i)
@@ -1189,14 +1187,14 @@ public class Parser {
                 return 0 //    return i
         //    }
         //    }
-            }
+    }
 
     func hasOrderedListAhead() -> Bool {
         lookAhead = 2
         scanPosition = token
         lastPosition = scanPosition
         do {
-            return !scanToken(TokenManager.DIGITS) && !scanToken(DOT)
+            return try !scanToken(TokenManager.DIGITS) && !scanToken(TokenManager.DOT)
         } catch {
             return true
         }
@@ -1207,7 +1205,7 @@ public class Parser {
         scanPosition = token
         lastPosition = scanPosition
         do {
-            return !scanFencedCodeBlock()
+            return try !scanFencedCodeBlock()
         } catch {
             return true
         }
@@ -1218,20 +1216,20 @@ public class Parser {
         scanPosition = token
         lastPosition = scanPosition
         do {
-            xsp = scanPosition
-            if (scanTextTokens()) {
+            let xsp = scanPosition
+            if (try scanTextTokens()) {
                 scanPosition = xsp
-                if (scanImage()) {
+                if (try scanImage()) {
                     scanPosition = xsp
-                    if (scanLink()) {
+                    if (try scanLink()) {
                         scanPosition = xsp
-                        if (scanStrong()) {
+                        if (try scanStrong()) {
                             scanPosition = xsp
-                            if (scanEm()) {
+                            if (try scanEm()) {
                                 scanPosition = xsp
-                                if (scanCode()) {
+                                if (try scanCode()) {
                                     scanPosition = xsp
-                                    if (scanLooseChar()) {
+                                    if (try scanLooseChar()) {
                                         return false
                                     }
                                 }
@@ -1705,7 +1703,7 @@ public class Parser {
                                 if try scanToken(TokenManager.DIGITS) {
                                     scanPosition = xsp
                                     if try scanToken(TokenManager.DOT) {
-                                        canPosition = xsp
+                                        scanPosition = xsp
                                         if try scanToken(TokenManager.EQ) {
                                             scanPosition = xsp
                                             if try scanToken(TokenManager.ESCAPED_CHAR) {
