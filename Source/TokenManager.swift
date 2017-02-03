@@ -29,7 +29,7 @@ public class TokenManager {
 
     var curChar : Character?
     var jjnextStates = Array<Int>(arrayLiteral: 2, 3, 5)
-    var jjnewStateCnt : Int32 = 0
+    var jjnewStateCnt : Int32 = 8
     var round : Int64 = 0
     var matchedPos : Int32 = 0
     var matchedKind : Int32 = 0

@@ -9,18 +9,15 @@ class ComplianceTest: XCTestCase {
         //let kd = try String(contentsOf: testsuite.appendingPathComponent("input/paragraphs/paragraphs-001-simple.kd"), encoding: .utf8)
         //let html = try String(contentsOf: testsuite.appendingPathComponent("output/html5/paragraphs/paragraphs-001-simple.htm"), encoding: .utf8)
         
-        let kd = "T"
-        let html = "<p>T</p>"
+        let kd = "Thi"
+        let html = "<p>Thi</p>"
         
         let parser = Parser()
-        //let document = parser.parse(kd)
-       // let renderer = Html5Renderer()
-        //document.accept(renderer)
-        
-        
-        //print(renderer.output)
-        
-        //XCTAssertEqual(html, renderer.getOutput())
+        let document = parser.parse(kd)
+        let renderer = Html5Renderer()
+        document.accept(renderer)
+
+        XCTAssertEqual(html, renderer.getOutput())
     }
 
     

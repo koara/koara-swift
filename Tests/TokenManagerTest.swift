@@ -140,4 +140,10 @@ class TokenManagerTest: XCTestCase {
         XCTAssertEqual("_", token?.image)
     }
     
+    func testThi() {
+        let token = TokenManager(stream: CharStream(reader: StringReader(text: "Th"))).getNextToken()
+        XCTAssertEqual(TokenManager.CHAR_SEQUENCE, token?.kind)
+        XCTAssertEqual("Th", token?.image)
+    }
+    
 }
