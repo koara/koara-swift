@@ -29,7 +29,7 @@ public class TokenManager {
 
     var curChar : Character?
     var jjnextStates = Array<Int>(arrayLiteral: 2, 3, 5)
-    var jjnewStateCnt : Int32 = 8
+    var jjnewStateCnt : Int = 8
     var round : Int64 = 0
     var matchedPos : Int32 = 0
     var matchedKind : Int32 = 0
@@ -177,7 +177,7 @@ public class TokenManager {
     func moveNfa(startState: Int32, curPos: Int32) -> Int32 {
         var curPos = curPos
         var startsAt : Int = 0
-        var jjnewStateCnt : Int = 8
+        jjnewStateCnt = 8
         var i : Int = 1
         jjstateSet[0] = startState
         var kind = 0x7fffffff
