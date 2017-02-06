@@ -319,7 +319,7 @@ public class Parser {
     }
  
     func paragraph() {
-        var paragraph = modules.contains("paragraphs") ? Paragraph() : BlockElement()
+        let paragraph = modules.contains("paragraphs") ? Paragraph() : BlockElement()
         tree.openScope()
         inline()
         while textAhead() {
