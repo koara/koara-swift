@@ -1,23 +1,22 @@
 public class BlockElement : Node {
     
-//    public boolean hasChildren() {
+    func hasChildren() -> Bool {
 //        return getChildren() != null && getChildren().length > 0;
-//    }
-//    
-//    public boolean isFirstChild() {
-//        return getParent().getChildren()[0] == this;
-//    }
-//    
-//    public boolean isLastChild() {
-//        Node[] children = getParent().getChildren();
-//        return children[children.length - 1] == this;
-//    }
-//    
-      public func isNested() -> Bool {
-            return false
-//        return !(getParent() instanceof Document);
-        }
-//    
+        return false
+    }
+
+    func isFirstChild() -> Bool {
+        return parent?.children.first === self
+    }
+
+    func isLastChild() -> Bool {
+        return parent?.children.last === self
+    }
+
+    public func isNested() -> Bool {
+        return parent is Document
+    }
+ 
 //    public boolean isSingleChild() {
 //        return ((Node) this.getParent()).getChildren().length == 1;
 //    }
