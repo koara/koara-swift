@@ -91,18 +91,15 @@ public class CharStream {
             column = 1;
             line += column;
         }
-    
-//        switch c {
-//          case "\n":
-//            this.prevCharIsLF = true;
-//            break;
-//          case "\t":
-//            this.column--;
-//            this.column += this.tabSize - this.column % this.tabSize;
-//            break;
-//           default:
-//            break;
-//          }
+        switch c {
+        case "\n":
+            prevCharIsLF = true
+        case "\t":
+            column -= 1
+            column += tabSize - column % tabSize
+        default:
+            break
+        }
         bufLine[bufPos] = line;
         bufColumn[bufPos] = column;
     }
@@ -111,7 +108,7 @@ public class CharStream {
         if (bufPos >= tokenBegin) {
             return String(buffer[tokenBegin..<(bufPos + 1)])
         }
-        //return new String(buffer, tokenBegin, bufSize - tokenBegin) + new String(buffer, 0, bufPos + 1);
+        //return String(buffer, tokenBegin, bufSize - tokenBegin) + String(buffer, 0, bufPos + 1);
         return "Y"
     }
     

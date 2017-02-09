@@ -170,7 +170,7 @@ public class Parser {
         tree.closeScope(list)
     }
 
-    func unorderedListItem() -> Int {
+    @discardableResult func unorderedListItem() -> Int {
         let listItem = ListItem()
         tree.openScope()
         let t = consumeToken(TokenManager.DASH)
@@ -193,9 +193,9 @@ public class Parser {
     }
 
     func orderedList() {
-        var list = ListBlock(ordered: true)
+        let list = ListBlock(ordered: true)
         tree.openScope()
-        var listBeginColumn : Int = orderedListItem()
+        let listBeginColumn : Int = orderedListItem()
         while listItemAhead(listBeginColumn, ordered: true) {
             while getNextTokenKind() == TokenManager.EOL {
                 consumeToken(TokenManager.EOL)
@@ -209,7 +209,7 @@ public class Parser {
         tree.closeScope(list)
     }
 
-    func orderedListItem() -> Int {
+    @discardableResult func orderedListItem() -> Int {
         let listItem = ListItem()
         tree.openScope()
         let t = consumeToken(TokenManager.DIGITS)
@@ -234,10 +234,10 @@ public class Parser {
     }
 
     func fencedCodeBlock() {
-        var codeBlock = CodeBlock()
+        let codeBlock = CodeBlock()
         tree.openScope()
         var s = ""
-        var beginColumn = consumeToken(TokenManager.BACKTICK).beginColumn
+        let beginColumn = consumeToken(TokenManager.BACKTICK).beginColumn
         repeat {
             consumeToken(TokenManager.BACKTICK)
         } while (getNextTokenKind() == TokenManager.BACKTICK)
@@ -337,7 +337,7 @@ public class Parser {
     }
 
     func text() {
-        var text = Text()
+        let text = Text()
         tree.openScope()
         var s = ""
         while textHasTokensAhead() {
@@ -389,7 +389,7 @@ public class Parser {
     }
     
     func image() {
-        var image = Image()
+        let image = Image()
         tree.openScope()
         var ref = ""
         consumeToken(TokenManager.LBRACK)
@@ -413,7 +413,7 @@ public class Parser {
     }
 
     func link() {
-        var link = Link()
+        let link = Link()
         tree.openScope()
         var ref = ""
         consumeToken(TokenManager.LBRACK)
@@ -443,7 +443,7 @@ public class Parser {
     }
 
     func strong() {
-        var strong = Strong()
+        let strong = Strong()
         tree.openScope()
         consumeToken(TokenManager.ASTERISK)
         while strongHasElements() {
@@ -474,7 +474,7 @@ public class Parser {
     }
 
     func em() {
-        var em = Em()
+        let em = Em()
         tree.openScope()
         consumeToken(TokenManager.UNDERSCORE)
         while emHasElements() {
@@ -505,7 +505,7 @@ public class Parser {
     }
 
     func code() {
-        var code = Code()
+        let code = Code()
         tree.openScope()
         consumeToken(TokenManager.BACKTICK)
         codeText()
@@ -514,7 +514,7 @@ public class Parser {
     }
 
     func codeText() {
-        var text = Text()
+        let text = Text()
         tree.openScope()
         var s = ""
         repeat {
@@ -594,7 +594,7 @@ public class Parser {
             consumeToken(getNextTokenKind())
         }
         let t = consumeToken(TokenManager.EOL)
-        linebreak.explicit = false //t.image!.startsWith("  ")
+        linebreak.explicit = t.image!.hasPrefix("  ")
         tree.closeScope(linebreak)
     }
 
@@ -679,7 +679,7 @@ public class Parser {
     }
 
     func resourceText() {
-        var text = Text()
+        let text = Text()
         tree.openScope()
         var s = ""
         repeat {
@@ -791,7 +791,7 @@ public class Parser {
     }
 
     func strongMultiline() {
-        var strong = Strong()
+        let strong = Strong()
         tree.openScope()
         consumeToken(TokenManager.ASTERISK)
         strongMultilineContent()
@@ -831,7 +831,7 @@ public class Parser {
     }
 
     func strongWithinEmMultiline() {
-        var strong = Strong()
+        let strong = Strong()
         tree.openScope()
         consumeToken(TokenManager.ASTERISK)
         strongWithinEmMultilineContent()
@@ -868,7 +868,7 @@ public class Parser {
     }
 
     func strongWithinEm() {
-        var strong = Strong()
+        let strong = Strong()
         tree.openScope()
         consumeToken(TokenManager.ASTERISK)
         repeat {
@@ -897,7 +897,7 @@ public class Parser {
     }
 
     func emMultiline() {
-        var em = Em()
+        let em = Em()
         tree.openScope()
         consumeToken(TokenManager.UNDERSCORE)
         emMultilineContent()
@@ -937,7 +937,7 @@ public class Parser {
     }
 
     func emWithinStrongMultiline() {
-        var em = Em()
+        let em = Em()
         tree.openScope()
         consumeToken(TokenManager.UNDERSCORE)
         emWithinStrongMultilineContent()
@@ -974,7 +974,7 @@ public class Parser {
     }
 
     func emWithinStrong() {
-        var em = Em()
+        let em = Em()
         tree.openScope()
         consumeToken(TokenManager.UNDERSCORE)
         repeat {
@@ -1003,7 +1003,7 @@ public class Parser {
     }
 
     func codeMultiline() {
-        var code = Code()
+        let code = Code()
         tree.openScope()
         consumeToken(TokenManager.BACKTICK)
         codeText()
@@ -1069,30 +1069,34 @@ public class Parser {
     
     func multilineAhead(_ token : Int32) -> Bool {
         if (getNextTokenKind() == token && getToken(2).kind != token && getToken(2).kind != TokenManager.EOL) {
-//        ////
-//        ////    for (int i = 2;; i++) {
-//        ////    Token t = getToken(i)
-//        ////    if (t.kind == token) {
-//        ////    return true
-//        ////    } else if (t.kind == EOL) {
-//        ////    i = skip(i + 1, SPACE, TAB)
-//        ////    int quoteLevel = newQuoteLevel(i)
-//        ////    if (quoteLevel == currentQuoteLevel) {
-//        ////    i = skip(i, SPACE, TAB, GT)
-//        ////    if (getToken(i).kind == token || getToken(i).kind == EOL || getToken(i).kind == DASH
-//        ////    || (getToken(i).kind == DIGITS && getToken(i + 1).kind == DOT)
-//        ////    || (getToken(i).kind == BACKTICK && getToken(i + 1).kind == BACKTICK
-//        ////    && getToken(i + 2).kind == BACKTICK)
-//        ////    || headingAhead(i)) {
-//        ////    return false
-//        ////    }
-//        ////    } else {
-//        ////    return false
-//        ////    }
-//        ////    } else if (t.kind == EOF) {
-//        ////    return false
-//        ////    }
-//        ////    }
+            var i = 2
+            repeat {
+                let t = getToken(i)
+                if (t.kind == token) {
+                    return true
+                } else if (t.kind == TokenManager.EOL) {
+                    i = skip(i + 1, tokens: [TokenManager.SPACE, TokenManager.TAB])
+                    let quoteLevel = newQuoteLevel(i)
+                    if (quoteLevel == currentQuoteLevel) {
+                        i = skip(i, tokens: [TokenManager.SPACE, TokenManager.TAB, TokenManager.GT])
+                        if (getToken(i).kind == token || getToken(i).kind == TokenManager.EOL || getToken(i).kind == TokenManager.DASH
+                            || (getToken(i).kind == TokenManager.DIGITS && getToken(i + 1).kind == TokenManager.DOT)
+                            || (getToken(i).kind == TokenManager.BACKTICK && getToken(i + 1).kind == TokenManager.BACKTICK
+                                && getToken(i + 2).kind == TokenManager.BACKTICK)
+                            || headingAhead(i)) {
+                            return false
+                        }
+                    } else {
+                        return false
+                    }
+                } else if (t.kind == TokenManager.EOF) {
+                    return false
+                }
+                i += 1
+            } while(true)
+        
+
+
         }
         return false
     }
@@ -1127,37 +1131,42 @@ public class Parser {
 
     func listItemAhead(_ listBeginColumn : Int, ordered : Bool) -> Bool {
         if (getNextTokenKind() == TokenManager.EOL) {
-////                for (int i = 2, eol = 1;; i++) {
-////                    Token t = getToken(i);
-////        
-////                    if (t.kind == EOL && ++eol > 2) {
-////                        return false
-////                    } else if (t.kind != TokenManager.SPACE && t.kind != TokenManager.TAB && t.kind != GT && t.kind != TokenManager.EOL) {
-////                        if (ordered) {
-////                            return (t.kind == TokenManager.DIGITS && getToken(i + 1).kind == TokenManager.DOT && t.beginColumn >= listBeginColumn)
-////                        }
-////                        return t.kind == TokenManager.DASH && t.beginColumn >= listBeginColumn
-////                    }
-////                }
+            var i = 2
+            var eol = 1
+            repeat {
+                var t = getToken(i);
+                eol += 1
+                if (t.kind == TokenManager.EOL && eol > 2) {
+                    return false
+                } else if (t.kind != TokenManager.SPACE && t.kind != TokenManager.TAB && t.kind != TokenManager.GT && t.kind != TokenManager.EOL) {
+                    if (ordered) {
+                        return (t.kind == TokenManager.DIGITS && getToken(i + 1).kind == TokenManager.DOT && t.beginColumn >= listBeginColumn)
+                    }
+                    return t.kind == TokenManager.DASH && t.beginColumn >= listBeginColumn
+                }
+                i += 1
+            } while(true)
+            
+            
+
         }
         return false
     }
 
     func textAhead() -> Bool {
-//        ////    if (getNextTokenKind() == EOL && getToken(2).kind != EOL) {
-//        ////    int i = skip(2, SPACE, TAB)
-//        ////    int quoteLevel = newQuoteLevel(i)
-//        ////    if (quoteLevel == currentQuoteLevel || !modules.contains("blockquotes")) {
-//        ////    i = skip(i, SPACE, TAB, GT)
-//        ////
-//        ////    Token t = getToken(i)
-//        ////    return getToken(i).kind != EOL && !(modules.contains("lists") && t.kind == DASH)
-//        ////    && !(modules.contains("lists") && t.kind == DIGITS && getToken(i + 1).kind == DOT)
-//        ////    && !(getToken(i).kind == BACKTICK && getToken(i + 1).kind == BACKTICK
-//        ////    && getToken(i + 2).kind == BACKTICK)
-//        ////    && !(modules.contains("headings") && headingAhead(i))
-//        ////    }
-//        ////    }
+        if (getNextTokenKind() == TokenManager.EOL && getToken(2).kind != TokenManager.EOL) {
+            var i = skip(2, tokens: [TokenManager.SPACE, TokenManager.TAB])
+            let quoteLevel = newQuoteLevel(i)
+            if (quoteLevel == currentQuoteLevel || !modules.contains("blockquotes")) {
+                i = skip(i, tokens: [TokenManager.SPACE, TokenManager.TAB, TokenManager.GT])
+                let t = getToken(i)
+                return getToken(i).kind != TokenManager.EOL && !(modules.contains("lists") && t.kind == TokenManager.DASH)
+                    && !(modules.contains("lists") && t.kind == TokenManager.DIGITS && getToken(i + 1).kind == TokenManager.DOT)
+                    && !(getToken(i).kind == TokenManager.BACKTICK && getToken(i + 1).kind == TokenManager.BACKTICK
+                    && getToken(i + 2).kind == TokenManager.BACKTICK)
+                    && !(modules.contains("headings") && headingAhead(i))
+            }
+        }
         return false
     }
 
@@ -1166,27 +1175,29 @@ public class Parser {
         return tokens.contains(getToken(i).kind!)
     }
         
-    func newQuoteLevel(_ offset : Int) -> Int {
-//        var quoteLevel = 0
-//        ////    for (int i = offset;; i++) {
-//        ////    Token t = getToken(i)
-//        ////    if (t.kind == GT) {
-//        ////    quoteLevel++
-//        ////    } else if (t.kind != SPACE && t.kind != TAB) {
-        return 0 //    return quoteLevel
-//        ////    }
-//        ////
-//        ////    }
+    func newQuoteLevel(offset : Int) -> Int {
+        var quoteLevel = 0
+        let i = offset
+        repeat {
+            let t = getToken(i)
+            if (t.kind == TokenManager.GT) {
+                quoteLevel += 1
+            } else if (t.kind != TokenManager.SPACE && t.kind != TokenManager.TAB) {
+                return quoteLevel
+            }
+            i += 1
+        } while(true)
     }
 
     func skip(_ offset : Int, tokens : [Int32]) -> Int {
-        //    List<Integer> tokenList = Arrays.asList(tokens)
-        //    for (int i = offset;; i++) {
-        //    Token t = getToken(i)
-        //    if (!tokenList.contains(t.kind)) {
-                return 0 //    return i
-        //    }
-        //    }
+        var i = offset
+        repeat {
+            let t = getToken(i)
+            if (!tokens.contains(t.kind!)) {
+                return i
+            }
+            i += 1
+        } while(true)
     }
 
     func hasOrderedListAhead() -> Bool {

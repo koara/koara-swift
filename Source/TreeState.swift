@@ -5,7 +5,6 @@ class TreeState {
     var nodesOnStack : Int = 0;
     var currentMark : Int = 0;
 
-    
     func openScope() {
         marks.append(currentMark)
         currentMark = nodesOnStack

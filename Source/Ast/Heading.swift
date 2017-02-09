@@ -4,10 +4,10 @@ public class Heading : BlockElement {
         renderer.visitHeading(node: self)
     }
     
-    //var level : Int {
-    //    get {
-    //        return getValue().text.toInt()
-    //    }
-    //}
+    var level : Int {
+        get {
+            return value as! Int
+        }
+    }
 
 }

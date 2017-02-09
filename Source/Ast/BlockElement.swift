@@ -1,8 +1,7 @@
 public class BlockElement : Node {
     
     func hasChildren() -> Bool {
-//        return getChildren() != null && getChildren().length > 0;
-        return false
+        return children.count > 0
     }
 
     func isFirstChild() -> Bool {
@@ -17,19 +16,19 @@ public class BlockElement : Node {
         return parent is Document
     }
  
-//    public boolean isSingleChild() {
-//        return ((Node) this.getParent()).getChildren().length == 1;
-//    }
-//    
-//    public Object next() {
+    func isSingleChild() -> Bool {
+        return parent?.children.count == 1
+    }
+
+    func next() -> AnyObject? {
 //        for(int i = 0; i < getParent().getChildren().length - 1; i++) {
 //            if(getParent().getChildren()[i] == this) {
 //                return getParent().getChildren()[i + 1];
 //            }
 //        }
-//        return null;
-//    }
-//    
+        return nil;
+    }
+
     override public func accept(renderer: Renderer) {
         preconditionFailure("This method must be overriden")
     }
