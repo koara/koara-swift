@@ -1,6 +1,6 @@
 public class Link : Node {
     
-    func accept(_ renderer : Renderer) {
+    override public func accept(renderer : Renderer) {
         renderer.visitLink(node: self)
     }
     

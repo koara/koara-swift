@@ -21,11 +21,11 @@ public class BlockElement : Node {
     }
 
     func next() -> AnyObject? {
-//        for(int i = 0; i < getParent().getChildren().length - 1; i++) {
-//            if(getParent().getChildren()[i] == this) {
-//                return getParent().getChildren()[i + 1];
-//            }
-//        }
+        for (i, child) in (parent?.children.enumerated())! {
+            if(child === self) {
+                return parent?.children[i + 1]
+            }
+        }
         return nil;
     }
 

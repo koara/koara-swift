@@ -1078,7 +1078,7 @@ public class Parser {
                     return true
                 } else if (t.kind == TokenManager.EOL) {
                     i = skip(i + 1, tokens: [TokenManager.SPACE, TokenManager.TAB])
-                    let quoteLevel = newQuoteLevel(i)
+                    let quoteLevel = newQuoteLevel(offset: i)
                     if (quoteLevel == currentQuoteLevel) {
                         i = skip(i, tokens: [TokenManager.SPACE, TokenManager.TAB, TokenManager.GT])
                         if (getToken(i).kind == token || getToken(i).kind == TokenManager.EOL || getToken(i).kind == TokenManager.DASH

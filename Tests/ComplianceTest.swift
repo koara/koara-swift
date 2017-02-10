@@ -9,8 +9,8 @@ class ComplianceTest: XCTestCase {
         //let kd = try String(contentsOf: testsuite.appendingPathComponent("input/paragraphs/paragraphs-001-simple.kd"), encoding: .utf8)
         //let html = try String(contentsOf: testsuite.appendingPathComponent("output/html5/paragraphs/paragraphs-001-simple.htm"), encoding: .utf8)
         
-        let kd = "This is a"
-        let html = "<p>This is a</p>"
+        let kd = "This is a simple paragraph"
+        let html = "<p>This is a simple paragraph</p>"
         
         let parser = Parser()
         let document = parser.parse(kd)

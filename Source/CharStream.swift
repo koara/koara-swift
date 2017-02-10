@@ -26,7 +26,6 @@ public class CharStream {
         return c
     }
     
-    
     @discardableResult public func readChar() throws -> Character {
         if (inBuf > 0) {
             inBuf -= 1
@@ -44,7 +43,6 @@ public class CharStream {
         return c
     }
     
-    
     func fillBuff() throws {
         if maxNextCharInd == available {
             if available == bufSize {
@@ -58,7 +56,6 @@ public class CharStream {
             }
         }
         var i = 0
- 
         do {
             i = reader.read(&buffer, offset: maxNextCharInd, length: (available - maxNextCharInd))
             if (i == -1) {
