@@ -699,7 +699,8 @@ public class Parser {
                 case TokenManager.EQ:
                     s += consumeToken(TokenManager.EQ).image!
                 case TokenManager.ESCAPED_CHAR:
-                    s += consumeToken(TokenManager.ESCAPED_CHAR).image! // substring - 1
+                    let image = consumeToken(TokenManager.ESCAPED_CHAR).image!
+                    s += image.substring(to: image.index(image.endIndex, offsetBy: -1))
                 case TokenManager.IMAGE_LABEL:
                     s += consumeToken(TokenManager.IMAGE_LABEL).image!
                 case TokenManager.GT:
@@ -759,7 +760,8 @@ public class Parser {
             case TokenManager.EQ:
                 s += consumeToken(TokenManager.EQ).image!
             case TokenManager.ESCAPED_CHAR:
-                s += consumeToken(TokenManager.ESCAPED_CHAR).image! // substring - 1
+                let image = consumeToken(TokenManager.ESCAPED_CHAR).image!
+                s += image.substring(to: image.index(image.endIndex, offsetBy: -1))
             case TokenManager.IMAGE_LABEL:
                 s += consumeToken(TokenManager.IMAGE_LABEL).image!
             case TokenManager.GT:
@@ -1134,7 +1136,7 @@ public class Parser {
             var i = 2
             var eol = 1
             repeat {
-                var t = getToken(i);
+                let t = getToken(i);
                 eol += 1
                 if (t.kind == TokenManager.EOL && eol > 2) {
                     return false
@@ -1146,9 +1148,6 @@ public class Parser {
                 }
                 i += 1
             } while(true)
-            
-            
-
         }
         return false
     }
@@ -1156,7 +1155,7 @@ public class Parser {
     func textAhead() -> Bool {
         if (getNextTokenKind() == TokenManager.EOL && getToken(2).kind != TokenManager.EOL) {
             var i = skip(2, tokens: [TokenManager.SPACE, TokenManager.TAB])
-            let quoteLevel = newQuoteLevel(i)
+            let quoteLevel = newQuoteLevel(offset: i)
             if (quoteLevel == currentQuoteLevel || !modules.contains("blockquotes")) {
                 i = skip(i, tokens: [TokenManager.SPACE, TokenManager.TAB, TokenManager.GT])
                 let t = getToken(i)
@@ -1177,7 +1176,7 @@ public class Parser {
         
     func newQuoteLevel(offset : Int) -> Int {
         var quoteLevel = 0
-        let i = offset
+        var i = offset
         repeat {
             let t = getToken(i)
             if (t.kind == TokenManager.GT) {

@@ -228,11 +228,10 @@ public class TokenManager {
                             jjstateSet[jjnewStateCnt] = 4
                         }
                     case 0:
-               
-                       // if (9800001010142271999 & Int64(l)) != 0 {
+                        //if (9800001010142271999 & l) != 0 {
                             kind = 4
                             checkNAdd(state: 0)
-                       // }
+                        //}
                     case 1:
                         if (0x3ff000000000000 & l) != 0 {
                             if (kind > 7) {
