@@ -140,4 +140,14 @@ class TokenManagerTest: XCTestCase {
         XCTAssertEqual("_", token?.image)
     }
     
+    func testHdot() {
+        let tm = TokenManager(stream: CharStream(reader: StringReader(text: "h.")))
+        var token = tm.getNextToken()
+        XCTAssertEqual(TokenManager.CHAR_SEQUENCE, token?.kind)
+        XCTAssertEqual("h", token?.image)
+        token = tm.getNextToken()
+        XCTAssertEqual(TokenManager.DOT, token?.kind)
+        XCTAssertEqual(".", token?.image)
+    }
+    
 }
