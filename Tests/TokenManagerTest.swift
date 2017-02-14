@@ -140,4 +140,18 @@ class TokenManagerTest: XCTestCase {
         XCTAssertEqual("_", token?.image)
     }
     
+    func testLineBreak() {
+        let tm = TokenManager(stream: CharStream(reader: StringReader(text: "a\nb")))
+        var token = tm.getNextToken()
+        XCTAssertEqual(TokenManager.CHAR_SEQUENCE, token?.kind)
+        XCTAssertEqual("a", token?.image)
+        token = tm.getNextToken()
+        XCTAssertEqual(TokenManager.EOL, token?.kind)
+        XCTAssertEqual("\n", token?.image)
+        token = tm.getNextToken()
+        XCTAssertEqual(TokenManager.CHAR_SEQUENCE, token?.kind)
+        XCTAssertEqual("b", token?.image)
+
+    }
+    
 }

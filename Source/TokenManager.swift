@@ -227,8 +227,8 @@ public class TokenManager {
                             jjnewStateCnt += 1
                             jjstateSet[jjnewStateCnt] = 4
                         }
-                    case 0:
-                        if ((0x880098feffffd9f as Int64) & l) != 0 {
+                    case 0: 
+                        if ((0x880098feffffd9ff as UInt64) & UInt64(l)) != 0 { // SHOULD NOT GO HERE
                             kind = 4
                             checkNAdd(state: 0)
                         }

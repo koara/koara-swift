@@ -151,11 +151,11 @@ class Html5Renderer : Renderer {
     }
     
     func visitLineBreak(node: LineBreak) {
-        //if(hardWrap || node.isExplicit()) {
-        //    out.append("<br>");
-        //}
-        //out.append("\n" + indent());
-        //node.childrenAccept(this);
+        if(hardWrap || node.explicit!) {
+            output += "<br>"
+        }
+        output += "\n" + indent()
+        node.childrenAccept(renderer: self)
     }
     
     func escapeUrl(text: String) -> String {

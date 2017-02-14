@@ -22,7 +22,6 @@ public class CharStream {
     public func beginToken() throws -> Character {
         tokenBegin = -1
         let c = try readChar()
-        print(bufPos)
         tokenBegin = bufPos
         return c
     }

@@ -10,7 +10,6 @@ public class Node {
 
     public func childrenAccept(renderer: Renderer) {
         for c in children {
-            print(c)
             c.accept(renderer: renderer)
         }
     }
