@@ -22,6 +22,7 @@ public class CharStream {
     public func beginToken() throws -> Character {
         tokenBegin = -1
         let c = try readChar()
+        print(bufPos)
         tokenBegin = bufPos
         return c
     }
@@ -29,7 +30,8 @@ public class CharStream {
     @discardableResult public func readChar() throws -> Character {
         if (inBuf > 0) {
             inBuf -= 1
-            if ((bufPos + 1) == bufSize) {
+            bufPos += 1
+            if (bufPos == bufSize) {
                 bufPos = 0
             }
             return buffer[bufPos]
