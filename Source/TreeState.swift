@@ -11,15 +11,16 @@ class TreeState {
     }
     
     func closeScope(_ n : Node) {
-        var a = nodeArity()
+        let a = nodeArity()
         currentMark = marks.removeLast()
-        a -= 1
-        while(a >= 0) {
+        var children = Array<Node>()
+        for _ in 0..<a {
             let c = popNode()
-            c.parent = n;
-            n.add(n: c, i: a);
-            a -= 1
+            children.append(c)
         }
+        n.children = children.reversed()
+        
+        
         pushNode(n);
     }
     

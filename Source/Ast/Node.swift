@@ -1,7 +1,7 @@
 public class Node {
     
     public var parent : Node?
-    public var children: [Node] = []
+    public var children: [Node?] = []
     public var value : AnyObject = "" as AnyObject
     
     func add(n: Node, i: Int) {
@@ -10,7 +10,7 @@ public class Node {
 
     public func childrenAccept(renderer: Renderer) {
         for c in children {
-            c.accept(renderer: renderer)
+            c!.accept(renderer: renderer)
         }
     }
     

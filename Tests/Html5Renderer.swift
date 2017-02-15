@@ -5,11 +5,7 @@ class Html5Renderer : Renderer {
     var output : String = ""
     var level : Int = 0
     //private Stack<Integer> listSequence = new Stack<Integer>();
-   
-    var hardWrap : Bool {
-        set (newVal) { self.hardWrap = newVal }
-        get { return self.hardWrap }
-    }
+    public var hardWrap : Bool = false
     
     func visitDocument(node: Document) {
         output = ""

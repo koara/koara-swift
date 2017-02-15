@@ -5,11 +5,11 @@ public class BlockElement : Node {
     }
 
     func isFirstChild() -> Bool {
-        return parent?.children.first === self
+        return parent?.children.first! === self
     }
 
     func isLastChild() -> Bool {
-        return parent?.children.last === self
+        return parent?.children.last! === self
     }
 
     public func isNested() -> Bool {
