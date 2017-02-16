@@ -29,7 +29,7 @@ public class TokenManager {
 
     var curChar : Character?
     var jjnextStates = Array<Int>(arrayLiteral: 2, 3, 5)
-    var jjnewStateCnt : Int = 8
+    var jjnewStateCnt : Int = 0
     var round : Int64 = 0
     var matchedPos : Int32 = 0
     var matchedKind : Int32 = 0
@@ -267,7 +267,7 @@ public class TokenManager {
                 let l = Int64(1) << Int64((curChar?.asciiValue)! & 0o77)
                 repeat {
                     i -= 1
-   
+
                     switch jjstateSet[i] {
                     case 6:
                         if l != 0 {
@@ -334,13 +334,14 @@ public class TokenManager {
         repeat {
             checkNAdd(state: jjnextStates[start])
             start += 1
-        } while (start != end)
+        } while (start <= end)
     }
 
     func checkNAdd(state: Int) {
         if (jjrounds[state] != round) {
+            jjstateSet[jjnewStateCnt] = Int32(state)
             jjnewStateCnt += 1
-            jjstateSet[Int(jjnewStateCnt)] = Int32(state)
+
             jjrounds[state] = round
         }
     }

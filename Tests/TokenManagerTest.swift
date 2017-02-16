@@ -68,6 +68,12 @@ class TokenManagerTest: XCTestCase {
         XCTAssertEqual("\n", token?.image)
     }
     
+    func testEolWithSpaces() {
+        let token = TokenManager(stream: CharStream(reader: StringReader(text: "  \n"))).getNextToken()
+        XCTAssertEqual(TokenManager.EOL, token?.kind)
+        XCTAssertEqual("  \n", token?.image)
+    }
+    
     func testEq() {
         let token = TokenManager(stream: CharStream(reader: StringReader(text: "="))).getNextToken()
         XCTAssertEqual(TokenManager.EQ, token?.kind)
@@ -151,7 +157,6 @@ class TokenManagerTest: XCTestCase {
         token = tm.getNextToken()
         XCTAssertEqual(TokenManager.CHAR_SEQUENCE, token?.kind)
         XCTAssertEqual("b", token?.image)
-
     }
-    
+        
 }

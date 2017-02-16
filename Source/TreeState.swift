@@ -19,8 +19,6 @@ class TreeState {
             children.append(c)
         }
         n.children = children.reversed()
-        
-        
         pushNode(n);
     }
     
