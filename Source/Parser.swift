@@ -357,7 +357,8 @@ public class Parser {
                 case TokenManager.EQ:
                     s += consumeToken(TokenManager.EQ).image!
                 case TokenManager.ESCAPED_CHAR:
-                    s += consumeToken(TokenManager.ESCAPED_CHAR).image!
+                    let image = consumeToken(TokenManager.ESCAPED_CHAR).image!
+                    s += image.substring(from: image.index(image.startIndex, offsetBy: 1))
                 case TokenManager.GT:
                     s += consumeToken(TokenManager.GT).image!
                 case TokenManager.IMAGE_LABEL:
