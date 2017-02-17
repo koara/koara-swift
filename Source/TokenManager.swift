@@ -132,7 +132,7 @@ public class TokenManager {
 
     func moveStringLiteralDfa1(active: Int64) throws -> Int32 {
         curChar = try cs.readChar()
-        if (curChar?.asciiValue == 77 || curChar?.asciiValue == 109) {
+        if (curChar?.intValue == 77 || curChar?.intValue == 109) {
             return try moveStringLiteralDfa2(old: active, active: 0x2000)
         }
         return startNfa(pos: 0, active: active)
@@ -140,7 +140,7 @@ public class TokenManager {
 
     func moveStringLiteralDfa2(old: Int64, active: Int64) throws -> Int32 {
         curChar = try cs.readChar()
-        if (curChar?.asciiValue == 65 || curChar?.asciiValue == 97) {
+        if (curChar?.intValue == 65 || curChar?.intValue == 97) {
             return try moveStringLiteralDfa3(old: active, active: 0x2000)
         }
         return startNfa(pos: 1, active: active)
@@ -148,7 +148,7 @@ public class TokenManager {
     
     func moveStringLiteralDfa3(old: Int64, active: Int64) throws -> Int32 {
         curChar = try cs.readChar()
-        if (curChar?.asciiValue == 71 || curChar?.asciiValue == 103) {
+        if (curChar?.intValue == 71 || curChar?.intValue == 103) {
             return try moveStringLiteralDfa4(old: active, active: 0x2000)
         }
         return startNfa(pos: 2, active: active)
@@ -156,7 +156,7 @@ public class TokenManager {
 
     func moveStringLiteralDfa4(old: Int64, active: Int64) throws -> Int32 {
         curChar = try cs.readChar()
-        if (curChar?.asciiValue == 69 || curChar?.asciiValue == 101) {
+        if (curChar?.intValue == 69 || curChar?.intValue == 101) {
             return try moveStringLiteralDfa5(old: active, active: 0x2000)
         }
         return startNfa(pos: 3, active: active)
@@ -164,7 +164,7 @@ public class TokenManager {
 
     func moveStringLiteralDfa5(old: Int64, active: Int64) throws -> Int32 {
         curChar = try cs.readChar()
-        if (curChar?.asciiValue == 58 && ((active & 0x2000) != 0)) {
+        if (curChar?.intValue == 58 && ((active & 0x2000) != 0)) {
             return stopAtPos(pos: 5, kind: 13)
         }
         return startNfa(pos: 4, active: active)
@@ -188,8 +188,8 @@ public class TokenManager {
             if round == 0x7fffffff {
                 round = 0x80000001
             }
-            if ((curChar?.asciiValue!)! < 64) {
-                let l : Int64 = Int64(1) << Int64(curChar!.asciiValue!)
+            if ((curChar?.intValue!)! < 64) {
+                let l : Int64 = Int64(1) << Int64(curChar!.intValue!)
                 repeat {
                     i -= 1
                     switch jjstateSet[i] {
@@ -211,7 +211,7 @@ public class TokenManager {
                         } else if (0x100000200 & l) != 0 {
                             checkNAddStates(start: 0, end: 2)
                         }
-                        if (curChar?.asciiValue == 13) {
+                        if (curChar?.intValue == 13) {
                             jjnewStateCnt += 1
                             jjstateSet[jjnewStateCnt] = 4
                         }
@@ -223,7 +223,7 @@ public class TokenManager {
                         } else if (0x100000200 & l) != 0 {
                             checkNAddStates(start: 0, end: 2)
                         }
-                        if (curChar?.asciiValue == 13) {
+                        if (curChar?.intValue == 13) {
                             jjnewStateCnt += 1
                             jjstateSet[jjnewStateCnt] = 4
                         }
@@ -248,11 +248,11 @@ public class TokenManager {
                             kind = 9
                         }
                     case 4:
-                        if (curChar?.asciiValue == 10 && kind > 9) {
+                        if (curChar?.intValue == 10 && kind > 9) {
                             kind = 9
                         }
                     case 5:
-                        if (curChar?.asciiValue == 13) {
+                        if (curChar?.intValue == 13) {
                             jjnewStateCnt += 1
                             jjstateSet[jjnewStateCnt] = 4
                         }
@@ -263,8 +263,8 @@ public class TokenManager {
                     default: break
                     }
                 } while i != startsAt
-            } else if (curChar?.asciiValue)! < 128 {
-                let l = Int64(1) << Int64((curChar?.asciiValue)! & 0o77)
+            } else if (curChar?.intValue)! < 128 {
+                let l = Int64(1) << Int64((curChar?.intValue)! & 0o77)
                 repeat {
                     i -= 1
 
@@ -275,7 +275,7 @@ public class TokenManager {
                                 kind = 4
                             }
                             checkNAdd(state: 0)
-                        } else if (curChar?.asciiValue == 92) {
+                        } else if (curChar?.intValue == 92) {
                             jjnewStateCnt += 1
                             jjstateSet[jjnewStateCnt] = 7
                         }

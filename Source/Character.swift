@@ -1,7 +1,7 @@
 extension Character {
     
-    var asciiValue: Int? {
-        return Int((String(self).unicodeScalars.filter{$0.isASCII}.first?.value)!)
+    var intValue: UInt32? {
+        return String(self).unicodeScalars.first?.value
     }
     
 }
