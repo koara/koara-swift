@@ -1,5 +1,6 @@
 import Koara
 import XCTest
+import Foundation
 
 class ComplianceTest: XCTestCase {
     
@@ -10,10 +11,20 @@ class ComplianceTest: XCTestCase {
         let html = try String(contentsOf: testsuite.appendingPathComponent("output/html5/paragraphs/paragraphs-030-unicode-linguistics.htm"), encoding: .utf8)
         
         
-        //let de = FileManager.default.enumerator(at: testsuite, includingPropertiesForKeys: [])
-        //de?.forEach({ (_) in
-        //    print("//")
-        //})
+        
+        let modules = FileManager.default.enumerator(at: testsuite.appendingPathComponent("input"), includingPropertiesForKeys: [],
+                                                     options: [ .skipsSubdirectoryDescendants, .skipsHiddenFiles])
+        while let url = modules?.nextObject() as? URL {
+            if(!url.lastPathComponent.hasPrefix("end2end")) {
+                print("\(url)")
+                
+            }
+        }
+            
+            
+            
+
+       
         
  
 

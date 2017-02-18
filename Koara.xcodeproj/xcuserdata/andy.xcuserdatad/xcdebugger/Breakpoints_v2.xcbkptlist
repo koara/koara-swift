@@ -410,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tests/ComplianceTest.swift"
-            timestampString = "508919112.005287"
+            timestampString = "509135531.795976"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
             landmarkName = "testKoaraToHtml()"
             landmarkType = "7">
          </BreakpointContent>
@@ -442,11 +442,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tests/ComplianceTest.swift"
-            timestampString = "509003872.213902"
+            timestampString = "509039930.615081"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5"
-            endingLineNumber = "5"
+            startingLineNumber = "6"
+            endingLineNumber = "6"
             landmarkName = "ComplianceTest"
             landmarkType = "3">
             <Locations>
@@ -490,11 +490,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tests/ComplianceTest.swift"
-            timestampString = "509004090.577028"
+            timestampString = "509039930.615081"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4"
-            endingLineNumber = "4"
+            startingLineNumber = "5"
+            endingLineNumber = "5"
             landmarkName = "ComplianceTest"
             landmarkType = "3">
          </BreakpointContent>
