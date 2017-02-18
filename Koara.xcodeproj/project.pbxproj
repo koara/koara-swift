@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		016D2E5A714E8EF2F863677F /* Pods_Koara_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8279AA20649C601B153F4D88 /* Pods_Koara_iOS.framework */; };
+		361D0D57A4522A6ECD41CD8D /* Pods_Koara_iOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4190E192C2C5B07666B492F /* Pods_Koara_iOS_Tests.framework */; };
 		A19B5AAE1E1C022200213D1D /* Koara.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B5AA51E1C022200213D1D /* Koara.framework */; };
 		A19B5AC21E1C028E00213D1D /* BlockElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A1E1E16457700419AB4 /* BlockElement.swift */; };
 		A19B5AC31E1C028E00213D1D /* BlockQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A1F1E16457700419AB4 /* BlockQuote.swift */; };
@@ -166,6 +168,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		065459F5A4AB14042B445085 /* Pods-Koara iOS Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koara iOS Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Koara iOS Tests/Pods-Koara iOS Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		082DFCC957BAF2B97D7B1AE6 /* Pods-Koara iOS Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koara iOS Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Koara iOS Tests/Pods-Koara iOS Tests.release.xcconfig"; sourceTree = "<group>"; };
+		1CAA07DF879D529EC4CC9F64 /* Pods-Koara iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koara iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Koara iOS/Pods-Koara iOS.release.xcconfig"; sourceTree = "<group>"; };
+		8279AA20649C601B153F4D88 /* Pods_Koara_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koara_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1008A091E16451F00419AB4 /* FileReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileReader.swift; path = Source/Io/FileReader.swift; sourceTree = "<group>"; };
 		A1008A0B1E16452800419AB4 /* FileReaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileReaderTests.swift; path = Tests/FileReaderTests.swift; sourceTree = "<group>"; };
 		A1008A0D1E16454A00419AB4 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Character.swift; path = Source/Character.swift; sourceTree = "<group>"; };
@@ -208,6 +214,8 @@
 		A1C363A01E15915700CC1874 /* StringReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringReader.swift; path = Source/Io/StringReader.swift; sourceTree = "<group>"; };
 		A1C363A31E15916300CC1874 /* StringReaderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringReaderTest.swift; path = Tests/StringReaderTest.swift; sourceTree = "<group>"; };
 		A1DBE20B1E5423F400BF0BF1 /* testsuite */ = {isa = PBXFileReference; lastKnownFileType = folder; path = testsuite; sourceTree = "<group>"; };
+		A4190E192C2C5B07666B492F /* Pods_Koara_iOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koara_iOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9211DF73DFDD92A0AC98AEE /* Pods-Koara iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koara iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Koara iOS/Pods-Koara iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +223,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				016D2E5A714E8EF2F863677F /* Pods_Koara_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A19B5AAE1E1C022200213D1D /* Koara.framework in Frameworks */,
+				361D0D57A4522A6ECD41CD8D /* Pods_Koara_iOS_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +275,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C5C0F4E3508CFAADB3AD903 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E9211DF73DFDD92A0AC98AEE /* Pods-Koara iOS.debug.xcconfig */,
+				1CAA07DF879D529EC4CC9F64 /* Pods-Koara iOS.release.xcconfig */,
+				065459F5A4AB14042B445085 /* Pods-Koara iOS Tests.debug.xcconfig */,
+				082DFCC957BAF2B97D7B1AE6 /* Pods-Koara iOS Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		455027C16279D5EC4458B3F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8279AA20649C601B153F4D88 /* Pods_Koara_iOS.framework */,
+				A4190E192C2C5B07666B492F /* Pods_Koara_iOS_Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A1008A1D1E16455400419AB4 /* Ast */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +331,8 @@
 				A19B5B271E253B3700213D1D /* Koara tvOS Tests.xctest */,
 				A19B5B361E253B5200213D1D /* Koara.framework */,
 				A19B5B5F1E28E8AB00213D1D /* Koara.framework */,
+				3C5C0F4E3508CFAADB3AD903 /* Pods */,
+				455027C16279D5EC4458B3F7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -386,10 +418,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A19B5AB61E1C022200213D1D /* Build configuration list for PBXNativeTarget "Koara iOS" */;
 			buildPhases = (
+				A75381A69EBCE9B70129C2B3 /* [CP] Check Pods Manifest.lock */,
 				A19B5AA01E1C022200213D1D /* Sources */,
 				A19B5AA11E1C022200213D1D /* Frameworks */,
 				A19B5AA21E1C022200213D1D /* Headers */,
 				A19B5AA31E1C022200213D1D /* Resources */,
+				EBAF03AEC68EF5DE315C744B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -404,9 +438,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A19B5AB91E1C022200213D1D /* Build configuration list for PBXNativeTarget "Koara iOS Tests" */;
 			buildPhases = (
+				B56D344E3ED8A837ED604A86 /* [CP] Check Pods Manifest.lock */,
 				A19B5AA91E1C022200213D1D /* Sources */,
 				A19B5AAA1E1C022200213D1D /* Frameworks */,
 				A19B5AAB1E1C022200213D1D /* Resources */,
+				BD44681A6410140BA087968B /* [CP] Embed Pods Frameworks */,
+				B253DE3D59C010CA4B9875F0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -622,6 +659,84 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A75381A69EBCE9B70129C2B3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B253DE3D59C010CA4B9875F0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koara iOS Tests/Pods-Koara iOS Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B56D344E3ED8A837ED604A86 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BD44681A6410140BA087968B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koara iOS Tests/Pods-Koara iOS Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EBAF03AEC68EF5DE315C744B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koara iOS/Pods-Koara iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A19B5AA01E1C022200213D1D /* Sources */ = {
@@ -872,6 +987,7 @@
 		};
 		A19B5AB71E1C022200213D1D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9211DF73DFDD92A0AC98AEE /* Pods-Koara iOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
@@ -921,6 +1037,7 @@
 		};
 		A19B5AB81E1C022200213D1D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CAA07DF879D529EC4CC9F64 /* Pods-Koara iOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
@@ -965,6 +1082,7 @@
 		};
 		A19B5ABA1E1C022200213D1D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 065459F5A4AB14042B445085 /* Pods-Koara iOS Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1003,6 +1121,7 @@
 		};
 		A19B5ABB1E1C022200213D1D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 082DFCC957BAF2B97D7B1AE6 /* Pods-Koara iOS Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
