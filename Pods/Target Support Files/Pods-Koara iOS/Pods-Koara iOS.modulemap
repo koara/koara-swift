@@ -1,0 +1,6 @@
+framework module Pods_Koara_iOS {
+  umbrella header "Pods-Koara iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
