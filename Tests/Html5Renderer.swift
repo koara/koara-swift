@@ -139,11 +139,10 @@ class Html5Renderer : Renderer {
     }
     
     func escape(text: String) -> String {
-        return text
-        //return text.replaceAll("&", "&amp;")
-        //    .replaceAll("<", "&lt;")
-        //    .replaceAll(">", "&gt;")
-        //    .replaceAll("\"", "&quot;");
+        return text.replacingOccurrences(of: "&", with: "&amp;")
+            .replacingOccurrences(of: "<", with: "&lt;")
+            .replacingOccurrences(of: "<", with: "&gt;")
+            .replacingOccurrences(of: "\"", with: "&quot;")
     }
     
     func visitLineBreak(node: LineBreak) {
