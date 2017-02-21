@@ -7,8 +7,8 @@ class ComplianceTest: XCTestCase {
     
     func testKoaraToHtml() throws {
         let testsuite = URL(fileURLWithPath: #file).deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("testsuite")
-        let kd = try String(contentsOf: testsuite.appendingPathComponent("input/paragraphs/paragraphs-042-escapechars.kd"), encoding: .utf8)
-        let html = try String(contentsOf: testsuite.appendingPathComponent("output/html5/paragraphs/paragraphs-042-escapechars.htm"), encoding: .utf8)
+        let kd = try String(contentsOf: testsuite.appendingPathComponent("input/headings/headings-001-simple.kd"), encoding: .utf8)
+        let html = try String(contentsOf: testsuite.appendingPathComponent("output/html5/headings/headings-001-simple.htm"), encoding: .utf8)
 
 
         

@@ -13,9 +13,9 @@ class Html5Renderer : Renderer {
     }
     
     func visitHeading(node: Heading) {
-        output += indent() + "<h1" + (node.value as! String) + ">"
+        output += indent() + "<h" + String(describing: node.value) + ">"
         node.childrenAccept(renderer: self);
-        output += "</h1" + (node.value as! String) + ">\n"
+        output += "</h" + String(describing: node.value) + ">\n"
         if !node.isNested() {
             output += "\n"
         }
