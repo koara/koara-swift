@@ -7,19 +7,8 @@ env:
     - LC_ALL=en_US.UTF-8
   matrix:
     - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.1,name=iPhone 7"              RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.0,name=iPhone SE"             RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=9.3,name=iPhone 6s Plus"         RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=9.0,name=iPhone 6"               RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=8.2,name=iPhone 5"               RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=8.1,name=iPhone 4s"              RUN_TESTS="YES"   SEND_TO_COVERALLS="YES"
-    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=8.1,name=iPad 2"                 RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=9.0,name=iPad Air"               RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.0,name=iPad Air 2"            RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    - SCHEME="Koara macOS"    DESTINATION="platform=macOS"                                            RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    - SCHEME="Koara tvOS"     DESTINATION="platform=tvOS Simulator,OS=10.1,name=Apple TV 1080p"       RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    - SCHEME="Koara watchOS"  DESTINATION="platform=watchOS Simulator,OS=3.1,name=Apple Watch - 42mm" RUN_TESTS="NO"    SEND_TO_COVERALLS="NO"
-before_install:
-  - gem install slather
+  before_install:
+    - gem install slather
 
 script:
   - if [ $RUN_TESTS == "YES" ]; then

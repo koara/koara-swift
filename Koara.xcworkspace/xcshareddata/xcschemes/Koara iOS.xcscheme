@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A19B5B5E1E28E8AB00213D1D"
+               BlueprintIdentifier = "A19B5AA41E1C022200213D1D"
                BuildableName = "Koara.framework"
-               BlueprintName = "Koara watchOS"
+               BlueprintName = "Koara iOS"
                ReferencedContainer = "container:Koara.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A19B5B5E1E28E8AB00213D1D"
+            BlueprintIdentifier = "A19B5AA41E1C022200213D1D"
             BuildableName = "Koara.framework"
-            BlueprintName = "Koara watchOS"
+            BlueprintName = "Koara iOS"
             ReferencedContainer = "container:Koara.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A19B5B5E1E28E8AB00213D1D"
+            BlueprintIdentifier = "A19B5AA41E1C022200213D1D"
             BuildableName = "Koara.framework"
-            BlueprintName = "Koara watchOS"
+            BlueprintName = "Koara iOS"
             ReferencedContainer = "container:Koara.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

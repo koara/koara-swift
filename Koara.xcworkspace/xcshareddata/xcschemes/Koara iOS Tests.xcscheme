@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0820"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A19B5AE31E24078400213D1D"
-               BuildableName = "Koara.framework"
-               BlueprintName = "Koara macOS"
-               ReferencedContainer = "container:Koara.xcodeproj">
+               BlueprintIdentifier = "E3888A21F975CDB9A71CFB0471D7A9B4"
+               BuildableName = "Pods_Koara_iOS_Tests.framework"
+               BlueprintName = "Pods-Koara iOS Tests"
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A19B5AEB1E24078400213D1D"
-               BuildableName = "Koara macOS Tests.xctest"
-               BlueprintName = "Koara macOS Tests"
+               BlueprintIdentifier = "A19B5AAC1E1C022200213D1D"
+               BuildableName = "Koara iOS Tests.xctest"
+               BlueprintName = "Koara iOS Tests"
                ReferencedContainer = "container:Koara.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,10 +42,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A19B5AE31E24078400213D1D"
-            BuildableName = "Koara.framework"
-            BlueprintName = "Koara macOS"
-            ReferencedContainer = "container:Koara.xcodeproj">
+            BlueprintIdentifier = "E3888A21F975CDB9A71CFB0471D7A9B4"
+            BuildableName = "Pods_Koara_iOS_Tests.framework"
+            BlueprintName = "Pods-Koara iOS Tests"
+            ReferencedContainer = "container:Pods/Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,10 +64,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A19B5AE31E24078400213D1D"
-            BuildableName = "Koara.framework"
-            BlueprintName = "Koara macOS"
-            ReferencedContainer = "container:Koara.xcodeproj">
+            BlueprintIdentifier = "E3888A21F975CDB9A71CFB0471D7A9B4"
+            BuildableName = "Pods_Koara_iOS_Tests.framework"
+            BlueprintName = "Pods-Koara iOS Tests"
+            ReferencedContainer = "container:Pods/Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -82,10 +82,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A19B5AE31E24078400213D1D"
-            BuildableName = "Koara.framework"
-            BlueprintName = "Koara macOS"
-            ReferencedContainer = "container:Koara.xcodeproj">
+            BlueprintIdentifier = "E3888A21F975CDB9A71CFB0471D7A9B4"
+            BuildableName = "Pods_Koara_iOS_Tests.framework"
+            BlueprintName = "Pods-Koara iOS Tests"
+            ReferencedContainer = "container:Pods/Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
