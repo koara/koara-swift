@@ -13,23 +13,27 @@ class ComplianceTest: QuickSpec {
             
             while let url = modules?.nextObject() as? URL {
                 if(url.lastPathComponent.hasSuffix(".kd") && !url.lastPathComponent.hasPrefix("end2end")) {
-                    //let module = url.pathComponents[url.pathComponents.count - 2]
-                    let testcase = url.lastPathComponent.substring(to: url.lastPathComponent.index(url.lastPathComponent.endIndex, offsetBy: -3))
+                    let module = url.pathComponents[url.pathComponents.count - 2]
+                    let testcase = url.lastPathComponent.substring(to: url.lastPathComponent.index(url.lastPathComponent.endIndex, offsetBy: -3)) 
+                    
+                    let expected = testsuite.appendingPathComponent("output").appendingPathComponent("html5").appendingPathComponent(module).appendingPathComponent("\(testcase).htm")
+                    
+                    print("//\(expected)")
+                    
                     it("KoaraToHtml_\(testcase)") {
-                        //do {
-                            let kd = "test"
-                            //let kd = try String(contentsOf: url, encoding: .utf8)
-                            //let html = try String(contentsOf: url, encoding: .utf8)
+                        do {
+                            let kd = try String(contentsOf: url, encoding: .utf8)
+                            let html = try String(contentsOf: expected, encoding: .utf8)
                             
                             let parser = Parser()
                             let document = parser.parse(kd)
                             let renderer = Html5Renderer()
                             document.accept(renderer)
                             
-                            expect(renderer.getOutput()).to(equal("<p>test</p>"))
-                        //} catch {
-                        //    fail()
-                        //}
+                            expect(renderer.getOutput()).to(equal(html))
+                        } catch {
+                            fail()
+                        }
                     }
                 }
             }
