@@ -16,7 +16,7 @@ public class BlockElement : Node {
         return parent is Document
     }
  
-    func isSingleChild() -> Bool {
+    public func isSingleChild() -> Bool {
         return parent?.children.count == 1
     }
 

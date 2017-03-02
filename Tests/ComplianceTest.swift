@@ -17,9 +17,7 @@ class ComplianceTest: QuickSpec {
                     let testcase = url.lastPathComponent.substring(to: url.lastPathComponent.index(url.lastPathComponent.endIndex, offsetBy: -3)) 
                     
                     let expected = testsuite.appendingPathComponent("output").appendingPathComponent("html5").appendingPathComponent(module).appendingPathComponent("\(testcase).htm")
-                    
-                    print("//\(expected)")
-                    
+
                     it("KoaraToHtml_\(testcase)") {
                         do {
                             let kd = try String(contentsOf: url, encoding: .utf8)
