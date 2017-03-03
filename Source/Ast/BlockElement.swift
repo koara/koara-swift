@@ -13,7 +13,7 @@ public class BlockElement : Node {
     }
 
     public func isNested() -> Bool {
-        return parent is Document
+        return !(parent is Document)
     }
  
     public func isSingleChild() -> Bool {
