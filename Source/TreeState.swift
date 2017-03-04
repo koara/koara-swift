@@ -16,6 +16,7 @@ class TreeState {
         var children = Array<Node>()
         for _ in 0..<a {
             let c = popNode()
+            c.parent = n
             children.append(c)
         }
         n.children = children.reversed()
