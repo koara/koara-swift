@@ -4,7 +4,8 @@ class Html5Renderer : Renderer {
     
     var output : String = ""
     var level : Int = 0
-    //private Stack<Integer> listSequence = new Stack<Integer>();
+    var listSequence = Array<Int>();
+
     public var hardWrap : Bool = false
     
     func visitDocument(node: Document) {
@@ -34,7 +35,7 @@ class Html5Renderer : Renderer {
     }
   
     func visitListBlock(node: ListBlock) {
-        //listSequence.push(0);
+        listSequence.append(0)
         let tag = node.ordered! ? "ol" : "ul"
         output += indent() + "<" + tag + ">\n"
         level += 1
@@ -44,27 +45,25 @@ class Html5Renderer : Renderer {
         if(!node.isNested()) {
             output += "\n"
         }
-        //listSequence.pop();
+        _ = listSequence.popLast()
     }
    
     func visitListItem(node: ListItem) {
-        //Integer seq = listSequence.peek() + 1;
-        //listSequence.set(listSequence.size() - 1, seq);
+        let seq = listSequence.last! + 1
+        listSequence[listSequence.count - 1] = seq
+        
         output += indent() + "<li"
         //if(node.getNumber() != null && (!seq.equals(node.getNumber()))) {
         //    out.append(" value=\"" + node.getNumber() + "\"");
         //    listSequence.push(node.getNumber());
         //}
         output += ">"
-        //if(node.getChildren() != null) {
-        //    boolean block = (node.getChildren()[0].getClass() == Paragraph.class || node.getChildren()[0].getClass() == BlockElement.class);
-        //
-        //    if(node.getChildren().length > 1 || !block) { out.append("\n"); }
-                level += 1
-                node.childrenAccept(renderer: self);
-                level -= 1
-        //    if(node.getChildren().length > 1 || !block) { out.append(indent()); }
-        //}
+        let block = (node.children.first is Paragraph || node.children.first is BlockElement);
+        if(node.children.count > 1 || !block) { output += "\n"; }
+        level += 1
+        node.childrenAccept(renderer: self);
+        level -= 1
+        if(node.children.count > 1 || !block) { output += indent(); }
         output += "</li>\n"
     }
     
@@ -167,13 +166,11 @@ class Html5Renderer : Renderer {
     }
     
     func indent() -> String {
-        //int repeat = level * 2;
-        //final char[] buf = new char[repeat];
-        //for (int i = repeat - 1; i >= 0; i--) {
-        //    buf[i] = ' ';
-        //}
-        //return new String(buf);
-        return ""
+        var indent = ""
+        for _ in 0..<(level * 2) {
+            indent += " "
+        }
+        return indent;
     }
     
     func getOutput() -> String {

@@ -28,7 +28,17 @@ class ComplianceTest: QuickSpec {
                             let renderer = Html5Renderer()
                             document.accept(renderer)
                             
-                            //expect(renderer.getOutput()).to(equal(html))
+                            
+                            print("Expected:")
+                            print(html)
+                            print("Actual:")
+                            print(renderer.getOutput())
+                            print("\n\n")
+                            
+                            expect(renderer.getOutput()).to(equal(html))
+                            
+                            
+                            
                         } catch {
                             fail()
                         }

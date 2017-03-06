@@ -1049,8 +1049,8 @@ public class Parser {
             repeat {
                 quoteLevel = 0
                 repeat {
-                    i += 1
                     t = getToken(i)
+                    i += 1
                     if (t.kind == TokenManager.GT) {
                         if (t.beginColumn == 1 && currentBlockLevel > 0 && currentQuoteLevel == 0) {
                             return false
