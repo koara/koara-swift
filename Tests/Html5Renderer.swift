@@ -1,4 +1,5 @@
 import Koara
+import Foundation
 
 class Html5Renderer : Renderer {
     
@@ -53,12 +54,19 @@ class Html5Renderer : Renderer {
         listSequence[listSequence.count - 1] = seq
         
         output += indent() + "<li"
-        //if(node.getNumber() != null && (!seq.equals(node.getNumber()))) {
-        //    out.append(" value=\"" + node.getNumber() + "\"");
-        //    listSequence.push(node.getNumber());
-        //}
+        if(node.number > 0 && seq != node.number) {
+            output += " value=\"\(node.number)\""
+            listSequence.append(node.number)
+        }
         output += ">"
-        let block = (node.children.first is Paragraph || node.children.first is BlockElement);
+        
+        
+        
+        let block = (String(describing: node.children.first!) == "Koara.Paragraph"
+            || String(describing: node.children.first!) == "Koara.BlockElement");
+       
+
+      
         if(node.children.count > 1 || !block) { output += "\n"; }
         level += 1
         node.childrenAccept(renderer: self);

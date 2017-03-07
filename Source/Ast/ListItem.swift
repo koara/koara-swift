@@ -1,9 +1,6 @@
 public class ListItem : BlockElement {
     
-    var number : Int {
-        get { return self.number }
-        set { self.number = newValue }
-    }
+    public var number : Int = 0
     
     override public func accept(renderer : Renderer) {
         renderer.visitListItem(node: self)
