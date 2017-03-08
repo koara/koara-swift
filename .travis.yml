@@ -6,16 +6,12 @@ env:
     - LANG=en_US.UTF-8
     - LC_ALL=en_US.UTF-8
   matrix:
-    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.1,name=iPhone 7"              RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
+    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.2,name=iPhone 7"              RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
   before_install:
     - gem install slather
 
 script:
-  - if [ $RUN_TESTS == "YES" ]; then
-      travis_retry xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" build-for-testing test;
-    else
-      travis_retry xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" build;
-    fi
+  - travis_retry xcodebuild -workspace "Koara.xcworkspace" -scheme "$SCHEME" -destination "$DESTINATION" build;
 
 after_success:
   - if [ $SEND_TO_COVERALLS == "YES" ]; then
