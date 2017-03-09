@@ -6,7 +6,7 @@ env:
     - LANG=en_US.UTF-8
     - LC_ALL=en_US.UTF-8
   matrix:
-    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.2,name=iPhone 7"              RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
+    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.1,name=iPhone SE"              RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
   before_install:
     - gem install slather
 
