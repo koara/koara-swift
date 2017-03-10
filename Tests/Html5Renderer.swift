@@ -60,18 +60,16 @@ class Html5Renderer : Renderer {
         }
         output += ">"
         
-        
-        
-        let block = (String(describing: node.children.first!) == "Koara.Paragraph"
-            || String(describing: node.children.first!) == "Koara.BlockElement");
-       
-
-      
-        if(node.children.count > 1 || !block) { output += "\n"; }
-        level += 1
-        node.childrenAccept(renderer: self);
-        level -= 1
-        if(node.children.count > 1 || !block) { output += indent(); }
+        if(node.children.count > 0) {
+            let block = (String(describing: node.children.first!) == "Koara.Paragraph"
+                || String(describing: node.children.first!) == "Koara.BlockElement");
+            
+            if(node.children.count > 1 || !block) { output += "\n"; }
+            level += 1
+            node.childrenAccept(renderer: self);
+            level -= 1
+            if(node.children.count > 1 || !block) { output += indent(); }
+        }
         output += "</li>\n"
     }
     
@@ -119,9 +117,9 @@ class Html5Renderer : Renderer {
     }
     
     func visitLink(node: Link) {
-        //out.append("<a href=\"" + escapeUrl(node.getValue().toString()) + "\">");
+        output += "<a href=\"" + escapeUrl(text: node.value as! String) + "\">";
         node.childrenAccept(renderer: self);
-        //out.append("</a>");
+        output += "</a>";
     }
     
     func visitStrong(node: Strong) {
@@ -162,7 +160,7 @@ class Html5Renderer : Renderer {
     }
     
     func escapeUrl(text: String) -> String {
-        return ""
+        return text
         //return text.replaceAll(" ", "%20")
         //    .replaceAll("\"", "%22")
         //    .replaceAll("`", "%60")
