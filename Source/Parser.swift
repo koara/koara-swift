@@ -664,7 +664,7 @@ public class Parser {
             if hasInlineTextAhead() {
                 text()
             //} else if modules.contains("images") && hasImageAhead() {
-            //    image()
+            //   image()
             } else if modules.contains("links") && hasLinkAhead() {
                 link()
             } else if modules.contains("formatting") && multilineAhead(TokenManager.ASTERISK) {

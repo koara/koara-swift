@@ -161,14 +161,14 @@ class Html5Renderer : Renderer {
     
     func escapeUrl(text: String) -> String {
         return text
-        //return text.replaceAll(" ", "%20")
-        //    .replaceAll("\"", "%22")
-        //    .replaceAll("`", "%60")
-        //    .replaceAll("<", "%3C")
-        //    .replaceAll(">", "%3E")
-        //    .replaceAll("\\[", "%5B")
-        //    .replaceAll("\\]", "%5D")
-        //    .replaceAll("\\\\", "%5C");
+            .replacingOccurrences(of: " ", with: "%20")
+            .replacingOccurrences(of: "\"", with: "%22")
+            .replacingOccurrences(of: "`", with: "%60")
+            .replacingOccurrences(of: "<", with: "%3C")
+            .replacingOccurrences(of: ">", with: "%3E")
+            .replacingOccurrences(of: "\\[", with: "%5B")
+            .replacingOccurrences(of: "\\]", with: "%5D")
+            .replacingOccurrences(of: "\\\\", with: "%5C");
     }
     
     func indent() -> String {
