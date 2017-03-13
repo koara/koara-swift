@@ -2293,7 +2293,7 @@ public class Parser {
                                                                 lookingAhead = true
                                                                 semanticLookAhead = !nextAfterSpace(TokenManager.RBRACK)
                                                                 lookingAhead = false
-                                                                return try !(semanticLookAhead || scanWhitspaceToken())
+                                                                return try (!semanticLookAhead || scanWhitspaceToken())
                                                             }
                                                         }
                                                     }
