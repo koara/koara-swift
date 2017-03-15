@@ -168,7 +168,7 @@ class Html5Renderer : Renderer {
             .replacingOccurrences(of: ">", with: "%3E")
             .replacingOccurrences(of: "\\[", with: "%5B")
             .replacingOccurrences(of: "\\]", with: "%5D")
-            .replacingOccurrences(of: "\\\\", with: "%5C");
+            .replacingOccurrences(of: "\\", with: "%5C");
     }
     
     func indent() -> String {
