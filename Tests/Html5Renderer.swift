@@ -111,13 +111,13 @@ class Html5Renderer : Renderer {
     }
     
     func visitImage(node: Image) {
-        //out.append("<img src=\"" + escapeUrl(node.getValue().toString()) + "\" alt=\"");
+        output += "<img src=\"" + escapeUrl(text: node.value as! String) + "\" alt=\"";
         node.childrenAccept(renderer: self);
-        //out.append("\" />");
+        output += "\" />";
     }
     
     func visitLink(node: Link) {
-        output += "<a href=\"" + escapeUrl(text: node.value as! String) + "\">";
+        output += "<a href=\"\(escapeUrl(text: node.value as! String))\">";
         node.childrenAccept(renderer: self);
         output += "</a>";
     }
