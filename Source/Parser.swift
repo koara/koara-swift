@@ -748,6 +748,8 @@ public class Parser {
                 s += consumeToken(TokenManager.ASTERISK).image!
             case TokenManager.BACKSLASH:
                 s += consumeToken(TokenManager.BACKSLASH).image!
+            case TokenManager.BACKTICK:
+                s += consumeToken(TokenManager.BACKTICK).image!
             case TokenManager.CHAR_SEQUENCE:
                 s += consumeToken(TokenManager.CHAR_SEQUENCE).image!
             case TokenManager.COLON:
