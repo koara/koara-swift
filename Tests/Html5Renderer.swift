@@ -123,15 +123,15 @@ class Html5Renderer : Renderer {
     }
     
     func visitStrong(node: Strong) {
-        //out.append("<strong>");
-        node.childrenAccept(renderer: self);
-        //out.append("</strong>");
+        output += "<strong>"
+        node.childrenAccept(renderer: self)
+        output += "</strong>"
     }
     
     func visitEm(node: Em) {
-        //out.append("<em>");
-        node.childrenAccept(renderer: self);
-        //out.append("</em>");
+        output += "<em>"
+        node.childrenAccept(renderer: self)
+        output += "</em>"
     }
     
     func visitCode(node: Code) {

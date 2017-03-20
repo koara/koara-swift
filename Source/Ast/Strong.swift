@@ -1,6 +1,6 @@
 public class Strong : Node {
     
-    func accept(_ renderer : Renderer) {
+    public override func accept(renderer : Renderer) {
         renderer.visitStrong(node: self)
     }
     
