@@ -25,12 +25,12 @@ class Html5Renderer : Renderer {
     
     func visitBlockQuote(node: BlockQuote) {
         output += indent() + "<blockquote>"
-        //if(node.getChildren() != null && node.getChildren().length > 0) { out.append("\n"); }
+        if(node.children.count > 0) { output += "\n" }
         level += 1
-        //node.childrenAccept(this);
+        node.childrenAccept(renderer: self);
         level -= 1
         output += indent() + "</blockquote>\n"
-        if(node.isNested()) {
+        if(!node.isNested()) {
             output += "\n"
         }
     }
