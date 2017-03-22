@@ -1,6 +1,6 @@
 public class Code : Node {
     
-    func accept(_ renderer : Renderer) {
+    public override func accept(renderer : Renderer) {
         renderer.visitCode(node: self)
     }
     

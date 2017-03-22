@@ -135,9 +135,9 @@ class Html5Renderer : Renderer {
     }
     
     func visitCode(node: Code) {
-        //out.append("<code>");
+        output += "<code>"
         node.childrenAccept(renderer: self);
-        //out.append("</code>");
+        output += "</code>"
     }
     
     func visitText(node: Text) {
