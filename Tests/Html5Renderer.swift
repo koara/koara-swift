@@ -99,15 +99,15 @@ class Html5Renderer : Renderer {
     }
   
     func visitBlockElement(node: BlockElement) {
-        //if(node.isNested() && (node.getParent() instanceof ListItem) && node.isSingleChild()) {
-        //    node.childrenAccept(this);
-        //} else {
+        if(node.isNested() && (node.parent is ListItem) && node.isSingleChild()) {
+            node.childrenAccept(renderer: self);
+        } else {
             output += indent()
             node.childrenAccept(renderer: self)
-        if(node.isNested()) {
-            output += "\n"
+            if(node.isNested()) {
+                output += "\n"
+            }
         }
-        //}
     }
     
     func visitImage(node: Image) {
