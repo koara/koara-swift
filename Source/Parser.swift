@@ -531,13 +531,13 @@ public class Parser {
                 case TokenManager.DASH:
                     s += consumeToken(TokenManager.DASH).image!
                 case TokenManager.DIGITS:
-                    s += consumeToken(TokenManager.CHAR_SEQUENCE).image!
+                    s += consumeToken(TokenManager.DIGITS).image!
                 case TokenManager.DOT:
-                    s += consumeToken(TokenManager.CHAR_SEQUENCE).image!
+                    s += consumeToken(TokenManager.DOT).image!
                 case TokenManager.EQ:
-                    s += consumeToken(TokenManager.CHAR_SEQUENCE).image!
+                    s += consumeToken(TokenManager.EQ).image!
                 case TokenManager.ESCAPED_CHAR:
-                    s += consumeToken(TokenManager.CHAR_SEQUENCE).image!
+                    s += consumeToken(TokenManager.ESCAPED_CHAR).image!
                 case TokenManager.IMAGE_LABEL:
                     s += consumeToken(TokenManager.IMAGE_LABEL).image!
                 case TokenManager.LT:
