@@ -656,7 +656,7 @@ public class Parser {
                 default: break
             }
         } while getNextTokenKind() != TokenManager.EOL && getNextTokenKind() != TokenManager.EOF
-        return ""
+        return s
     }
 
     func inline() {

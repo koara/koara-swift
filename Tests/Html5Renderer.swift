@@ -76,7 +76,7 @@ class Html5Renderer : Renderer {
     func visitCodeBlock(node: CodeBlock) {
         output += indent() + "<pre><code"
         if ((node.language) != nil) {
-            output += " class=\"language-\"" + escape(text: node.language)
+            output += " class=\"language-" + escape(text: node.language) + "\""
         }
         output += ">"
         output += escape(text: node.value as! String) + "</code></pre>\n"
