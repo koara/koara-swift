@@ -9,6 +9,8 @@ env:
     - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.1,name=iPhone SE"    RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
     - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=9.0,name=iPhone 5"      RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
     - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=8.1,name=iPhone 4s"     RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
+    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=8.1,name=iPad 2"        RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
+
   before_install:
     - gem install slather
 
