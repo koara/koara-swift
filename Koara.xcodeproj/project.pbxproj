@@ -44,6 +44,7 @@
 		A19B5B881E2FE63E00213D1D /* FileReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0B1E16452800419AB4 /* FileReaderTests.swift */; };
 		A19B5B8B1E311B6300213D1D /* ComplianceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A3F1E1645A200419AB4 /* ComplianceTest.swift */; };
 		A19B5B8E1E311B8B00213D1D /* Html5Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A401E1645A200419AB4 /* Html5Renderer.swift */; };
+		A1CDEBC51E8C08F900101814 /* End2EndTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDEBC41E8C08F900101814 /* End2EndTest.swift */; };
 		A1DBE20C1E5423F400BF0BF1 /* testsuite in Resources */ = {isa = PBXBuildFile; fileRef = A1DBE20B1E5423F400BF0BF1 /* testsuite */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 		A1C3639F1E15915700CC1874 /* Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reader.swift; path = Source/Io/Reader.swift; sourceTree = "<group>"; };
 		A1C363A01E15915700CC1874 /* StringReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringReader.swift; path = Source/Io/StringReader.swift; sourceTree = "<group>"; };
 		A1C363A31E15916300CC1874 /* StringReaderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringReaderTest.swift; path = Tests/StringReaderTest.swift; sourceTree = "<group>"; };
+		A1CDEBC41E8C08F900101814 /* End2EndTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = End2EndTest.swift; path = Tests/End2EndTest.swift; sourceTree = "<group>"; };
 		A1DBE20B1E5423F400BF0BF1 /* testsuite */ = {isa = PBXFileReference; lastKnownFileType = folder; path = testsuite; sourceTree = "<group>"; };
 		A4190E192C2C5B07666B492F /* Pods_Koara_iOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koara_iOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9211DF73DFDD92A0AC98AEE /* Pods-Koara iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koara iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Koara iOS/Pods-Koara iOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				A1008A411E1645A200419AB4 /* TokenManagerTest.swift */,
 				A1008A0B1E16452800419AB4 /* FileReaderTests.swift */,
 				A1C363A31E15916300CC1874 /* StringReaderTest.swift */,
+				A1CDEBC41E8C08F900101814 /* End2EndTest.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A19B5B8E1E311B8B00213D1D /* Html5Renderer.swift in Sources */,
+				A1CDEBC51E8C08F900101814 /* End2EndTest.swift in Sources */,
 				A19B5B8B1E311B6300213D1D /* ComplianceTest.swift in Sources */,
 				A19B5B881E2FE63E00213D1D /* FileReaderTests.swift in Sources */,
 				A19B5B851E2E753E00213D1D /* TokenManagerTest.swift in Sources */,

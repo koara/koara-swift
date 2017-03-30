@@ -323,5 +323,114 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tests/End2EndTest.swift"
+            timestampString = "512494495.449361"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "6"
+            endingLineNumber = "6"
+            landmarkName = "End2EndTest"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Koara_iOS_Tests.End2EndTest.parser.getter : Koara.Parser"
+                  moduleName = "Koara iOS Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andy/git/koara/koara-swift/Tests/End2EndTest.swift"
+                  timestampString = "512494497.317513"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "6"
+                  endingLineNumber = "6"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Koara_iOS_Tests.End2EndTest.parser.setter : Koara.Parser"
+                  moduleName = "Koara iOS Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andy/git/koara/koara-swift/Tests/End2EndTest.swift"
+                  timestampString = "512494497.319579"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "6"
+                  endingLineNumber = "6"
+                  offsetFromSymbolStart = "63">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Koara_iOS_Tests.End2EndTest.init (invocation : Swift.Optional&lt;__ObjC.NSInvocation&gt;) -&gt; Koara_iOS_Tests.End2EndTest"
+                  moduleName = "Koara iOS Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andy/git/koara/koara-swift/Tests/End2EndTest.swift"
+                  timestampString = "512494497.321064"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "6"
+                  endingLineNumber = "6"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Koara_iOS_Tests.End2EndTest.init (selector : ObjectiveC.Selector) -&gt; Koara_iOS_Tests.End2EndTest"
+                  moduleName = "Koara iOS Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andy/git/koara/koara-swift/Tests/End2EndTest.swift"
+                  timestampString = "512494497.322493"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "6"
+                  endingLineNumber = "6"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Koara_iOS_Tests.End2EndTest.init () -&gt; Koara_iOS_Tests.End2EndTest"
+                  moduleName = "Koara iOS Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andy/git/koara/koara-swift/Tests/End2EndTest.swift"
+                  timestampString = "512494497.323965"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "6"
+                  endingLineNumber = "6"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tests/End2EndTest.swift"
+            timestampString = "512494444.843349"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "testScenario000001()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
