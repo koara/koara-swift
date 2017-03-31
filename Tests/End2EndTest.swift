@@ -10,12 +10,10 @@ class End2EndTest: XCTestCase {
     }
 
     func testScenario000001() throws {
-        try assertOutput(file: "end2end-000001", modules: "paragraphs");
+        try assertOutput(file: "end2end-000001", modules: "paragraphs")
     }
     
-    func testScenario000002() throws Exception {
-        try assertOutput(file: "end2end-000002", modules: "headings");
-    }
+
     
     func assertOutput(file : String, modules: String...) throws {
         let testsuite = URL(fileURLWithPath: #file).deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("testsuite")
