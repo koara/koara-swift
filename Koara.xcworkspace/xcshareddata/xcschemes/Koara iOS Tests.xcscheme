@@ -38,6 +38,16 @@
                ReferencedContainer = "container:Koara.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A14810901E9C04A8007782D4"
+               BuildableName = "Koara macOSTests.xctest"
+               BlueprintName = "Koara macOSTests"
+               ReferencedContainer = "container:Koara.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
