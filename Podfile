@@ -1,3 +1,5 @@
+workspace 'Koara'
+
 target 'Koara iOS' do
   use_frameworks!
 
