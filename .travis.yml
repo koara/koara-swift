@@ -7,14 +7,14 @@ env:
     - LC_ALL=en_US.UTF-8
   matrix:
     - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPad Air"             RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    #- SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=8.4,name=iPhone 5s"            RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    #- SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=9.0,name=iPad Air 2"           RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    #- SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=9.1,name=iPhone 5"             RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    #- SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=9.2,name=iPhone 6"             RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    #- SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=9.3,name=iPad Pro (12.9-inch)" RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    #- SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.0,name=iPhone 6 Plus"       RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    #- SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.1,name=iPhone SE"           RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    #- SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.2,name=iPhone 7"            RUN_TESTS="YES"   SEND_TO_COVERALLS="YES"
+    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPhone 5s"            RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
+    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPad Air 2"           RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
+    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPhone 5"             RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
+    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPhone 6"             RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
+    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPad Pro (12.9-inch)" RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
+    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPhone 6 Plus"       RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
+    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPhone SE"           RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
+    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPhone 7"            RUN_TESTS="YES"   SEND_TO_COVERALLS="YES"
   before_install:
     - gem install slather
 
