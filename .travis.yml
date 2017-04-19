@@ -6,19 +6,22 @@ env:
     - LANG=en_US.UTF-8
     - LC_ALL=en_US.UTF-8
   matrix:
-    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPad Air"             RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
+    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPad Air"             RUN_TESTS="YES"   SEND_TO_COVERALLS="YES"
     - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPhone 5s"            RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
     - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPad Air 2"           RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
     - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPhone 5"             RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
     - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPhone 6"             RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
     - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPad Pro (12.9-inch)" RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPhone 6 Plus"       RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPhone SE"           RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPhone 7"            RUN_TESTS="YES"   SEND_TO_COVERALLS="YES"
+    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPhone 6 Plus"        RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
+    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPhone SE"            RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
+    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPhone 7"             RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
+    - SCHEME="Koara macOS"    DESTINATION="platform=macOS"                                           RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
+
   before_install:
     - gem install slather
 
 script:
+  - xcodebuild -showsdks
   - travis_retry xcodebuild -workspace "Koara.xcworkspace" -scheme "$SCHEME" -destination "$DESTINATION" build;
 
 after_success:
