@@ -17,7 +17,7 @@ env:
     - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3,name=iPhone 7"             RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
     - SCHEME="Koara macOS"    DESTINATION="platform=macOS"                                           RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
     - SCHEME="Koara tvOS"     DESTINATION="platform=tvOS Simulator,OS=10.2,name=Apple TV 1080p"      RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    - SCHEME="Koara watchOS"  DESTINATION="platform=watchOS,OS=3.2,name=Apple Watch - 42mm"          RUN_TESTS="NO"    SEND_TO_COVERALLS="NO"
+    - SCHEME="Koara watchOS"  DESTINATION="platform=watchOS Simulator,OS=3.2,name=Apple Watch - 42mm"          RUN_TESTS="NO"    SEND_TO_COVERALLS="NO"
   before_install:
     - gem install slather
 
