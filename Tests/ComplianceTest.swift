@@ -18,7 +18,7 @@ class ComplianceTest: QuickSpec {
                     
                     let expected = testsuite.appendingPathComponent("output").appendingPathComponent("html5").appendingPathComponent(module).appendingPathComponent("\(testcase).htm")
 
-                    it("KoaraToHtml_\(testcase)") {
+                    /*it("KoaraToHtml_\(testcase)") {
                         do {
                             let kd = try String(contentsOf: url, encoding: .utf8)
                             let html = try String(contentsOf: expected, encoding: .utf8)
@@ -42,7 +42,7 @@ class ComplianceTest: QuickSpec {
                         } catch {
                             fail()
                         }
-                    }
+                    }*/
                 }
             }
         }

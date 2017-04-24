@@ -54,6 +54,7 @@
 		A121772E1EA28A5D00D04E20 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A121E16454A00419AB4 /* Token.swift */; };
 		A121772F1EA28A5D00D04E20 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A131E16454A00419AB4 /* TokenManager.swift */; };
 		A12177301EA28A5D00D04E20 /* TreeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A141E16454A00419AB4 /* TreeState.swift */; };
+		A1B7EF0B1EAE4E6D00234892 /* ComplianceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A3F1E1645A200419AB4 /* ComplianceTest.swift */; };
 		D87F8764D3E2A13D5B376683 /* Pods_Koara_tvOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EE46D90DBF7C6FFFAA422D /* Pods_Koara_tvOS_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -122,10 +123,9 @@
 		A1008A401E1645A200419AB4 /* Html5Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Html5Renderer.swift; path = Tests/Html5Renderer.swift; sourceTree = "<group>"; };
 		A1008A411E1645A200419AB4 /* TokenManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TokenManagerTest.swift; path = Tests/TokenManagerTest.swift; sourceTree = "<group>"; };
 		A12176B21E9EAB1F00D04E20 /* Koara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A12176B41E9EAB1F00D04E20 /* Koara iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Koara iOS.h"; sourceTree = "<group>"; };
-		A12176B51E9EAB1F00D04E20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A12176B51E9EAB1F00D04E20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Koara iOS/Info.plist"; sourceTree = "<group>"; };
 		A12176BA1E9EAB1F00D04E20 /* Koara iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Koara iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A12176C11E9EAB1F00D04E20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A12176C11E9EAB1F00D04E20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Koara iOSTests/Info.plist"; sourceTree = "<group>"; };
 		A12176CE1E9EAB2C00D04E20 /* Koara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12176D01E9EAB2C00D04E20 /* Koara watchOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Koara watchOS.h"; sourceTree = "<group>"; };
 		A12176D11E9EAB2C00D04E20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -258,23 +258,6 @@
 			name = Ast;
 			sourceTree = "<group>";
 		};
-		A12176B31E9EAB1F00D04E20 /* Koara iOS */ = {
-			isa = PBXGroup;
-			children = (
-				A12176B41E9EAB1F00D04E20 /* Koara iOS.h */,
-				A12176B51E9EAB1F00D04E20 /* Info.plist */,
-			);
-			path = "Koara iOS";
-			sourceTree = "<group>";
-		};
-		A12176BE1E9EAB1F00D04E20 /* Koara iOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				A12176C11E9EAB1F00D04E20 /* Info.plist */,
-			);
-			path = "Koara iOSTests";
-			sourceTree = "<group>";
-		};
 		A12176CF1E9EAB2C00D04E20 /* Koara watchOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,9 +310,7 @@
 				A177421A1E14F6C500AB88FF /* Source */,
 				A17742191E14F6BC00AB88FF /* Tests */,
 				A12176B21E9EAB1F00D04E20 /* Koara.framework */,
-				A12176B31E9EAB1F00D04E20 /* Koara iOS */,
 				A12176BA1E9EAB1F00D04E20 /* Koara iOS Tests.xctest */,
-				A12176BE1E9EAB1F00D04E20 /* Koara iOSTests */,
 				A12176CE1E9EAB2C00D04E20 /* Koara.framework */,
 				A12176CF1E9EAB2C00D04E20 /* Koara watchOS */,
 				A12176DB1E9EAB4200D04E20 /* Koara.framework */,
@@ -355,6 +336,7 @@
 				A1008A0B1E16452800419AB4 /* FileReaderTests.swift */,
 				A1C363A31E15916300CC1874 /* StringReaderTest.swift */,
 				A1CDEBC41E8C08F900101814 /* End2EndTest.swift */,
+				A12176C11E9EAB1F00D04E20 /* Info.plist */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -373,6 +355,7 @@
 				A1008A131E16454A00419AB4 /* TokenManager.swift */,
 				A1008A141E16454A00419AB4 /* TreeState.swift */,
 				A17742B11E1539C100AB88FF /* Koara.h */,
+				A12176B51E9EAB1F00D04E20 /* Info.plist */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -973,6 +956,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1B7EF0B1EAE4E6D00234892 /* ComplianceTest.swift in Sources */,
 				A121770E1EA0FF6E00D04E20 /* CharStreamTests.swift in Sources */,
 				A12177101EA0FF6E00D04E20 /* Html5Renderer.swift in Sources */,
 				A12177111EA0FF6E00D04E20 /* TokenManagerTest.swift in Sources */,
@@ -1073,7 +1057,7 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "Koara iOS/Info.plist";
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1119,7 +1103,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "Koara iOS/Info.plist";
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1165,7 +1149,7 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "Koara iOSTests/Info.plist";
+				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1201,7 +1185,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "Koara iOSTests/Info.plist";
+				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
