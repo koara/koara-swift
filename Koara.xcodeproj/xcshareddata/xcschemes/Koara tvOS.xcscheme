@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A12176DA1E9EAB4200D04E20"
-               BuildableName = "Koara.framework"
+               BlueprintIdentifier = "A1B7EF591EAF0EE000234892"
+               BuildableName = "Koara tvOS.framework"
                BlueprintName = "Koara tvOS"
                ReferencedContainer = "container:Koara.xcodeproj">
             </BuildableReference>
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A12176E21E9EAB4200D04E20"
+               BlueprintIdentifier = "A1B7EF611EAF0EE100234892"
                BuildableName = "Koara tvOS Tests.xctest"
                BlueprintName = "Koara tvOS Tests"
                ReferencedContainer = "container:Koara.xcodeproj">
@@ -42,8 +42,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A12176DA1E9EAB4200D04E20"
-            BuildableName = "Koara.framework"
+            BlueprintIdentifier = "A1B7EF591EAF0EE000234892"
+            BuildableName = "Koara tvOS.framework"
             BlueprintName = "Koara tvOS"
             ReferencedContainer = "container:Koara.xcodeproj">
          </BuildableReference>
@@ -64,8 +64,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A12176DA1E9EAB4200D04E20"
-            BuildableName = "Koara.framework"
+            BlueprintIdentifier = "A1B7EF591EAF0EE000234892"
+            BuildableName = "Koara tvOS.framework"
             BlueprintName = "Koara tvOS"
             ReferencedContainer = "container:Koara.xcodeproj">
          </BuildableReference>
@@ -82,8 +82,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A12176DA1E9EAB4200D04E20"
-            BuildableName = "Koara.framework"
+            BlueprintIdentifier = "A1B7EF591EAF0EE000234892"
+            BuildableName = "Koara tvOS.framework"
             BlueprintName = "Koara tvOS"
             ReferencedContainer = "container:Koara.xcodeproj">
          </BuildableReference>

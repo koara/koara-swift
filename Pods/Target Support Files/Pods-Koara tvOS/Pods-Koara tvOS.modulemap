@@ -1,6 +1,0 @@
-framework module Pods_Koara_tvOS {
-  umbrella header "Pods-Koara tvOS-umbrella.h"
-
-  export *
-  module * { export * }
-}
