@@ -22,7 +22,6 @@ env:
     - gem install slather
 
 script:
-  - xcodebuild -showsdks
   - travis_retry xcodebuild -workspace "Koara.xcworkspace" -scheme "$SCHEME" -destination "$DESTINATION" build;
 
 after_success:
