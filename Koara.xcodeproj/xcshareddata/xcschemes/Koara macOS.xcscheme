@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A12176F61E9EAB5100D04E20"
+               BlueprintIdentifier = "A1B7EFDE1EB0EC0800234892"
                BuildableName = "Koara.framework"
                BlueprintName = "Koara macOS"
                ReferencedContainer = "container:Koara.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A12176FE1E9EAB5100D04E20"
+               BlueprintIdentifier = "A1B7EFE61EB0EC0800234892"
                BuildableName = "Koara macOS Tests.xctest"
                BlueprintName = "Koara macOS Tests"
                ReferencedContainer = "container:Koara.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A12176F61E9EAB5100D04E20"
+            BlueprintIdentifier = "A1B7EFDE1EB0EC0800234892"
             BuildableName = "Koara.framework"
             BlueprintName = "Koara macOS"
             ReferencedContainer = "container:Koara.xcodeproj">
@@ -64,7 +64,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A12176F61E9EAB5100D04E20"
+            BlueprintIdentifier = "A1B7EFDE1EB0EC0800234892"
             BuildableName = "Koara.framework"
             BlueprintName = "Koara macOS"
             ReferencedContainer = "container:Koara.xcodeproj">
@@ -82,7 +82,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A12176F61E9EAB5100D04E20"
+            BlueprintIdentifier = "A1B7EFDE1EB0EC0800234892"
             BuildableName = "Koara.framework"
             BlueprintName = "Koara macOS"
             ReferencedContainer = "container:Koara.xcodeproj">

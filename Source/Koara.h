@@ -1,13 +1,4 @@
-//
-//  Koara.h
-//  Koara
-//
-//  Created by Andy Van Den Heuvel on 29/12/2016.
-//
-//
+@import Foundation;
 
-#ifndef Koara_h
-#define Koara_h
-
-
-#endif /* Koara_h */
+FOUNDATION_EXPORT double AlamofireVersionNumber;
+FOUNDATION_EXPORT const unsigned char AlamofireVersionString[];

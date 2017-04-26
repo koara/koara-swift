@@ -54,7 +54,7 @@ public class TokenManager {
                 curPos = try moveStringLiteralDfa0()
                 if matchedKind != Int32.max {
                     if (matchedPos + 1 < curPos) {
-                        cs.backup(curPos - matchedPos - 1)
+                        cs.backup(Int(curPos - matchedPos - 1))
                     }
                     return fillToken()
                 }
@@ -171,7 +171,7 @@ public class TokenManager {
     }
 
     func startNfa(pos: Int, active: Int64) -> Int32 {
-        return moveNfa(startState: Int32(stopStringLiteralDfa(pos: pos, active: Int64(active))), curPos: pos + 1)
+        return moveNfa(startState: Int32(stopStringLiteralDfa(pos: pos, active: Int64(active))), curPos: Int32(pos + 1))
     }
   
     func moveNfa(startState: Int32, curPos: Int32) -> Int32 {

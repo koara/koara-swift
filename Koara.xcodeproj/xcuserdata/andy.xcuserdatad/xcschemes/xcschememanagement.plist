@@ -12,16 +12,6 @@
 		<key>Koara macOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-		<key>Koara tvOS.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
-		</dict>
-		<key>Koara watchOS.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
 	</dict>
@@ -228,6 +218,26 @@
 			<true/>
 		</dict>
 		<key>A1B7EF611EAF0EE100234892</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A1B7EF9F1EAF114500234892</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A1B7EFA71EAF114500234892</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A1B7EFDE1EB0EC0800234892</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A1B7EFE61EB0EC0800234892</key>
 		<dict>
 			<key>primary</key>
 			<true/>
