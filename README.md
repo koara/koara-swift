@@ -22,10 +22,9 @@ If you are interested in converting koara to a specific outputFormat, please loo
 
 - Carthage
 
-  _TODO_
+
 
 - Swift Package Manager
 
-  _TODO_
 
 
