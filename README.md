@@ -22,8 +22,6 @@ If you are interested in converting koara to a specific outputFormat, please loo
 
 - Carthage
 
-
-
 - Swift Package Manager
 
 
