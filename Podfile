@@ -17,3 +17,12 @@ target 'Koara macOS' do
     pod 'Nimble'
   end
 end
+
+target 'Koara tvOS' do
+  use_frameworks!
+
+  target 'Koara tvOS Tests' do
+    pod 'Quick'
+    pod 'Nimble'
+  end
+end

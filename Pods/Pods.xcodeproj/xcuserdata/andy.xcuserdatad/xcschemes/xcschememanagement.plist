@@ -3,10 +3,81 @@
 <plist version="1.0">
 <dict>
 	<key>SchemeUserState</key>
-	<dict/>
+	<dict>
+		<key>Nimble-OSX.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Nimble-iOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Nimble-tvOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Koara iOS-Koara iOS Tests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Koara iOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Koara macOS-Koara macOS Tests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Koara macOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Koara tvOS-Koara tvOS Tests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Koara tvOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Quick-OSX.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Quick-iOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Quick-tvOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>112A1DCEF8830BC500B8FFBFBA8DB728</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>424552F1487D97A07FF9CF24DF87260D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5285F3FAEADD5D7200028B610979E677</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -16,7 +87,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>5A3AC9B6537F092BB3B73BA4F858B731</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7641A78789388DB2BA6529339321D089</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>771DABC9B44A31283C812628F3B675A8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
