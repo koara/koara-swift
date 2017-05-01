@@ -85,7 +85,6 @@
 		A1B7F0321EB0EC3700234892 /* TreeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A141E16454A00419AB4 /* TreeState.swift */; };
 		A1B7F0331EB0ED1D00234892 /* Koara.h in Headers */ = {isa = PBXBuildFile; fileRef = A17742B11E1539C100AB88FF /* Koara.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1B7F0421EB5094A00234892 /* Koara.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B7F0391EB5094A00234892 /* Koara.framework */; };
-		A1B7F0491EB5094A00234892 /* Koara tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = A1B7F03B1EB5094A00234892 /* Koara tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1B7F0501EB50B5300234892 /* BlockElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A1E1E16457700419AB4 /* BlockElement.swift */; };
 		A1B7F0511EB50B5300234892 /* BlockQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A1F1E16457700419AB4 /* BlockQuote.swift */; };
 		A1B7F0521EB50B5300234892 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A201E16457700419AB4 /* Code.swift */; };
@@ -120,6 +119,7 @@
 		A1B7F06F1EB50B8300234892 /* FileReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0B1E16452800419AB4 /* FileReaderTests.swift */; };
 		A1B7F0701EB50B8300234892 /* StringReaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C363A31E15916300CC1874 /* StringReaderTest.swift */; };
 		A1B7F0711EB50B8300234892 /* End2EndTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDEBC41E8C08F900101814 /* End2EndTest.swift */; };
+		A1B7F0721EB7300100234892 /* Koara.h in Headers */ = {isa = PBXBuildFile; fileRef = A17742B11E1539C100AB88FF /* Koara.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D16333003CA2159CCAD3711B /* Pods_Koara_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E8023EC187F607AC5E48E9 /* Pods_Koara_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -464,7 +464,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1B7F0491EB5094A00234892 /* Koara tvOS.h in Headers */,
+				A1B7F0721EB7300100234892 /* Koara.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

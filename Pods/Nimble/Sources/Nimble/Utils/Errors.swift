@@ -12,7 +12,11 @@ internal func setFailureMessageForError<T: Error>(
     failureMessage.postfixMessage = "\(postfixMessageVerb) error"
 
     if let error = error {
-        failureMessage.postfixMessage += " <\(error)>"
+        if let error = error as? CustomDebugStringConvertible {
+            failureMessage.postfixMessage += " <\(error.debugDescription)>"
+        } else {
+            failureMessage.postfixMessage += " <\(error)>"
+        }
     } else if errorType != nil || closure != nil {
         failureMessage.postfixMessage += " from type <\(T.self)>"
     }
@@ -40,7 +44,8 @@ internal func errorMatchesExpectedError<T: Error>(
 internal func errorMatchesExpectedError<T: Error>(
     _ actualError: Error,
     expectedError: T) -> Bool
-    where T: Equatable {
+    where T: Equatable
+{
     if let actualError = actualError as? T {
         return actualError == expectedError
     }
@@ -72,21 +77,14 @@ internal func errorMatchesNonNilFieldsOrClosure<T: Error>(
                     matches = false
                 }
             }
-        } else if errorType != nil {
-            matches = (actualError is T)
+        } else if errorType != nil && closure != nil {
             // The closure expects another ErrorProtocol as argument, so this
             // is _supposed_ to fail, so that it becomes more obvious.
-            if let closure = closure {
-                let assertions = gatherExpectations {
-                    if let actual = actualError as? T {
-                        closure(actual)
-                    }
-                }
-                let messages = assertions.map { $0.message }
-                if messages.count > 0 {
-                    matches = false
-                }
+            let assertions = gatherExpectations {
+                expect(actualError is T).to(equal(true))
             }
+            precondition(assertions.map { $0.message }.count > 0)
+            matches = false
         }
     }
 

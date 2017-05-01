@@ -5,7 +5,7 @@ target 'Koara iOS' do
 
   target 'Koara iOS Tests' do
     pod 'Quick'
-    pod 'Nimble'
+    pod 'Nimble', '~> 5.0'
   end
 end
 
@@ -14,7 +14,7 @@ target 'Koara macOS' do
 
   target 'Koara macOS Tests' do
     pod 'Quick'
-    pod 'Nimble'
+    pod 'Nimble', '~> 5.0'
   end
 end
 
@@ -23,6 +23,6 @@ target 'Koara tvOS' do
 
   target 'Koara tvOS Tests' do
     pod 'Quick'
-    pod 'Nimble'
+    pod 'Nimble', '~> 5.0'
   end
 end

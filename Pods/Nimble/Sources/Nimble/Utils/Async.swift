@@ -1,13 +1,10 @@
-import CoreFoundation
-import Dispatch
 import Foundation
 
-#if !_runtime(_ObjC)
-    import CDispatch
-#endif
+#if _runtime(_ObjC)
+import Dispatch
 
-private let timeoutLeeway = DispatchTimeInterval.milliseconds(1)
-private let pollLeeway = DispatchTimeInterval.milliseconds(1)
+private let timeoutLeeway = DispatchTimeInterval.nanoseconds(Int(NSEC_PER_MSEC))
+private let pollLeeway = DispatchTimeInterval.nanoseconds(Int(NSEC_PER_MSEC))
 
 /// Stores debugging information about callers
 internal struct WaitingInfo: CustomStringConvertible {
@@ -27,18 +24,13 @@ internal protocol WaitLock {
 }
 
 internal class AssertionWaitLock: WaitLock {
-    private var currentWaiter: WaitingInfo?
+    private var currentWaiter: WaitingInfo? = nil
     init() { }
 
     func acquireWaitingLock(_ fnName: String, file: FileString, line: UInt) {
         let info = WaitingInfo(name: fnName, file: file, lineNumber: line)
-        #if _runtime(_ObjC)
-            let isMainThread = Thread.isMainThread
-        #else
-            let isMainThread = _CFIsMainThread()
-        #endif
         nimblePrecondition(
-            isMainThread,
+            Thread.isMainThread,
             "InvalidNimbleAPIUsage",
             "\(fnName) can only run on the main thread."
         )
@@ -179,18 +171,13 @@ internal class AwaitPromiseBuilder<T> {
         trigger.timeoutSource.scheduleOneshot(
             deadline: DispatchTime.now() + timeoutInterval,
             leeway: timeoutLeeway)
-        trigger.timeoutSource.setEventHandler {
+        trigger.timeoutSource.setEventHandler() {
             guard self.promise.asyncResult.isIncomplete() else { return }
             let timedOutSem = DispatchSemaphore(value: 0)
             let semTimedOutOrBlocked = DispatchSemaphore(value: 0)
             semTimedOutOrBlocked.signal()
             let runLoop = CFRunLoopGetMain()
-            #if _runtime(_ObjC)
-                let runLoopMode = CFRunLoopMode.defaultMode.rawValue
-            #else
-                let runLoopMode = kCFRunLoopDefaultMode
-            #endif
-            CFRunLoopPerformBlock(runLoop, runLoopMode) {
+            CFRunLoopPerformBlock(runLoop, CFRunLoopMode.defaultMode.rawValue) {
                 if semTimedOutOrBlocked.wait(timeout: .now()) == .success {
                     timedOutSem.signal()
                     semTimedOutOrBlocked.signal()
@@ -250,7 +237,7 @@ internal class AwaitPromiseBuilder<T> {
             self.trigger.timeoutSource.resume()
             while self.promise.asyncResult.isIncomplete() {
                 // Stopping the run loop does not work unless we run only 1 mode
-                _ = RunLoop.current.run(mode: .defaultRunLoopMode, before: .distantFuture)
+                RunLoop.current.run(mode: .defaultRunLoopMode, before: .distantFuture)
             }
             self.trigger.timeoutSource.suspend()
             self.trigger.timeoutSource.cancel()
@@ -287,7 +274,7 @@ internal class Awaiter {
             let timeoutSource = createTimerSource(timeoutQueue)
             var completionCount = 0
             let trigger = AwaitTrigger(timeoutSource: timeoutSource, actionSource: nil) {
-                try closure {
+                try closure() {
                     completionCount += 1
                     nimblePrecondition(
                         completionCount < 2,
@@ -314,7 +301,7 @@ internal class Awaiter {
         let trigger = AwaitTrigger(timeoutSource: timeoutSource, actionSource: asyncSource) {
             let interval = DispatchTimeInterval.nanoseconds(Int(pollInterval * TimeInterval(NSEC_PER_SEC)))
             asyncSource.scheduleRepeating(deadline: .now(), interval: interval, leeway: pollLeeway)
-            asyncSource.setEventHandler {
+            asyncSource.setEventHandler() {
                 do {
                     if let result = try closure() {
                         if promise.resolveResult(.completed(result)) {
@@ -359,3 +346,5 @@ internal func pollBlock(
 
         return result
 }
+
+#endif
