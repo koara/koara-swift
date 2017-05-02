@@ -3,23 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>SchemeUserState</key>
-	<dict>
-		<key>Koara iOS.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>0</integer>
-		</dict>
-		<key>Koara macOS.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
-		<key>Koara tvOS.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-	</dict>
+	<dict/>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>A1008A501E16477600419AB4</key>
@@ -253,6 +237,11 @@
 			<true/>
 		</dict>
 		<key>A1B7F0401EB5094A00234892</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A1B7F0771EB8D5E800234892</key>
 		<dict>
 			<key>primary</key>
 			<true/>
