@@ -25,7 +25,7 @@ script:
   -  build;
 
   - if [ $RUN_TESTS == "YES" ]; then
-      travis_retry xcodebuild -workspace "Koara.xcworkspace" -scheme "$SCHEME" -destination "$DESTINATION" test | xcpretty;
+      travis_retry xcodebuild -workspace "Koara.xcworkspace" -scheme "$SCHEME" -destination "$DESTINATION" test;
     else
       travis_retry xcodebuild -workspace "Koara.xcworkspace" -scheme "$SCHEME" -destination "$DESTINATION" build;
     fi
