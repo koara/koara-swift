@@ -15,7 +15,6 @@ public class Node {
     }
     
     public func accept(renderer: Renderer) {
-        preconditionFailure("This method must be overriden")
     }
     
 }

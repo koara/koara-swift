@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A1B7F0771EB8D5E800234892"
-               BuildableName = "Koara watchOS.framework"
+               BuildableName = "Koara.framework"
                BlueprintName = "Koara watchOS"
                ReferencedContainer = "container:Koara.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A1B7F0771EB8D5E800234892"
-            BuildableName = "Koara watchOS.framework"
+            BuildableName = "Koara.framework"
             BlueprintName = "Koara watchOS"
             ReferencedContainer = "container:Koara.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A1B7F0771EB8D5E800234892"
-            BuildableName = "Koara watchOS.framework"
+            BuildableName = "Koara.framework"
             BlueprintName = "Koara watchOS"
             ReferencedContainer = "container:Koara.xcodeproj">
          </BuildableReference>

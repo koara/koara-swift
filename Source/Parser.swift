@@ -10,7 +10,7 @@ public class Parser {
     var nextTokenKind : Int32 = 0
     var lookingAhead : Bool = false
     var semanticLookAhead : Bool = false
-    var modules : [String] = ["paragraphs", "headings", "lists", "links", "images", "formatting", "blockquotes", "code"]
+    public var modules : [String] = ["paragraphs", "headings", "lists", "links", "images", "formatting", "blockquotes", "code"]
     let lookAheadSuccess : KoaraError
 
     public init() {
@@ -2559,9 +2559,5 @@ public class Parser {
             }
             return t
         }
-    
-    func setModules(modules: String...) {
-        self.modules = modules
-    }
     
 }

@@ -28,9 +28,5 @@ public class BlockElement : Node {
         }
         return nil;
     }
-
-    override public func accept(renderer: Renderer) {
-        preconditionFailure("This method must be overriden")
-    }
     
 }
