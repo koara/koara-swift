@@ -15,7 +15,11 @@ class End2EndTest: XCTestCase {
         try assertOutput(file: "end2end-000001", modules: "paragraphs")
     }
     
-      func assertOutput(file : String, modules: String...) throws {
+    func testScenario000002() throws {
+        //try assertOutput(file: "end2end-000002", modules: "headings")
+    }
+    
+    func assertOutput(file : String, modules: String...) throws {
         let testsuite = URL(fileURLWithPath: #file).deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("testsuite")
         let kd = try String(contentsOf: testsuite.appendingPathComponent("input").appendingPathComponent("end2end.kd"), encoding: .utf8)
         let html = try String(contentsOf: testsuite.appendingPathComponent("output").appendingPathComponent("html5").appendingPathComponent("end2end")

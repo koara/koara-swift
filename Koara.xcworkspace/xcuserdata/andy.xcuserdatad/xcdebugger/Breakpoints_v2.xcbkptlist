@@ -346,11 +346,11 @@
                   moduleName = "Koara iOS Tests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/andy/git/koara/koara-swift/Tests/End2EndTest.swift"
-                  timestampString = "515517233.637377"
+                  timestampString = "515789700.977283"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "6"
-                  endingLineNumber = "6"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
                   offsetFromSymbolStart = "35">
                </Location>
                <Location
@@ -361,11 +361,11 @@
                   moduleName = "Koara iOS Tests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/andy/git/koara/koara-swift/Tests/End2EndTest.swift"
-                  timestampString = "515517233.638975"
+                  timestampString = "515789700.979127"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "6"
-                  endingLineNumber = "6"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
                   offsetFromSymbolStart = "63">
                </Location>
                <Location
@@ -376,11 +376,11 @@
                   moduleName = "Koara iOS Tests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/andy/git/koara/koara-swift/Tests/End2EndTest.swift"
-                  timestampString = "515517233.640569"
+                  timestampString = "515789700.980453"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "6"
-                  endingLineNumber = "6"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
                   offsetFromSymbolStart = "16">
                </Location>
                <Location
@@ -391,11 +391,11 @@
                   moduleName = "Koara iOS Tests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/andy/git/koara/koara-swift/Tests/End2EndTest.swift"
-                  timestampString = "515517233.642232"
+                  timestampString = "515789700.981796"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "6"
-                  endingLineNumber = "6"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
                   offsetFromSymbolStart = "16">
                </Location>
                <Location
@@ -406,11 +406,11 @@
                   moduleName = "Koara iOS Tests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/andy/git/koara/koara-swift/Tests/End2EndTest.swift"
-                  timestampString = "515517233.643762"
+                  timestampString = "515789700.983089"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "6"
-                  endingLineNumber = "6"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
                   offsetFromSymbolStart = "12">
                </Location>
             </Locations>
@@ -445,6 +445,22 @@
             startingLineNumber = "14"
             endingLineNumber = "14"
             landmarkName = "testScenario000001()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tests/End2EndTest.swift"
+            timestampString = "515789693.339069"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "testScenario000002()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
