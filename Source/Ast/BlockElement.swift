@@ -1,5 +1,9 @@
 public class BlockElement : Node {
     
+    override public func accept(renderer : Renderer) {
+        renderer.visitBlockElement(node: self)
+    }
+    
     func hasChildren() -> Bool {
         return children.count > 0
     }
