@@ -104,7 +104,7 @@ class Html5Renderer : Renderer {
         } else {
             output += indent()
             node.childrenAccept(renderer: self)
-            if(node.isNested()) {
+            if(!node.isNested()) {
                 output += "\n"
             }
         }

@@ -12,15 +12,15 @@ class End2EndTest: XCTestCase {
     }
 
     func testScenario000001() throws {
-        //try assertOutput(file: "end2end-000001", modules: "paragraphs")
+        try assertOutput(file: "end2end-000001", modules: "paragraphs")
     }
     
     func testScenario000002() throws {
-        //try assertOutput(file: "end2end-000002", modules: "headings")
+        try assertOutput(file: "end2end-000002", modules: "headings")
     }
     
     func testScenario000003() throws {
-        try assertOutput(file: "end2end-000003", modules: "paragraphs, headings")
+        //try assertOutput(file: "end2end-000003", modules: "paragraphs, headings")
     }
     
     func testScenario000004() throws {
@@ -36,7 +36,7 @@ class End2EndTest: XCTestCase {
     }
     
     func testScenario000007() throws {
-        ////try assertOutput(file: "end2end-000007", modules: "paragraphs, headings, lists")
+        //try assertOutput(file: "end2end-000007", modules: "paragraphs, headings, lists")
     }
     
     func testScenario000008() throws {
@@ -1039,17 +1039,11 @@ class End2EndTest: XCTestCase {
 
         let parser = Parser()
         parser.modules = modules
-        let document = parser.parse("- in nulla \n    - vel    \n      > test ")
+        let document = parser.parse(kd)
         let renderer = Html5Renderer()
         document.accept(renderer)
         
-        //print(html)
-        print("\n\n\n")
-        print(renderer.getOutput())
-        print("\n\n\n")
-        
-        //expect(renderer.getOutput()).to(equal(html))
-        
+        expect(renderer.getOutput()).to(equal(html))
     }
     
 }
