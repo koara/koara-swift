@@ -1042,12 +1042,7 @@ class End2EndTest: XCTestCase {
         let document = parser.parse(kd)
         let renderer = Html5Renderer()
         document.accept(renderer)
-        
-        print(html)
-        print("@----")
-        print(renderer.getOutput())
-        
-        
+                
         expect(renderer.getOutput()).to(equal(html))
     }
     
