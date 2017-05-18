@@ -12,6 +12,10 @@
 		56AF066AD37A2204BA157C46 /* Pods_Koara_macOS_Koara_macOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A1DE0EAF8578D2BAFDEB6F /* Pods_Koara_macOS_Koara_macOS_Tests.framework */; };
 		89B452B263ECD9A19D869616 /* Pods_Koara_iOS_Koara_iOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D2AB0F4F7251F4D477A71C /* Pods_Koara_iOS_Koara_iOS_Tests.framework */; };
 		93C7E094ED647EC2303C77C3 /* Pods_Koara_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5A74BC4FF56670260EE3DF /* Pods_Koara_macOS.framework */; };
+		A17C85691ECDA71E00B51055 /* KoaraRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C85681ECDA71E00B51055 /* KoaraRenderer.swift */; };
+		A17C856A1ECDA76700B51055 /* KoaraRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C85681ECDA71E00B51055 /* KoaraRenderer.swift */; };
+		A17C856B1ECDA76B00B51055 /* KoaraRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C85681ECDA71E00B51055 /* KoaraRenderer.swift */; };
+		A17C856C1ECDA76E00B51055 /* KoaraRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C85681ECDA71E00B51055 /* KoaraRenderer.swift */; };
 		A1B7EFA91EAF114500234892 /* Koara.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B7EFA01EAF114500234892 /* Koara.framework */; };
 		A1B7EFB71EAF119000234892 /* BlockElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A1E1E16457700419AB4 /* BlockElement.swift */; };
 		A1B7EFB81EAF119000234892 /* BlockQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A1F1E16457700419AB4 /* BlockQuote.swift */; };
@@ -218,6 +222,7 @@
 		A1008A401E1645A200419AB4 /* Html5Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Html5Renderer.swift; path = Tests/Html5Renderer.swift; sourceTree = "<group>"; };
 		A1008A411E1645A200419AB4 /* TokenManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TokenManagerTest.swift; path = Tests/TokenManagerTest.swift; sourceTree = "<group>"; };
 		A17742B11E1539C100AB88FF /* Koara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Koara.h; path = Source/Koara.h; sourceTree = "<group>"; };
+		A17C85681ECDA71E00B51055 /* KoaraRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KoaraRenderer.swift; path = Source/KoaraRenderer.swift; sourceTree = "<group>"; };
 		A1B7EFA01EAF114500234892 /* Koara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B7EFA21EAF114500234892 /* Koara.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Koara.h; sourceTree = "<group>"; };
 		A1B7EFA31EAF114500234892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -417,6 +422,7 @@
 				A1008A0D1E16454A00419AB4 /* Character.swift */,
 				A1008A0E1E16454A00419AB4 /* CharStream.swift */,
 				A1008A0F1E16454A00419AB4 /* KoaraError.swift */,
+				A17C85681ECDA71E00B51055 /* KoaraRenderer.swift */,
 				A1008A101E16454A00419AB4 /* Parser.swift */,
 				A1008A111E16454A00419AB4 /* Renderer.swift */,
 				A1008A121E16454A00419AB4 /* Token.swift */,
@@ -1041,6 +1047,7 @@
 				A1B7EFC41EAF119000234892 /* Paragraph.swift in Sources */,
 				A1B7EFC51EAF119000234892 /* Strong.swift in Sources */,
 				A1B7EFC61EAF119000234892 /* Text.swift in Sources */,
+				A17C85691ECDA71E00B51055 /* KoaraRenderer.swift in Sources */,
 				A1B7EFC71EAF119000234892 /* FileReader.swift in Sources */,
 				A1B7EFC81EAF119000234892 /* Reader.swift in Sources */,
 				A1B7EFC91EAF119000234892 /* StringReader.swift in Sources */,
@@ -1089,6 +1096,7 @@
 				A1B7F0251EB0EC3700234892 /* Paragraph.swift in Sources */,
 				A1B7F0261EB0EC3700234892 /* Strong.swift in Sources */,
 				A1B7F0271EB0EC3700234892 /* Text.swift in Sources */,
+				A17C856A1ECDA76700B51055 /* KoaraRenderer.swift in Sources */,
 				A1B7F0281EB0EC3700234892 /* FileReader.swift in Sources */,
 				A1B7F0291EB0EC3700234892 /* Reader.swift in Sources */,
 				A1B7F02A1EB0EC3700234892 /* StringReader.swift in Sources */,
@@ -1136,6 +1144,7 @@
 				A1B7F05C1EB50B5400234892 /* Node.swift in Sources */,
 				A1B7F05D1EB50B5400234892 /* Paragraph.swift in Sources */,
 				A1B7F05E1EB50B5400234892 /* Strong.swift in Sources */,
+				A17C856B1ECDA76B00B51055 /* KoaraRenderer.swift in Sources */,
 				A1B7F05F1EB50B5400234892 /* Text.swift in Sources */,
 				A1B7F0601EB50B5400234892 /* FileReader.swift in Sources */,
 				A1B7F0611EB50B5400234892 /* Reader.swift in Sources */,
@@ -1188,6 +1197,7 @@
 				A1B7F0901EB8D64900234892 /* FileReader.swift in Sources */,
 				A1B7F0911EB8D64900234892 /* Reader.swift in Sources */,
 				A1B7F0921EB8D64900234892 /* StringReader.swift in Sources */,
+				A17C856C1ECDA76E00B51055 /* KoaraRenderer.swift in Sources */,
 				A1B7F0931EB8D64900234892 /* Character.swift in Sources */,
 				A1B7F0941EB8D64900234892 /* CharStream.swift in Sources */,
 				A1B7F0951EB8D64900234892 /* KoaraError.swift in Sources */,
