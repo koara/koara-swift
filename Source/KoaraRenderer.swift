@@ -1,13 +1,14 @@
 public class KoaraRenderer : Renderer {
     
     
-    var output : String = ""
-    var level : Int = 0
-    var listSequence = Array<Int>();
+    var out: String
+    //var Stack<String> left;
+    var hardWrap : Bool = false
     
-    public var hardWrap : Bool = false
-    
-    func visitDocument(node: Document) {
+    public func visitDocument(node: Document) {
+        out = ""
+    	//left = Stack<String>();
+    	node.childrenAccept(renderer: self);
     }
     
     func visitHeading(node: Heading) {
