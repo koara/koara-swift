@@ -11,57 +11,57 @@ public class KoaraRenderer : Renderer {
     	node.childrenAccept(renderer: self);
     }
     
-    func visitHeading(node: Heading) {
+    public func visitHeading(node: Heading) {
     }
     
-    func visitBlockQuote(node: BlockQuote) {
+    public func visitBlockQuote(node: BlockQuote) {
     }
     
-    func visitListBlock(node: ListBlock) {
+    public func visitListBlock(node: ListBlock) {
         
     }
     
-    func visitListItem(node: ListItem) {
+    public func visitListItem(node: ListItem) {
         
     }
     
-    func visitCodeBlock(node: CodeBlock) {
+    public func visitCodeBlock(node: CodeBlock) {
         
     }
     
-    func visitParagraph(node: Paragraph) {
+    public func visitParagraph(node: Paragraph) {
     }
     
-    func visitBlockElement(node: BlockElement) {
+    public func visitBlockElement(node: BlockElement) {
     }
     
-    func visitImage(node: Image) {
+    public func visitImage(node: Image) {
     }
     
-    func visitLink(node: Link) {
+    public func visitLink(node: Link) {
         
     }
     
-    func visitStrong(node: Strong) {
+    public func visitStrong(node: Strong) {
     
     }
     
-    func visitEm(node: Em) {
+    public func visitEm(node: Em) {
 
     }
     
-    func visitCode(node: Code) {
+    public func visitCode(node: Code) {
     }
     
-    func visitText(node: Text) {
+    public func visitText(node: Text) {
 
     }
     
-    func escape(text: String) -> String {
+    public func escape(text: String) -> String {
 
     }
     
-    func visitLineBreak(node: LineBreak) {
+    public func visitLineBreak(node: LineBreak) {
 
     }
     
