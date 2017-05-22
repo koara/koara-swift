@@ -12,39 +12,39 @@ public class KoaraRenderer : Renderer {
     }
     
     public func visitHeading(node: Heading) {
-//        if(!node.isFirstChild()) {
-//            indent();
-//        }
+        if !node.isFirstChild() {
+            //indent();
+        }
 //        for(int i=0; i<node.getLevel(); i++) {
 //            out.append("=");
 //        }
-//        if(node.hasChildren()) {
-//            out.append(" ");
-//            node.childrenAccept(this);
-//        }
-//        out.append("\n");
-//        if(!node.isLastChild()) {
+        if(node.hasChildren()) {
+            out += " ";
+            node.childrenAccept(renderer: self);
+        }
+        out += "\n";
+        if(!node.isLastChild()) {
 //            indent();
-//            out.append("\n");
-//        }
+            out += "\n";
+        }
     }
     
     public func visitBlockQuote(node: BlockQuote) {
-//        if(!node.isFirstChild()) {
+        if !node.isFirstChild() {
 //            indent();
-//        }
-//        
-//        if(node.hasChildren()) {
-//            out.append("> ");
+        }
+  
+        if node.hasChildren() {
+            out += "> ";
 //            left.push("> ");
-//            node.childrenAccept(this);
+            node.childrenAccept(renderer: self);
 //            left.pop();
-//        } else {
+        } else {
 //            out.append(">\n");
-//        }
-//        if(!node.isNested()) {
-//            out.append("\n");
-//        }
+        }
+        if(!node.isNested()) {
+            out += "\n";
+        }
     }
     
     public func visitListBlock(node: ListBlock) {
