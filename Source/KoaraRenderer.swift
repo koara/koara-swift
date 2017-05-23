@@ -1,7 +1,7 @@
 public class KoaraRenderer : Renderer {
     
+    var out: String = ""
     
-    var out: String
     //var Stack<String> left;
     var hardWrap : Bool = false
     
@@ -40,7 +40,7 @@ public class KoaraRenderer : Renderer {
             node.childrenAccept(renderer: self);
 //            left.pop();
         } else {
-//            out.append(">\n");
+            out += ">\n";
         }
         if(!node.isNested()) {
             out += "\n";
@@ -48,15 +48,15 @@ public class KoaraRenderer : Renderer {
     }
     
     public func visitListBlock(node: ListBlock) {
-//        node.childrenAccept(this);
-//        if(!node.isLastChild()) {
+        node.childrenAccept(renderer: self);
+        if(!node.isLastChild()) {
 //            indent();
-//            out.append("\n");
+            out += "\n";
 //            Object next = node.next();
 //            if(next instanceof ListBlock && ((ListBlock) next).isOrdered() == node.isOrdered() ) {
 //                out.append("\n");
 //            }
-//        }
+        }
         
     }
     
@@ -65,54 +65,52 @@ public class KoaraRenderer : Renderer {
 //            indent();
 //        }
 //        left.push("  ");
-//        if(node.getNumber() != null) {
-//            out.append(node.getNumber() + ".");
-//        } else {
-//            out.append("-");
-//        }
-//        if(node.hasChildren()) {
-//            out.append(" ");
-//            node.childrenAccept(this);
-//        } else {
-//            out.append("\n");
-//        }
+        if(node.number > 0) {
+            out += String(node.number) + ".";
+        } else {
+            out += "-";
+        }
+        if(node.hasChildren()) {
+            out += " ";
+            node.childrenAccept(renderer: self);
+        } else {
+            out += "\n";
+        }
 //        left.pop();
         
     }
     
     public func visitCodeBlock(node: CodeBlock) {
-//        StringBuilder indent = new StringBuilder();
-//        for(String s : left) {
-//            indent.append(s);
-//        }
-//        
-//        out.append("```");
-//        if(node.getLanguage() != null) {
-//            out.append(node.getLanguage());
-//        }
-//        out.append("\n");
-//        
-//        
-//        
-//        out.append(node.getValue().toString().replaceAll("(?m)^", indent.toString()));
-//        out.append("\n");
+        //let indent = "";
+        //for(String s : left) {
+        //    indent += s);
+        //}
+  
+        out += "```";
+        if(node.language != nil) {
+            out += node.language
+        }
+        out += "\n";
+
+        //out += node.value.replaceAll("(?m)^", indent.toString());
+        out += "\n";
 //        indent();
-//        out.append("```");
-//        out.append("\n");
-//        
-//        if(!node.isLastChild()) {
+        out += "```";
+        out += "\n";
+
+        if(!node.isLastChild()) {
 //            indent();
-//            out.append("\n");
-//        }
+            out += "\n";
+        }
         
     }
     
     public func visitParagraph(node: Paragraph) {
-//        if(!node.isFirstChild()) {
+        if(!node.isFirstChild()) {
 //            indent();
-//        }
-//        node.childrenAccept(this);
-//        out.append("\n");
+        }
+        node.childrenAccept(renderer: self);
+        out += "\n";
 //        if(!node.isNested() || (node.getParent() instanceof ListItem && (node.next() instanceof Paragraph) && !node.isLastChild())) {
 //            out.append("\n");
 //        } else if(node.getParent() instanceof BlockQuote && (node.next() instanceof Paragraph)) {
@@ -122,9 +120,9 @@ public class KoaraRenderer : Renderer {
     }
     
     public func visitBlockElement(node: BlockElement) {
-//        if(!node.isFirstChild()) {
+        if(!node.isFirstChild()) {
 //            indent();
-//        }
+        }
 //        node.childrenAccept(this);
 //        out.append("\n");
 //        if(!node.isNested() || (node.getParent() instanceof ListItem && (node.next() instanceof Paragraph) && !node.isLastChild())) {
@@ -136,10 +134,10 @@ public class KoaraRenderer : Renderer {
     }
     
     public func visitImage(node: Image) {
-//        out.append("[image: ");
-//        node.childrenAccept(this);
-//        out.append("]");
-//        if(node.getValue() != null && node.getValue().toString().trim().length() > 0) {
+        out += "[image: ";
+        node.childrenAccept(renderer: self);
+        out += "]";
+//        if(node.value && node.value.trim().length() > 0) {
 //            out.append("(");
 //            out.append(escapeUrl(node.getValue().toString()));
 //            out.append(")");
@@ -147,9 +145,9 @@ public class KoaraRenderer : Renderer {
     }
     
     public func visitLink(node: Link) {
-//        out.append("[");
-//        node.childrenAccept(this);
-//        out.append("]");
+        out += "[";
+        node.childrenAccept(renderer: self);
+        out += "]";
 //        if(node.getValue() != null && node.getValue().toString().trim().length() > 0) {
 //            out.append("(");
 //            out.append(escapeUrl(node.getValue().toString()));
@@ -159,21 +157,21 @@ public class KoaraRenderer : Renderer {
     }
     
     public func visitStrong(node: Strong) {
-//        out.append("*");
-//        node.childrenAccept(this);
-//        out.append("*");
+        out += "*";
+        node.childrenAccept(renderer: self);
+        out += "*";
     }
     
     public func visitEm(node: Em) {
-//        out.append("_");
-//        node.childrenAccept(this);
-//        out.append("_");
+        out += "_";
+        node.childrenAccept(renderer: self);
+        out += "_";
     }
     
     public func visitCode(node: Code) {
-//        out.append("`");
-//        node.childrenAccept(this);
-//        out.append("`");
+        out += "`";
+        node.childrenAccept(renderer: self);
+        out += "`";
     }
     
     public func visitText(node: Text) {
@@ -186,10 +184,10 @@ public class KoaraRenderer : Renderer {
     
 
     public func visitLineBreak(node: LineBreak) {
-//        if(hardWrap || node.isExplicit()) {
-//            out.append("  ");
-//        }
-//        out.append("\n");
+        if(hardWrap || node.explicit) {
+            out += "  ";
+        }
+        out += "\n";
 //        indent();
     }
     
