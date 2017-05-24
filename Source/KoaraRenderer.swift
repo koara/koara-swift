@@ -1,13 +1,12 @@
 public class KoaraRenderer : Renderer {
     
     var out: String = ""
-    
-    //var Stack<String> left;
+    var left = Array<String>();
     var hardWrap : Bool = false
     
     public func visitDocument(node: Document) {
         out = ""
-    	//left = Stack<String>();
+    	left = Array<String>();
     	node.childrenAccept(renderer: self);
     }
     
@@ -15,30 +14,30 @@ public class KoaraRenderer : Renderer {
         if !node.isFirstChild() {
             //indent();
         }
-//        for(int i=0; i<node.getLevel(); i++) {
-//            out.append("=");
-//        }
+        for i in 0..<node.level {
+            out += "="
+        }
         if(node.hasChildren()) {
-            out += " ";
+            out += " "
             node.childrenAccept(renderer: self);
         }
         out += "\n";
         if(!node.isLastChild()) {
-//            indent();
-            out += "\n";
+            indent()
+            out += "\n"
         }
     }
     
     public func visitBlockQuote(node: BlockQuote) {
         if !node.isFirstChild() {
-//            indent();
+            indent()
         }
   
         if node.hasChildren() {
             out += "> ";
-//            left.push("> ");
+            left.append("> ")
             node.childrenAccept(renderer: self);
-//            left.pop();
+            left.popLast()
         } else {
             out += ">\n";
         }
@@ -50,7 +49,7 @@ public class KoaraRenderer : Renderer {
     public func visitListBlock(node: ListBlock) {
         node.childrenAccept(renderer: self);
         if(!node.isLastChild()) {
-//            indent();
+            indent()
             out += "\n";
 //            Object next = node.next();
 //            if(next instanceof ListBlock && ((ListBlock) next).isOrdered() == node.isOrdered() ) {
@@ -64,7 +63,7 @@ public class KoaraRenderer : Renderer {
 //        if(!node.getParent().isNested() || !node.isFirstChild() || !node.getParent().isFirstChild()) {
 //            indent();
 //        }
-//        left.push("  ");
+        left.append("  ")
         if(node.number > 0) {
             out += String(node.number) + ".";
         } else {
@@ -76,7 +75,7 @@ public class KoaraRenderer : Renderer {
         } else {
             out += "\n";
         }
-//        left.pop();
+        left.popLast()
         
     }
     
@@ -184,11 +183,17 @@ public class KoaraRenderer : Renderer {
     
 
     public func visitLineBreak(node: LineBreak) {
-        if(hardWrap || node.explicit) {
-            out += "  ";
+        if(hardWrap || node.explicit!) {
+            out += "  "
         }
-        out += "\n";
-//        indent();
+        out += "\n"
+        indent()
+    }
+    
+    private func indent() {
+        for s in left {
+            out += s;
+        }
     }
     
     public func escape(text: String) -> String {
