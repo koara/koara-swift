@@ -37,7 +37,7 @@ public class KoaraRenderer : Renderer {
             out += "> ";
             left.append("> ")
             node.childrenAccept(renderer: self);
-            left.popLast()
+            _ = left.popLast()
         } else {
             out += ">\n";
         }
@@ -61,7 +61,7 @@ public class KoaraRenderer : Renderer {
     
     public func visitListItem(node: ListItem) {
 //        if(!node.getParent().isNested() || !node.isFirstChild() || !node.getParent().isFirstChild()) {
-//            indent();
+            indent();
 //        }
         left.append("  ")
         if(node.number > 0) {
@@ -75,15 +75,15 @@ public class KoaraRenderer : Renderer {
         } else {
             out += "\n";
         }
-        left.popLast()
+        _ = left.popLast()
         
     }
     
     public func visitCodeBlock(node: CodeBlock) {
-        //let indent = "";
-        //for(String s : left) {
-        //    indent += s);
-        //}
+        var indent = "";
+        for s in left {
+            indent += s
+        }
   
         out += "```";
         if(node.language != nil) {
