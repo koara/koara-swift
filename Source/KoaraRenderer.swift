@@ -98,7 +98,7 @@ public class KoaraRenderer : Renderer {
         out += "\n";
 
         if(!node.isLastChild()) {
-//            indent();
+            indent();
             out += "\n";
         }
         
@@ -106,7 +106,7 @@ public class KoaraRenderer : Renderer {
     
     public func visitParagraph(node: Paragraph) {
         if(!node.isFirstChild()) {
-//            indent();
+            indent();
         }
         node.childrenAccept(renderer: self);
         out += "\n";
