@@ -122,13 +122,13 @@ public class KoaraRenderer : Renderer {
         if(!node.isFirstChild()) {
             indent();
         }
-//        node.childrenAccept(this);
-//        out.append("\n");
+        node.childrenAccept(renderer: self);
+        out += "\n";
 //        if(!node.isNested() || (node.getParent() instanceof ListItem && (node.next() instanceof Paragraph) && !node.isLastChild())) {
 //            out.append("\n");
 //        } else if(node.getParent() instanceof BlockQuote && (node.next() instanceof Paragraph)) {
-//            indent();
-//            out.append("\n");
+            indent();
+            out += "\n";
 //        }
     }
     
