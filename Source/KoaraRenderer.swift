@@ -137,9 +137,9 @@ public class KoaraRenderer : Renderer {
         node.childrenAccept(renderer: self);
         out += "]";
 //        if(node.value && node.value.trim().length() > 0) {
-//            out.append("(");
-//            out.append(escapeUrl(node.getValue().toString()));
-//            out.append(")");
+            out += "(";
+            out += escapeUrl(text: node.value as! String);
+            out += ")";
 //        }
     }
     
@@ -148,9 +148,9 @@ public class KoaraRenderer : Renderer {
         node.childrenAccept(renderer: self);
         out += "]";
 //        if(node.getValue() != null && node.getValue().toString().trim().length() > 0) {
-//            out.append("(");
-//            out.append(escapeUrl(node.getValue().toString()));
-//            out.append(")");
+            out += "(";
+            out += escapeUrl(text: node.value as! String);
+            out += ")";
 //        }
         
     }
@@ -175,9 +175,9 @@ public class KoaraRenderer : Renderer {
     
     public func visitText(node: Text) {
 //        if(node.getParent() instanceof Code) {
-//            out.append(node.getValue().toString());
+        out += node.value as! String;
 //        } else {
-//            out.append(escape(node.getValue().toString()));
+        out += escape(text: node.value as! String);
 //        }
     }
     
@@ -196,7 +196,7 @@ public class KoaraRenderer : Renderer {
         }
     }
     
-    public func escape(text: String) -> String {
+    private func escape(text: String) -> String {
         //        return text.replaceAll("\\[", "\\\\[")
         //            .replaceAll("\\]", "\\\\]")
         //            .replaceAll("\\*", "\\\\*")
@@ -209,9 +209,10 @@ public class KoaraRenderer : Renderer {
     }
     
     
-//    public String escapeUrl(String text) {
+    private func escapeUrl(text: String) -> String {
+        return text
 //    return text.replaceAll("\\(", "\\\\(")
 //				.replaceAll("\\)", "\\\\)");
-//    }
+    }
   
 }
