@@ -51,18 +51,18 @@ public class KoaraRenderer : Renderer {
         if(!node.isLastChild()) {
             indent()
             out += "\n";
-//            Object next = node.next();
-//            if(next instanceof ListBlock && ((ListBlock) next).isOrdered() == node.isOrdered() ) {
-//                out.append("\n");
-//            }
+            Object next = node.next();
+            //if(next is ListBlock && ((ListBlock) next).isOrdered() == node.isOrdered() ) {
+                out += "\n";
+            //}
         }
         
     }
     
     public func visitListItem(node: ListItem) {
-//        if(!node.getParent().isNested() || !node.isFirstChild() || !node.getParent().isFirstChild()) {
+        if(!node.getParent().isNested() || !node.isFirstChild() || !node.getParent().isFirstChild()) {
             indent();
-//        }
+        }
         left.append("  ")
         if(node.number > 0) {
             out += String(node.number) + ".";
@@ -93,7 +93,7 @@ public class KoaraRenderer : Renderer {
 
         //out += node.value.replaceAll("(?m)^", indent.toString());
         out += "\n";
-//        indent();
+        indent();
         out += "```";
         out += "\n";
 
@@ -124,12 +124,12 @@ public class KoaraRenderer : Renderer {
         }
         node.childrenAccept(renderer: self);
         out += "\n";
-//        if(!node.isNested() || (node.getParent() instanceof ListItem && (node.next() instanceof Paragraph) && !node.isLastChild())) {
-//            out.append("\n");
-//        } else if(node.getParent() instanceof BlockQuote && (node.next() instanceof Paragraph)) {
+        if(!node.isNested() || (node.parent is ListItem && (node.next() is Paragraph) && !node.isLastChild())) {
+            out.append("\n");
+        } else if(node.parent is BlockQuote && (node.next() is Paragraph)) {
             indent();
             out += "\n";
-//        }
+        }
     }
     
     public func visitImage(node: Image) {
@@ -174,11 +174,11 @@ public class KoaraRenderer : Renderer {
     }
     
     public func visitText(node: Text) {
-//        if(node.getParent() instanceof Code) {
-        out += node.value as! String;
-//        } else {
-        out += escape(text: node.value as! String);
-//        }
+        if(node.parent is Code) {
+          out += node.value as! String;
+        } else {
+          out += escape(text: node.value as! String);
+        }
     }
     
 
