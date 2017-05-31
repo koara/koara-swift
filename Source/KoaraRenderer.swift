@@ -12,9 +12,9 @@ public class KoaraRenderer : Renderer {
     
     public func visitHeading(node: Heading) {
         if !node.isFirstChild() {
-            //indent();
+            indent();
         }
-        for i in 0..<node.level {
+        for _ in 0..<node.level {
             out += "="
         }
         if(node.hasChildren()) {
@@ -51,7 +51,7 @@ public class KoaraRenderer : Renderer {
         if(!node.isLastChild()) {
             indent()
             out += "\n";
-            Object next = node.next();
+            //next = node.next()
             //if(next is ListBlock && ((ListBlock) next).isOrdered() == node.isOrdered() ) {
                 out += "\n";
             //}
