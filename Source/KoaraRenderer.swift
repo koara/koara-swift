@@ -197,22 +197,20 @@ public class KoaraRenderer : Renderer {
     }
     
     private func escape(text: String) -> String {
-        //        return text.replaceAll("\\[", "\\\\[")
-        //            .replaceAll("\\]", "\\\\]")
-        //            .replaceAll("\\*", "\\\\*")
-        //            .replaceAll("\\_", "\\\\_")
-        //            .replaceFirst("\\`", "\\\\`")
-        //            .replaceFirst("\\=", "\\\\=")
-        //            .replaceFirst("\\>", "\\\\>")
-        //            .replaceFirst("\\-", "\\\\-")
-        //            .replaceFirst("(\\d+)\\.", "\\\\$1.");
+        return text.replacingOccurrences(of: "\\[", with: "\\\\[")
+            .replacingOccurrences(of: "\\]", with: "\\\\]")
+            .replacingOccurrences(of: "\\*", with: "\\\\*")
+            .replacingOccurrences(of: "\\_", with: "\\\\_")
+            .replacingOccurrences(of: "\\`", with: "\\\\`") // first
+            .replacingOccurrences(of: "\\=", with: "\\\\=") // first
+            .replacingOccurrences(of: "\\>", with: "\\\\>") // first
+            .replacingOccurrences(of: "\\-", with: "\\\\-") // first
+            .replacingOccurrences(of: "(\\d+)", with: "\\\\$1.") // first
     }
     
-    
     private func escapeUrl(text: String) -> String {
-        return text
-//    return text.replaceAll("\\(", "\\\\(")
-//				.replaceAll("\\)", "\\\\)");
+        return text.replacingOccurrences(of: "\\(", with: "\\\\(")
+            .replacingOccurrences(of: "\\)", with: "\\\\)")
     }
   
 }
