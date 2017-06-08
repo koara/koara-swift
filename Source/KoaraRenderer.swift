@@ -136,23 +136,22 @@ public class KoaraRenderer : Renderer {
         out += "[image: ";
         node.childrenAccept(renderer: self);
         out += "]";
-//        if(node.value && node.value.trim().length() > 0) {
+        if(node.value.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).characters.count > 0) {
             out += "(";
             out += escapeUrl(text: node.value as! String);
             out += ")";
-//        }
+        }
     }
     
     public func visitLink(node: Link) {
         out += "[";
         node.childrenAccept(renderer: self);
         out += "]";
-//        if(node.getValue() != null && node.getValue().toString().trim().length() > 0) {
+        if(node.value.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).characters.count > 0) {
             out += "(";
             out += escapeUrl(text: node.value as! String);
             out += ")";
-//        }
-        
+        }        
     }
     
     public func visitStrong(node: Strong) {
