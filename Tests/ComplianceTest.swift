@@ -4,8 +4,8 @@ import Foundation
 import Nimble
 import Quick
 
-class ComplianceTest: QuickSpec {
-    override func spec() {
+public class ComplianceTest: QuickSpec {
+    override public func spec() {
         describe("ComplianceTest") {
             let testsuite = URL(fileURLWithPath: #file).deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("testsuite")
             let modules = FileManager.default.enumerator(at: testsuite.appendingPathComponent("input"), includingPropertiesForKeys: [], options: [.skipsHiddenFiles])
@@ -35,7 +35,7 @@ class ComplianceTest: QuickSpec {
                         }
                     }
                     
-                   /* it("KoaraToKoara_\(testcase)") {
+                    it("KoaraToKoara_\(testcase)") {
                         do {
                             let expected = testsuite.appendingPathComponent("output").appendingPathComponent("html5").appendingPathComponent(module).appendingPathComponent("\(testcase).htm")
                             
@@ -52,7 +52,7 @@ class ComplianceTest: QuickSpec {
                         } catch {
                             fail()
                         }
-                    }*/
+                    }
 
                 }
             }

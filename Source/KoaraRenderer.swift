@@ -1,5 +1,8 @@
 public class KoaraRenderer : Renderer {
     
+    public init() {}
+    
+    
     var out: String = ""
     var left = Array<String>();
     var hardWrap : Bool = false
@@ -93,12 +96,12 @@ public class KoaraRenderer : Renderer {
 
         //out += node.value.replaceAll("(?m)^", indent.toString());
         out += "\n";
-        indent();
+        //indent();
         out += "```";
         out += "\n";
 
         if(!node.isLastChild()) {
-            indent();
+            //indent();
             out += "\n";
         }
         
@@ -210,6 +213,10 @@ public class KoaraRenderer : Renderer {
     private func escapeUrl(text: String) -> String {
         return text.replacingOccurrences(of: "\\(", with: "\\\\(")
             .replacingOccurrences(of: "\\)", with: "\\\\)")
+    }
+    
+    public func getOutput() -> String {
+        return out.trimmingCharacters(in: .whitespacesAndNewlines)
     }
   
 }
