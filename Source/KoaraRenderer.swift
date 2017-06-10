@@ -2,7 +2,6 @@ public class KoaraRenderer : Renderer {
     
     public init() {}
     
-    
     var out: String = ""
     var left = Array<String>();
     var hardWrap : Bool = false
@@ -42,10 +41,10 @@ public class KoaraRenderer : Renderer {
             node.childrenAccept(renderer: self);
             _ = left.popLast()
         } else {
-            out += ">\n";
+            out += ">\n"
         }
         if(!node.isNested()) {
-            out += "\n";
+            out += "\n"
         }
     }
     
@@ -54,10 +53,10 @@ public class KoaraRenderer : Renderer {
         if(!node.isLastChild()) {
             indent()
             out += "\n";
-            //next = node.next()
-            //if(next is ListBlock && ((ListBlock) next).isOrdered() == node.isOrdered() ) {
-                out += "\n";
-            //}
+            let next = node.next()
+            if(next is ListBlock && (next as! ListBlock).ordered == node.ordered) {
+                out += "\n"
+            }
         }
         
     }
@@ -83,28 +82,26 @@ public class KoaraRenderer : Renderer {
     }
     
     public func visitCodeBlock(node: CodeBlock) {
-        var indent = "";
+        var ind = "";
         for s in left {
-            indent += s
+            ind += s
         }
   
         out += "```";
         if(node.language != nil) {
             out += node.language
         }
-        out += "\n";
-
-        //out += node.value.replaceAll("(?m)^", indent.toString());
-        out += "\n";
-        //indent();
-        out += "```";
-        out += "\n";
+        out += "\n"
+        out += node.value.replacingOccurrences(of: "\n", with: "\n" + ind)
+        out += "\n"
+        indent()
+        out += "```"
+        out += "\n"
 
         if(!node.isLastChild()) {
-            //indent();
+            indent();
             out += "\n";
         }
-        
     }
     
     public func visitParagraph(node: Paragraph) {
