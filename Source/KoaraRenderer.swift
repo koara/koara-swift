@@ -109,13 +109,14 @@ public class KoaraRenderer : Renderer {
             indent();
         }
         node.childrenAccept(renderer: self);
-        out += "\n";
-//        if(!node.isNested() || (node.getParent() instanceof ListItem && (node.next() instanceof Paragraph) && !node.isLastChild())) {
-//            out.append("\n");
-//        } else if(node.getParent() instanceof BlockQuote && (node.next() instanceof Paragraph)) {
+        out += "\n"
+        
+        if(!node.isNested() || (node.parent is ListItem && node.next() is Paragraph) && !node.isLastChild()) {
+            out += "\n"
+        } else if(node.parent is BlockQuote && node.next() is Paragraph) {
             indent()
-            out += "\n";
-//        }
+            out += "\n"
+        }
     }
     
     public func visitBlockElement(node: BlockElement) {
