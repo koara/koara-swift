@@ -37,17 +37,22 @@ public class ComplianceTest: QuickSpec {
                     
                     it("KoaraToKoara_\(testcase)") {
                         do {
-                            let expected = testsuite.appendingPathComponent("output").appendingPathComponent("html5").appendingPathComponent(module).appendingPathComponent("\(testcase).htm")
+                            let expected = testsuite.appendingPathComponent("output").appendingPathComponent("koara").appendingPathComponent(module).appendingPathComponent("\(testcase).kd")
                             
                             let kd = try String(contentsOf: url, encoding: .utf8)
-                            let html = try String(contentsOf: expected, encoding: .utf8)
+                            let kdExpected = try String(contentsOf: expected, encoding: .utf8)
                             
                             let parser = Parser()
                             let document = parser.parse(kd)
                             let renderer = KoaraRenderer()
                             document.accept(renderer)
                             
-                            expect(renderer.getOutput()).to(equal(html))
+                            
+                            print(renderer.getOutput())
+                            print("---")
+                            print(kdExpected)
+                            
+                            expect(renderer.getOutput()).to(equal(kdExpected))
                             
                         } catch {
                             fail()
