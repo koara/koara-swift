@@ -152,10 +152,7 @@
 		A1B7F0991EB8D64900234892 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A131E16454A00419AB4 /* TokenManager.swift */; };
 		A1B7F09A1EB8D64900234892 /* TreeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A141E16454A00419AB4 /* TreeState.swift */; };
 		A1B7F09B1EB8D65B00234892 /* Koara.h in Headers */ = {isa = PBXBuildFile; fileRef = A17742B11E1539C100AB88FF /* Koara.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A1FF7ACB1EEE472500217E72 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FF7ACA1EEE472500217E72 /* String.swift */; };
-		A1FF7ACC1EEE472500217E72 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FF7ACA1EEE472500217E72 /* String.swift */; };
-		A1FF7ACD1EEE472500217E72 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FF7ACA1EEE472500217E72 /* String.swift */; };
-		A1FF7ACE1EEE472500217E72 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FF7ACA1EEE472500217E72 /* String.swift */; };
+		A1FF7AD01EEF99BB00217E72 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FF7ACF1EEF99BB00217E72 /* String.swift */; };
 		D16333003CA2159CCAD3711B /* Pods_Koara_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E8023EC187F607AC5E48E9 /* Pods_Koara_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -252,7 +249,7 @@
 		A1C363A31E15916300CC1874 /* StringReaderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringReaderTest.swift; path = Tests/StringReaderTest.swift; sourceTree = "<group>"; };
 		A1CDEBC41E8C08F900101814 /* End2EndTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = End2EndTest.swift; path = Tests/End2EndTest.swift; sourceTree = "<group>"; };
 		A1DBE20B1E5423F400BF0BF1 /* testsuite */ = {isa = PBXFileReference; lastKnownFileType = folder; path = testsuite; sourceTree = "<group>"; };
-		A1FF7ACA1EEE472500217E72 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		A1FF7ACF1EEF99BB00217E72 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Source/String.swift; sourceTree = "<group>"; };
 		B0D2AB0F4F7251F4D477A71C /* Pods_Koara_iOS_Koara_iOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koara_iOS_Koara_iOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3C6EFEE91DA8F9F8A47CB10 /* Pods-Koara macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koara macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Koara macOS/Pods-Koara macOS.release.xcconfig"; sourceTree = "<group>"; };
 		CB5E058C56205F17AD7114FA /* Pods-Koara tvOS-Koara tvOS Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koara tvOS-Koara tvOS Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Koara tvOS-Koara tvOS Tests/Pods-Koara tvOS-Koara tvOS Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -430,12 +427,12 @@
 				A17C85681ECDA71E00B51055 /* KoaraRenderer.swift */,
 				A1008A101E16454A00419AB4 /* Parser.swift */,
 				A1008A111E16454A00419AB4 /* Renderer.swift */,
+				A1FF7ACF1EEF99BB00217E72 /* String.swift */,
 				A1008A121E16454A00419AB4 /* Token.swift */,
 				A1008A131E16454A00419AB4 /* TokenManager.swift */,
 				A1008A141E16454A00419AB4 /* TreeState.swift */,
 				A17742B11E1539C100AB88FF /* Koara.h */,
 				A1B7EFAF1EAF114500234892 /* Info.plist */,
-				A1FF7ACA1EEE472500217E72 /* String.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -1037,7 +1034,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1FF7ACB1EEE472500217E72 /* String.swift in Sources */,
+				A1FF7AD01EEF99BB00217E72 /* String.swift in Sources */,
 				A1B7EFB71EAF119000234892 /* BlockElement.swift in Sources */,
 				A1B7EFB81EAF119000234892 /* BlockQuote.swift in Sources */,
 				A1B7EFB91EAF119000234892 /* Code.swift in Sources */,
@@ -1087,7 +1084,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1FF7ACC1EEE472500217E72 /* String.swift in Sources */,
 				A1B7F0181EB0EC3700234892 /* BlockElement.swift in Sources */,
 				A1B7F0191EB0EC3700234892 /* BlockQuote.swift in Sources */,
 				A1B7F01A1EB0EC3700234892 /* Code.swift in Sources */,
@@ -1137,7 +1133,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1FF7ACD1EEE472500217E72 /* String.swift in Sources */,
 				A1B7F0501EB50B5300234892 /* BlockElement.swift in Sources */,
 				A1B7F0511EB50B5300234892 /* BlockQuote.swift in Sources */,
 				A1B7F0521EB50B5300234892 /* Code.swift in Sources */,
@@ -1187,7 +1182,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1FF7ACE1EEE472500217E72 /* String.swift in Sources */,
 				A1B7F0801EB8D64900234892 /* BlockElement.swift in Sources */,
 				A1B7F0811EB8D64900234892 /* BlockQuote.swift in Sources */,
 				A1B7F0821EB8D64900234892 /* Code.swift in Sources */,

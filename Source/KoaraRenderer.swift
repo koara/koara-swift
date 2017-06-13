@@ -199,15 +199,13 @@ public class KoaraRenderer : Renderer {
     private func escape(text: String) -> String {
         return text.replacingOccurrences(of: "[", with: "\\[")
             .replacingOccurrences(of: "]", with: "\\]")
-            .replacingOccurrences(of: "\\*", with: "\\\\*")
-            .replacingOccurrences(of: "\\_", with: "\\\\_")
-            .replaceFirst(of: "\\`", with: "\\\\`")
-            .replaceFirst(of: "=", with: "\\=")
-            .replaceFirst(of: ">", with: "\\>")
-            .replaceFirst(of: "-", with: "\\-")
-    
-            
-                       //.replacingOccurrences(of: "(\\d+)", with: "\\\\$1", options: .regularExpression)
+            .replacingOccurrences(of: "*", with: "\\*")
+            .replacingOccurrences(of: "_", with: "\\_")
+            .escapeFirst(of: "\\`")
+            .escapeFirst(of: "=")
+            .escapeFirst(of: ">")
+            .escapeFirst(of: "-")
+            .escapeFirst(of: "(\\d+)\\.")
     }
     
     private func escapeUrl(text: String) -> String {
