@@ -25,8 +25,8 @@ public class BlockElement : Node {
     }
 
     func next() -> AnyObject? {
-        for (i, child) in (parent?.children.enumerated())! {
-            if(child === self) {
+        for i in 0 ..< (parent?.children.count)! - 1 {
+            if(parent?.children[i] === self) {
                 return parent?.children[i + 1]
             }
         }

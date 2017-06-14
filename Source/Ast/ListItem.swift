@@ -7,7 +7,7 @@ public class ListItem : BlockElement {
     }
     
     func getParent() -> ListBlock {
-        return self.getParent()
+        return super.parent as! ListBlock
     }
 
 }

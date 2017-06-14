@@ -65,6 +65,7 @@ public class KoaraRenderer : Renderer {
         if(!node.getParent().isNested() || !node.isFirstChild() || !node.getParent().isFirstChild()) {
             indent();
         }
+        
         left.append("  ")
         if(node.number > 0) {
             out += String(node.number) + ".";
@@ -78,7 +79,6 @@ public class KoaraRenderer : Renderer {
             out += "\n";
         }
         _ = left.popLast()
-        
     }
     
     public func visitCodeBlock(node: CodeBlock) {
@@ -209,8 +209,8 @@ public class KoaraRenderer : Renderer {
     }
     
     private func escapeUrl(text: String) -> String {
-        return text.replacingOccurrences(of: "\\(", with: "\\\\(")
-            .replacingOccurrences(of: "\\)", with: "\\\\)")
+        return text.replacingOccurrences(of: "(", with: "\\(")
+            .replacingOccurrences(of: ")", with: "\\)")
     }
     
     public func getOutput() -> String {
