@@ -314,7 +314,7 @@ public class Parser {
                 consumeToken(TokenManager.BACKTICK)
             }
         }
-        codeBlock.value = s as AnyObject
+                           codeBlock.value = s as AnyObject
         tree.closeScope(codeBlock)
     }
  
