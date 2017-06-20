@@ -106,8 +106,7 @@ public class CharStream {
         if (bufPos >= tokenBegin) {
             return String(buffer[tokenBegin..<(bufPos + 1)])
         }
-        //return String(buffer, tokenBegin, bufSize - tokenBegin) + String(buffer, 0, bufPos + 1);
-        return "Y"
+        return String(buffer[tokenBegin...(tokenBegin + bufPos)]) + String(buffer[0...bufPos + 1])
     }
     
     public func getEndColumn() -> Int {
