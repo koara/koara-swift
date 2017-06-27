@@ -17,7 +17,11 @@ public class StringReader : Reader {
                 let start = index + i
                 if(start < text.count) {
                     let c = text[start]
-                    buffer.insert(c, at: offset + i)
+                    if((offset + i) < buffer.count) {
+                        buffer[offset + i] = c
+                    } else {
+                        buffer.insert(c, at: offset + i)
+                    }
                     charactersRead += 1
                 }
             }

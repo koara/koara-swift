@@ -22,7 +22,7 @@ public class ComplianceTest: QuickSpec {
 
                             let kd = try String(contentsOf: url, encoding: .utf8)
                             let html = try String(contentsOf: expected, encoding: .utf8)
-                            
+    
                             let parser = Parser()
                             let document = parser.parse(kd)
                             let renderer = Html5Renderer()

@@ -45,19 +45,20 @@ public class CharStream {
     }
     
     func fillBuff() throws {
-        if maxNextCharInd == available {
-            if available == bufSize {
-                bufPos = 0
-                maxNextCharInd = 0
-                if tokenBegin > 2048 {
-                    available = tokenBegin
+        if (maxNextCharInd == available) {
+            if (available == bufSize) {
+                bufPos = 0;
+                maxNextCharInd = 0;
+                if (tokenBegin > 2048) {
+                    available = tokenBegin;
                 }
             } else {
-                available = bufSize
+                available = bufSize;
             }
         }
         var i = 0
         do {
+            print(buffer.count)
             i = reader.read(&buffer, offset: maxNextCharInd, length: (available - maxNextCharInd))
             if (i == -1) {
                 throw KoaraError.IOException()
@@ -106,7 +107,12 @@ public class CharStream {
         if (bufPos >= tokenBegin) {
             return String(buffer[tokenBegin..<(bufPos + 1)])
         }
-        return String(buffer[tokenBegin...(tokenBegin + bufPos)]) + String(buffer[0...bufPos + 1])
+        
+        print(buffer[0])
+      
+        //new String(buffer, tokenBegin, bufSize - tokenBegin)
+        //let str = String(buffer[tokenBegin...tokenBegin+1])// + String(buffer[0...bufPos + 1])
+        return "X"
     }
     
     public func getEndColumn() -> Int {
