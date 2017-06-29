@@ -92,6 +92,7 @@ public class KoaraRenderer : Renderer {
             out += node.language
         }
         out += "\n"
+        out += ind
         out += node.value.replacingOccurrences(of: "\n", with: "\n" + ind)
         out += "\n"
         indent()

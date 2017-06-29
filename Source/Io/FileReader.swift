@@ -20,7 +20,12 @@ public class FileReader {
             
                 if fileContent != "" {
                     for (i, c) in fileContent.characters.enumerated() {
-                        buffer[offset + i] = c
+                        if((offset + i) < buffer.count) {
+                            buffer[offset + i] = c
+                        } else {
+                            buffer.insert(c, at: offset + i)
+                        }
+
                         charactersRead += 1
                         index += String(c).utf8.count
                         if(charactersRead >= length) {

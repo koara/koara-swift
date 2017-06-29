@@ -21,7 +21,7 @@ class FileReaderTest: XCTestCase {
         XCTAssertEqual(buffer.count, 4)
         XCTAssertEqual(reader.read(&buffer, offset: 0, length: 4), -1)
     }
-    
+  
     func testReadPartOfString() {
         let reader = FileReader(file: URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("filereader.kd"))
         XCTAssertEqual(reader.read(&buffer, offset: 0, length: 2), 2)

@@ -35,7 +35,7 @@ public class ComplianceTest: QuickSpec {
                         }
                     }
                     
-                    /*it("KoaraToKoara_\(testcase)") {
+                    it("KoaraToKoara_\(testcase)") {
                         do {
                             let expected = testsuite.appendingPathComponent("output").appendingPathComponent("koara").appendingPathComponent(module).appendingPathComponent("\(testcase).kd")
                             
@@ -47,17 +47,12 @@ public class ComplianceTest: QuickSpec {
                             let renderer = KoaraRenderer()
                             document.accept(renderer)
                             
-                            
-                            print(renderer.getOutput())
-                            print("---")
-                            print(kdExpected)
-                            
                             expect(renderer.getOutput()).to(equal(kdExpected))
                             
                         } catch {
                             fail()
                         }
-                    }*/
+                    }
 
                 }
             }
