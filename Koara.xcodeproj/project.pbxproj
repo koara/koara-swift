@@ -12,6 +12,9 @@
 		56AF066AD37A2204BA157C46 /* Pods_Koara_macOS_Koara_macOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A1DE0EAF8578D2BAFDEB6F /* Pods_Koara_macOS_Koara_macOS_Tests.framework */; };
 		89B452B263ECD9A19D869616 /* Pods_Koara_iOS_Koara_iOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D2AB0F4F7251F4D477A71C /* Pods_Koara_iOS_Koara_iOS_Tests.framework */; };
 		93C7E094ED647EC2303C77C3 /* Pods_Koara_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5A74BC4FF56670260EE3DF /* Pods_Koara_macOS.framework */; };
+		A11FAB881F05FAB300F80B08 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FF7ACF1EEF99BB00217E72 /* String.swift */; };
+		A11FAB891F05FAB700F80B08 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FF7ACF1EEF99BB00217E72 /* String.swift */; };
+		A11FAB8A1F05FABC00F80B08 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FF7ACF1EEF99BB00217E72 /* String.swift */; };
 		A17C85691ECDA71E00B51055 /* KoaraRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C85681ECDA71E00B51055 /* KoaraRenderer.swift */; };
 		A17C856A1ECDA76700B51055 /* KoaraRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C85681ECDA71E00B51055 /* KoaraRenderer.swift */; };
 		A17C856B1ECDA76B00B51055 /* KoaraRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C85681ECDA71E00B51055 /* KoaraRenderer.swift */; };
@@ -1084,6 +1087,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A11FAB881F05FAB300F80B08 /* String.swift in Sources */,
 				A1B7F0181EB0EC3700234892 /* BlockElement.swift in Sources */,
 				A1B7F0191EB0EC3700234892 /* BlockQuote.swift in Sources */,
 				A1B7F01A1EB0EC3700234892 /* Code.swift in Sources */,
@@ -1133,6 +1137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A11FAB891F05FAB700F80B08 /* String.swift in Sources */,
 				A1B7F0501EB50B5300234892 /* BlockElement.swift in Sources */,
 				A1B7F0511EB50B5300234892 /* BlockQuote.swift in Sources */,
 				A1B7F0521EB50B5300234892 /* Code.swift in Sources */,
@@ -1182,6 +1187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A11FAB8A1F05FABC00F80B08 /* String.swift in Sources */,
 				A1B7F0801EB8D64900234892 /* BlockElement.swift in Sources */,
 				A1B7F0811EB8D64900234892 /* BlockQuote.swift in Sources */,
 				A1B7F0821EB8D64900234892 /* Code.swift in Sources */,
