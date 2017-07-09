@@ -381,15 +381,28 @@
 			name = Ast;
 			sourceTree = "<group>";
 		};
+		A11FABA91F124CBD00F80B08 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1B7EFA01EAF114500234892 /* Koara.framework */,
+				A1B7EFA81EAF114500234892 /* Koara iOS Tests.xctest */,
+				A1B7EFDF1EB0EC0800234892 /* Koara.framework */,
+				A1B7EFE71EB0EC0800234892 /* Koara macOS Tests.xctest */,
+				A1B7F0391EB5094A00234892 /* Koara.framework */,
+				A1B7F0411EB5094A00234892 /* Koara tvOS Tests.xctest */,
+				A1B7F0781EB8D5E800234892 /* Koara.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		A17741281E13F67C00AB88FF = {
 			isa = PBXGroup;
 			children = (
 				A1DBE20B1E5423F400BF0BF1 /* testsuite */,
 				A177421A1E14F6C500AB88FF /* Source */,
 				A17742191E14F6BC00AB88FF /* Tests */,
-				A1B7EFA01EAF114500234892 /* Koara.framework */,
+				A11FABA91F124CBD00F80B08 /* Products */,
 				A1B7EFA11EAF114500234892 /* Koara */,
-				A1B7EFA81EAF114500234892 /* Koara iOS Tests.xctest */,
 				3CA722604AF260482547F479 /* Pods */,
 				A1B7EFE01EB0EC0800234892 /* Koara macOS */,
 				A1B7EFEB1EB0EC0800234892 /* Koara macOSTests */,
@@ -397,11 +410,6 @@
 				A1B7F0451EB5094A00234892 /* Koara tvOSTests */,
 				A1B7F0791EB8D5E800234892 /* Koara */,
 				213BA9C94934F5E14B899BA8 /* Frameworks */,
-				A1B7EFDF1EB0EC0800234892 /* Koara.framework */,
-				A1B7EFE71EB0EC0800234892 /* Koara macOS Tests.xctest */,
-				A1B7F0391EB5094A00234892 /* Koara.framework */,
-				A1B7F0411EB5094A00234892 /* Koara tvOS Tests.xctest */,
-				A1B7F0781EB8D5E800234892 /* Koara.framework */,
 			);
 			sourceTree = "<group>";
 		};
