@@ -233,20 +233,10 @@
 		A1B7EFA81EAF114500234892 /* Koara iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Koara iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B7EFAF1EAF114500234892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = KoaraTests/Info.plist; sourceTree = "<group>"; };
 		A1B7EFDF1EB0EC0800234892 /* Koara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1B7EFE11EB0EC0800234892 /* Koara macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Koara macOS.h"; sourceTree = "<group>"; };
-		A1B7EFE21EB0EC0800234892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1B7EFE71EB0EC0800234892 /* Koara macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Koara macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1B7EFEC1EB0EC0800234892 /* Koara_macOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koara_macOSTests.swift; sourceTree = "<group>"; };
-		A1B7EFEE1EB0EC0800234892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1B7F0391EB5094A00234892 /* Koara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1B7F03B1EB5094A00234892 /* Koara tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Koara tvOS.h"; sourceTree = "<group>"; };
-		A1B7F03C1EB5094A00234892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1B7F0411EB5094A00234892 /* Koara tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Koara tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1B7F0461EB5094A00234892 /* Koara_tvOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koara_tvOSTests.swift; sourceTree = "<group>"; };
-		A1B7F0481EB5094A00234892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1B7F0781EB8D5E800234892 /* Koara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1B7F07A1EB8D5E800234892 /* Koara.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Koara.h; sourceTree = "<group>"; };
-		A1B7F07B1EB8D5E800234892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1C3639F1E15915700CC1874 /* Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reader.swift; path = Source/Io/Reader.swift; sourceTree = "<group>"; };
 		A1C363A01E15915700CC1874 /* StringReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringReader.swift; path = Source/Io/StringReader.swift; sourceTree = "<group>"; };
 		A1C363A31E15916300CC1874 /* StringReaderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringReaderTest.swift; path = Tests/StringReaderTest.swift; sourceTree = "<group>"; };
@@ -404,11 +394,6 @@
 				A11FABA91F124CBD00F80B08 /* Products */,
 				A1B7EFA11EAF114500234892 /* Koara */,
 				3CA722604AF260482547F479 /* Pods */,
-				A1B7EFE01EB0EC0800234892 /* Koara macOS */,
-				A1B7EFEB1EB0EC0800234892 /* Koara macOSTests */,
-				A1B7F03A1EB5094A00234892 /* Koara tvOS */,
-				A1B7F0451EB5094A00234892 /* Koara tvOSTests */,
-				A1B7F0791EB8D5E800234892 /* Koara */,
 				213BA9C94934F5E14B899BA8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -453,51 +438,6 @@
 			children = (
 				A1B7EFA21EAF114500234892 /* Koara.h */,
 				A1B7EFA31EAF114500234892 /* Info.plist */,
-			);
-			path = Koara;
-			sourceTree = "<group>";
-		};
-		A1B7EFE01EB0EC0800234892 /* Koara macOS */ = {
-			isa = PBXGroup;
-			children = (
-				A1B7EFE11EB0EC0800234892 /* Koara macOS.h */,
-				A1B7EFE21EB0EC0800234892 /* Info.plist */,
-			);
-			path = "Koara macOS";
-			sourceTree = "<group>";
-		};
-		A1B7EFEB1EB0EC0800234892 /* Koara macOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				A1B7EFEC1EB0EC0800234892 /* Koara_macOSTests.swift */,
-				A1B7EFEE1EB0EC0800234892 /* Info.plist */,
-			);
-			path = "Koara macOSTests";
-			sourceTree = "<group>";
-		};
-		A1B7F03A1EB5094A00234892 /* Koara tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				A1B7F03B1EB5094A00234892 /* Koara tvOS.h */,
-				A1B7F03C1EB5094A00234892 /* Info.plist */,
-			);
-			path = "Koara tvOS";
-			sourceTree = "<group>";
-		};
-		A1B7F0451EB5094A00234892 /* Koara tvOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				A1B7F0461EB5094A00234892 /* Koara_tvOSTests.swift */,
-				A1B7F0481EB5094A00234892 /* Info.plist */,
-			);
-			path = "Koara tvOSTests";
-			sourceTree = "<group>";
-		};
-		A1B7F0791EB8D5E800234892 /* Koara */ = {
-			isa = PBXGroup;
-			children = (
-				A1B7F07A1EB8D5E800234892 /* Koara.h */,
-				A1B7F07B1EB8D5E800234892 /* Info.plist */,
 			);
 			path = Koara;
 			sourceTree = "<group>";
