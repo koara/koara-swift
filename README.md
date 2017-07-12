@@ -11,7 +11,7 @@ If you are interested in converting koara to a specific outputFormat, please loo
 
 ## Getting started
 - CocoaPods
-  
+ 
   ```ruby
   use_frameworks!
 
@@ -22,7 +22,13 @@ If you are interested in converting koara to a specific outputFormat, please loo
 
 - Carthage
 
-- Swift Package Manager
+  ```
+  github "koara/koara-swift" ~> 4.4
+  ```
 
+- Swift Package Manager
+  ```
+  Swift Package Manager
+  ```
 
 
