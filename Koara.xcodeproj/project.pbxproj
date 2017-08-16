@@ -1,0 +1,1984 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2153ABA48906C33DFB6B44DA /* Pods_Koara_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEBDA1D82A1896583475A59 /* Pods_Koara_tvOS.framework */; };
+		31D8FA986F106D420AC6B8DF /* Pods_Koara_tvOS_Koara_tvOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4414C294C8713E767F0AD264 /* Pods_Koara_tvOS_Koara_tvOS_Tests.framework */; };
+		56AF066AD37A2204BA157C46 /* Pods_Koara_macOS_Koara_macOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A1DE0EAF8578D2BAFDEB6F /* Pods_Koara_macOS_Koara_macOS_Tests.framework */; };
+		89B452B263ECD9A19D869616 /* Pods_Koara_iOS_Koara_iOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D2AB0F4F7251F4D477A71C /* Pods_Koara_iOS_Koara_iOS_Tests.framework */; };
+		93C7E094ED647EC2303C77C3 /* Pods_Koara_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5A74BC4FF56670260EE3DF /* Pods_Koara_macOS.framework */; };
+		A17C85691ECDA71E00B51055 /* KoaraRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C85681ECDA71E00B51055 /* KoaraRenderer.swift */; };
+		A17C856A1ECDA76700B51055 /* KoaraRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C85681ECDA71E00B51055 /* KoaraRenderer.swift */; };
+		A17C856B1ECDA76B00B51055 /* KoaraRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C85681ECDA71E00B51055 /* KoaraRenderer.swift */; };
+		A17C856C1ECDA76E00B51055 /* KoaraRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C85681ECDA71E00B51055 /* KoaraRenderer.swift */; };
+		A1B7EFA91EAF114500234892 /* Koara.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B7EFA01EAF114500234892 /* Koara.framework */; };
+		A1B7EFB71EAF119000234892 /* BlockElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A1E1E16457700419AB4 /* BlockElement.swift */; };
+		A1B7EFB81EAF119000234892 /* BlockQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A1F1E16457700419AB4 /* BlockQuote.swift */; };
+		A1B7EFB91EAF119000234892 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A201E16457700419AB4 /* Code.swift */; };
+		A1B7EFBA1EAF119000234892 /* CodeBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A211E16457700419AB4 /* CodeBlock.swift */; };
+		A1B7EFBB1EAF119000234892 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A221E16457700419AB4 /* Document.swift */; };
+		A1B7EFBC1EAF119000234892 /* Em.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A231E16457700419AB4 /* Em.swift */; };
+		A1B7EFBD1EAF119000234892 /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A241E16457700419AB4 /* Heading.swift */; };
+		A1B7EFBE1EAF119000234892 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A251E16457700419AB4 /* Image.swift */; };
+		A1B7EFBF1EAF119000234892 /* LineBreak.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A261E16457700419AB4 /* LineBreak.swift */; };
+		A1B7EFC01EAF119000234892 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A271E16457700419AB4 /* Link.swift */; };
+		A1B7EFC11EAF119000234892 /* ListBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A281E16457700419AB4 /* ListBlock.swift */; };
+		A1B7EFC21EAF119000234892 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A291E16457700419AB4 /* ListItem.swift */; };
+		A1B7EFC31EAF119000234892 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A2A1E16457700419AB4 /* Node.swift */; };
+		A1B7EFC41EAF119000234892 /* Paragraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A2B1E16457700419AB4 /* Paragraph.swift */; };
+		A1B7EFC51EAF119000234892 /* Strong.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A2C1E16457700419AB4 /* Strong.swift */; };
+		A1B7EFC61EAF119000234892 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A2D1E16457700419AB4 /* Text.swift */; };
+		A1B7EFC71EAF119000234892 /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A091E16451F00419AB4 /* FileReader.swift */; };
+		A1B7EFC81EAF119000234892 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C3639F1E15915700CC1874 /* Reader.swift */; };
+		A1B7EFC91EAF119000234892 /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C363A01E15915700CC1874 /* StringReader.swift */; };
+		A1B7EFCA1EAF119000234892 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0D1E16454A00419AB4 /* Character.swift */; };
+		A1B7EFCB1EAF119000234892 /* CharStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0E1E16454A00419AB4 /* CharStream.swift */; };
+		A1B7EFCC1EAF119000234892 /* KoaraError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0F1E16454A00419AB4 /* KoaraError.swift */; };
+		A1B7EFCD1EAF119000234892 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A101E16454A00419AB4 /* Parser.swift */; };
+		A1B7EFCE1EAF119000234892 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A111E16454A00419AB4 /* Renderer.swift */; };
+		A1B7EFCF1EAF119000234892 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A121E16454A00419AB4 /* Token.swift */; };
+		A1B7EFD01EAF119000234892 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A131E16454A00419AB4 /* TokenManager.swift */; };
+		A1B7EFD11EAF119000234892 /* TreeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A141E16454A00419AB4 /* TreeState.swift */; };
+		A1B7EFD21EAF119900234892 /* CharStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A3E1E1645A200419AB4 /* CharStreamTests.swift */; };
+		A1B7EFD31EAF119900234892 /* ComplianceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A3F1E1645A200419AB4 /* ComplianceTest.swift */; };
+		A1B7EFD41EAF119900234892 /* Html5Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A401E1645A200419AB4 /* Html5Renderer.swift */; };
+		A1B7EFD51EAF119900234892 /* TokenManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A411E1645A200419AB4 /* TokenManagerTest.swift */; };
+		A1B7EFD61EAF119900234892 /* FileReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0B1E16452800419AB4 /* FileReaderTests.swift */; };
+		A1B7EFD71EAF119900234892 /* StringReaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C363A31E15916300CC1874 /* StringReaderTest.swift */; };
+		A1B7EFD81EAF119900234892 /* End2EndTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDEBC41E8C08F900101814 /* End2EndTest.swift */; };
+		A1B7EFD91EAF12B300234892 /* Koara.h in Headers */ = {isa = PBXBuildFile; fileRef = A17742B11E1539C100AB88FF /* Koara.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1B7EFE81EB0EC0800234892 /* Koara.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B7EFDF1EB0EC0800234892 /* Koara.framework */; };
+		A1B7F0111EB0EC3100234892 /* CharStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A3E1E1645A200419AB4 /* CharStreamTests.swift */; };
+		A1B7F0121EB0EC3100234892 /* ComplianceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A3F1E1645A200419AB4 /* ComplianceTest.swift */; };
+		A1B7F0131EB0EC3100234892 /* Html5Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A401E1645A200419AB4 /* Html5Renderer.swift */; };
+		A1B7F0141EB0EC3100234892 /* TokenManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A411E1645A200419AB4 /* TokenManagerTest.swift */; };
+		A1B7F0151EB0EC3100234892 /* FileReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0B1E16452800419AB4 /* FileReaderTests.swift */; };
+		A1B7F0161EB0EC3100234892 /* StringReaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C363A31E15916300CC1874 /* StringReaderTest.swift */; };
+		A1B7F0171EB0EC3100234892 /* End2EndTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDEBC41E8C08F900101814 /* End2EndTest.swift */; };
+		A1B7F0181EB0EC3700234892 /* BlockElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A1E1E16457700419AB4 /* BlockElement.swift */; };
+		A1B7F0191EB0EC3700234892 /* BlockQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A1F1E16457700419AB4 /* BlockQuote.swift */; };
+		A1B7F01A1EB0EC3700234892 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A201E16457700419AB4 /* Code.swift */; };
+		A1B7F01B1EB0EC3700234892 /* CodeBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A211E16457700419AB4 /* CodeBlock.swift */; };
+		A1B7F01C1EB0EC3700234892 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A221E16457700419AB4 /* Document.swift */; };
+		A1B7F01D1EB0EC3700234892 /* Em.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A231E16457700419AB4 /* Em.swift */; };
+		A1B7F01E1EB0EC3700234892 /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A241E16457700419AB4 /* Heading.swift */; };
+		A1B7F01F1EB0EC3700234892 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A251E16457700419AB4 /* Image.swift */; };
+		A1B7F0201EB0EC3700234892 /* LineBreak.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A261E16457700419AB4 /* LineBreak.swift */; };
+		A1B7F0211EB0EC3700234892 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A271E16457700419AB4 /* Link.swift */; };
+		A1B7F0221EB0EC3700234892 /* ListBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A281E16457700419AB4 /* ListBlock.swift */; };
+		A1B7F0231EB0EC3700234892 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A291E16457700419AB4 /* ListItem.swift */; };
+		A1B7F0241EB0EC3700234892 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A2A1E16457700419AB4 /* Node.swift */; };
+		A1B7F0251EB0EC3700234892 /* Paragraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A2B1E16457700419AB4 /* Paragraph.swift */; };
+		A1B7F0261EB0EC3700234892 /* Strong.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A2C1E16457700419AB4 /* Strong.swift */; };
+		A1B7F0271EB0EC3700234892 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A2D1E16457700419AB4 /* Text.swift */; };
+		A1B7F0281EB0EC3700234892 /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A091E16451F00419AB4 /* FileReader.swift */; };
+		A1B7F0291EB0EC3700234892 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C3639F1E15915700CC1874 /* Reader.swift */; };
+		A1B7F02A1EB0EC3700234892 /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C363A01E15915700CC1874 /* StringReader.swift */; };
+		A1B7F02B1EB0EC3700234892 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0D1E16454A00419AB4 /* Character.swift */; };
+		A1B7F02C1EB0EC3700234892 /* CharStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0E1E16454A00419AB4 /* CharStream.swift */; };
+		A1B7F02D1EB0EC3700234892 /* KoaraError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0F1E16454A00419AB4 /* KoaraError.swift */; };
+		A1B7F02E1EB0EC3700234892 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A101E16454A00419AB4 /* Parser.swift */; };
+		A1B7F02F1EB0EC3700234892 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A111E16454A00419AB4 /* Renderer.swift */; };
+		A1B7F0301EB0EC3700234892 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A121E16454A00419AB4 /* Token.swift */; };
+		A1B7F0311EB0EC3700234892 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A131E16454A00419AB4 /* TokenManager.swift */; };
+		A1B7F0321EB0EC3700234892 /* TreeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A141E16454A00419AB4 /* TreeState.swift */; };
+		A1B7F0331EB0ED1D00234892 /* Koara.h in Headers */ = {isa = PBXBuildFile; fileRef = A17742B11E1539C100AB88FF /* Koara.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1B7F0421EB5094A00234892 /* Koara.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B7F0391EB5094A00234892 /* Koara.framework */; };
+		A1B7F0501EB50B5300234892 /* BlockElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A1E1E16457700419AB4 /* BlockElement.swift */; };
+		A1B7F0511EB50B5300234892 /* BlockQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A1F1E16457700419AB4 /* BlockQuote.swift */; };
+		A1B7F0521EB50B5300234892 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A201E16457700419AB4 /* Code.swift */; };
+		A1B7F0531EB50B5300234892 /* CodeBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A211E16457700419AB4 /* CodeBlock.swift */; };
+		A1B7F0541EB50B5300234892 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A221E16457700419AB4 /* Document.swift */; };
+		A1B7F0551EB50B5300234892 /* Em.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A231E16457700419AB4 /* Em.swift */; };
+		A1B7F0561EB50B5300234892 /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A241E16457700419AB4 /* Heading.swift */; };
+		A1B7F0571EB50B5300234892 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A251E16457700419AB4 /* Image.swift */; };
+		A1B7F0581EB50B5300234892 /* LineBreak.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A261E16457700419AB4 /* LineBreak.swift */; };
+		A1B7F0591EB50B5300234892 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A271E16457700419AB4 /* Link.swift */; };
+		A1B7F05A1EB50B5400234892 /* ListBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A281E16457700419AB4 /* ListBlock.swift */; };
+		A1B7F05B1EB50B5400234892 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A291E16457700419AB4 /* ListItem.swift */; };
+		A1B7F05C1EB50B5400234892 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A2A1E16457700419AB4 /* Node.swift */; };
+		A1B7F05D1EB50B5400234892 /* Paragraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A2B1E16457700419AB4 /* Paragraph.swift */; };
+		A1B7F05E1EB50B5400234892 /* Strong.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A2C1E16457700419AB4 /* Strong.swift */; };
+		A1B7F05F1EB50B5400234892 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A2D1E16457700419AB4 /* Text.swift */; };
+		A1B7F0601EB50B5400234892 /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A091E16451F00419AB4 /* FileReader.swift */; };
+		A1B7F0611EB50B5400234892 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C3639F1E15915700CC1874 /* Reader.swift */; };
+		A1B7F0621EB50B5400234892 /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C363A01E15915700CC1874 /* StringReader.swift */; };
+		A1B7F0631EB50B5400234892 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0D1E16454A00419AB4 /* Character.swift */; };
+		A1B7F0641EB50B5400234892 /* CharStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0E1E16454A00419AB4 /* CharStream.swift */; };
+		A1B7F0651EB50B5400234892 /* KoaraError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0F1E16454A00419AB4 /* KoaraError.swift */; };
+		A1B7F0661EB50B5400234892 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A101E16454A00419AB4 /* Parser.swift */; };
+		A1B7F0671EB50B5400234892 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A111E16454A00419AB4 /* Renderer.swift */; };
+		A1B7F0681EB50B5400234892 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A121E16454A00419AB4 /* Token.swift */; };
+		A1B7F0691EB50B5400234892 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A131E16454A00419AB4 /* TokenManager.swift */; };
+		A1B7F06A1EB50B5400234892 /* TreeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A141E16454A00419AB4 /* TreeState.swift */; };
+		A1B7F06B1EB50B8300234892 /* CharStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A3E1E1645A200419AB4 /* CharStreamTests.swift */; };
+		A1B7F06C1EB50B8300234892 /* ComplianceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A3F1E1645A200419AB4 /* ComplianceTest.swift */; };
+		A1B7F06D1EB50B8300234892 /* Html5Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A401E1645A200419AB4 /* Html5Renderer.swift */; };
+		A1B7F06E1EB50B8300234892 /* TokenManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A411E1645A200419AB4 /* TokenManagerTest.swift */; };
+		A1B7F06F1EB50B8300234892 /* FileReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0B1E16452800419AB4 /* FileReaderTests.swift */; };
+		A1B7F0701EB50B8300234892 /* StringReaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C363A31E15916300CC1874 /* StringReaderTest.swift */; };
+		A1B7F0711EB50B8300234892 /* End2EndTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDEBC41E8C08F900101814 /* End2EndTest.swift */; };
+		A1B7F0721EB7300100234892 /* Koara.h in Headers */ = {isa = PBXBuildFile; fileRef = A17742B11E1539C100AB88FF /* Koara.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1B7F0801EB8D64900234892 /* BlockElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A1E1E16457700419AB4 /* BlockElement.swift */; };
+		A1B7F0811EB8D64900234892 /* BlockQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A1F1E16457700419AB4 /* BlockQuote.swift */; };
+		A1B7F0821EB8D64900234892 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A201E16457700419AB4 /* Code.swift */; };
+		A1B7F0831EB8D64900234892 /* CodeBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A211E16457700419AB4 /* CodeBlock.swift */; };
+		A1B7F0841EB8D64900234892 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A221E16457700419AB4 /* Document.swift */; };
+		A1B7F0851EB8D64900234892 /* Em.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A231E16457700419AB4 /* Em.swift */; };
+		A1B7F0861EB8D64900234892 /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A241E16457700419AB4 /* Heading.swift */; };
+		A1B7F0871EB8D64900234892 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A251E16457700419AB4 /* Image.swift */; };
+		A1B7F0881EB8D64900234892 /* LineBreak.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A261E16457700419AB4 /* LineBreak.swift */; };
+		A1B7F0891EB8D64900234892 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A271E16457700419AB4 /* Link.swift */; };
+		A1B7F08A1EB8D64900234892 /* ListBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A281E16457700419AB4 /* ListBlock.swift */; };
+		A1B7F08B1EB8D64900234892 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A291E16457700419AB4 /* ListItem.swift */; };
+		A1B7F08C1EB8D64900234892 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A2A1E16457700419AB4 /* Node.swift */; };
+		A1B7F08D1EB8D64900234892 /* Paragraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A2B1E16457700419AB4 /* Paragraph.swift */; };
+		A1B7F08E1EB8D64900234892 /* Strong.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A2C1E16457700419AB4 /* Strong.swift */; };
+		A1B7F08F1EB8D64900234892 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A2D1E16457700419AB4 /* Text.swift */; };
+		A1B7F0901EB8D64900234892 /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A091E16451F00419AB4 /* FileReader.swift */; };
+		A1B7F0911EB8D64900234892 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C3639F1E15915700CC1874 /* Reader.swift */; };
+		A1B7F0921EB8D64900234892 /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C363A01E15915700CC1874 /* StringReader.swift */; };
+		A1B7F0931EB8D64900234892 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0D1E16454A00419AB4 /* Character.swift */; };
+		A1B7F0941EB8D64900234892 /* CharStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0E1E16454A00419AB4 /* CharStream.swift */; };
+		A1B7F0951EB8D64900234892 /* KoaraError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0F1E16454A00419AB4 /* KoaraError.swift */; };
+		A1B7F0961EB8D64900234892 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A101E16454A00419AB4 /* Parser.swift */; };
+		A1B7F0971EB8D64900234892 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A111E16454A00419AB4 /* Renderer.swift */; };
+		A1B7F0981EB8D64900234892 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A121E16454A00419AB4 /* Token.swift */; };
+		A1B7F0991EB8D64900234892 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A131E16454A00419AB4 /* TokenManager.swift */; };
+		A1B7F09A1EB8D64900234892 /* TreeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A141E16454A00419AB4 /* TreeState.swift */; };
+		A1B7F09B1EB8D65B00234892 /* Koara.h in Headers */ = {isa = PBXBuildFile; fileRef = A17742B11E1539C100AB88FF /* Koara.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1C99A791F414D7400966C25 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FF7ACF1EEF99BB00217E72 /* String.swift */; };
+		A1C99A7A1F414D7800966C25 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FF7ACF1EEF99BB00217E72 /* String.swift */; };
+		A1C99A7B1F414D7E00966C25 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FF7ACF1EEF99BB00217E72 /* String.swift */; };
+		A1FF7AD01EEF99BB00217E72 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FF7ACF1EEF99BB00217E72 /* String.swift */; };
+		D16333003CA2159CCAD3711B /* Pods_Koara_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E8023EC187F607AC5E48E9 /* Pods_Koara_iOS.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A1B7EFAA1EAF114500234892 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A17741291E13F67C00AB88FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1B7EF9F1EAF114500234892;
+			remoteInfo = Koara;
+		};
+		A1B7EFE91EB0EC0800234892 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A17741291E13F67C00AB88FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1B7EFDE1EB0EC0800234892;
+			remoteInfo = "Koara macOS";
+		};
+		A1B7F0431EB5094A00234892 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A17741291E13F67C00AB88FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1B7F0381EB5094A00234892;
+			remoteInfo = "Koara tvOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0AEBDA1D82A1896583475A59 /* Pods_Koara_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koara_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CCCB1D2CD7EB904E220242A /* Pods-Koara macOS-Koara macOS Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koara macOS-Koara macOS Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Koara macOS-Koara macOS Tests/Pods-Koara macOS-Koara macOS Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		0D0BC79887FDF97C60D7DACA /* Pods-Koara iOS-Koara iOS Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koara iOS-Koara iOS Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Koara iOS-Koara iOS Tests/Pods-Koara iOS-Koara iOS Tests.release.xcconfig"; sourceTree = "<group>"; };
+		0EF6AE854AE4391E67B9595D /* Pods_Koara_watchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koara_watchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		25E28992128FC5020F075C09 /* Pods-Koara tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koara tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Koara tvOS/Pods-Koara tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		4414C294C8713E767F0AD264 /* Pods_Koara_tvOS_Koara_tvOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koara_tvOS_Koara_tvOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48ED1A55E33E08C7F239D4DF /* Pods-Koara iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koara iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Koara iOS/Pods-Koara iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		5B324C12BDED82672609FD90 /* Pods-Koara tvOS-Koara tvOS Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koara tvOS-Koara tvOS Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Koara tvOS-Koara tvOS Tests/Pods-Koara tvOS-Koara tvOS Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		625F33F00672F57B7FABFB5D /* Pods-Koara macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koara macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Koara macOS/Pods-Koara macOS.debug.xcconfig"; sourceTree = "<group>"; };
+		6C838317AC6AB36A61AF16D9 /* Pods-Koara macOS-Koara macOS Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koara macOS-Koara macOS Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Koara macOS-Koara macOS Tests/Pods-Koara macOS-Koara macOS Tests.release.xcconfig"; sourceTree = "<group>"; };
+		8C5A74BC4FF56670260EE3DF /* Pods_Koara_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koara_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1008A091E16451F00419AB4 /* FileReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileReader.swift; path = Source/Io/FileReader.swift; sourceTree = "<group>"; };
+		A1008A0B1E16452800419AB4 /* FileReaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileReaderTests.swift; path = Tests/FileReaderTests.swift; sourceTree = "<group>"; };
+		A1008A0D1E16454A00419AB4 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Character.swift; path = Source/Character.swift; sourceTree = "<group>"; };
+		A1008A0E1E16454A00419AB4 /* CharStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharStream.swift; path = Source/CharStream.swift; sourceTree = "<group>"; };
+		A1008A0F1E16454A00419AB4 /* KoaraError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KoaraError.swift; path = Source/KoaraError.swift; sourceTree = "<group>"; };
+		A1008A101E16454A00419AB4 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Source/Parser.swift; sourceTree = "<group>"; };
+		A1008A111E16454A00419AB4 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Renderer.swift; path = Source/Renderer.swift; sourceTree = "<group>"; };
+		A1008A121E16454A00419AB4 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Token.swift; path = Source/Token.swift; sourceTree = "<group>"; };
+		A1008A131E16454A00419AB4 /* TokenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TokenManager.swift; path = Source/TokenManager.swift; sourceTree = "<group>"; };
+		A1008A141E16454A00419AB4 /* TreeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TreeState.swift; path = Source/TreeState.swift; sourceTree = "<group>"; };
+		A1008A1E1E16457700419AB4 /* BlockElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockElement.swift; path = Source/Ast/BlockElement.swift; sourceTree = "<group>"; };
+		A1008A1F1E16457700419AB4 /* BlockQuote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockQuote.swift; path = Source/Ast/BlockQuote.swift; sourceTree = "<group>"; };
+		A1008A201E16457700419AB4 /* Code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Code.swift; path = Source/Ast/Code.swift; sourceTree = "<group>"; };
+		A1008A211E16457700419AB4 /* CodeBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CodeBlock.swift; path = Source/Ast/CodeBlock.swift; sourceTree = "<group>"; };
+		A1008A221E16457700419AB4 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Document.swift; path = Source/Ast/Document.swift; sourceTree = "<group>"; };
+		A1008A231E16457700419AB4 /* Em.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Em.swift; path = Source/Ast/Em.swift; sourceTree = "<group>"; };
+		A1008A241E16457700419AB4 /* Heading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Heading.swift; path = Source/Ast/Heading.swift; sourceTree = "<group>"; };
+		A1008A251E16457700419AB4 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Image.swift; path = Source/Ast/Image.swift; sourceTree = "<group>"; };
+		A1008A261E16457700419AB4 /* LineBreak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LineBreak.swift; path = Source/Ast/LineBreak.swift; sourceTree = "<group>"; };
+		A1008A271E16457700419AB4 /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Link.swift; path = Source/Ast/Link.swift; sourceTree = "<group>"; };
+		A1008A281E16457700419AB4 /* ListBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListBlock.swift; path = Source/Ast/ListBlock.swift; sourceTree = "<group>"; };
+		A1008A291E16457700419AB4 /* ListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListItem.swift; path = Source/Ast/ListItem.swift; sourceTree = "<group>"; };
+		A1008A2A1E16457700419AB4 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Node.swift; path = Source/Ast/Node.swift; sourceTree = "<group>"; };
+		A1008A2B1E16457700419AB4 /* Paragraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Paragraph.swift; path = Source/Ast/Paragraph.swift; sourceTree = "<group>"; };
+		A1008A2C1E16457700419AB4 /* Strong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Strong.swift; path = Source/Ast/Strong.swift; sourceTree = "<group>"; };
+		A1008A2D1E16457700419AB4 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Text.swift; path = Source/Ast/Text.swift; sourceTree = "<group>"; };
+		A1008A3E1E1645A200419AB4 /* CharStreamTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharStreamTests.swift; path = Tests/CharStreamTests.swift; sourceTree = "<group>"; };
+		A1008A3F1E1645A200419AB4 /* ComplianceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComplianceTest.swift; path = Tests/ComplianceTest.swift; sourceTree = "<group>"; };
+		A1008A401E1645A200419AB4 /* Html5Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Html5Renderer.swift; path = Tests/Html5Renderer.swift; sourceTree = "<group>"; };
+		A1008A411E1645A200419AB4 /* TokenManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TokenManagerTest.swift; path = Tests/TokenManagerTest.swift; sourceTree = "<group>"; };
+		A17742B11E1539C100AB88FF /* Koara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Koara.h; path = Source/Koara.h; sourceTree = "<group>"; };
+		A17C85681ECDA71E00B51055 /* KoaraRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KoaraRenderer.swift; path = Source/KoaraRenderer.swift; sourceTree = "<group>"; };
+		A1B7EFA01EAF114500234892 /* Koara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B7EFA21EAF114500234892 /* Koara.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Koara.h; sourceTree = "<group>"; };
+		A1B7EFA31EAF114500234892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1B7EFA81EAF114500234892 /* Koara iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Koara iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B7EFAF1EAF114500234892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = KoaraTests/Info.plist; sourceTree = "<group>"; };
+		A1B7EFDF1EB0EC0800234892 /* Koara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B7EFE11EB0EC0800234892 /* Koara macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Koara macOS.h"; sourceTree = "<group>"; };
+		A1B7EFE21EB0EC0800234892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1B7EFE71EB0EC0800234892 /* Koara macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Koara macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B7EFEC1EB0EC0800234892 /* Koara_macOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koara_macOSTests.swift; sourceTree = "<group>"; };
+		A1B7EFEE1EB0EC0800234892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1B7F0391EB5094A00234892 /* Koara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B7F03B1EB5094A00234892 /* Koara tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Koara tvOS.h"; sourceTree = "<group>"; };
+		A1B7F03C1EB5094A00234892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1B7F0411EB5094A00234892 /* Koara tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Koara tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B7F0461EB5094A00234892 /* Koara_tvOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koara_tvOSTests.swift; sourceTree = "<group>"; };
+		A1B7F0481EB5094A00234892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1B7F0781EB8D5E800234892 /* Koara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Koara.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B7F07A1EB8D5E800234892 /* Koara.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Koara.h; sourceTree = "<group>"; };
+		A1B7F07B1EB8D5E800234892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1C3639F1E15915700CC1874 /* Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reader.swift; path = Source/Io/Reader.swift; sourceTree = "<group>"; };
+		A1C363A01E15915700CC1874 /* StringReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringReader.swift; path = Source/Io/StringReader.swift; sourceTree = "<group>"; };
+		A1C363A31E15916300CC1874 /* StringReaderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringReaderTest.swift; path = Tests/StringReaderTest.swift; sourceTree = "<group>"; };
+		A1CDEBC41E8C08F900101814 /* End2EndTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = End2EndTest.swift; path = Tests/End2EndTest.swift; sourceTree = "<group>"; };
+		A1DBE20B1E5423F400BF0BF1 /* testsuite */ = {isa = PBXFileReference; lastKnownFileType = folder; path = testsuite; sourceTree = "<group>"; };
+		A1FF7ACF1EEF99BB00217E72 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Source/String.swift; sourceTree = "<group>"; };
+		B0D2AB0F4F7251F4D477A71C /* Pods_Koara_iOS_Koara_iOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koara_iOS_Koara_iOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3C6EFEE91DA8F9F8A47CB10 /* Pods-Koara macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koara macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Koara macOS/Pods-Koara macOS.release.xcconfig"; sourceTree = "<group>"; };
+		CB5E058C56205F17AD7114FA /* Pods-Koara tvOS-Koara tvOS Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koara tvOS-Koara tvOS Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Koara tvOS-Koara tvOS Tests/Pods-Koara tvOS-Koara tvOS Tests.release.xcconfig"; sourceTree = "<group>"; };
+		CBC1740B31CF873F8D1083A3 /* Pods-Koara iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koara iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Koara iOS/Pods-Koara iOS.release.xcconfig"; sourceTree = "<group>"; };
+		DAC7A0C228C5C3CD4384E796 /* Pods-Koara tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koara tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Koara tvOS/Pods-Koara tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		E8E8023EC187F607AC5E48E9 /* Pods_Koara_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koara_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2A1DE0EAF8578D2BAFDEB6F /* Pods_Koara_macOS_Koara_macOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koara_macOS_Koara_macOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9E6B3B5AC216C6D88B47891 /* Pods-Koara iOS-Koara iOS Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koara iOS-Koara iOS Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Koara iOS-Koara iOS Tests/Pods-Koara iOS-Koara iOS Tests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A1B7EF9C1EAF114500234892 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D16333003CA2159CCAD3711B /* Pods_Koara_iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7EFA51EAF114500234892 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B7EFA91EAF114500234892 /* Koara.framework in Frameworks */,
+				89B452B263ECD9A19D869616 /* Pods_Koara_iOS_Koara_iOS_Tests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7EFDB1EB0EC0800234892 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93C7E094ED647EC2303C77C3 /* Pods_Koara_macOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7EFE41EB0EC0800234892 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B7EFE81EB0EC0800234892 /* Koara.framework in Frameworks */,
+				56AF066AD37A2204BA157C46 /* Pods_Koara_macOS_Koara_macOS_Tests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7F0351EB5094A00234892 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2153ABA48906C33DFB6B44DA /* Pods_Koara_tvOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7F03E1EB5094A00234892 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B7F0421EB5094A00234892 /* Koara.framework in Frameworks */,
+				31D8FA986F106D420AC6B8DF /* Pods_Koara_tvOS_Koara_tvOS_Tests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7F0741EB8D5E800234892 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		213BA9C94934F5E14B899BA8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E8E8023EC187F607AC5E48E9 /* Pods_Koara_iOS.framework */,
+				B0D2AB0F4F7251F4D477A71C /* Pods_Koara_iOS_Koara_iOS_Tests.framework */,
+				8C5A74BC4FF56670260EE3DF /* Pods_Koara_macOS.framework */,
+				F2A1DE0EAF8578D2BAFDEB6F /* Pods_Koara_macOS_Koara_macOS_Tests.framework */,
+				0AEBDA1D82A1896583475A59 /* Pods_Koara_tvOS.framework */,
+				4414C294C8713E767F0AD264 /* Pods_Koara_tvOS_Koara_tvOS_Tests.framework */,
+				0EF6AE854AE4391E67B9595D /* Pods_Koara_watchOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3CA722604AF260482547F479 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				48ED1A55E33E08C7F239D4DF /* Pods-Koara iOS.debug.xcconfig */,
+				CBC1740B31CF873F8D1083A3 /* Pods-Koara iOS.release.xcconfig */,
+				F9E6B3B5AC216C6D88B47891 /* Pods-Koara iOS-Koara iOS Tests.debug.xcconfig */,
+				0D0BC79887FDF97C60D7DACA /* Pods-Koara iOS-Koara iOS Tests.release.xcconfig */,
+				625F33F00672F57B7FABFB5D /* Pods-Koara macOS.debug.xcconfig */,
+				B3C6EFEE91DA8F9F8A47CB10 /* Pods-Koara macOS.release.xcconfig */,
+				0CCCB1D2CD7EB904E220242A /* Pods-Koara macOS-Koara macOS Tests.debug.xcconfig */,
+				6C838317AC6AB36A61AF16D9 /* Pods-Koara macOS-Koara macOS Tests.release.xcconfig */,
+				DAC7A0C228C5C3CD4384E796 /* Pods-Koara tvOS.debug.xcconfig */,
+				25E28992128FC5020F075C09 /* Pods-Koara tvOS.release.xcconfig */,
+				5B324C12BDED82672609FD90 /* Pods-Koara tvOS-Koara tvOS Tests.debug.xcconfig */,
+				CB5E058C56205F17AD7114FA /* Pods-Koara tvOS-Koara tvOS Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A1008A1D1E16455400419AB4 /* Ast */ = {
+			isa = PBXGroup;
+			children = (
+				A1008A1E1E16457700419AB4 /* BlockElement.swift */,
+				A1008A1F1E16457700419AB4 /* BlockQuote.swift */,
+				A1008A201E16457700419AB4 /* Code.swift */,
+				A1008A211E16457700419AB4 /* CodeBlock.swift */,
+				A1008A221E16457700419AB4 /* Document.swift */,
+				A1008A231E16457700419AB4 /* Em.swift */,
+				A1008A241E16457700419AB4 /* Heading.swift */,
+				A1008A251E16457700419AB4 /* Image.swift */,
+				A1008A261E16457700419AB4 /* LineBreak.swift */,
+				A1008A271E16457700419AB4 /* Link.swift */,
+				A1008A281E16457700419AB4 /* ListBlock.swift */,
+				A1008A291E16457700419AB4 /* ListItem.swift */,
+				A1008A2A1E16457700419AB4 /* Node.swift */,
+				A1008A2B1E16457700419AB4 /* Paragraph.swift */,
+				A1008A2C1E16457700419AB4 /* Strong.swift */,
+				A1008A2D1E16457700419AB4 /* Text.swift */,
+			);
+			name = Ast;
+			sourceTree = "<group>";
+		};
+		A17741281E13F67C00AB88FF = {
+			isa = PBXGroup;
+			children = (
+				A1DBE20B1E5423F400BF0BF1 /* testsuite */,
+				A177421A1E14F6C500AB88FF /* Source */,
+				A17742191E14F6BC00AB88FF /* Tests */,
+				A1B7EFA01EAF114500234892 /* Koara.framework */,
+				A1B7EFA11EAF114500234892 /* Koara */,
+				A1B7EFA81EAF114500234892 /* Koara iOS Tests.xctest */,
+				3CA722604AF260482547F479 /* Pods */,
+				A1B7EFE01EB0EC0800234892 /* Koara macOS */,
+				A1B7EFEB1EB0EC0800234892 /* Koara macOSTests */,
+				A1B7F03A1EB5094A00234892 /* Koara tvOS */,
+				A1B7F0451EB5094A00234892 /* Koara tvOSTests */,
+				A1B7F0791EB8D5E800234892 /* Koara */,
+				213BA9C94934F5E14B899BA8 /* Frameworks */,
+				A1B7EFDF1EB0EC0800234892 /* Koara.framework */,
+				A1B7EFE71EB0EC0800234892 /* Koara macOS Tests.xctest */,
+				A1B7F0391EB5094A00234892 /* Koara.framework */,
+				A1B7F0411EB5094A00234892 /* Koara tvOS Tests.xctest */,
+				A1B7F0781EB8D5E800234892 /* Koara.framework */,
+			);
+			sourceTree = "<group>";
+		};
+		A17742191E14F6BC00AB88FF /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A1008A3E1E1645A200419AB4 /* CharStreamTests.swift */,
+				A1008A3F1E1645A200419AB4 /* ComplianceTest.swift */,
+				A1008A401E1645A200419AB4 /* Html5Renderer.swift */,
+				A1008A411E1645A200419AB4 /* TokenManagerTest.swift */,
+				A1008A0B1E16452800419AB4 /* FileReaderTests.swift */,
+				A1C363A31E15916300CC1874 /* StringReaderTest.swift */,
+				A1CDEBC41E8C08F900101814 /* End2EndTest.swift */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
+		A177421A1E14F6C500AB88FF /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				A1008A1D1E16455400419AB4 /* Ast */,
+				A1C3639E1E15912C00CC1874 /* Io */,
+				A1008A0D1E16454A00419AB4 /* Character.swift */,
+				A1008A0E1E16454A00419AB4 /* CharStream.swift */,
+				A1008A0F1E16454A00419AB4 /* KoaraError.swift */,
+				A17C85681ECDA71E00B51055 /* KoaraRenderer.swift */,
+				A1008A101E16454A00419AB4 /* Parser.swift */,
+				A1008A111E16454A00419AB4 /* Renderer.swift */,
+				A1FF7ACF1EEF99BB00217E72 /* String.swift */,
+				A1008A121E16454A00419AB4 /* Token.swift */,
+				A1008A131E16454A00419AB4 /* TokenManager.swift */,
+				A1008A141E16454A00419AB4 /* TreeState.swift */,
+				A17742B11E1539C100AB88FF /* Koara.h */,
+				A1B7EFAF1EAF114500234892 /* Info.plist */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		A1B7EFA11EAF114500234892 /* Koara */ = {
+			isa = PBXGroup;
+			children = (
+				A1B7EFA21EAF114500234892 /* Koara.h */,
+				A1B7EFA31EAF114500234892 /* Info.plist */,
+			);
+			path = Koara;
+			sourceTree = "<group>";
+		};
+		A1B7EFE01EB0EC0800234892 /* Koara macOS */ = {
+			isa = PBXGroup;
+			children = (
+				A1B7EFE11EB0EC0800234892 /* Koara macOS.h */,
+				A1B7EFE21EB0EC0800234892 /* Info.plist */,
+			);
+			path = "Koara macOS";
+			sourceTree = "<group>";
+		};
+		A1B7EFEB1EB0EC0800234892 /* Koara macOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				A1B7EFEC1EB0EC0800234892 /* Koara_macOSTests.swift */,
+				A1B7EFEE1EB0EC0800234892 /* Info.plist */,
+			);
+			path = "Koara macOSTests";
+			sourceTree = "<group>";
+		};
+		A1B7F03A1EB5094A00234892 /* Koara tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				A1B7F03B1EB5094A00234892 /* Koara tvOS.h */,
+				A1B7F03C1EB5094A00234892 /* Info.plist */,
+			);
+			path = "Koara tvOS";
+			sourceTree = "<group>";
+		};
+		A1B7F0451EB5094A00234892 /* Koara tvOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				A1B7F0461EB5094A00234892 /* Koara_tvOSTests.swift */,
+				A1B7F0481EB5094A00234892 /* Info.plist */,
+			);
+			path = "Koara tvOSTests";
+			sourceTree = "<group>";
+		};
+		A1B7F0791EB8D5E800234892 /* Koara */ = {
+			isa = PBXGroup;
+			children = (
+				A1B7F07A1EB8D5E800234892 /* Koara.h */,
+				A1B7F07B1EB8D5E800234892 /* Info.plist */,
+			);
+			path = Koara;
+			sourceTree = "<group>";
+		};
+		A1C3639E1E15912C00CC1874 /* Io */ = {
+			isa = PBXGroup;
+			children = (
+				A1008A091E16451F00419AB4 /* FileReader.swift */,
+				A1C3639F1E15915700CC1874 /* Reader.swift */,
+				A1C363A01E15915700CC1874 /* StringReader.swift */,
+			);
+			name = Io;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A1B7EF9D1EAF114500234892 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B7EFD91EAF12B300234892 /* Koara.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7EFDC1EB0EC0800234892 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B7F0331EB0ED1D00234892 /* Koara.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7F0361EB5094A00234892 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B7F0721EB7300100234892 /* Koara.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7F0751EB8D5E800234892 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B7F09B1EB8D65B00234892 /* Koara.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A1B7EF9F1EAF114500234892 /* Koara iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1B7EFB11EAF114500234892 /* Build configuration list for PBXNativeTarget "Koara iOS" */;
+			buildPhases = (
+				F805FFD31A83F6A38880BF41 /* [CP] Check Pods Manifest.lock */,
+				A1B7EF9B1EAF114500234892 /* Sources */,
+				A1B7EF9C1EAF114500234892 /* Frameworks */,
+				A1B7EF9D1EAF114500234892 /* Headers */,
+				A1B7EF9E1EAF114500234892 /* Resources */,
+				E3C2AE766A0E2AAF76893DB2 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Koara iOS";
+			productName = Koara;
+			productReference = A1B7EFA01EAF114500234892 /* Koara.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A1B7EFA71EAF114500234892 /* Koara iOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1B7EFB41EAF114500234892 /* Build configuration list for PBXNativeTarget "Koara iOS Tests" */;
+			buildPhases = (
+				00B9A74F7B1492849B6B2485 /* [CP] Check Pods Manifest.lock */,
+				A1B7EFA41EAF114500234892 /* Sources */,
+				A1B7EFA51EAF114500234892 /* Frameworks */,
+				A1B7EFA61EAF114500234892 /* Resources */,
+				DC132313FAB7B6560D3ED20A /* [CP] Embed Pods Frameworks */,
+				149636678AD82670E3C0D964 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1B7EFAB1EAF114500234892 /* PBXTargetDependency */,
+			);
+			name = "Koara iOS Tests";
+			productName = KoaraTests;
+			productReference = A1B7EFA81EAF114500234892 /* Koara iOS Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A1B7EFDE1EB0EC0800234892 /* Koara macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1B7EFF01EB0EC0800234892 /* Build configuration list for PBXNativeTarget "Koara macOS" */;
+			buildPhases = (
+				CC4CC078E839D3104CB4F8F2 /* [CP] Check Pods Manifest.lock */,
+				A1B7EFDA1EB0EC0800234892 /* Sources */,
+				A1B7EFDB1EB0EC0800234892 /* Frameworks */,
+				A1B7EFDC1EB0EC0800234892 /* Headers */,
+				A1B7EFDD1EB0EC0800234892 /* Resources */,
+				071B7455139F4D9EF7D744C4 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Koara macOS";
+			productName = "Koara macOS";
+			productReference = A1B7EFDF1EB0EC0800234892 /* Koara.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A1B7EFE61EB0EC0800234892 /* Koara macOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1B7EFF31EB0EC0800234892 /* Build configuration list for PBXNativeTarget "Koara macOS Tests" */;
+			buildPhases = (
+				D8204595BF1FBD4ADC332493 /* [CP] Check Pods Manifest.lock */,
+				A1B7EFE31EB0EC0800234892 /* Sources */,
+				A1B7EFE41EB0EC0800234892 /* Frameworks */,
+				A1B7EFE51EB0EC0800234892 /* Resources */,
+				1A7813C2750E89E89979D72F /* [CP] Embed Pods Frameworks */,
+				B5372F7B0D8E1F65A5279653 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1B7EFEA1EB0EC0800234892 /* PBXTargetDependency */,
+			);
+			name = "Koara macOS Tests";
+			productName = "Koara macOSTests";
+			productReference = A1B7EFE71EB0EC0800234892 /* Koara macOS Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A1B7F0381EB5094A00234892 /* Koara tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1B7F04E1EB5094A00234892 /* Build configuration list for PBXNativeTarget "Koara tvOS" */;
+			buildPhases = (
+				24D5407CA89959CD6E3DCC61 /* [CP] Check Pods Manifest.lock */,
+				A1B7F0341EB5094A00234892 /* Sources */,
+				A1B7F0351EB5094A00234892 /* Frameworks */,
+				A1B7F0361EB5094A00234892 /* Headers */,
+				A1B7F0371EB5094A00234892 /* Resources */,
+				6E6E94232BA0D615C7710937 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Koara tvOS";
+			productName = "Koara tvOS";
+			productReference = A1B7F0391EB5094A00234892 /* Koara.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A1B7F0401EB5094A00234892 /* Koara tvOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1B7F04F1EB5094A00234892 /* Build configuration list for PBXNativeTarget "Koara tvOS Tests" */;
+			buildPhases = (
+				A7F6081FA180121AF26306C8 /* [CP] Check Pods Manifest.lock */,
+				A1B7F03D1EB5094A00234892 /* Sources */,
+				A1B7F03E1EB5094A00234892 /* Frameworks */,
+				A1B7F03F1EB5094A00234892 /* Resources */,
+				6699C0B4A6DEAC91634D24A3 /* [CP] Embed Pods Frameworks */,
+				A9A937998E9EF45318E62FA7 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1B7F0441EB5094A00234892 /* PBXTargetDependency */,
+			);
+			name = "Koara tvOS Tests";
+			productName = "Koara tvOSTests";
+			productReference = A1B7F0411EB5094A00234892 /* Koara tvOS Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A1B7F0771EB8D5E800234892 /* Koara watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1B7F07F1EB8D5E800234892 /* Build configuration list for PBXNativeTarget "Koara watchOS" */;
+			buildPhases = (
+				A1B7F0731EB8D5E800234892 /* Sources */,
+				A1B7F0741EB8D5E800234892 /* Frameworks */,
+				A1B7F0751EB8D5E800234892 /* Headers */,
+				A1B7F0761EB8D5E800234892 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Koara watchOS";
+			productName = Koara;
+			productReference = A1B7F0781EB8D5E800234892 /* Koara.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A17741291E13F67C00AB88FF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0820;
+				TargetAttributes = {
+					A1B7EF9F1EAF114500234892 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 33THKT24T3;
+						ProvisioningStyle = Automatic;
+					};
+					A1B7EFA71EAF114500234892 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 33THKT24T3;
+						ProvisioningStyle = Automatic;
+					};
+					A1B7EFDE1EB0EC0800234892 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 33THKT24T3;
+						ProvisioningStyle = Automatic;
+					};
+					A1B7EFE61EB0EC0800234892 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 33THKT24T3;
+						ProvisioningStyle = Automatic;
+					};
+					A1B7F0381EB5094A00234892 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 33THKT24T3;
+						ProvisioningStyle = Automatic;
+					};
+					A1B7F0401EB5094A00234892 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 33THKT24T3;
+						ProvisioningStyle = Automatic;
+					};
+					A1B7F0771EB8D5E800234892 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 33THKT24T3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A177412C1E13F67C00AB88FF /* Build configuration list for PBXProject "Koara" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A17741281E13F67C00AB88FF;
+			productRefGroup = A17741281E13F67C00AB88FF;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1B7EF9F1EAF114500234892 /* Koara iOS */,
+				A1B7EFA71EAF114500234892 /* Koara iOS Tests */,
+				A1B7EFDE1EB0EC0800234892 /* Koara macOS */,
+				A1B7EFE61EB0EC0800234892 /* Koara macOS Tests */,
+				A1B7F0381EB5094A00234892 /* Koara tvOS */,
+				A1B7F0401EB5094A00234892 /* Koara tvOS Tests */,
+				A1B7F0771EB8D5E800234892 /* Koara watchOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1B7EF9E1EAF114500234892 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7EFA61EAF114500234892 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7EFDD1EB0EC0800234892 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7EFE51EB0EC0800234892 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7F0371EB5094A00234892 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7F03F1EB5094A00234892 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7F0761EB8D5E800234892 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00B9A74F7B1492849B6B2485 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		071B7455139F4D9EF7D744C4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koara macOS/Pods-Koara macOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		149636678AD82670E3C0D964 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koara iOS-Koara iOS Tests/Pods-Koara iOS-Koara iOS Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1A7813C2750E89E89979D72F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koara macOS-Koara macOS Tests/Pods-Koara macOS-Koara macOS Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		24D5407CA89959CD6E3DCC61 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6699C0B4A6DEAC91634D24A3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koara tvOS-Koara tvOS Tests/Pods-Koara tvOS-Koara tvOS Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E6E94232BA0D615C7710937 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koara tvOS/Pods-Koara tvOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7F6081FA180121AF26306C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A9A937998E9EF45318E62FA7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koara tvOS-Koara tvOS Tests/Pods-Koara tvOS-Koara tvOS Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5372F7B0D8E1F65A5279653 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koara macOS-Koara macOS Tests/Pods-Koara macOS-Koara macOS Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC4CC078E839D3104CB4F8F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D8204595BF1FBD4ADC332493 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DC132313FAB7B6560D3ED20A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koara iOS-Koara iOS Tests/Pods-Koara iOS-Koara iOS Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3C2AE766A0E2AAF76893DB2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Koara iOS/Pods-Koara iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F805FFD31A83F6A38880BF41 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A1B7EF9B1EAF114500234892 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1FF7AD01EEF99BB00217E72 /* String.swift in Sources */,
+				A1B7EFB71EAF119000234892 /* BlockElement.swift in Sources */,
+				A1B7EFB81EAF119000234892 /* BlockQuote.swift in Sources */,
+				A1B7EFB91EAF119000234892 /* Code.swift in Sources */,
+				A1B7EFBA1EAF119000234892 /* CodeBlock.swift in Sources */,
+				A1B7EFBB1EAF119000234892 /* Document.swift in Sources */,
+				A1B7EFBC1EAF119000234892 /* Em.swift in Sources */,
+				A1B7EFBD1EAF119000234892 /* Heading.swift in Sources */,
+				A1B7EFBE1EAF119000234892 /* Image.swift in Sources */,
+				A1B7EFBF1EAF119000234892 /* LineBreak.swift in Sources */,
+				A1B7EFC01EAF119000234892 /* Link.swift in Sources */,
+				A1B7EFC11EAF119000234892 /* ListBlock.swift in Sources */,
+				A1B7EFC21EAF119000234892 /* ListItem.swift in Sources */,
+				A1B7EFC31EAF119000234892 /* Node.swift in Sources */,
+				A17C85691ECDA71E00B51055 /* KoaraRenderer.swift in Sources */,
+				A1B7EFC41EAF119000234892 /* Paragraph.swift in Sources */,
+				A1B7EFC51EAF119000234892 /* Strong.swift in Sources */,
+				A1B7EFC61EAF119000234892 /* Text.swift in Sources */,
+				A1B7EFC71EAF119000234892 /* FileReader.swift in Sources */,
+				A1B7EFC81EAF119000234892 /* Reader.swift in Sources */,
+				A1B7EFC91EAF119000234892 /* StringReader.swift in Sources */,
+				A1B7EFCA1EAF119000234892 /* Character.swift in Sources */,
+				A1B7EFCB1EAF119000234892 /* CharStream.swift in Sources */,
+				A1B7EFCC1EAF119000234892 /* KoaraError.swift in Sources */,
+				A1B7EFCD1EAF119000234892 /* Parser.swift in Sources */,
+				A1B7EFCE1EAF119000234892 /* Renderer.swift in Sources */,
+				A1B7EFCF1EAF119000234892 /* Token.swift in Sources */,
+				A1B7EFD01EAF119000234892 /* TokenManager.swift in Sources */,
+				A1B7EFD11EAF119000234892 /* TreeState.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7EFA41EAF114500234892 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B7EFD21EAF119900234892 /* CharStreamTests.swift in Sources */,
+				A1B7EFD31EAF119900234892 /* ComplianceTest.swift in Sources */,
+				A1B7EFD41EAF119900234892 /* Html5Renderer.swift in Sources */,
+				A1B7EFD51EAF119900234892 /* TokenManagerTest.swift in Sources */,
+				A1B7EFD61EAF119900234892 /* FileReaderTests.swift in Sources */,
+				A1B7EFD71EAF119900234892 /* StringReaderTest.swift in Sources */,
+				A1B7EFD81EAF119900234892 /* End2EndTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7EFDA1EB0EC0800234892 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1C99A791F414D7400966C25 /* String.swift in Sources */,
+				A1B7F0181EB0EC3700234892 /* BlockElement.swift in Sources */,
+				A1B7F0191EB0EC3700234892 /* BlockQuote.swift in Sources */,
+				A1B7F01A1EB0EC3700234892 /* Code.swift in Sources */,
+				A1B7F01B1EB0EC3700234892 /* CodeBlock.swift in Sources */,
+				A1B7F01C1EB0EC3700234892 /* Document.swift in Sources */,
+				A1B7F01D1EB0EC3700234892 /* Em.swift in Sources */,
+				A1B7F01E1EB0EC3700234892 /* Heading.swift in Sources */,
+				A1B7F01F1EB0EC3700234892 /* Image.swift in Sources */,
+				A1B7F0201EB0EC3700234892 /* LineBreak.swift in Sources */,
+				A1B7F0211EB0EC3700234892 /* Link.swift in Sources */,
+				A1B7F0221EB0EC3700234892 /* ListBlock.swift in Sources */,
+				A1B7F0231EB0EC3700234892 /* ListItem.swift in Sources */,
+				A17C856A1ECDA76700B51055 /* KoaraRenderer.swift in Sources */,
+				A1B7F0241EB0EC3700234892 /* Node.swift in Sources */,
+				A1B7F0251EB0EC3700234892 /* Paragraph.swift in Sources */,
+				A1B7F0261EB0EC3700234892 /* Strong.swift in Sources */,
+				A1B7F0271EB0EC3700234892 /* Text.swift in Sources */,
+				A1B7F0281EB0EC3700234892 /* FileReader.swift in Sources */,
+				A1B7F0291EB0EC3700234892 /* Reader.swift in Sources */,
+				A1B7F02A1EB0EC3700234892 /* StringReader.swift in Sources */,
+				A1B7F02B1EB0EC3700234892 /* Character.swift in Sources */,
+				A1B7F02C1EB0EC3700234892 /* CharStream.swift in Sources */,
+				A1B7F02D1EB0EC3700234892 /* KoaraError.swift in Sources */,
+				A1B7F02E1EB0EC3700234892 /* Parser.swift in Sources */,
+				A1B7F02F1EB0EC3700234892 /* Renderer.swift in Sources */,
+				A1B7F0301EB0EC3700234892 /* Token.swift in Sources */,
+				A1B7F0311EB0EC3700234892 /* TokenManager.swift in Sources */,
+				A1B7F0321EB0EC3700234892 /* TreeState.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7EFE31EB0EC0800234892 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B7F0111EB0EC3100234892 /* CharStreamTests.swift in Sources */,
+				A1B7F0121EB0EC3100234892 /* ComplianceTest.swift in Sources */,
+				A1B7F0131EB0EC3100234892 /* Html5Renderer.swift in Sources */,
+				A1B7F0141EB0EC3100234892 /* TokenManagerTest.swift in Sources */,
+				A1B7F0151EB0EC3100234892 /* FileReaderTests.swift in Sources */,
+				A1B7F0161EB0EC3100234892 /* StringReaderTest.swift in Sources */,
+				A1B7F0171EB0EC3100234892 /* End2EndTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7F0341EB5094A00234892 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1C99A7A1F414D7800966C25 /* String.swift in Sources */,
+				A1B7F0501EB50B5300234892 /* BlockElement.swift in Sources */,
+				A1B7F0511EB50B5300234892 /* BlockQuote.swift in Sources */,
+				A1B7F0521EB50B5300234892 /* Code.swift in Sources */,
+				A1B7F0531EB50B5300234892 /* CodeBlock.swift in Sources */,
+				A1B7F0541EB50B5300234892 /* Document.swift in Sources */,
+				A1B7F0551EB50B5300234892 /* Em.swift in Sources */,
+				A1B7F0561EB50B5300234892 /* Heading.swift in Sources */,
+				A1B7F0571EB50B5300234892 /* Image.swift in Sources */,
+				A1B7F0581EB50B5300234892 /* LineBreak.swift in Sources */,
+				A1B7F0591EB50B5300234892 /* Link.swift in Sources */,
+				A1B7F05A1EB50B5400234892 /* ListBlock.swift in Sources */,
+				A1B7F05B1EB50B5400234892 /* ListItem.swift in Sources */,
+				A1B7F05C1EB50B5400234892 /* Node.swift in Sources */,
+				A17C856B1ECDA76B00B51055 /* KoaraRenderer.swift in Sources */,
+				A1B7F05D1EB50B5400234892 /* Paragraph.swift in Sources */,
+				A1B7F05E1EB50B5400234892 /* Strong.swift in Sources */,
+				A1B7F05F1EB50B5400234892 /* Text.swift in Sources */,
+				A1B7F0601EB50B5400234892 /* FileReader.swift in Sources */,
+				A1B7F0611EB50B5400234892 /* Reader.swift in Sources */,
+				A1B7F0621EB50B5400234892 /* StringReader.swift in Sources */,
+				A1B7F0631EB50B5400234892 /* Character.swift in Sources */,
+				A1B7F0641EB50B5400234892 /* CharStream.swift in Sources */,
+				A1B7F0651EB50B5400234892 /* KoaraError.swift in Sources */,
+				A1B7F0661EB50B5400234892 /* Parser.swift in Sources */,
+				A1B7F0671EB50B5400234892 /* Renderer.swift in Sources */,
+				A1B7F0681EB50B5400234892 /* Token.swift in Sources */,
+				A1B7F0691EB50B5400234892 /* TokenManager.swift in Sources */,
+				A1B7F06A1EB50B5400234892 /* TreeState.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7F03D1EB5094A00234892 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B7F06B1EB50B8300234892 /* CharStreamTests.swift in Sources */,
+				A1B7F06C1EB50B8300234892 /* ComplianceTest.swift in Sources */,
+				A1B7F06D1EB50B8300234892 /* Html5Renderer.swift in Sources */,
+				A1B7F06E1EB50B8300234892 /* TokenManagerTest.swift in Sources */,
+				A1B7F06F1EB50B8300234892 /* FileReaderTests.swift in Sources */,
+				A1B7F0701EB50B8300234892 /* StringReaderTest.swift in Sources */,
+				A1B7F0711EB50B8300234892 /* End2EndTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7F0731EB8D5E800234892 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1C99A7B1F414D7E00966C25 /* String.swift in Sources */,
+				A1B7F0801EB8D64900234892 /* BlockElement.swift in Sources */,
+				A1B7F0811EB8D64900234892 /* BlockQuote.swift in Sources */,
+				A1B7F0821EB8D64900234892 /* Code.swift in Sources */,
+				A1B7F0831EB8D64900234892 /* CodeBlock.swift in Sources */,
+				A1B7F0841EB8D64900234892 /* Document.swift in Sources */,
+				A1B7F0851EB8D64900234892 /* Em.swift in Sources */,
+				A1B7F0861EB8D64900234892 /* Heading.swift in Sources */,
+				A1B7F0871EB8D64900234892 /* Image.swift in Sources */,
+				A1B7F0881EB8D64900234892 /* LineBreak.swift in Sources */,
+				A1B7F0891EB8D64900234892 /* Link.swift in Sources */,
+				A1B7F08A1EB8D64900234892 /* ListBlock.swift in Sources */,
+				A1B7F08B1EB8D64900234892 /* ListItem.swift in Sources */,
+				A1B7F08C1EB8D64900234892 /* Node.swift in Sources */,
+				A1B7F08D1EB8D64900234892 /* Paragraph.swift in Sources */,
+				A1B7F08E1EB8D64900234892 /* Strong.swift in Sources */,
+				A1B7F08F1EB8D64900234892 /* Text.swift in Sources */,
+				A17C856C1ECDA76E00B51055 /* KoaraRenderer.swift in Sources */,
+				A1B7F0901EB8D64900234892 /* FileReader.swift in Sources */,
+				A1B7F0911EB8D64900234892 /* Reader.swift in Sources */,
+				A1B7F0921EB8D64900234892 /* StringReader.swift in Sources */,
+				A1B7F0931EB8D64900234892 /* Character.swift in Sources */,
+				A1B7F0941EB8D64900234892 /* CharStream.swift in Sources */,
+				A1B7F0951EB8D64900234892 /* KoaraError.swift in Sources */,
+				A1B7F0961EB8D64900234892 /* Parser.swift in Sources */,
+				A1B7F0971EB8D64900234892 /* Renderer.swift in Sources */,
+				A1B7F0981EB8D64900234892 /* Token.swift in Sources */,
+				A1B7F0991EB8D64900234892 /* TokenManager.swift in Sources */,
+				A1B7F09A1EB8D64900234892 /* TreeState.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A1B7EFAB1EAF114500234892 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1B7EF9F1EAF114500234892 /* Koara iOS */;
+			targetProxy = A1B7EFAA1EAF114500234892 /* PBXContainerItemProxy */;
+		};
+		A1B7EFEA1EB0EC0800234892 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1B7EFDE1EB0EC0800234892 /* Koara macOS */;
+			targetProxy = A1B7EFE91EB0EC0800234892 /* PBXContainerItemProxy */;
+		};
+		A1B7F0441EB5094A00234892 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1B7F0381EB5094A00234892 /* Koara tvOS */;
+			targetProxy = A1B7F0431EB5094A00234892 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A177412D1E13F67C00AB88FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: andy.vandenheuvel@gmail.com (DGEE84MG7S)";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		A177412E1E13F67C00AB88FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: andy.vandenheuvel@gmail.com (DGEE84MG7S)";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+			};
+			name = Release;
+		};
+		A1B7EFB21EAF114500234892 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48ED1A55E33E08C7F239D4DF /* Pods-Koara iOS.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 33THKT24T3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.koara.Koara;
+				PRODUCT_NAME = Koara;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A1B7EFB31EAF114500234892 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBC1740B31CF873F8D1083A3 /* Pods-Koara iOS.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 33THKT24T3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = io.koara.Koara;
+				PRODUCT_NAME = Koara;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A1B7EFB51EAF114500234892 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9E6B3B5AC216C6D88B47891 /* Pods-Koara iOS-Koara iOS Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 33THKT24T3;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.koara.KoaraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A1B7EFB61EAF114500234892 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D0BC79887FDF97C60D7DACA /* Pods-Koara iOS-Koara iOS Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 33THKT24T3;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = io.koara.KoaraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A1B7EFF11EB0EC0800234892 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 625F33F00672F57B7FABFB5D /* Pods-Koara macOS.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 33THKT24T3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.koara.Koara;
+				PRODUCT_NAME = Koara;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A1B7EFF21EB0EC0800234892 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3C6EFEE91DA8F9F8A47CB10 /* Pods-Koara macOS.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 33THKT24T3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = io.koara.Koara;
+				PRODUCT_NAME = Koara;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A1B7EFF41EB0EC0800234892 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CCCB1D2CD7EB904E220242A /* Pods-Koara macOS-Koara macOS Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 33THKT24T3;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.koara.Koara;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A1B7EFF51EB0EC0800234892 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C838317AC6AB36A61AF16D9 /* Pods-Koara macOS-Koara macOS Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 33THKT24T3;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = io.koara.Koara;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		A1B7F04A1EB5094A00234892 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAC7A0C228C5C3CD4384E796 /* Pods-Koara tvOS.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 33THKT24T3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "Source/Info-tvOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.koara.Koara-tvOS";
+				PRODUCT_NAME = Koara;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A1B7F04B1EB5094A00234892 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25E28992128FC5020F075C09 /* Pods-Koara tvOS.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 33THKT24T3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "Source/Info-tvOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.koara.Koara-tvOS";
+				PRODUCT_NAME = Koara;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.2;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A1B7F04C1EB5094A00234892 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B324C12BDED82672609FD90 /* Pods-Koara tvOS-Koara tvOS Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 33THKT24T3;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "Tests/Info-tvOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.koara.Koara-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TVOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Debug;
+		};
+		A1B7F04D1EB5094A00234892 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB5E058C56205F17AD7114FA /* Pods-Koara tvOS-Koara tvOS Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 33THKT24T3;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "Tests/Info-tvOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.koara.Koara-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TVOS_DEPLOYMENT_TARGET = 10.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A1B7F07D1EB8D5E800234892 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 33THKT24T3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.koara.Koara;
+				PRODUCT_NAME = Koara;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		A1B7F07E1EB8D5E800234892 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 33THKT24T3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = io.koara.Koara;
+				PRODUCT_NAME = Koara;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A177412C1E13F67C00AB88FF /* Build configuration list for PBXProject "Koara" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A177412D1E13F67C00AB88FF /* Debug */,
+				A177412E1E13F67C00AB88FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1B7EFB11EAF114500234892 /* Build configuration list for PBXNativeTarget "Koara iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B7EFB21EAF114500234892 /* Debug */,
+				A1B7EFB31EAF114500234892 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1B7EFB41EAF114500234892 /* Build configuration list for PBXNativeTarget "Koara iOS Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B7EFB51EAF114500234892 /* Debug */,
+				A1B7EFB61EAF114500234892 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1B7EFF01EB0EC0800234892 /* Build configuration list for PBXNativeTarget "Koara macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B7EFF11EB0EC0800234892 /* Debug */,
+				A1B7EFF21EB0EC0800234892 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1B7EFF31EB0EC0800234892 /* Build configuration list for PBXNativeTarget "Koara macOS Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B7EFF41EB0EC0800234892 /* Debug */,
+				A1B7EFF51EB0EC0800234892 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1B7F04E1EB5094A00234892 /* Build configuration list for PBXNativeTarget "Koara tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B7F04A1EB5094A00234892 /* Debug */,
+				A1B7F04B1EB5094A00234892 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1B7F04F1EB5094A00234892 /* Build configuration list for PBXNativeTarget "Koara tvOS Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B7F04C1EB5094A00234892 /* Debug */,
+				A1B7F04D1EB5094A00234892 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1B7F07F1EB8D5E800234892 /* Build configuration list for PBXNativeTarget "Koara watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B7F07D1EB8D5E800234892 /* Debug */,
+				A1B7F07E1EB8D5E800234892 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A17741291E13F67C00AB88FF /* Project object */;
+}
