@@ -2,6 +2,7 @@ workspace 'Koara'
 
 target 'Koara iOS' do
   use_frameworks!
+  platform :ios, '10.3'
 
   target 'Koara iOS Tests' do
     pod 'Quick'
@@ -11,6 +12,7 @@ end
 
 target 'Koara macOS' do
   use_frameworks!
+  platform :ios, '10.12'
 
   target 'Koara macOS Tests' do
     pod 'Quick'
@@ -20,6 +22,7 @@ end
 
 target 'Koara tvOS' do
   use_frameworks!
+  platform :ios, '10.2'
 
   target 'Koara tvOS Tests' do
     pod 'Quick'
