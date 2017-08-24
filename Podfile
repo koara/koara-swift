@@ -12,7 +12,7 @@ end
 
 target 'Koara macOS' do
   use_frameworks!
-  platform :macosx, '10.12'
+  platform :osx, '10.12'
 
   target 'Koara macOS Tests' do
     pod 'Quick'
