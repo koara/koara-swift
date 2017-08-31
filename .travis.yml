@@ -33,3 +33,5 @@ after_success:
       echo "Send to coveralls"
       slather
     fi
+notifications:
+  email: false
