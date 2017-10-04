@@ -1329,6 +1329,7 @@
 		};
 		A1B7EFB21EAF114500234892 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48ED1A55E33E08C7F239D4DF /* Pods-Koara iOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1380,6 +1381,7 @@
 		};
 		A1B7EFB31EAF114500234892 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBC1740B31CF873F8D1083A3 /* Pods-Koara iOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1503,6 +1505,7 @@
 		};
 		A1B7EFF11EB0EC0800234892 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 625F33F00672F57B7FABFB5D /* Pods-Koara macOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1553,6 +1556,7 @@
 		};
 		A1B7EFF21EB0EC0800234892 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3C6EFEE91DA8F9F8A47CB10 /* Pods-Koara macOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1675,6 +1679,7 @@
 		};
 		A1B7F04A1EB5094A00234892 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAC7A0C228C5C3CD4384E796 /* Pods-Koara tvOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1724,6 +1729,7 @@
 		};
 		A1B7F04B1EB5094A00234892 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25E28992128FC5020F075C09 /* Pods-Koara tvOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
