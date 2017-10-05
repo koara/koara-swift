@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode8.3
+osx_image: xcode9.0
 
 env:
   global:
@@ -14,10 +14,10 @@ env:
     - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3.1,name=iPad Pro (12.9-inch)"  RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
     - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3.1,name=iPhone 6 Plus"         RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
     - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3.1,name=iPhone SE"             RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3.1,name=iPhone 7"              RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    - SCHEME="Koara macOS"    DESTINATION="platform=macOS"                                            RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    - SCHEME="Koara tvOS"     DESTINATION="platform=tvOS Simulator,OS=10.2,name=Apple TV 1080p"       RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
-    - SCHEME="Koara watchOS"  DESTINATION="platform=watchOS Simulator,OS=3.2,name=Apple Watch - 42mm"  RUN_TESTS="NO"   SEND_TO_COVERALLS="NO"
+    - SCHEME="Koara iOS"      DESTINATION="platform=iOS Simulator,OS=10.3.1,name=iPhone 8"              RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
+    - SCHEME="Koara macOS"    DESTINATION="platform=macOS"                                              RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
+    - SCHEME="Koara tvOS"     DESTINATION="platform=tvOS Simulator,OS=10.2,name=Apple TV 1080p"         RUN_TESTS="YES"   SEND_TO_COVERALLS="NO"
+    - SCHEME="Koara watchOS"  DESTINATION="platform=watchOS Simulator,OS=3.2,name=Apple Watch - 42mm"   RUN_TESTS="NO"   SEND_TO_COVERALLS="NO"
   before_install:
     - gem install slather
 
