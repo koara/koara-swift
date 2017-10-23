@@ -7,16 +7,14 @@ env:
     - LC_ALL=en_US.UTF-8
   matrix:
     - DESTINATION="OS=11.0,name=iPhone X" SCHEME="Koara iOSo" RUN_TESTS="YES" SEND_TO_COVERALLS="YES"
-    before_install:
+  before_install:
     - gem install slather
-
 script:
   - if [ $RUN_TESTS == "YES" ]; then
       travis_retry xcodebuild -workspace "Koara.xcworkspace" -scheme "$SCHEME" -destination "$DESTINATION" test;
     else
       travis_retry xcodebuild -workspace "Koara.xcworkspace" -scheme "$SCHEME" -destination "$DESTINATION" build;
     fi
-
 after_success:
   - if [ $SEND_TO_COVERALLS == "YES" ]; then
       echo "Send to coveralls"
