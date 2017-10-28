@@ -16,6 +16,7 @@
 		A11797071FA18F8F00F5ECAD /* FileReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A0B1E16452800419AB4 /* FileReaderTests.swift */; };
 		A11797081FA18F8F00F5ECAD /* StringReaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C363A31E15916300CC1874 /* StringReaderTest.swift */; };
 		A117970A1FA3C07700F5ECAD /* End2EndTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDEBC41E8C08F900101814 /* End2EndTest.swift */; };
+		A117970B1FA4E94600F5ECAD /* ComplianceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1008A3F1E1645A200419AB4 /* ComplianceTest.swift */; };
 		A17C85691ECDA71E00B51055 /* KoaraRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C85681ECDA71E00B51055 /* KoaraRenderer.swift */; };
 		A17C856A1ECDA76700B51055 /* KoaraRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C85681ECDA71E00B51055 /* KoaraRenderer.swift */; };
 		A17C856B1ECDA76B00B51055 /* KoaraRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C85681ECDA71E00B51055 /* KoaraRenderer.swift */; };
@@ -1105,6 +1106,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A117970B1FA4E94600F5ECAD /* ComplianceTest.swift in Sources */,
 				A117970A1FA3C07700F5ECAD /* End2EndTest.swift in Sources */,
 				A11797061FA18F8F00F5ECAD /* TokenManagerTest.swift in Sources */,
 				A11797071FA18F8F00F5ECAD /* FileReaderTests.swift in Sources */,
