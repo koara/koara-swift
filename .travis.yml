@@ -8,10 +8,12 @@ env:
   matrix:
     - DESTINATION="OS=11.0,name=iPhone X"       SCHEME="Koara iOS" RUN_TESTS="YES" SEND_TO_COVERALLS="YES"
     - DESTINATION="OS=11.0,name=iPhone 8"       SCHEME="Koara iOS" RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
-    - DESTINATION="OS=11.0,name=iPhone 7 Plus"  SCHEME="Koara iOS" RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
+    - DESTINATION="OS=10.3,name=iPhone 7 Plus"  SCHEME="Koara iOS" RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
     - DESTINATION="OS=11.0,name=iPhone 7"       SCHEME="Koara iOS" RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
     - DESTINATION="OS=11.0,name=iPhone 6 Plus"  SCHEME="Koara iOS" RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
     - DESTINATION="OS=11.0,name=iPhone 6"       SCHEME="Koara iOS" RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
+    - DESTINATION="OS=11.0,name=iPad Pro"       SCHEME="Koara iOS" RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
+    - DESTINATION="OS=11.0,name=iPad mini 4"    SCHEME="Koara iOS" RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
   before_install:
     - gem install slather
 script:
