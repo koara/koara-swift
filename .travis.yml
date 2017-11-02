@@ -6,14 +6,15 @@ env:
     - LANG=en_US.UTF-8
     - LC_ALL=en_US.UTF-8
   matrix:
-    - DESTINATION="OS=11.0,name=iPhone X"               SCHEME="Koara iOS" RUN_TESTS="YES" SEND_TO_COVERALLS="YES"
-    - DESTINATION="OS=11.0,name=iPhone 8"               SCHEME="Koara iOS" RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
-    - DESTINATION="OS=10.3.1,name=iPhone 7 Plus"        SCHEME="Koara iOS" RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
-    - DESTINATION="OS=10.2,name=iPhone 7"               SCHEME="Koara iOS" RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
-    - DESTINATION="OS=10.1,name=iPhone 6 Plus"          SCHEME="Koara iOS" RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
-    - DESTINATION="OS=10.0,name=iPhone 6"               SCHEME="Koara iOS" RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
-    - DESTINATION="OS=9.3,name=iPad Pro (12.9-inch)"    SCHEME="Koara iOS" RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
-    - DESTINATION="OS=8.1,name=iPad Air"                SCHEME="Koara iOS" RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
+    - DESTINATION="OS=11.0,name=iPhone X"               SCHEME="Koara iOS"    RUN_TESTS="YES" SEND_TO_COVERALLS="YES"
+    - DESTINATION="OS=11.0,name=iPhone 8"               SCHEME="Koara iOS"    RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
+    - DESTINATION="OS=10.3.1,name=iPhone 7 Plus"        SCHEME="Koara iOS"    RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
+    - DESTINATION="OS=10.2,name=iPhone 7"               SCHEME="Koara iOS"    RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
+    - DESTINATION="OS=10.1,name=iPhone 6 Plus"          SCHEME="Koara iOS"    RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
+    - DESTINATION="OS=10.0,name=iPhone 6"               SCHEME="Koara iOS"    RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
+    - DESTINATION="OS=9.3,name=iPad Pro (12.9-inch)"    SCHEME="Koara iOS"    RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
+    - DESTINATION="OS=8.1,name=iPad Air"                SCHEME="Koara iOS"    RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
+    - DESTINATION="platform=macOS"                      SCHEME="Koara macOS"  RUN_TESTS="YES" SEND_TO_COVERALLS="NO"
   before_install:
     - gem install slather
 script:
